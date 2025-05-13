@@ -1,6 +1,5 @@
 {
   "name": "kenya-locations",
-  "private": true,
   "version": "0.0.2",
   "description": "A comprehensive and intuitive TypeScript package for Kenyan administrative divisions (counties, constituencies, and wards)",
   "type": "module",
