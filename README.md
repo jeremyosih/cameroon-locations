@@ -1,4 +1,4 @@
-# Kenya Locations
+# 🇰🇪 Kenya Locations
 
 A comprehensive and intuitive TypeScript package for working with Kenyan administrative divisions (counties, constituencies, and wards).
 
