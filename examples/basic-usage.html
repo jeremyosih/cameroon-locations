@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kenya Locations - Basic Usage Examples</title>
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      .container {
+        margin-bottom: 30px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+      }
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      h2 {
+        color: #3498db;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 5px;
+        margin-top: 30px;
+      }
+      button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+        font-size: 14px;
+      }
+      button:hover {
+        background-color: #2980b9;
+      }
+      pre {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 15px;
+        overflow-x: auto;
+        margin: 15px 0;
+      }
+      code {
+        font-family: Consolas, Monaco, "Andale Mono", monospace;
+        font-size: 14px;
+      }
+      .location-type {
+        display: inline-block;
+        padding: 3px 6px;
+        border-radius: 3px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+      .county {
+        background-color: #2ecc71;
+        color: white;
+      }
+      .constituency {
+        background-color: #3498db;
+        color: white;
+      }
+      .ward {
+        background-color: #9b59b6;
+        color: white;
+      }
+      .sub-county {
+        background-color: #f39c12;
+        color: white;
+      }
+      input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 16px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🇰🇪 Kenya Locations - Basic Usage Examples</h1>
+
+    <div class="container">
+      <h2>1. List All Counties</h2>
+      <button id="listCountiesBtn">List All Counties</button>
+      <div id="countiesOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>2. Find County by Name or Code</h2>
+      <input
+        type="text"
+        id="countyInput"
+        placeholder="Enter county name or code (e.g., 'Nairobi' or '047')"
+      />
+      <button id="findCountyBtn">Find County</button>
+      <div id="countyOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>3. Get Constituencies in County</h2>
+      <input
+        type="text"
+        id="countyForConstituenciesInput"
+        placeholder="Enter county name or code"
+      />
+      <button id="getConstituenciesBtn">Get Constituencies</button>
+      <div id="constituenciesOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>4. Get Wards in Constituency</h2>
+      <input
+        type="text"
+        id="constituencyCodeInput"
+        placeholder="Enter constituency code"
+      />
+      <button id="getWardsBtn">Get Wards</button>
+      <div id="wardsOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>5. Search All Locations</h2>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Enter search term (e.g., 'Momb')"
+      />
+      <button id="searchBtn">Search</button>
+      <div id="searchOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>6. County and Constituency Hierarchy Example</h2>
+      <select id="hierarchyCountySelect">
+        <option value="">Select a County</option>
+      </select>
+      <select id="hierarchyConstituencySelect" disabled>
+        <option value="">Select a Constituency</option>
+      </select>
+      <select id="hierarchyWardSelect" disabled>
+        <option value="">Select a Ward</option>
+      </select>
+      <div id="hierarchyOutput"></div>
+    </div>
+
+    <script type="module">
+      import {
+        getAllCounties,
+        county,
+        getConstituencyByCode,
+        getWardsInConstituency,
+        getWardByCode,
+        search,
+      } from "../dist/index.es.js";
+
+      // Utility to format JSON output
+      function formatOutput(data) {
+        return JSON.stringify(data, null, 2);
+      }
+
+      // Display output with syntax highlighting
+      function displayOutput(elementId, data) {
+        const element = document.getElementById(elementId);
+        element.innerHTML = `<pre><code>${formatOutput(data)}</code></pre>`;
+      }
+
+      // Example 1: List All Counties
+      document
+        .getElementById("listCountiesBtn")
+        .addEventListener("click", () => {
+          const counties = getAllCounties();
+          displayOutput("countiesOutput", counties);
+        });
+
+      // Example 2: Find County by Name or Code
+      document.getElementById("findCountyBtn").addEventListener("click", () => {
+        const countyNameOrCode = document
+          .getElementById("countyInput")
+          .value.trim();
+        if (!countyNameOrCode) {
+          displayOutput("countyOutput", {
+            error: "Please enter a county name or code",
+          });
+          return;
+        }
+
+        try {
+          const countyInstance = county(countyNameOrCode);
+          displayOutput(
+            "countyOutput",
+            countyInstance?.data || { error: "County not found" }
+          );
+        } catch (error) {
+          displayOutput("countyOutput", { error: error.message });
+        }
+      });
+
+      // Example 3: Get Constituencies in County
+      document
+        .getElementById("getConstituenciesBtn")
+        .addEventListener("click", () => {
+          const countyNameOrCode = document
+            .getElementById("countyForConstituenciesInput")
+            .value.trim();
+          if (!countyNameOrCode) {
+            displayOutput("constituenciesOutput", {
+              error: "Please enter a county name or code",
+            });
+            return;
+          }
+
+          try {
+            const countyInstance = county(countyNameOrCode);
+            if (countyInstance) {
+              const constituencies = countyInstance
+                .constituencies()
+                .map((c) => c.data);
+              displayOutput("constituenciesOutput", constituencies);
+            } else {
+              displayOutput("constituenciesOutput", {
+                error: "County not found",
+              });
+            }
+          } catch (error) {
+            displayOutput("constituenciesOutput", { error: error.message });
+          }
+        });
+
+      // Example 4: Get Wards in Constituency
+      document.getElementById("getWardsBtn").addEventListener("click", () => {
+        const constituencyCode = document
+          .getElementById("constituencyCodeInput")
+          .value.trim();
+        if (!constituencyCode) {
+          displayOutput("wardsOutput", {
+            error: "Please enter a constituency code",
+          });
+          return;
+        }
+
+        try {
+          const wards = getWardsInConstituency(constituencyCode);
+          displayOutput("wardsOutput", wards);
+        } catch (error) {
+          displayOutput("wardsOutput", { error: error.message });
+        }
+      });
+
+      // Example 5: Search All Locations
+      document.getElementById("searchBtn").addEventListener("click", () => {
+        const searchTerm = document.getElementById("searchInput").value.trim();
+        if (!searchTerm) {
+          displayOutput("searchOutput", {
+            error: "Please enter a search term",
+          });
+          return;
+        }
+
+        const results = search(searchTerm, 10);
+
+        if (results.length === 0) {
+          document.getElementById("searchOutput").innerHTML =
+            "<p>No results found</p>";
+          return;
+        }
+
+        let output = "<table><tr><th>Type</th><th>Name</th><th>Code</th></tr>";
+        results.forEach((result) => {
+          output += `<tr>
+            <td><span class="location-type ${result.type}">${result.type}</span></td>
+            <td>${result.item.name}</td>
+            <td>${result.item.code}</td>
+          </tr>`;
+        });
+        output += "</table>";
+
+        document.getElementById("searchOutput").innerHTML = output;
+      });
+
+      // Example 6: County and Constituency Hierarchy
+      const hierarchyCountySelect = document.getElementById(
+        "hierarchyCountySelect"
+      );
+      const hierarchyConstituencySelect = document.getElementById(
+        "hierarchyConstituencySelect"
+      );
+      const hierarchyWardSelect = document.getElementById(
+        "hierarchyWardSelect"
+      );
+      const hierarchyOutput = document.getElementById("hierarchyOutput");
+
+      // Load counties
+      getAllCounties().forEach((county) => {
+        const option = document.createElement("option");
+        option.value = county.code;
+        option.textContent = county.name;
+        hierarchyCountySelect.appendChild(option);
+      });
+
+      // County change handler
+      hierarchyCountySelect.addEventListener("change", () => {
+        hierarchyConstituencySelect.innerHTML =
+          '<option value="">Select a Constituency</option>';
+        hierarchyWardSelect.innerHTML =
+          '<option value="">Select a Ward</option>';
+        hierarchyWardSelect.disabled = true;
+
+        const countyCode = hierarchyCountySelect.value;
+        if (!countyCode) {
+          hierarchyConstituencySelect.disabled = true;
+          hierarchyOutput.innerHTML = "";
+          return;
+        }
+
+        const countyInstance = county(countyCode);
+        if (countyInstance) {
+          const constituencies = countyInstance.constituencies();
+          constituencies.forEach((constituency) => {
+            const option = document.createElement("option");
+            option.value = constituency.code;
+            option.textContent = constituency.name;
+            hierarchyConstituencySelect.appendChild(option);
+          });
+          hierarchyConstituencySelect.disabled = false;
+          hierarchyOutput.innerHTML = `<pre><code>${formatOutput(countyInstance.data)}</code></pre>`;
+        }
+      });
+
+      // Constituency change handler
+      hierarchyConstituencySelect.addEventListener("change", () => {
+        hierarchyWardSelect.innerHTML =
+          '<option value="">Select a Ward</option>';
+
+        const constituencyCode = hierarchyConstituencySelect.value;
+        if (!constituencyCode) {
+          hierarchyWardSelect.disabled = true;
+          return;
+        }
+
+        const constituency = getConstituencyByCode(constituencyCode);
+        if (constituency) {
+          const wards = constituency.wards();
+          wards.forEach((ward) => {
+            const option = document.createElement("option");
+            option.value = ward.code;
+            option.textContent = ward.name;
+            hierarchyWardSelect.appendChild(option);
+          });
+          hierarchyWardSelect.disabled = false;
+          hierarchyOutput.innerHTML = `<pre><code>${formatOutput(constituency.data)}</code></pre>`;
+        }
+      });
+
+      // Ward change handler
+      hierarchyWardSelect.addEventListener("change", () => {
+        const wardCode = hierarchyWardSelect.value;
+        if (!wardCode) {
+          return;
+        }
+
+        const ward = getWardByCode(wardCode);
+        if (ward) {
+          hierarchyOutput.innerHTML = `<pre><code>${formatOutput(ward)}</code></pre>`;
+        }
+      });
+    </script>
+  </body>
+</html>

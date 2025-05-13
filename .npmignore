@@ -1,0 +1,33 @@
+# Ignore source TypeScript files (if you only want to ship built JS)
+src/
+# Ignore tests and test data
+test/
+tests/
+*.test.*
+*.spec.*
+coverage/
+# Ignore configs not needed by consumers
+tsconfig.json
+tsconfig.*.json
+.eslintrc*
+.prettierrc*
+.prettierignore
+.editorconfig
+.vscode/
+.idea/
+# Ignore build cache and logs
+*.tsbuildinfo
+*.log
+# Ignore local environment files
+.env
+.env.*
+# Ignore OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+# Ignore node_modules (should never be published)
+node_modules/
+# Ignore example/demo files
+examples/
+demo/
