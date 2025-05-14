@@ -12,7 +12,7 @@ export interface County {
 export interface SubCounty {
   code: string;
   name: string;
-  countyCode: string;
+  county: string;
 }
 
 /**

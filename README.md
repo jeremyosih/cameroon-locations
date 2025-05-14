@@ -1,6 +1,9 @@
 # 🇰🇪 Kenya Locations
 
-A comprehensive and intuitive TypeScript package for working with Kenyan administrative divisions (counties, constituencies, and wards).
+A comprehensive and intuitive TypeScript package for working with Kenyan administrative divisions (counties, sub-counties, constituencies, and wards).
+
+[![Tested with Vitest](https://img.shields.io/badge/Tested_With-Vitest-6E9F18.svg)](https://vitest.dev)
+[![Test Coverage](https://img.shields.io/badge/Test_Coverage-100%25-brightgreen.svg)](https://github.com/davidamunga/kenya-locations)
 
 ## Author
 
@@ -12,10 +15,11 @@ Website: [https://davidamunga.com](https://davidamunga.com)
 - 🔍 **Intuitive chainable API** for navigating Kenya's administrative hierarchy
 - 🔎 **Fuzzy search** capabilities across all administrative levels
 - 🧩 **TypeScript support** with full type definitions
-- 🚀 **Fast data access** using optimized data structures
-- 📊 **Complete data** for all 47 counties, their constituencies, and wards
+- 🚀 **Lightning-fast performance** with optimized Maps and pre-computed relationships
+- 📊 **Complete data** for all 47 counties, their sub-counties, constituencies, and wards
 - 📱 **Lightweight** with minimal dependencies
 - 📖 **Well-documented** API with examples
+- ✅ **Well-tested** with comprehensive unit tests
 
 ## Installation
 
@@ -40,6 +44,11 @@ import {
   getAllWardsInCounty,
   getCountyOfWard,
   search,
+  getAllSubCounties,
+  getSubCountyByCode,
+  getSubCountiesInCounty,
+  getCountyOfSubCounty,
+  getWardsInSubCounty,
 } from "kenya-locations";
 
 // Get all counties
@@ -68,6 +77,21 @@ const wardCounty = getCountyOfWard("123");
 
 // Search across all administrative levels
 const results = search("Nairob", 10);
+
+// Get all sub-counties
+const allSubCounties = getAllSubCounties();
+
+// Get a specific sub-county by code
+const subCounty = getSubCountyByCode("123");
+
+// Get all sub-counties in a county
+const subCountiesInMombasa = getSubCountiesInCounty("001");
+
+// Get the county a sub-county belongs to
+const subCountyCounty = getCountyOfSubCounty("123");
+
+// Get all wards in a sub-county
+const wardsInSubCounty = getWardsInSubCounty("123");
 ```
 
 ### Chainable API
@@ -119,6 +143,9 @@ import {
   getCountyOfWard,
   getWardsInConstituency,
   getCountyOfConstituency,
+  getSubCountiesInCounty,
+  getCountyOfSubCounty,
+  getWardsInSubCounty,
 } from "kenya-locations";
 
 // Get all wards in a county
@@ -132,6 +159,15 @@ const wardsInConstituency = getWardsInConstituency("290");
 
 // Get the county a constituency belongs to
 const constituencyCounty = getCountyOfConstituency("290");
+
+// Get all sub-counties in a county
+const subCountiesInMombasa = getSubCountiesInCounty("001");
+
+// Get the county a sub-county belongs to
+const subCountyCounty = getCountyOfSubCounty("001001");
+
+// Get all wards in a sub-county
+const wardsInSubCounty = getWardsInSubCounty("001001");
 ```
 
 ## Examples
@@ -174,6 +210,11 @@ npx http-server examples
 - `getCountyOfWard(wardCode)`: Get the county a ward belongs to
 - `getWardsInConstituency(constituencyCode)`: Get all wards in a constituency
 - `getCountyOfConstituency(constituencyCode)`: Get the county a constituency belongs to
+- `getAllSubCounties()`: Get all sub-counties
+- `getSubCountyByCode(code)`: Get a sub-county by code
+- `getSubCountiesInCounty(countyCode)`: Get all sub-counties in a county
+- `getCountyOfSubCounty(subCountyCode)`: Get the county a sub-county belongs to
+- `getWardsInSubCounty(subCountyCode)`: Get all wards in a sub-county
 - `search(query, limit?)`: Search across all administrative levels
 
 ### CountyWrapper Class
