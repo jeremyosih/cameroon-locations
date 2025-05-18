@@ -5,6 +5,28 @@ All notable changes to the Kenya Locations package will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.4]
+
+### Changed
+
+- **BREAKING**: Renamed functions to remove "all" prefix:
+  - `getAllCounties()` → `getCounties()`
+  - `getAllSubCounties()` → `getSubCounties()`
+  - `getAllWards()` → `getWards()`
+  - `getAllConstituencies()` → `getConstituencies()`
+  - `getAllWardsInCounty()` → `getWardsInCounty()`
+- Updated all tests to use new function names
+- Updated `Constituency` interface to use `county` object instead of `countyCode` string
+- Updated constituency data structure to reference county objects directly
+- Updated ConstituencyWrapper class with `getCounty()` method instead of `county()`
+- Updated internal relationship maps and search utilities to support new constituency structure
+
+### Fixed
+
+- Fixed `getSubCountiesInCounty` to properly handle both county codes and names
+- Improved sub-county lookup performance by using county maps
+
+
 ## [0.0.3]
 
 ### Added
@@ -29,7 +51,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.0.2]
 
 Fixed Docs
-
 
 ## [0.0.1]
 

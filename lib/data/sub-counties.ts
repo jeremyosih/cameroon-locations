@@ -1,8 +1,4 @@
 import type { SubCounty } from "../types";
-import { counties } from "./counties";
-
-// Create a map for easy lookup of county names by code
-const countyMap = new Map(counties.map((county) => [county.code, county.name]));
 
 export const subCounties: SubCounty[] = [
   // Mombasa

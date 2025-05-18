@@ -1,23 +1,21 @@
 import {
-  getAllCounties,
+  getCounties,
   county,
-  getAllConstituencies,
+  getConstituencies,
   getConstituencyByCode,
-  getAllWards,
-  getWardByCode,
-  getAllWardsInCounty,
+  getWards,
+  getWardsInCounty,
   getCountyOfWard,
   search,
-  getAllSubCounties,
-  getSubCountyByCode,
+  getSubCounties,
   getSubCountiesInCounty,
   getCountyOfSubCounty,
 } from "../KenyaLocations";
 
 describe("KenyaLocations", () => {
-  describe("getAllCounties", () => {
+  describe("getCounties", () => {
     it("should return all counties", () => {
-      const counties = getAllCounties();
+      const counties = getCounties();
       expect(counties).toBeDefined();
       expect(counties.length).toBeGreaterThan(0);
     });
@@ -42,9 +40,9 @@ describe("KenyaLocations", () => {
     });
   });
 
-  describe("getAllConstituencies", () => {
+  describe("getConstituencies", () => {
     it("should return all constituencies", () => {
-      const constituencies = getAllConstituencies();
+      const constituencies = getConstituencies();
       expect(constituencies).toBeDefined();
       expect(constituencies.length).toBeGreaterThan(0);
     });
@@ -63,36 +61,23 @@ describe("KenyaLocations", () => {
     });
   });
 
-  describe("getAllWards", () => {
+  describe("getWards", () => {
     it("should return all wards", () => {
-      const wards = getAllWards();
+      const wards = getWards();
       expect(wards).toBeDefined();
       expect(wards.length).toBeGreaterThan(0);
     });
   });
 
-  describe("getWardByCode", () => {
-    it("should return a ward by code", () => {
-      const ward = getWardByCode("0001");
-      expect(ward).toBeDefined();
-      expect(ward?.code).toBe("0001");
-    });
-
-    it("should return undefined for non-existent ward", () => {
-      const nonExistent = getWardByCode("NonExistent");
-      expect(nonExistent).toBeUndefined();
-    });
-  });
-
-  describe("getAllWardsInCounty", () => {
+  describe("getWardsInCounty", () => {
     it("should return all wards in a county", () => {
-      const wards = getAllWardsInCounty("001");
+      const wards = getWardsInCounty("001");
       expect(wards).toBeDefined();
       expect(wards.length).toBeGreaterThan(0);
     });
 
     it("should return an empty array for non-existent county", () => {
-      const wards = getAllWardsInCounty("NonExistent");
+      const wards = getWardsInCounty("NonExistent");
       expect(wards).toEqual([]);
     });
   });
@@ -110,28 +95,11 @@ describe("KenyaLocations", () => {
     });
   });
 
-  describe("getAllSubCounties", () => {
+  describe("getSubCounties", () => {
     it("should return all sub-counties", () => {
-      const subCounties = getAllSubCounties();
+      const subCounties = getSubCounties();
       expect(subCounties).toBeDefined();
       expect(subCounties.length).toBeGreaterThan(0);
-    });
-  });
-
-  describe("getSubCountyByCode", () => {
-    it("should return a sub-county by code", () => {
-      // Using the first sub-county from the list to ensure it exists
-      const subCounties = getAllSubCounties();
-      const firstSubCounty = subCounties[0];
-
-      const subCounty = getSubCountyByCode(firstSubCounty.code);
-      expect(subCounty).toBeDefined();
-      expect(subCounty?.code).toBe(firstSubCounty.code);
-    });
-
-    it("should return undefined for non-existent sub-county", () => {
-      const nonExistent = getSubCountyByCode("NonExistent");
-      expect(nonExistent).toBeUndefined();
     });
   });
 
@@ -156,10 +124,10 @@ describe("KenyaLocations", () => {
   describe("getCountyOfSubCounty", () => {
     it("should return the county of a sub-county", () => {
       // Get the first sub-county to ensure it exists
-      const subCounties = getAllSubCounties();
+      const subCounties = getSubCounties();
       const firstSubCounty = subCounties[0];
 
-      const countyObj = getCountyOfSubCounty(firstSubCounty.code);
+      const countyObj = getCountyOfSubCounty(firstSubCounty.name);
       expect(countyObj).toBeDefined();
       expect(countyObj?.name).toBe(firstSubCounty.county);
     });

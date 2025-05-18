@@ -13,7 +13,7 @@ const countySearchOptions = {
 };
 
 const constituencySearchOptions = {
-  keys: ["name", "code", "countyCode"],
+  keys: ["name", "code", "county.code", "county.name"],
   threshold: 0.3,
   includeScore: true,
 };
@@ -25,7 +25,7 @@ const wardSearchOptions = {
 };
 
 const subCountySearchOptions = {
-  keys: ["name", "code", "countyCode"],
+  keys: ["name", "code", "county"],
   threshold: 0.3,
   includeScore: true,
 };

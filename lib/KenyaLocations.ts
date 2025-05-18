@@ -40,10 +40,6 @@ const wardNameMap: Map<string, Ward> = new Map(
   wards.map((w) => [w.name.toLowerCase(), w])
 );
 
-const subCountyCodeMap: Map<string, SubCounty> = new Map(
-  subCounties.map((sc) => [sc.code, sc])
-);
-
 // --- Additional Utility Maps for County Name to Code Lookup ---
 const countyNameToCodeMap: Map<string, string> = new Map(
   counties.map((c) => [c.name, c.code])
@@ -66,13 +62,13 @@ const subCountyToCountyMap: Map<string, string> = new Map();
 // Initialize relationship maps
 constituencies.forEach((constituency) => {
   // Add to constituency to county relationship
-  constituencyToCountyMap.set(constituency.code, constituency.countyCode);
+  constituencyToCountyMap.set(constituency.code, constituency.county.code);
 
   // Add to county to constituencies relationship
   const countyCons =
-    countyToConstituenciesMap.get(constituency.countyCode) || [];
+    countyToConstituenciesMap.get(constituency.county.code) || [];
   countyCons.push(constituency);
-  countyToConstituenciesMap.set(constituency.countyCode, countyCons);
+  countyToConstituenciesMap.set(constituency.county.code, countyCons);
 });
 
 wards.forEach((ward) => {
@@ -147,13 +143,13 @@ class CountyWrapper {
   constituency(nameOrCode: string): ConstituencyWrapper {
     // Try to find by code first
     const constituency = constituencyCodeMap.get(nameOrCode);
-    if (constituency && constituency.countyCode === this._data.code) {
+    if (constituency && constituency.county.code === this._data.code) {
       return new ConstituencyWrapper(constituency);
     }
 
     // Then try by name (case-insensitive)
     const nameMatch = constituencyNameMap.get(nameOrCode.toLowerCase());
-    if (nameMatch && nameMatch.countyCode === this._data.code) {
+    if (nameMatch && nameMatch.county.code === this._data.code) {
       return new ConstituencyWrapper(nameMatch);
     }
 
@@ -202,9 +198,9 @@ class ConstituencyWrapper {
   get name(): string {
     return this._data.name;
   }
-  /** Get the county code this constituency belongs to */
-  get countyCode(): string {
-    return this._data.countyCode;
+  /** Get the county this constituency belongs to */
+  get county(): County {
+    return { ...this._data.county };
   }
   /** Get all data for the constituency */
   get data(): Constituency {
@@ -214,15 +210,9 @@ class ConstituencyWrapper {
   /**
    * Get the county this constituency belongs to
    * @returns CountyWrapper
-   * @throws NotFoundError if not found
    */
-  county(): CountyWrapper {
-    const county = countyCodeMap.get(this._data.countyCode);
-    if (!county)
-      throw new NotFoundError(
-        `County code '${this._data.countyCode}' not found.`
-      );
-    return new CountyWrapper(county);
+  getCounty(): CountyWrapper {
+    return new CountyWrapper(this._data.county);
   }
 
   /**
@@ -283,21 +273,21 @@ export class KenyaLocationsError extends Error {
 /**
  * Get all counties
  */
-export function getAllCounties(): County[] {
+export function getCounties(): County[] {
   return counties;
 }
 
 /**
  * Get all sub-counties
  */
-export function getAllSubCounties(): SubCounty[] {
+export function getSubCounties(): SubCounty[] {
   return subCounties;
 }
 
 /**
  * Get all wards
  */
-export function getAllWards(): Ward[] {
+export function getWards(): Ward[] {
   return wards;
 }
 
@@ -309,28 +299,22 @@ export function getCountyByCode(code: string): County | undefined {
 }
 
 /**
- * Get a sub-county by its code
- */
-export function getSubCountyByCode(code: string): SubCounty | undefined {
-  return subCountyCodeMap.get(code);
-}
-
-/**
- * Get a ward by its code
- */
-export function getWardByCode(code: string): Ward | undefined {
-  return wardCodeMap.get(code);
-}
-
-/**
  * Get all sub-counties in a county
+ * @param nameOrCode County name or code
  */
-export function getSubCountiesInCounty(countyCode: string): SubCounty[] {
-  // Try to get county name from code
-  const county = countyCodeMap.get(countyCode);
-  if (!county) return [];
+export function getSubCountiesInCounty(nameOrCode: string): SubCounty[] {
+  const county = countyCodeMap.get(nameOrCode);
+  if (county) {
+    return subCounties.filter((subCounty) => subCounty.county === county.name);
+  }
 
-  return subCounties.filter((subCounty) => subCounty.county === county.name);
+  const countyByName = countyNameMap.get(nameOrCode.toLowerCase());
+  if (countyByName) {
+    return subCounties.filter(
+      (subCounty) => subCounty.county === countyByName.name
+    );
+  }
+  return [];
 }
 
 /**
@@ -342,15 +326,17 @@ export function getWardsInSubCounty(subCountyCode: string): Ward[] {
 
 /**
  * Get the county of a sub-county
+ * @param subCountyName The name of the sub-county
  */
 export function getCountyOfSubCounty(
-  subCountyCode: string
+  subCountyName: string
 ): County | undefined {
-  const subCounty = subCountyCodeMap.get(subCountyCode);
+  const subCounty = subCounties.find(
+    (subCounty) => subCounty.name === subCountyName
+  );
   if (!subCounty) return undefined;
 
-  // Find county by name
-  return counties.find((county) => county.name === subCounty.county);
+  return counties.find((county) => subCounty.county == county.name);
 }
 
 /**
@@ -391,7 +377,7 @@ export function county(nameOrCode: string): CountyWrapper | undefined {
 /**
  * Get all constituencies
  */
-export function getAllConstituencies(): Constituency[] {
+export function getConstituencies(): Constituency[] {
   return constituencies;
 }
 
@@ -408,7 +394,7 @@ export function getConstituencyByCode(
 /**
  * Get all wards in a county
  */
-export function getAllWardsInCounty(countyNameOrCode: string): Ward[] {
+export function getWardsInCounty(countyNameOrCode: string): Ward[] {
   // Try by code first
   if (countyToWardsMap.has(countyNameOrCode)) {
     return countyToWardsMap.get(countyNameOrCode) || [];
@@ -443,10 +429,10 @@ export function getWardsInConstituency(constituencyCode: string): Ward[] {
 export function getCountyOfConstituency(
   constituencyCode: string
 ): County | undefined {
-  const countyCode = constituencyToCountyMap.get(constituencyCode);
-  if (!countyCode) return undefined;
+  const constituency = constituencyCodeMap.get(constituencyCode);
+  if (!constituency) return undefined;
 
-  return countyCodeMap.get(countyCode);
+  return constituency.county;
 }
 
 /**
@@ -466,20 +452,18 @@ export class KenyaLocations {
   }
 
   // Static methods that call the standalone functions
-  public static getAllCounties = getAllCounties;
-  public static getAllSubCounties = getAllSubCounties;
-  public static getAllWards = getAllWards;
+  public static getCounties = getCounties;
+  public static getSubCounties = getSubCounties;
+  public static getWards = getWards;
   public static getCountyByCode = getCountyByCode;
-  public static getSubCountyByCode = getSubCountyByCode;
-  public static getWardByCode = getWardByCode;
   public static getSubCountiesInCounty = getSubCountiesInCounty;
   public static getWardsInSubCounty = getWardsInSubCounty;
   public static getCountyOfSubCounty = getCountyOfSubCounty;
   public static getCountyOfWard = getCountyOfWard;
   public static county = county;
-  public static getAllConstituencies = getAllConstituencies;
+  public static getConstituencies = getConstituencies;
   public static getConstituencyByCode = getConstituencyByCode;
-  public static getAllWardsInCounty = getAllWardsInCounty;
+  public static getWardsInCounty = getWardsInCounty;
   public static search = search;
   public static getWardsInConstituency = getWardsInConstituency;
   public static getCountyOfConstituency = getCountyOfConstituency;

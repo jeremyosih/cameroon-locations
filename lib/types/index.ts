@@ -21,7 +21,7 @@ export interface SubCounty {
 export interface Constituency {
   code: string;
   name: string;
-  countyCode: string;
+  county: County;
 }
 
 /**

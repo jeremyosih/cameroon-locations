@@ -2,9 +2,6 @@
 
 A comprehensive and intuitive TypeScript package for working with Kenyan administrative divisions (counties, sub-counties, constituencies, and wards).
 
-[![Tested with Vitest](https://img.shields.io/badge/Tested_With-Vitest-6E9F18.svg)](https://vitest.dev)
-[![Test Coverage](https://img.shields.io/badge/Test_Coverage-100%25-brightgreen.svg)](https://github.com/davidamunga/kenya-locations)
-
 ## Author
 
 **David Amunga**  
@@ -35,16 +32,16 @@ You can use the standalone functions directly:
 
 ```typescript
 import {
-  getAllCounties,
+  getCounties,
   county,
-  getAllConstituencies,
+  getConstituencies,
   getConstituencyByCode,
-  getAllWards,
+  getWards,
   getWardByCode,
-  getAllWardsInCounty,
+  getWardsInCounty,
   getCountyOfWard,
   search,
-  getAllSubCounties,
+  getSubCounties,
   getSubCountyByCode,
   getSubCountiesInCounty,
   getCountyOfSubCounty,
@@ -52,40 +49,53 @@ import {
 } from "kenya-locations";
 
 // Get all counties
-const allCounties = getAllCounties();
+const allCounties = getCounties();
 
 // Get a specific county by name or code
 const mombasa = county("Mombasa"); // or county('001')
 
 // Get all constituencies
-const constituencies = getAllConstituencies();
+const constituencies = getConstituencies();
 
 // Get a specific constituency by code
 const changamwe = getConstituencyByCode("290");
+// Access county information directly from constituency
+console.log(changamwe?.county.name); // "Mombasa"
+console.log(changamwe?.county.code); // "001"
 
 // Get all wards
-const wards = getAllWards();
+const wards = getWards();
 
 // Get a specific ward by code
 const ward = getWardByCode("123");
 
 // Get all wards in a county
-const wardsInMombasa = getAllWardsInCounty("001");
+const wardsInMombasa = getWardsInCounty("001");
 
 // Get the county a ward belongs to
 const wardCounty = getCountyOfWard("123");
 
 // Search across all administrative levels
-const results = search("Nairob", 10);
+const results = search("Nairob");
+/*
+Results:
+[
+  { type: 'county', item: { code: '047', name: 'Nairobi' } },
+  { type: 'constituency', item: { code: '..', name: 'Nairobi North', county: { code: '047', name: 'Nairobi' } } },
+  { type: 'ward', item: { code: '...', name: 'Nairobi West', constituencyCode: '...' } },
+  { type: 'sub-county', item: { code: '...', name: 'Nairobi West', county: 'Nairobi' } }
+]
+*/
 
 // Get all sub-counties
-const allSubCounties = getAllSubCounties();
+const allSubCounties = getSubCounties();
 
 // Get a specific sub-county by code
 const subCounty = getSubCountyByCode("123");
 
-// Get all sub-counties in a county
-const subCountiesInMombasa = getSubCountiesInCounty("001");
+// Get all sub-counties in a county (now supports both name and code)
+const subCountiesInMombasa = getSubCountiesInCounty("Mombasa"); // by name
+const subCountiesInMombasaByCode = getSubCountiesInCounty("001"); // by code
 
 // Get the county a sub-county belongs to
 const subCountyCounty = getCountyOfSubCounty("123");
@@ -108,6 +118,10 @@ const constituencies = mombasa?.constituencies();
 // Get a specific constituency in a county
 const changamwe = mombasa?.constituency("Changamwe");
 
+// Access county information directly from constituency
+console.log(changamwe?.county.name); // "Mombasa"
+console.log(changamwe?.county.code); // "001"
+
 // Get wards in a constituency
 const wards = changamwe?.wards();
 
@@ -128,9 +142,9 @@ const results = search("Nairob");
 Results:
 [
   { type: 'county', item: { code: '047', name: 'Nairobi' } },
-  { type: 'constituency', item: { code: '..', name: 'Nairobi North', countyCode: '047' } },
+  { type: 'constituency', item: { code: '..', name: 'Nairobi North', county: { code: '047', name: 'Nairobi' } } },
   { type: 'ward', item: { code: '...', name: 'Nairobi West', constituencyCode: '...' } },
-  { type: 'sub-county', item: { code: '...', name: 'Nairobi West', countyCode: '047' } }
+  { type: 'sub-county', item: { code: '...', name: 'Nairobi West', county: 'Nairobi' } }
 ]
 */
 ```
@@ -139,7 +153,7 @@ Results:
 
 ```typescript
 import {
-  getAllWardsInCounty,
+  getWardsInCounty,
   getCountyOfWard,
   getWardsInConstituency,
   getCountyOfConstituency,
@@ -149,7 +163,7 @@ import {
 } from "kenya-locations";
 
 // Get all wards in a county
-const wardsInMombasa = getAllWardsInCounty("001");
+const wardsInMombasa = getWardsInCounty("001");
 
 // Get the county a ward belongs to
 const county = getCountyOfWard("0001");
@@ -200,17 +214,17 @@ npx http-server examples
 
 ### Main Functions
 
-- `getAllCounties()`: Get all counties
+- `getCounties()`: Get all counties
 - `county(nameOrCode)`: Get a county by name or code
-- `getAllConstituencies()`: Get all constituencies
+- `getConstituencies()`: Get all constituencies
 - `getConstituencyByCode(code)`: Get a constituency by code
-- `getAllWards()`: Get all wards
+- `getWards()`: Get all wards
 - `getWardByCode(code)`: Get a ward by code
-- `getAllWardsInCounty(countyNameOrCode)`: Get all wards in a county
+- `getWardsInCounty(countyNameOrCode)`: Get all wards in a county
 - `getCountyOfWard(wardCode)`: Get the county a ward belongs to
 - `getWardsInConstituency(constituencyCode)`: Get all wards in a constituency
 - `getCountyOfConstituency(constituencyCode)`: Get the county a constituency belongs to
-- `getAllSubCounties()`: Get all sub-counties
+- `getSubCounties()`: Get all sub-counties
 - `getSubCountyByCode(code)`: Get a sub-county by code
 - `getSubCountiesInCounty(countyCode)`: Get all sub-counties in a county
 - `getCountyOfSubCounty(subCountyCode)`: Get the county a sub-county belongs to
@@ -230,9 +244,9 @@ npx http-server examples
 
 - `code`: Get the constituency code
 - `name`: Get the constituency name
-- `countyCode`: Get the county code this constituency belongs to
+- `county`: Get the county object this constituency belongs to (contains code and name)
 - `data`: Get all data for the constituency
-- `county()`: Get the county this constituency belongs to
+- `getCounty()`: Get the county this constituency belongs to as a CountyWrapper
 - `wards()`: Get all wards in this constituency
 - `ward(nameOrCode)`: Get a ward by name or code
 
