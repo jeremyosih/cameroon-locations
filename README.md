@@ -195,7 +195,7 @@ To run the examples:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/kenya-locations.git
+git clone https://github.com/DavidAmunga/kenya-locations.git
 
 # Navigate to the project
 cd kenya-locations
@@ -206,8 +206,6 @@ npm install
 # Build the library
 npm run build
 
-# Serve the examples (using a simple HTTP server)
-npx http-server examples
 ```
 
 ## API Reference
