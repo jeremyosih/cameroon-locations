@@ -17,8 +17,20 @@ export {
   getCountyOfConstituency,
   CountyWrapper,
   ConstituencyWrapper,
+  LocalityWrapper,
   NotFoundError,
   KenyaLocationsError,
+  getLocalities,
+  getAreas,
+  getLocalityByName,
+  getAreaByName,
+  getLocalitiesInCounty,
+  getAreasInLocality,
+  getAreasInCounty,
+  getCountyOfLocality,
+  getCountyOfArea,
+  getLocalityOfArea,
+  locality,
 } from "./KenyaLocations";
 
 export type {
@@ -27,6 +39,8 @@ export type {
   Ward,
   SearchResult,
   SubCounty,
+  Locality,
+  Area,
 } from "./types";
 
 export { counties, constituencies, wards } from "./data";

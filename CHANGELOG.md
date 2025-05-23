@@ -5,6 +5,27 @@ All notable changes to the Kenya Locations package will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.0]
+
+### Added
+
+- **NEW**: Complete localities and areas functionality
+  - Added `Locality` and `Area` interfaces and data types
+  - Added 880+ localities across all 47 counties
+  - Added 670+ areas linked to their respective localities
+  - New functions: `getLocalities()`, `getAreas()`, `getLocalityByName()`, `getAreaByName()`
+  - New functions: `getLocalitiesInCounty()`, `getAreasInLocality()`, `getAreasInCounty()`
+  - New relationship functions: `getCountyOfLocality()`, `getCountyOfArea()`, `getLocalityOfArea()`
+  - Added `LocalityWrapper` class with methods to navigate locality data and relationships
+  - Enhanced search functionality to include localities and areas in search results
+  - Extended `CountyWrapper` class with `localities()`, `locality()`, `areas()`, and `areasByLocality()` methods
+
+### Changed
+
+- Updated search results to include "locality" and "area" types
+- Enhanced the `SearchResult` interface to support new data types
+- Updated examples and documentation for new functionality
+
 ## [0.0.4]
 
 ### Changed
@@ -25,7 +46,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixed `getSubCountiesInCounty` to properly handle both county codes and names
 - Improved sub-county lookup performance by using county maps
-
 
 ## [0.0.3]
 

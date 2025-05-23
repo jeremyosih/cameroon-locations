@@ -82,6 +82,14 @@
         background-color: #f39c12;
         color: white;
       }
+      .locality {
+        background-color: #e74c3c;
+        color: white;
+      }
+      .area {
+        background-color: #1abc9c;
+        color: white;
+      }
       input {
         padding: 10px;
         border: 1px solid #ddd;
@@ -106,6 +114,14 @@
       }
       tr:nth-child(even) {
         background-color: #f9f9f9;
+      }
+      .hierarchy-select {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
       }
     </style>
   </head>
@@ -225,6 +241,83 @@
       <div id="hierarchyOutput"></div>
     </div>
 
+    <div class="container">
+      <h2>8. County → Locality → Area Hierarchy Example</h2>
+
+      <div style="margin-bottom: 20px">
+        <h3>Hierarchical Navigation</h3>
+        <select id="hierarchyCountySelectNew" class="hierarchy-select">
+          <option value="">Select a County</option>
+        </select>
+        <select id="hierarchyLocalitySelect" class="hierarchy-select" disabled>
+          <option value="">Select a Locality</option>
+        </select>
+        <select id="hierarchyAreaSelect" class="hierarchy-select" disabled>
+          <option value="">Select an Area</option>
+        </select>
+        <div id="hierarchyNewOutput"></div>
+      </div>
+
+      <div style="margin-bottom: 20px">
+        <h3>Quick Functions</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
+          <div>
+            <h4>Find Locality</h4>
+            <input
+              type="text"
+              id="localityNameInput"
+              placeholder="Enter locality name (e.g., 'Westlands')"
+            />
+            <button id="findLocalityBtn">Find Locality</button>
+            <div id="localityFindOutput"></div>
+          </div>
+          <div>
+            <h4>Find Area</h4>
+            <input
+              type="text"
+              id="areaNameInput"
+              placeholder="Enter area name (e.g., 'Gigiri')"
+            />
+            <button id="findAreaBtn">Find Area</button>
+            <div id="areaFindOutput"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px">
+        <h3>Get All Data</h3>
+        <button id="getAllLocalitiesBtn">Get All Localities</button>
+        <button id="getAllAreasBtn">Get All Areas</button>
+        <div id="allDataOutput"></div>
+      </div>
+
+      <div style="margin-bottom: 20px">
+        <h3>Relationship Queries</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
+          <div>
+            <h4>Areas in Locality</h4>
+            <input
+              type="text"
+              id="localityForAreasInput"
+              placeholder="Enter locality name"
+            />
+            <button id="getAreasInLocalityBtn">Get Areas</button>
+            <div id="areasInLocalityOutput"></div>
+          </div>
+          <div>
+            <h4>Localities in County</h4>
+            <input
+              type="text"
+              id="countyForLocalitiesInput"
+              placeholder="Enter county name"
+            />
+            <button id="getLocalitiesInCountyBtn">Get Localities</button>
+            <div id="localitiesInCountyOutput"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="module">
       import {
         getCounties,
@@ -236,6 +329,17 @@
         getSubCountiesInCounty,
         getCountyOfSubCounty,
         getWardsInSubCounty,
+        getLocalities,
+        getAreas,
+        getLocalityByName,
+        getAreaByName,
+        getLocalitiesInCounty,
+        getAreasInLocality,
+        getAreasInCounty,
+        getCountyOfLocality,
+        getCountyOfArea,
+        getLocalityOfArea,
+        locality,
       } from "../dist/index.es.js";
 
       // Utility to format JSON output
@@ -475,12 +579,19 @@
           return;
         }
 
-        let output = "<table><tr><th>Type</th><th>Name</th><th>Code</th></tr>";
+        let output =
+          "<table><tr><th>Type</th><th>Name</th><th>Code/Location</th></tr>";
         results.forEach((result) => {
+          let codeOrLocation = result.item.code;
+          if (result.type === "locality") {
+            codeOrLocation = result.item.county;
+          } else if (result.type === "area") {
+            codeOrLocation = `${result.item.locality}, ${result.item.county}`;
+          }
           output += `<tr>
             <td><span class="location-type ${result.type}">${result.type}</span></td>
             <td>${result.item.name}</td>
-            <td>${result.item.code}</td>
+            <td>${codeOrLocation}</td>
           </tr>`;
         });
         output += "</table>";
@@ -586,6 +697,201 @@
           }
         }
       });
+
+      // Example 8: County → Locality → Area Hierarchy
+      const hierarchyCountySelectNew = document.getElementById(
+        "hierarchyCountySelectNew"
+      );
+      const hierarchyLocalitySelect = document.getElementById(
+        "hierarchyLocalitySelect"
+      );
+      const hierarchyAreaSelect = document.getElementById(
+        "hierarchyAreaSelect"
+      );
+      const hierarchyNewOutput = document.getElementById("hierarchyNewOutput");
+
+      // Load counties
+      getCounties().forEach((county) => {
+        const option = document.createElement("option");
+        option.value = county.code;
+        option.textContent = county.name;
+        hierarchyCountySelectNew.appendChild(option);
+      });
+
+      // Locality change handler
+      hierarchyCountySelectNew.addEventListener("change", () => {
+        hierarchyLocalitySelect.innerHTML =
+          '<option value="">Select a Locality</option>';
+        hierarchyLocalitySelect.disabled = true;
+        hierarchyAreaSelect.innerHTML =
+          '<option value="">Select an Area</option>';
+        hierarchyAreaSelect.disabled = true;
+
+        const countyCode = hierarchyCountySelectNew.value;
+        if (!countyCode) {
+          hierarchyLocalitySelect.disabled = true;
+          hierarchyAreaSelect.disabled = true;
+          hierarchyNewOutput.innerHTML = "";
+          return;
+        }
+
+        const countyInstance = county(countyCode);
+        if (countyInstance) {
+          const localities = countyInstance.localities();
+          localities.forEach((locality) => {
+            const option = document.createElement("option");
+            option.value = locality.name;
+            option.textContent = locality.name;
+            hierarchyLocalitySelect.appendChild(option);
+          });
+          hierarchyLocalitySelect.disabled = false;
+          hierarchyNewOutput.innerHTML = `<pre><code>${formatOutput(countyInstance.data)}</code></pre>`;
+        }
+      });
+
+      // Locality change handler
+      hierarchyLocalitySelect.addEventListener("change", () => {
+        hierarchyAreaSelect.innerHTML =
+          '<option value="">Select an Area</option>';
+        hierarchyAreaSelect.disabled = true;
+
+        const localityName = hierarchyLocalitySelect.value;
+        if (!localityName) {
+          hierarchyAreaSelect.disabled = true;
+          return;
+        }
+
+        try {
+          const localityInstance = getLocalityByName(localityName);
+          if (localityInstance) {
+            const areas = localityInstance.areas();
+            areas.forEach((area) => {
+              const option = document.createElement("option");
+              option.value = area.name;
+              option.textContent = area.name;
+              hierarchyAreaSelect.appendChild(option);
+            });
+            hierarchyAreaSelect.disabled = false;
+            hierarchyNewOutput.innerHTML = `<pre><code>${formatOutput(localityInstance.data)}</code></pre>`;
+          }
+        } catch (error) {
+          hierarchyNewOutput.innerHTML = `<pre><code>${formatOutput({ error: error.message })}</code></pre>`;
+        }
+      });
+
+      // Area change handler
+      hierarchyAreaSelect.addEventListener("change", () => {
+        const areaName = hierarchyAreaSelect.value;
+        if (!areaName) {
+          return;
+        }
+
+        try {
+          const area = getAreaByName(areaName);
+          if (area) {
+            hierarchyNewOutput.innerHTML = `<pre><code>${formatOutput(area)}</code></pre>`;
+          }
+        } catch (error) {
+          hierarchyNewOutput.innerHTML = `<pre><code>${formatOutput({ error: error.message })}</code></pre>`;
+        }
+      });
+
+      // Quick Functions
+      document
+        .getElementById("findLocalityBtn")
+        .addEventListener("click", () => {
+          const localityName = document
+            .getElementById("localityNameInput")
+            .value.trim();
+          if (!localityName) {
+            displayOutput("localityFindOutput", {
+              error: "Please enter a locality name",
+            });
+            return;
+          }
+
+          try {
+            const localityInstance = getLocalityByName(localityName);
+            displayOutput("localityFindOutput", localityInstance);
+          } catch (error) {
+            displayOutput("localityFindOutput", { error: error.message });
+          }
+        });
+
+      document.getElementById("findAreaBtn").addEventListener("click", () => {
+        const areaName = document.getElementById("areaNameInput").value.trim();
+        if (!areaName) {
+          displayOutput("areaFindOutput", {
+            error: "Please enter an area name",
+          });
+          return;
+        }
+
+        try {
+          const areaInstance = getAreaByName(areaName);
+          displayOutput("areaFindOutput", areaInstance);
+        } catch (error) {
+          displayOutput("areaFindOutput", { error: error.message });
+        }
+      });
+
+      // Get All Data
+      document
+        .getElementById("getAllLocalitiesBtn")
+        .addEventListener("click", () => {
+          const localities = getLocalities();
+          displayOutput("allDataOutput", localities);
+        });
+
+      document
+        .getElementById("getAllAreasBtn")
+        .addEventListener("click", () => {
+          const areas = getAreas();
+          displayOutput("allDataOutput", areas);
+        });
+
+      // Relationship Queries
+      document
+        .getElementById("getAreasInLocalityBtn")
+        .addEventListener("click", () => {
+          const localityName = document
+            .getElementById("localityForAreasInput")
+            .value.trim();
+          if (!localityName) {
+            displayOutput("areasInLocalityOutput", {
+              error: "Please enter a locality name",
+            });
+            return;
+          }
+
+          try {
+            const areas = getAreasInLocality(localityName);
+            displayOutput("areasInLocalityOutput", areas);
+          } catch (error) {
+            displayOutput("areasInLocalityOutput", { error: error.message });
+          }
+        });
+
+      document
+        .getElementById("getLocalitiesInCountyBtn")
+        .addEventListener("click", () => {
+          const countyName = document
+            .getElementById("countyForLocalitiesInput")
+            .value.trim();
+          if (!countyName) {
+            displayOutput("localitiesInCountyOutput", {
+              error: "Please enter a county name",
+            });
+            return;
+          }
+
+          try {
+            const localities = getLocalitiesInCounty(countyName);
+            displayOutput("localitiesInCountyOutput", localities);
+          } catch (error) {
+            displayOutput("localitiesInCountyOutput", { error: error.message });
+          }
+        });
     </script>
   </body>
 </html>

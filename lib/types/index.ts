@@ -30,15 +30,32 @@ export interface Constituency {
 export interface Ward {
   code: string;
   name: string;
-  constituencyCode: string;
+  constituency: string;
+}
+
+/**
+ * Interface for Locality data
+ */
+export interface Locality {
+  name: string;
+  county: string;
+}
+
+/**
+ * Interface for Area data
+ */
+export interface Area {
+  name: string;
+  locality: string;
+  county: string;
 }
 
 /**
  * Search result interface
  */
 export interface SearchResult {
-  type: "county" | "constituency" | "ward" | "sub-county";
-  item: County | Constituency | Ward | SubCounty;
+  type: "county" | "constituency" | "ward" | "sub-county" | "locality" | "area";
+  item: County | Constituency | Ward | SubCounty | Locality | Area;
 }
 
 /**
