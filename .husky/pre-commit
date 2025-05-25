@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+# Run lint-staged to check and fix staged files
+npx lint-staged
+
+# Run tests to ensure nothing is broken
+npm test
+
+echo "✅ Pre-commit checks passed! Ready to commit."

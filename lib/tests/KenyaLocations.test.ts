@@ -23,6 +23,7 @@ import {
   locality,
   NotFoundError,
 } from "../KenyaLocations";
+import { expect, it, describe } from "vitest";
 
 describe("KenyaLocations", () => {
   describe("getCounties", () => {
@@ -396,7 +397,7 @@ describe("KenyaLocations", () => {
     });
 
     it("should respect the limit parameter", () => {
-      const results = search("Nairob", 1);
+      const results = search("Nairob", { limit: 1 });
       expect(results.length).toBeLessThanOrEqual(1);
     });
 
@@ -418,7 +419,7 @@ describe("KenyaLocations", () => {
     });
 
     it("should return results in priority order", () => {
-      const results = search("Nairobi", 10);
+      const results = search("Nairobi", { limit: 10 });
       expect(results).toBeDefined();
 
       // Counties should come first, then constituencies, etc.

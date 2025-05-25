@@ -2,8 +2,21 @@
 
 All notable changes to the Kenya Locations package will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project
+adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.1.2]
+
+### Fixed
+
+- Updated area+locality sets (removed areas with estate)
+- Removed searching by codes and other fields
+- Improved search performance by lazy init fuse instances when needed.
+- Added `searchByType` function to search for specific types of administrative divisions
+- Added `search` function options to customize search results e.g. `limit`, `types`
+- Added validatation scripts
+- Added pre-commit hooks
+-
 
 ## [0.1.1]
 
@@ -26,7 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - New relationship functions: `getCountyOfLocality()`, `getCountyOfArea()`, `getLocalityOfArea()`
   - Added `LocalityWrapper` class with methods to navigate locality data and relationships
   - Enhanced search functionality to include localities and areas in search results
-  - Extended `CountyWrapper` class with `localities()`, `locality()`, `areas()`, and `areasByLocality()` methods
+  - Extended `CountyWrapper` class with `localities()`, `locality()`, `areas()`, and
+    `areasByLocality()` methods
 
 ### Changed
 

@@ -6,114 +6,165 @@ import { areas } from "../data/area";
 import { localities } from "../data/locality";
 
 /**
- * Configuration for Fuse.js fuzzy search
+ * Available search types
  */
-const countySearchOptions = {
-  keys: ["name", "code"],
-  threshold: 0.3,
-  includeScore: true,
-};
+export type SearchType =
+  | "county"
+  | "constituency"
+  | "ward"
+  | "sub-county"
+  | "locality"
+  | "area";
 
-const constituencySearchOptions = {
-  keys: ["name", "code", "county.code", "county.name"],
-  threshold: 0.3,
+/**
+ * Configuration for Fuse.js fuzzy search - optimized for name-only search
+ * Threshold of 0.2 provides better precision when searching localities and areas while still allowing for typos
+ */
+const searchOptions = {
+  keys: ["name"],
+  threshold: 0.2,
   includeScore: true,
-};
-
-const wardSearchOptions = {
-  keys: ["name", "code", "constituency"],
-  threshold: 0.3,
-  includeScore: true,
-};
-
-const subCountySearchOptions = {
-  keys: ["name", "code", "county"],
-  threshold: 0.3,
-  includeScore: true,
-};
-
-const localitySearchOptions = {
-  keys: ["name", "county"],
-  threshold: 0.3,
-  includeScore: true,
-};
-
-const areaSearchOptions = {
-  keys: ["name", "locality", "county"],
-  threshold: 0.3,
-  includeScore: true,
+  ignoreLocation: true, // Performance optimization
+  findAllMatches: false, // Performance optimization
+  minMatchCharLength: 2, // Performance optimization
 };
 
 /**
- * Create Fuse instances for each data type
+ * Lazy-initialized Fuse instances for better performance
  */
-const countyFuse = new Fuse(counties, countySearchOptions);
-const constituencyFuse = new Fuse(constituencies, constituencySearchOptions);
-const wardFuse = new Fuse(wards, wardSearchOptions);
-const subCountyFuse = new Fuse(subCounties, subCountySearchOptions);
-const localityFuse = new Fuse(localities, localitySearchOptions);
-const areaFuse = new Fuse(areas, areaSearchOptions);
+let countyFuse: Fuse<any> | null = null;
+let constituencyFuse: Fuse<any> | null = null;
+let wardFuse: Fuse<any> | null = null;
+let subCountyFuse: Fuse<any> | null = null;
+let localityFuse: Fuse<any> | null = null;
+let areaFuse: Fuse<any> | null = null;
+
+/**
+ * Initialize Fuse instances only when needed
+ */
+function initializeFuseInstances() {
+  if (!countyFuse) countyFuse = new Fuse(counties, searchOptions);
+  if (!constituencyFuse)
+    constituencyFuse = new Fuse(constituencies, searchOptions);
+  if (!wardFuse) wardFuse = new Fuse(wards, searchOptions);
+  if (!subCountyFuse) subCountyFuse = new Fuse(subCounties, searchOptions);
+  if (!localityFuse) localityFuse = new Fuse(localities, searchOptions);
+  if (!areaFuse) areaFuse = new Fuse(areas, searchOptions);
+}
 
 /**
  * Search across all levels of administrative divisions
  * @param query Search query string
- * @param limit Maximum number of results (optional, default: 10)
- * @returns Array of search results
+ * @param options Search options
+ * @param options.limit Maximum number of results (default: 10)
+ * @param options.types Specific types to search (optional, searches all if not provided)
+ * @returns Array of search results sorted by relevance and type hierarchy
  */
-export function search(query: string, limit = 10): SearchResult[] {
+export function search(
+  query: string,
+  options: {
+    limit?: number;
+    types?: SearchType[];
+  } = {}
+): SearchResult[] {
+  const { limit = 10, types } = options;
+
   // Don't perform search if query is too short
-  if (!query || query.length < 2) {
+  if (!query || query.trim().length < 2) {
     return [];
   }
 
-  const countyResults = countyFuse.search(query).map((result) => ({
-    type: "county" as const,
-    item: result.item,
-  }));
+  // Initialize Fuse instances
+  initializeFuseInstances();
 
-  const constituencyResults = constituencyFuse.search(query).map((result) => ({
-    type: "constituency" as const,
-    item: result.item,
-  }));
+  const trimmedQuery = query.trim();
+  const results: Array<SearchResult & { score?: number }> = [];
 
-  const wardResults = wardFuse.search(query).map((result) => ({
-    type: "ward" as const,
-    item: result.item,
-  }));
+  // Define search functions with type guards
+  const searchFunctions = [
+    {
+      type: "county" as const,
+      fuse: countyFuse!,
+      enabled: !types || types.includes("county"),
+    },
+    {
+      type: "constituency" as const,
+      fuse: constituencyFuse!,
+      enabled: !types || types.includes("constituency"),
+    },
+    {
+      type: "ward" as const,
+      fuse: wardFuse!,
+      enabled: !types || types.includes("ward"),
+    },
+    {
+      type: "sub-county" as const,
+      fuse: subCountyFuse!,
+      enabled: !types || types.includes("sub-county"),
+    },
+    {
+      type: "locality" as const,
+      fuse: localityFuse!,
+      enabled: !types || types.includes("locality"),
+    },
+    {
+      type: "area" as const,
+      fuse: areaFuse!,
+      enabled: !types || types.includes("area"),
+    },
+  ];
 
-  const subCountyResults = subCountyFuse.search(query).map((result) => ({
-    type: "sub-county" as const,
-    item: result.item,
-  }));
+  // Perform searches only for enabled types
+  for (const { type, fuse, enabled } of searchFunctions) {
+    if (enabled) {
+      const searchResults = fuse.search(trimmedQuery, { limit: limit * 2 }); // Get more results for better sorting
+      results.push(
+        ...searchResults.map((result) => ({
+          type,
+          item: result.item,
+          score: result.score,
+        }))
+      );
+    }
+  }
 
-  const localityResults = localityFuse.search(query).map((result) => ({
-    type: "locality" as const,
-    item: result.item,
-  }));
+  // Sort by score first (lower is better), then by type hierarchy
+  const typeOrder = {
+    county: 1,
+    constituency: 2,
+    ward: 3,
+    "sub-county": 4,
+    locality: 5,
+    area: 6,
+  };
 
-  const areaResults = areaFuse.search(query).map((result) => ({
-    type: "area" as const,
-    item: result.item,
-  }));
+  return (
+    results
+      .sort((a, b) => {
+        // Primary sort: by score (lower score = better match)
+        if (a.score !== b.score) {
+          return (a.score || 0) - (b.score || 0);
+        }
+        // Secondary sort: by type hierarchy
+        return typeOrder[a.type] - typeOrder[b.type];
+      })
+      .slice(0, limit)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      .map(({ score, ...result }) => result)
+  );
+}
 
-  return [
-    ...countyResults,
-    ...constituencyResults,
-    ...wardResults,
-    ...subCountyResults,
-    ...localityResults,
-    ...areaResults,
-  ]
-    .sort((a, b) => {
-      const typeOrder = {
-        county: 1,
-        constituency: 2,
-        ward: 3,
-        "sub-county": 4,
-        locality: 5,
-        area: 6,
-      };
-      return typeOrder[a.type] - typeOrder[b.type];
-    })
-    .slice(0, limit);
+/**
+ * Search for a specific type only
+ * @param query Search query string
+ * @param type The specific type to search for
+ * @param limit Maximum number of results (default: 10)
+ * @returns Array of search results for the specified type
+ */
+export function searchByType(
+  query: string,
+  type: SearchType,
+  limit = 10
+): SearchResult[] {
+  return search(query, { limit, types: [type] });
 }

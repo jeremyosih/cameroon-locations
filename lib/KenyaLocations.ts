@@ -13,7 +13,10 @@ import { wards } from "./data/wards";
 import { subCounties } from "./data/sub-counties";
 import { localities } from "./data/locality";
 import { areas } from "./data/area";
-import { search as searchFunction } from "./utils/search";
+import {
+  search as searchFunction,
+  searchByType as searchByTypeFunction,
+} from "./utils/search";
 
 // --- Custom Error Classes ---
 class NotFoundError extends Error {
@@ -696,8 +699,32 @@ export function getWardsInCounty(countyNameOrCode: string): Ward[] {
 /**
  * Search for counties, constituencies, wards, localities, or areas
  */
-export function search(query: string, limit?: number): SearchResult[] {
-  return searchFunction(query, limit);
+export function search(
+  query: string,
+  options: {
+    limit?: number;
+    types?: (
+      | "county"
+      | "constituency"
+      | "ward"
+      | "sub-county"
+      | "locality"
+      | "area"
+    )[];
+  } = {}
+): SearchResult[] {
+  return searchFunction(query, options);
+}
+
+/**
+ * Search for a specific type of administrative division
+ */
+export function searchByType(
+  query: string,
+  type: "county" | "constituency" | "ward" | "sub-county" | "locality" | "area",
+  limit?: number
+): SearchResult[] {
+  return searchByTypeFunction(query, type, limit);
 }
 
 /**
@@ -783,6 +810,7 @@ export class KenyaLocations {
   public static getConstituencyByCode = getConstituencyByCode;
   public static getWardsInCounty = getWardsInCounty;
   public static search = search;
+  public static searchByType = searchByType;
   public static getWardsInConstituency = getWardsInConstituency;
   public static getCountyOfConstituency = getCountyOfConstituency;
 }

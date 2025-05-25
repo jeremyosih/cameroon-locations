@@ -59,6 +59,17 @@ export interface SearchResult {
 }
 
 /**
+ * Available search types
+ */
+export type SearchType =
+  | "county"
+  | "constituency"
+  | "ward"
+  | "sub-county"
+  | "locality"
+  | "area";
+
+/**
  * Data version options
  */
 export interface KenyaDivisionsOptions {

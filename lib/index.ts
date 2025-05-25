@@ -13,6 +13,7 @@ export {
   getConstituencyByCode,
   getWardsInCounty,
   search,
+  searchByType,
   getWardsInConstituency,
   getCountyOfConstituency,
   CountyWrapper,
@@ -41,6 +42,7 @@ export type {
   SubCounty,
   Locality,
   Area,
+  SearchType,
 } from "./types";
 
 export { counties, constituencies, wards } from "./data";

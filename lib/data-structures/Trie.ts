@@ -53,7 +53,7 @@ export class Trie {
       results.push(node.data);
     }
 
-    for (const [_, childNode] of node.children) {
+    for (const [, childNode] of node.children) {
       this.collectWords(childNode, results);
     }
   }

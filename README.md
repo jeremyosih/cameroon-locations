@@ -1,6 +1,8 @@
 # 🇰🇪 Kenya Locations
 
-A comprehensive and intuitive TypeScript package for working with Kenyan administrative divisions including the complete hierarchy: **Counties → Localities → Areas**, plus sub-counties, constituencies, and wards.
+A comprehensive and intuitive TypeScript package for working with Kenyan administrative divisions
+including the complete hierarchy: **Counties → Localities → Areas**, plus sub-counties,
+constituencies, and wards.
 
 ## Author
 
@@ -9,12 +11,15 @@ Website: [https://davidamunga.com](https://davidamunga.com)
 
 ## Features
 
-- 🏗️ **Complete Administrative Hierarchy** - County → Locality → Area with sub-counties, constituencies, and wards
+- 🏗️ **Complete Administrative Hierarchy** - County → Locality → Area with sub-counties,
+  constituencies, and wards
 - 🔍 **Intuitive chainable API** for navigating Kenya's administrative hierarchy
-- 🔎 **Fuzzy search** capabilities across all administrative levels (counties, localities, areas, constituencies, wards, sub-counties)
+- 🔎 **Fuzzy search** capabilities across all administrative levels (counties, localities, areas,
+  constituencies, wards, sub-counties)
 - 🧩 **TypeScript support** with full type definitions
 - 🚀 **Lightning-fast performance** with optimized Maps and pre-computed relationships
-- 📊 **Complete data** for all 47 counties, their localities, areas, sub-counties, constituencies, and wards
+- 📊 **Complete data** for all 47 counties, their localities, areas, sub-counties, constituencies,
+  and wards
 - 📱 **Lightweight** with minimal dependencies
 - 📖 **Well-documented** API with examples
 - ✅ **Well-tested** with comprehensive unit tests
@@ -249,12 +254,7 @@ const typoResults = search("Nairob"); // Still finds Nairobi-related locations
 ### Complete Hierarchy Navigation Example
 
 ```typescript
-import {
-  county,
-  getAreaByName,
-  getLocalityOfArea,
-  getCountyOfArea,
-} from "kenya-locations";
+import { county, getAreaByName, getLocalityOfArea, getCountyOfArea } from "kenya-locations";
 
 // Start from county and drill down
 const nairobi = county("Nairobi");
@@ -300,7 +300,8 @@ try {
 
 The package includes comprehensive examples:
 
-- `examples/basic-usage.html`: A complete interactive example showing all functionality including the County → Locality → Area hierarchy
+- `examples/basic-usage.html`: A complete interactive example showing all functionality including
+  the County → Locality → Area hierarchy
 - All functions demonstrated with working code
 - Search functionality across all administrative levels
 
@@ -370,7 +371,8 @@ npm run build
 
 #### Search
 
-- `search(query, limit?)`: Search across all administrative levels (counties, localities, areas, constituencies, wards, sub-counties)
+- `search(query, limit?)`: Search across all administrative levels (counties, localities, areas,
+  constituencies, wards, sub-counties)
 
 ### Wrapper Classes
 
@@ -451,7 +453,27 @@ interface SearchResult {
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! We especially welcome contributions to expand our locality and area data.
+
+📖 **[Read our detailed Contributing Guidelines](CONTRIBUTING.md)** for information on:
+
+- How to add new counties, sub-counties, constituencies, wards, localities, and areas
+- Data structure and validation requirements
+- Testing procedures
+- Submission guidelines
+
+🪝 **Pre-commit Hooks**: This project uses automated pre-commit hooks to ensure code quality and
+data integrity. When you commit changes, the following happen automatically:
+
+- Code formatting and linting
+- Data validation (when data files are changed)
+- Test execution
+- Commit message format validation
+
+📋 **Learn More**: See [Pre-commit Hooks Documentation](docs/PRE_COMMIT_HOOKS.md) for detailed
+information.
+
+Please feel free to submit a Pull Request following our guidelines.
 
 ## License
 

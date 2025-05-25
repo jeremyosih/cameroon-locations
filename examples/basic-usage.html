@@ -168,13 +168,45 @@
     </div>
 
     <div class="container">
-      <h2>5. Search All Locations</h2>
+      <h2>5. Enhanced Search All Locations</h2>
       <input
         type="text"
         id="searchInput"
-        placeholder="Enter search term (e.g., 'Momb')"
+        placeholder="Enter search term (e.g., 'Momb', 'Nairobi')"
       />
+      <div style="margin: 10px 0">
+        <label style="margin-right: 15px">
+          <input type="checkbox" id="searchCounty" checked /> Counties
+        </label>
+        <label style="margin-right: 15px">
+          <input type="checkbox" id="searchConstituency" checked />
+          Constituencies
+        </label>
+        <label style="margin-right: 15px">
+          <input type="checkbox" id="searchWard" checked /> Wards
+        </label>
+        <label style="margin-right: 15px">
+          <input type="checkbox" id="searchSubCounty" checked /> Sub-Counties
+        </label>
+        <label style="margin-right: 15px">
+          <input type="checkbox" id="searchLocality" checked /> Localities
+        </label>
+        <label style="margin-right: 15px">
+          <input type="checkbox" id="searchArea" checked /> Areas
+        </label>
+      </div>
+      <div style="margin: 10px 0">
+        <label for="searchLimit">Results limit: </label>
+        <select id="searchLimit">
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+        </select>
+      </div>
       <button id="searchBtn">Search</button>
+      <button id="searchAllTypesBtn">Search All Types</button>
+      <button id="searchCountiesOnlyBtn">Counties Only</button>
       <div id="searchOutput"></div>
     </div>
 
@@ -232,7 +264,11 @@
       <select id="hierarchyCountySelect" class="hierarchy-select">
         <option value="">Select a County</option>
       </select>
-      <select id="hierarchyConstituencySelect" disabled class="hierarchy-select">
+      <select
+        id="hierarchyConstituencySelect"
+        disabled
+        class="hierarchy-select"
+      >
         <option value="">Select a Constituency</option>
       </select>
       <select id="hierarchyWardSelect" disabled class="hierarchy-select">
@@ -325,6 +361,7 @@
         getConstituencyByCode,
         getWardsInConstituency,
         search,
+        searchByType,
         getSubCounties,
         getSubCountiesInCounty,
         getCountyOfSubCounty,
@@ -341,6 +378,20 @@
         getLocalityOfArea,
         locality,
       } from "../dist/index.es.js";
+
+      // Note: The search function now uses an options object:
+      // search(query, { limit?, types? })
+      // - limit: number of results (default: 10)
+      // - types: array of types to search (default: all types)
+      //
+      // Examples:
+      // search("Nairobi") // Search all types
+      // search("Nairobi", { limit: 5 }) // Limit to 5 results
+      // search("Nairobi", { types: ["county", "constituency"] }) // Search specific types
+      // search("Nairobi", { limit: 3, types: ["county"] }) // Combine options
+      //
+      // Alternative: Use searchByType for single type searches:
+      // searchByType("Nairobi", "county", 5)
 
       // Utility to format JSON output
       function formatOutput(data) {
@@ -561,7 +612,7 @@
           }
         });
 
-      // Example 5: Search All Locations
+      // Example 5: Enhanced Search All Locations
       document.getElementById("searchBtn").addEventListener("click", () => {
         const searchTerm = document.getElementById("searchInput").value.trim();
         if (!searchTerm) {
@@ -571,7 +622,36 @@
           return;
         }
 
-        const results = search(searchTerm, 10);
+        // Get selected types
+        const selectedTypes = [];
+        if (document.getElementById("searchCounty").checked)
+          selectedTypes.push("county");
+        if (document.getElementById("searchConstituency").checked)
+          selectedTypes.push("constituency");
+        if (document.getElementById("searchWard").checked)
+          selectedTypes.push("ward");
+        if (document.getElementById("searchSubCounty").checked)
+          selectedTypes.push("sub-county");
+        if (document.getElementById("searchLocality").checked)
+          selectedTypes.push("locality");
+        if (document.getElementById("searchArea").checked)
+          selectedTypes.push("area");
+
+        if (selectedTypes.length === 0) {
+          displayOutput("searchOutput", {
+            error: "Please select at least one type to search",
+          });
+          return;
+        }
+
+        // Get limit
+        const limit = parseInt(document.getElementById("searchLimit").value);
+
+        // Perform search with new options API
+        const results = search(searchTerm, {
+          limit: limit,
+          types: selectedTypes,
+        });
 
         if (results.length === 0) {
           document.getElementById("searchOutput").innerHTML =
@@ -598,6 +678,93 @@
 
         document.getElementById("searchOutput").innerHTML = output;
       });
+
+      // Search All Types button
+      document
+        .getElementById("searchAllTypesBtn")
+        .addEventListener("click", () => {
+          const searchTerm = document
+            .getElementById("searchInput")
+            .value.trim();
+          if (!searchTerm) {
+            displayOutput("searchOutput", {
+              error: "Please enter a search term",
+            });
+            return;
+          }
+
+          const limit = parseInt(document.getElementById("searchLimit").value);
+
+          // Search all types (no types filter)
+          const results = search(searchTerm, { limit: limit });
+
+          if (results.length === 0) {
+            document.getElementById("searchOutput").innerHTML =
+              "<p>No results found</p>";
+            return;
+          }
+
+          let output =
+            "<table><tr><th>Type</th><th>Name</th><th>Code/Location</th></tr>";
+          results.forEach((result) => {
+            let codeOrLocation = result.item.code;
+            if (result.type === "locality") {
+              codeOrLocation = result.item.county;
+            } else if (result.type === "area") {
+              codeOrLocation = `${result.item.locality}, ${result.item.county}`;
+            }
+            output += `<tr>
+            <td><span class="location-type ${result.type}">${result.type}</span></td>
+            <td>${result.item.name}</td>
+            <td>${codeOrLocation}</td>
+          </tr>`;
+          });
+          output += "</table>";
+
+          document.getElementById("searchOutput").innerHTML = output;
+        });
+
+      // Counties Only button
+      document
+        .getElementById("searchCountiesOnlyBtn")
+        .addEventListener("click", () => {
+          const searchTerm = document
+            .getElementById("searchInput")
+            .value.trim();
+          if (!searchTerm) {
+            displayOutput("searchOutput", {
+              error: "Please enter a search term",
+            });
+            return;
+          }
+
+          const limit = parseInt(document.getElementById("searchLimit").value);
+
+          // Search counties only
+          const results = search(searchTerm, {
+            limit: limit,
+            types: ["county"],
+          });
+
+          if (results.length === 0) {
+            document.getElementById("searchOutput").innerHTML =
+              "<p>No counties found</p>";
+            return;
+          }
+
+          let output =
+            "<table><tr><th>Type</th><th>Name</th><th>Code</th></tr>";
+          results.forEach((result) => {
+            output += `<tr>
+            <td><span class="location-type ${result.type}">${result.type}</span></td>
+            <td>${result.item.name}</td>
+            <td>${result.item.code}</td>
+          </tr>`;
+          });
+          output += "</table>";
+
+          document.getElementById("searchOutput").innerHTML = output;
+        });
 
       // Example 6: County and Constituency Hierarchy
       const hierarchyCountySelect = document.getElementById(
