@@ -162,6 +162,7 @@ export const localities: Locality[] = [
   { name: "Zimmerman", county: "Nairobi" },
   { name: "Ziwani/Kariokor", county: "Nairobi" },
   { name: "Naivasha", county: "Nakuru" },
+  { name: "Nakuru Town", county: "Nakuru" },
   { name: "Nakuru Town East", county: "Nakuru" },
   { name: "Bahati", county: "Nakuru" },
   { name: "Gilgil", county: "Nakuru" },
