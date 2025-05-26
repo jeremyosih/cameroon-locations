@@ -52,9 +52,14 @@ describe("KenyaLocations", () => {
       expect(nonExistent).toBeUndefined();
     });
 
-    it("should provide access to localities and areas", () => {
+    it("should provide access to constituencies, localities and areas", () => {
       const nairobi = county("Nairobi");
       expect(nairobi).toBeDefined();
+
+      // Test constituencies
+      const constituencies = nairobi?.constituencies();
+      expect(constituencies).toBeDefined();
+      expect(constituencies!.length).toBeGreaterThan(0);
 
       // Test localities
       const localities = nairobi?.localities();

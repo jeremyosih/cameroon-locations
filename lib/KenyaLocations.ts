@@ -89,15 +89,18 @@ const countyToAreasMap: Map<string, Area[]> = new Map();
 
 // Initialize relationship maps
 constituencies.forEach((constituency) => {
-  // Add to constituency to county relationship
-  constituencyToCountyMap.set(constituency.code, constituency.county.code);
-  constituencyToCountyMap.set(constituency.name, constituency.county.code);
+  // Get county code from county name
+  const countyCode = countyNameToCodeMap.get(constituency.county);
+  if (countyCode) {
+    // Add to constituency to county relationship
+    constituencyToCountyMap.set(constituency.code, countyCode);
+    constituencyToCountyMap.set(constituency.name, countyCode);
 
-  // Add to county to constituencies relationship
-  const countyCons =
-    countyToConstituenciesMap.get(constituency.county.code) || [];
-  countyCons.push(constituency);
-  countyToConstituenciesMap.set(constituency.county.code, countyCons);
+    // Add to county to constituencies relationship
+    const countyCons = countyToConstituenciesMap.get(countyCode) || [];
+    countyCons.push(constituency);
+    countyToConstituenciesMap.set(countyCode, countyCons);
+  }
 });
 
 wards.forEach((ward) => {
@@ -112,10 +115,12 @@ wards.forEach((ward) => {
   // Add to county to wards relationship
   const constituency = constituencyNameMap.get(ward.constituency.toLowerCase());
   if (constituency) {
-    const countyCode = constituency.county.code;
-    const countyWards = countyToWardsMap.get(countyCode) || [];
-    countyWards.push(ward);
-    countyToWardsMap.set(countyCode, countyWards);
+    const countyCode = countyNameToCodeMap.get(constituency.county);
+    if (countyCode) {
+      const countyWards = countyToWardsMap.get(countyCode) || [];
+      countyWards.push(ward);
+      countyToWardsMap.set(countyCode, countyWards);
+    }
   }
 });
 
@@ -258,13 +263,13 @@ class CountyWrapper {
   constituency(nameOrCode: string): ConstituencyWrapper {
     // Try to find by code first
     const constituency = constituencyCodeMap.get(nameOrCode);
-    if (constituency && constituency.county.code === this._data.code) {
+    if (constituency && constituency.county === this._data.name) {
       return new ConstituencyWrapper(constituency);
     }
 
     // Then try by name (case-insensitive)
     const nameMatch = constituencyNameMap.get(nameOrCode.toLowerCase());
-    if (nameMatch && nameMatch.county.code === this._data.code) {
+    if (nameMatch && nameMatch.county === this._data.name) {
       return new ConstituencyWrapper(nameMatch);
     }
 
@@ -363,8 +368,8 @@ class ConstituencyWrapper {
     return this._data.name;
   }
   /** Get the county this constituency belongs to */
-  get county(): County {
-    return { ...this._data.county };
+  get county(): string {
+    return this._data.county;
   }
   /** Get all data for the constituency */
   get data(): Constituency {
@@ -375,8 +380,9 @@ class ConstituencyWrapper {
    * Get the county this constituency belongs to
    * @returns CountyWrapper
    */
-  getCounty(): CountyWrapper {
-    return new CountyWrapper(this._data.county);
+  getCounty(): CountyWrapper | undefined {
+    const county = countyNameMap.get(this._data.county.toLowerCase());
+    return county ? new CountyWrapper(county) : undefined;
   }
 
   /**
@@ -757,13 +763,13 @@ export function getCountyOfConstituency(
     constituencyNameOrCode.toLowerCase()
   );
   if (constituency) {
-    return constituency.county;
+    return countyNameMap.get(constituency.county.toLowerCase());
   }
 
   // Then try by code
   const constituencyByCode = constituencyCodeMap.get(constituencyNameOrCode);
   if (constituencyByCode) {
-    return constituencyByCode.county;
+    return countyNameMap.get(constituencyByCode.county.toLowerCase());
   }
 
   return undefined;

@@ -454,13 +454,7 @@
             if (countyInstance) {
               const constituencies = countyInstance
                 .constituencies()
-                .map((c) => ({
-                  ...c.data,
-                  county: {
-                    code: c.county.code,
-                    name: c.county.name,
-                  },
-                }));
+                .map((c) => c.data);
               displayOutput("constituenciesOutput", constituencies);
             } else {
               displayOutput("constituenciesOutput", {
@@ -836,13 +830,7 @@
             hierarchyWardSelect.appendChild(option);
           });
           hierarchyWardSelect.disabled = false;
-          hierarchyOutput.innerHTML = `<pre><code>${formatOutput({
-            ...constituency.data,
-            county: {
-              code: constituency.county.code,
-              name: constituency.county.name,
-            },
-          })}</code></pre>`;
+          hierarchyOutput.innerHTML = `<pre><code>${formatOutput(constituency.data)}</code></pre>`;
         }
       });
 

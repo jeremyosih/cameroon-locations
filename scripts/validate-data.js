@@ -105,30 +105,23 @@ function validateReferences(data, type, refField, refData, refType) {
 
 function validateConstituencyReferences(constituencies, counties) {
   const invalidRefs = [];
+  const countyNames = new Set(counties.map((c) => c.name));
 
   constituencies.forEach((constituency, index) => {
     const countyRef = constituency.county;
-    if (
-      !countyRef ||
-      typeof countyRef !== "object" ||
-      !countyRef.code ||
-      !countyRef.name
-    ) {
+    if (!countyRef || typeof countyRef !== "string") {
       invalidRefs.push({
         constituency: constituency.name,
         index,
-        issue: "Invalid county reference structure",
+        issue: "Invalid county reference - should be a string",
       });
     } else {
       // Check if the referenced county exists
-      const countyExists = counties.find(
-        (c) => c.code === countyRef.code && c.name === countyRef.name
-      );
-      if (!countyExists) {
+      if (!countyNames.has(countyRef)) {
         invalidRefs.push({
           constituency: constituency.name,
           index,
-          issue: `County ${countyRef.name} (${countyRef.code}) not found`,
+          issue: `County "${countyRef}" not found`,
         });
       }
     }
