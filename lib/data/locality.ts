@@ -79,7 +79,7 @@ export const localities: Locality[] = [
   { name: "Kikowani", county: "Mombasa" },
   { name: "Kizingo", county: "Mombasa" },
   { name: "Likoni", county: "Mombasa" },
-  { name: "Makadara (Msa)", county: "Mombasa" },
+  { name: "Makadara", county: "Mombasa" },
   { name: "Mbaraki", county: "Mombasa" },
   { name: "Old Town", county: "Mombasa" },
   { name: "Shanzu", county: "Mombasa" },
