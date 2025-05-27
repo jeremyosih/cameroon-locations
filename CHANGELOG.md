@@ -5,6 +5,18 @@ All notable changes to the Kenya Locations package will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.6]
+
+### NEW
+
+- data (garissa, homa bay, isiolo, kakamega, nyandarua, taita-taveta): added new areas and updated
+  localities
+
+### Fixed
+
+- Fixed Validation Script
+- Sorted Localities and Areas
+
 ## [0.1.5]
 
 ### Fixed
