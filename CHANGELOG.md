@@ -7,7 +7,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.1.7]
 
-### Fixex
+### Fixed
 
 - Remove Duplicate Localities
 
