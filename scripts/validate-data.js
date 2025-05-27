@@ -30,7 +30,7 @@ function log(message, color = "reset") {
 async function loadData() {
   try {
     // Import the built module
-    const modulePath = join(__dirname, "../dist/index.es.js");
+    const modulePath = join(__dirname, "../dist/index.js");
     const module = await import(modulePath);
 
     // Extract data using the exported functions

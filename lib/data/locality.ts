@@ -797,7 +797,7 @@ export const localities: Locality[] = [
   { name: "Mathira", county: "Nyeri" },
   { name: "Mukurwe-Ini Central", county: "Nyeri" },
   { name: "Mukurwe-Ini West", county: "Nyeri" },
-  { name: "Mukurweini", county: "Nyeri" },
+  { name: "Mukurwe-Ini", county: "Nyeri" },
   { name: "Naromoru Kiamathaga", county: "Nyeri" },
   { name: "Nyeri Town", county: "Nyeri" },
   { name: "Othaya", county: "Nyeri" },
