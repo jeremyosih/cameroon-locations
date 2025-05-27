@@ -270,6 +270,7 @@ export const localities: Locality[] = [
   { name: "Bukhayo West", county: "Busia" },
   { name: "Bunyala Central (Budalangi)", county: "Busia" },
   { name: "Bunyala North", county: "Busia" },
+  { name: "Bunyala South (Budalangi)", county: "Busia" },
   { name: "Busibwabo", county: "Busia" },
   { name: "Bwiri", county: "Busia" },
   { name: "Elugulu", county: "Busia" },
