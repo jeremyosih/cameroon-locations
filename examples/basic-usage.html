@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kenya Locations - Basic Usage Examples</title>
+    <title>Cameroon Locations - Basic Usage Examples</title>
     <style>
       body {
         font-family:
@@ -54,42 +54,6 @@
         overflow-x: auto;
         margin: 15px 0;
       }
-      code {
-        font-family: Consolas, Monaco, "Andale Mono", monospace;
-        font-size: 14px;
-      }
-      .location-type {
-        display: inline-block;
-        padding: 3px 6px;
-        border-radius: 3px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-right: 5px;
-      }
-      .county {
-        background-color: #2ecc71;
-        color: white;
-      }
-      .constituency {
-        background-color: #3498db;
-        color: white;
-      }
-      .ward {
-        background-color: #9b59b6;
-        color: white;
-      }
-      .sub-county {
-        background-color: #f39c12;
-        color: white;
-      }
-      .locality {
-        background-color: #e74c3c;
-        color: white;
-      }
-      .area {
-        background-color: #1abc9c;
-        color: white;
-      }
       input {
         padding: 10px;
         border: 1px solid #ddd;
@@ -99,299 +63,70 @@
         box-sizing: border-box;
         margin-bottom: 10px;
       }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-      }
-      th {
-        background-color: #f2f2f2;
-      }
-      tr:nth-child(even) {
-        background-color: #f9f9f9;
-      }
-      .hierarchy-select {
-        width: 100%;
-        margin: 10px 0;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 16px;
-      }
     </style>
   </head>
   <body>
-    <h1>🇰🇪 Kenya Locations - Basic Usage Examples</h1>
+    <h1>🇨🇲 Cameroon Locations - Basic Usage Examples</h1>
 
     <div class="container">
-      <h2>1. List All Counties</h2>
-      <button id="listCountiesBtn">List All Counties</button>
-      <div id="countiesOutput"></div>
+      <h2>1. List All Regions</h2>
+      <button id="listRegionsBtn">List All Regions</button>
+      <div id="regionsOutput"></div>
     </div>
 
     <div class="container">
-      <h2>2. Find County by Name or Code</h2>
+      <h2>2. Find Region by Name or Code</h2>
       <input
         type="text"
-        id="countyInput"
-        placeholder="Enter county name or code (e.g., 'Nairobi' or '047')"
+        id="regionInput"
+        placeholder="Enter region name or code (e.g., 'Centre' or 'CE')"
       />
-      <button id="findCountyBtn">Find County</button>
-      <div id="countyOutput"></div>
+      <button id="findRegionBtn">Find Region</button>
+      <div id="regionOutput"></div>
     </div>
 
     <div class="container">
-      <h2>3. Get Constituencies in County</h2>
+      <h2>3. Get Divisions in Region</h2>
       <input
         type="text"
-        id="countyForConstituenciesInput"
-        placeholder="Enter county name or code"
+        id="regionForDivisionsInput"
+        placeholder="Enter region name or code"
       />
-      <button id="getConstituenciesBtn">Get Constituencies</button>
-      <div id="constituenciesOutput"></div>
+      <button id="getDivisionsBtn">Get Divisions</button>
+      <div id="divisionsOutput"></div>
     </div>
 
     <div class="container">
-      <h2>4. Get Wards in Constituency</h2>
+      <h2>4. Get Subdivisions in Division</h2>
       <input
         type="text"
-        id="constituencyCodeInput"
-        placeholder="Enter constituency code"
+        id="divisionInput"
+        placeholder="Enter division name (e.g., 'Mfoundi')"
       />
-      <button id="getWardsBtn">Get Wards</button>
-      <div id="wardsOutput"></div>
+      <button id="getSubdivisionsBtn">Get Subdivisions</button>
+      <div id="subdivisionsOutput"></div>
     </div>
 
     <div class="container">
-      <h2>5. Enhanced Search All Locations</h2>
+      <h2>5. Search All Locations</h2>
       <input
         type="text"
         id="searchInput"
-        placeholder="Enter search term (e.g., 'Momb', 'Nairobi')"
+        placeholder="Enter search term (e.g., 'Yaoundé', 'Douala')"
       />
-      <div style="margin: 10px 0">
-        <label style="margin-right: 15px">
-          <input type="checkbox" id="searchCounty" checked /> Counties
-        </label>
-        <label style="margin-right: 15px">
-          <input type="checkbox" id="searchConstituency" checked />
-          Constituencies
-        </label>
-        <label style="margin-right: 15px">
-          <input type="checkbox" id="searchWard" checked /> Wards
-        </label>
-        <label style="margin-right: 15px">
-          <input type="checkbox" id="searchSubCounty" checked /> Sub-Counties
-        </label>
-        <label style="margin-right: 15px">
-          <input type="checkbox" id="searchLocality" checked /> Localities
-        </label>
-        <label style="margin-right: 15px">
-          <input type="checkbox" id="searchArea" checked /> Areas
-        </label>
-      </div>
-      <div style="margin: 10px 0">
-        <label for="searchLimit">Results limit: </label>
-        <select id="searchLimit">
-          <option value="5">5</option>
-          <option value="10" selected>10</option>
-          <option value="20">20</option>
-          <option value="50">50</option>
-        </select>
-      </div>
       <button id="searchBtn">Search</button>
-      <button id="searchAllTypesBtn">Search All Types</button>
-      <button id="searchCountiesOnlyBtn">Counties Only</button>
       <div id="searchOutput"></div>
-    </div>
-
-    <div class="container">
-      <h2>6. Sub-Counties Examples</h2>
-      <div>
-        <h3>List All Sub-Counties</h3>
-        <button id="listSubCountiesBtn">List All Sub-Counties</button>
-        <div id="subCountiesOutput"></div>
-      </div>
-      <div style="margin-top: 20px">
-        <h3>Get Sub-Counties in County</h3>
-        <input
-          type="text"
-          id="countyForSubCountiesInput"
-          placeholder="Enter county name or code (e.g., 'Nairobi' or '047')"
-        />
-        <button id="getSubCountiesBtn">Get Sub-Counties</button>
-        <div id="countySubCountiesOutput"></div>
-      </div>
-      <div style="margin-top: 20px">
-        <h3>Find Sub-County by Code</h3>
-        <input
-          type="text"
-          id="subCountyCodeInput"
-          placeholder="Enter sub-county code"
-        />
-        <button id="findSubCountyBtn">Find Sub-County</button>
-        <div id="subCountyOutput"></div>
-      </div>
-      <div style="margin-top: 20px">
-        <h3>Get County of Sub-County</h3>
-        <input
-          type="text"
-          id="subCountyForCountyInput"
-          placeholder="Enter sub-county code"
-        />
-        <button id="getCountyOfSubCountyBtn">Get County</button>
-        <div id="countyOfSubCountyOutput"></div>
-      </div>
-      <div style="margin-top: 20px">
-        <h3>Get Wards in a Sub-County</h3>
-        <input
-          type="text"
-          id="subCountyForWardsInput"
-          placeholder="Enter sub-county code"
-        />
-        <button id="getWardsInSubCountyBtn">Get Wards</button>
-        <div id="wardsInSubCountyOutput"></div>
-      </div>
-    </div>
-
-    <div class="container">
-      <h2>7. County → Constituency → Ward Hierarchy Example</h2>
-      <select id="hierarchyCountySelect" class="hierarchy-select">
-        <option value="">Select a County</option>
-      </select>
-      <select
-        id="hierarchyConstituencySelect"
-        disabled
-        class="hierarchy-select"
-      >
-        <option value="">Select a Constituency</option>
-      </select>
-      <select id="hierarchyWardSelect" disabled class="hierarchy-select">
-        <option value="">Select a Ward</option>
-      </select>
-      <div id="hierarchyOutput"></div>
-    </div>
-
-    <div class="container">
-      <h2>8. County → Locality → Area Hierarchy Example</h2>
-
-      <div style="margin-bottom: 20px">
-        <h3>Hierarchical Navigation</h3>
-        <select id="hierarchyCountySelectNew" class="hierarchy-select">
-          <option value="">Select a County</option>
-        </select>
-        <select id="hierarchyLocalitySelect" class="hierarchy-select" disabled>
-          <option value="">Select a Locality</option>
-        </select>
-        <select id="hierarchyAreaSelect" class="hierarchy-select" disabled>
-          <option value="">Select an Area</option>
-        </select>
-        <div id="hierarchyNewOutput"></div>
-      </div>
-
-      <div style="margin-bottom: 20px">
-        <h3>Quick Functions</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
-          <div>
-            <h4>Find Locality</h4>
-            <input
-              type="text"
-              id="localityNameInput"
-              placeholder="Enter locality name (e.g., 'Westlands')"
-            />
-            <button id="findLocalityBtn">Find Locality</button>
-            <div id="localityFindOutput"></div>
-          </div>
-          <div>
-            <h4>Find Area</h4>
-            <input
-              type="text"
-              id="areaNameInput"
-              placeholder="Enter area name (e.g., 'Gigiri')"
-            />
-            <button id="findAreaBtn">Find Area</button>
-            <div id="areaFindOutput"></div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-bottom: 20px">
-        <h3>Get All Data</h3>
-        <button id="getAllLocalitiesBtn">Get All Localities</button>
-        <button id="getAllAreasBtn">Get All Areas</button>
-        <div id="allDataOutput"></div>
-      </div>
-
-      <div style="margin-bottom: 20px">
-        <h3>Relationship Queries</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
-          <div>
-            <h4>Areas in Locality</h4>
-            <input
-              type="text"
-              id="localityForAreasInput"
-              placeholder="Enter locality name"
-            />
-            <button id="getAreasInLocalityBtn">Get Areas</button>
-            <div id="areasInLocalityOutput"></div>
-          </div>
-          <div>
-            <h4>Localities in County</h4>
-            <input
-              type="text"
-              id="countyForLocalitiesInput"
-              placeholder="Enter county name"
-            />
-            <button id="getLocalitiesInCountyBtn">Get Localities</button>
-            <div id="localitiesInCountyOutput"></div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <script type="module">
       import {
-        getCounties,
-        county,
-        getConstituencyByCode,
-        getWardsInConstituency,
+        getRegions,
+        region,
+        getDivisionsInRegion,
+        getSubdivisionsInDivision,
         search,
         searchByType,
-        getSubCounties,
-        getSubCountiesInCounty,
-        getCountyOfSubCounty,
-        getWardsInSubCounty,
-        getLocalities,
-        getAreas,
-        getLocalityByName,
-        getAreaByName,
-        getLocalitiesInCounty,
-        getAreasInLocality,
-        getAreasInCounty,
-        getCountyOfLocality,
-        getCountyOfArea,
-        getLocalityOfArea,
-        locality,
-      } from "../dist/index.es.js";
-
-      // Note: The search function now uses an options object:
-      // search(query, { limit?, types? })
-      // - limit: number of results (default: 10)
-      // - types: array of types to search (default: all types)
-      //
-      // Examples:
-      // search("Nairobi") // Search all types
-      // search("Nairobi", { limit: 5 }) // Limit to 5 results
-      // search("Nairobi", { types: ["county", "constituency"] }) // Search specific types
-      // search("Nairobi", { limit: 3, types: ["county"] }) // Combine options
-      //
-      // Alternative: Use searchByType for single type searches:
-      // searchByType("Nairobi", "county", 5)
+      } from "../dist/index.js";
 
       // Utility to format JSON output
       function formatOutput(data) {
@@ -404,209 +139,79 @@
         element.innerHTML = `<pre><code>${formatOutput(data)}</code></pre>`;
       }
 
-      // Example 1: List All Counties
+      // Example 1: List All Regions
       document
-        .getElementById("listCountiesBtn")
+        .getElementById("listRegionsBtn")
         .addEventListener("click", () => {
-          const counties = getCounties();
-          displayOutput("countiesOutput", counties);
+          const regions = getRegions();
+          displayOutput("regionsOutput", regions);
         });
 
-      // Example 2: Find County by Name or Code
-      document.getElementById("findCountyBtn").addEventListener("click", () => {
-        const countyNameOrCode = document
-          .getElementById("countyInput")
+      // Example 2: Find Region by Name or Code
+      document.getElementById("findRegionBtn").addEventListener("click", () => {
+        const regionNameOrCode = document
+          .getElementById("regionInput")
           .value.trim();
-        if (!countyNameOrCode) {
-          displayOutput("countyOutput", {
-            error: "Please enter a county name or code",
+        if (!regionNameOrCode) {
+          displayOutput("regionOutput", {
+            error: "Please enter a region name or code",
           });
           return;
         }
 
-        try {
-          const countyInstance = county(countyNameOrCode);
-          displayOutput(
-            "countyOutput",
-            countyInstance?.data || { error: "County not found" }
-          );
-        } catch (error) {
-          displayOutput("countyOutput", { error: error.message });
+        const regionWrapper = region(regionNameOrCode);
+        if (regionWrapper) {
+          displayOutput("regionOutput", regionWrapper.data);
+        } else {
+          displayOutput("regionOutput", { error: "Region not found" });
         }
       });
 
-      // Example 3: Get Constituencies in County
+      // Example 3: Get Divisions in Region
       document
-        .getElementById("getConstituenciesBtn")
+        .getElementById("getDivisionsBtn")
         .addEventListener("click", () => {
-          const countyNameOrCode = document
-            .getElementById("countyForConstituenciesInput")
+          const regionNameOrCode = document
+            .getElementById("regionForDivisionsInput")
             .value.trim();
-          if (!countyNameOrCode) {
-            displayOutput("constituenciesOutput", {
-              error: "Please enter a county name or code",
+          if (!regionNameOrCode) {
+            displayOutput("divisionsOutput", {
+              error: "Please enter a region name or code",
             });
             return;
           }
 
           try {
-            const countyInstance = county(countyNameOrCode);
-            if (countyInstance) {
-              const constituencies = countyInstance
-                .constituencies()
-                .map((c) => c.data);
-              displayOutput("constituenciesOutput", constituencies);
-            } else {
-              displayOutput("constituenciesOutput", {
-                error: "County not found",
-              });
-            }
+            const divisions = getDivisionsInRegion(regionNameOrCode);
+            displayOutput("divisionsOutput", divisions);
           } catch (error) {
-            displayOutput("constituenciesOutput", { error: error.message });
+            displayOutput("divisionsOutput", { error: error.message });
           }
         });
 
-      // Example 4: Get Wards in Constituency
-      document.getElementById("getWardsBtn").addEventListener("click", () => {
-        const constituencyCode = document
-          .getElementById("constituencyCodeInput")
-          .value.trim();
-        if (!constituencyCode) {
-          displayOutput("wardsOutput", {
-            error: "Please enter a constituency code",
-          });
-          return;
-        }
-
-        try {
-          const wards = getWardsInConstituency(constituencyCode);
-          displayOutput("wardsOutput", wards);
-        } catch (error) {
-          displayOutput("wardsOutput", { error: error.message });
-        }
-      });
-
-      // Sub-Counties Examples
+      // Example 4: Get Subdivisions in Division
       document
-        .getElementById("listSubCountiesBtn")
+        .getElementById("getSubdivisionsBtn")
         .addEventListener("click", () => {
-          const subCounties = getSubCounties();
-          displayOutput("subCountiesOutput", subCounties);
-        });
-
-      document
-        .getElementById("getSubCountiesBtn")
-        .addEventListener("click", () => {
-          const countyNameOrCode = document
-            .getElementById("countyForSubCountiesInput")
+          const divisionName = document
+            .getElementById("divisionInput")
             .value.trim();
-          if (!countyNameOrCode) {
-            displayOutput("countySubCountiesOutput", {
-              error: "Please enter a county name or code",
+          if (!divisionName) {
+            displayOutput("subdivisionsOutput", {
+              error: "Please enter a division name",
             });
             return;
           }
 
           try {
-            const subCounties = getSubCountiesInCounty(countyNameOrCode);
-            if (subCounties.length > 0) {
-              displayOutput("countySubCountiesOutput", subCounties);
-            } else {
-              displayOutput("countySubCountiesOutput", {
-                error: "No sub-counties found for this county",
-              });
-            }
+            const subdivisions = getSubdivisionsInDivision(divisionName);
+            displayOutput("subdivisionsOutput", subdivisions);
           } catch (error) {
-            displayOutput("countySubCountiesOutput", { error: error.message });
+            displayOutput("subdivisionsOutput", { error: error.message });
           }
         });
 
-      document
-        .getElementById("findSubCountyBtn")
-        .addEventListener("click", () => {
-          const subCountyCode = document
-            .getElementById("subCountyCodeInput")
-            .value.trim();
-          if (!subCountyCode) {
-            displayOutput("subCountyOutput", {
-              error: "Please enter a sub-county code",
-            });
-            return;
-          }
-
-          try {
-            // Find sub-county by searching through all sub-counties
-            const subCounties = getSubCounties();
-            const subCounty = subCounties.find(
-              (sc) => sc.code === subCountyCode
-            );
-            if (subCounty) {
-              displayOutput("subCountyOutput", subCounty);
-            } else {
-              displayOutput("subCountyOutput", {
-                error: "Sub-county not found",
-              });
-            }
-          } catch (error) {
-            displayOutput("subCountyOutput", { error: error.message });
-          }
-        });
-
-      document
-        .getElementById("getCountyOfSubCountyBtn")
-        .addEventListener("click", () => {
-          const subCountyCode = document
-            .getElementById("subCountyForCountyInput")
-            .value.trim();
-          if (!subCountyCode) {
-            displayOutput("countyOfSubCountyOutput", {
-              error: "Please enter a sub-county code",
-            });
-            return;
-          }
-
-          try {
-            const county = getCountyOfSubCounty(subCountyCode);
-            if (county) {
-              displayOutput("countyOfSubCountyOutput", county);
-            } else {
-              displayOutput("countyOfSubCountyOutput", {
-                error: "County not found for this sub-county",
-              });
-            }
-          } catch (error) {
-            displayOutput("countyOfSubCountyOutput", { error: error.message });
-          }
-        });
-
-      document
-        .getElementById("getWardsInSubCountyBtn")
-        .addEventListener("click", () => {
-          const subCountyCode = document
-            .getElementById("subCountyForWardsInput")
-            .value.trim();
-          if (!subCountyCode) {
-            displayOutput("wardsInSubCountyOutput", {
-              error: "Please enter a sub-county code",
-            });
-            return;
-          }
-
-          try {
-            const wards = getWardsInSubCounty(subCountyCode);
-            if (wards.length > 0) {
-              displayOutput("wardsInSubCountyOutput", wards);
-            } else {
-              displayOutput("wardsInSubCountyOutput", {
-                error: "No wards found for this sub-county",
-              });
-            }
-          } catch (error) {
-            displayOutput("wardsInSubCountyOutput", { error: error.message });
-          }
-        });
-
-      // Example 5: Enhanced Search All Locations
+      // Example 5: Search All Locations
       document.getElementById("searchBtn").addEventListener("click", () => {
         const searchTerm = document.getElementById("searchInput").value.trim();
         if (!searchTerm) {
@@ -616,437 +221,13 @@
           return;
         }
 
-        // Get selected types
-        const selectedTypes = [];
-        if (document.getElementById("searchCounty").checked)
-          selectedTypes.push("county");
-        if (document.getElementById("searchConstituency").checked)
-          selectedTypes.push("constituency");
-        if (document.getElementById("searchWard").checked)
-          selectedTypes.push("ward");
-        if (document.getElementById("searchSubCounty").checked)
-          selectedTypes.push("sub-county");
-        if (document.getElementById("searchLocality").checked)
-          selectedTypes.push("locality");
-        if (document.getElementById("searchArea").checked)
-          selectedTypes.push("area");
-
-        if (selectedTypes.length === 0) {
-          displayOutput("searchOutput", {
-            error: "Please select at least one type to search",
-          });
-          return;
-        }
-
-        // Get limit
-        const limit = parseInt(document.getElementById("searchLimit").value);
-
-        // Perform search with new options API
-        const results = search(searchTerm, {
-          limit: limit,
-          types: selectedTypes,
-        });
-
-        if (results.length === 0) {
-          document.getElementById("searchOutput").innerHTML =
-            "<p>No results found</p>";
-          return;
-        }
-
-        let output =
-          "<table><tr><th>Type</th><th>Name</th><th>Code/Location</th></tr>";
-        results.forEach((result) => {
-          let codeOrLocation = result.item.code;
-          if (result.type === "locality") {
-            codeOrLocation = result.item.county;
-          } else if (result.type === "area") {
-            codeOrLocation = `${result.item.locality}, ${result.item.county}`;
-          }
-          output += `<tr>
-            <td><span class="location-type ${result.type}">${result.type}</span></td>
-            <td>${result.item.name}</td>
-            <td>${codeOrLocation}</td>
-          </tr>`;
-        });
-        output += "</table>";
-
-        document.getElementById("searchOutput").innerHTML = output;
-      });
-
-      // Search All Types button
-      document
-        .getElementById("searchAllTypesBtn")
-        .addEventListener("click", () => {
-          const searchTerm = document
-            .getElementById("searchInput")
-            .value.trim();
-          if (!searchTerm) {
-            displayOutput("searchOutput", {
-              error: "Please enter a search term",
-            });
-            return;
-          }
-
-          const limit = parseInt(document.getElementById("searchLimit").value);
-
-          // Search all types (no types filter)
-          const results = search(searchTerm, { limit: limit });
-
-          if (results.length === 0) {
-            document.getElementById("searchOutput").innerHTML =
-              "<p>No results found</p>";
-            return;
-          }
-
-          let output =
-            "<table><tr><th>Type</th><th>Name</th><th>Code/Location</th></tr>";
-          results.forEach((result) => {
-            let codeOrLocation = result.item.code;
-            if (result.type === "locality") {
-              codeOrLocation = result.item.county;
-            } else if (result.type === "area") {
-              codeOrLocation = `${result.item.locality}, ${result.item.county}`;
-            }
-            output += `<tr>
-            <td><span class="location-type ${result.type}">${result.type}</span></td>
-            <td>${result.item.name}</td>
-            <td>${codeOrLocation}</td>
-          </tr>`;
-          });
-          output += "</table>";
-
-          document.getElementById("searchOutput").innerHTML = output;
-        });
-
-      // Counties Only button
-      document
-        .getElementById("searchCountiesOnlyBtn")
-        .addEventListener("click", () => {
-          const searchTerm = document
-            .getElementById("searchInput")
-            .value.trim();
-          if (!searchTerm) {
-            displayOutput("searchOutput", {
-              error: "Please enter a search term",
-            });
-            return;
-          }
-
-          const limit = parseInt(document.getElementById("searchLimit").value);
-
-          // Search counties only
-          const results = search(searchTerm, {
-            limit: limit,
-            types: ["county"],
-          });
-
-          if (results.length === 0) {
-            document.getElementById("searchOutput").innerHTML =
-              "<p>No counties found</p>";
-            return;
-          }
-
-          let output =
-            "<table><tr><th>Type</th><th>Name</th><th>Code</th></tr>";
-          results.forEach((result) => {
-            output += `<tr>
-            <td><span class="location-type ${result.type}">${result.type}</span></td>
-            <td>${result.item.name}</td>
-            <td>${result.item.code}</td>
-          </tr>`;
-          });
-          output += "</table>";
-
-          document.getElementById("searchOutput").innerHTML = output;
-        });
-
-      // Example 6: County and Constituency Hierarchy
-      const hierarchyCountySelect = document.getElementById(
-        "hierarchyCountySelect"
-      );
-      const hierarchyConstituencySelect = document.getElementById(
-        "hierarchyConstituencySelect"
-      );
-      const hierarchyWardSelect = document.getElementById(
-        "hierarchyWardSelect"
-      );
-      const hierarchyOutput = document.getElementById("hierarchyOutput");
-
-      // Load counties
-      getCounties().forEach((county) => {
-        const option = document.createElement("option");
-        option.value = county.code;
-        option.textContent = county.name;
-        hierarchyCountySelect.appendChild(option);
-      });
-
-      // County change handler
-      hierarchyCountySelect.addEventListener("change", () => {
-        hierarchyConstituencySelect.innerHTML =
-          '<option value="">Select a Constituency</option>';
-        hierarchyWardSelect.innerHTML =
-          '<option value="">Select a Ward</option>';
-        hierarchyWardSelect.disabled = true;
-
-        const countyCode = hierarchyCountySelect.value;
-        if (!countyCode) {
-          hierarchyConstituencySelect.disabled = true;
-          hierarchyOutput.innerHTML = "";
-          return;
-        }
-
-        const countyInstance = county(countyCode);
-        if (countyInstance) {
-          const constituencies = countyInstance.constituencies();
-          constituencies.forEach((constituency) => {
-            const option = document.createElement("option");
-            option.value = constituency.code;
-            option.textContent = constituency.name;
-            hierarchyConstituencySelect.appendChild(option);
-          });
-          hierarchyConstituencySelect.disabled = false;
-          hierarchyOutput.innerHTML = `<pre><code>${formatOutput(countyInstance.data)}</code></pre>`;
-        }
-      });
-
-      // Constituency change handler
-      hierarchyConstituencySelect.addEventListener("change", () => {
-        hierarchyWardSelect.innerHTML =
-          '<option value="">Select a Ward</option>';
-
-        const constituencyCode = hierarchyConstituencySelect.value;
-        if (!constituencyCode) {
-          hierarchyWardSelect.disabled = true;
-          return;
-        }
-
-        const constituency = getConstituencyByCode(constituencyCode);
-        if (constituency) {
-          const wards = constituency.wards();
-          wards.forEach((ward) => {
-            const option = document.createElement("option");
-            option.value = ward.code;
-            option.textContent = ward.name;
-            hierarchyWardSelect.appendChild(option);
-          });
-          hierarchyWardSelect.disabled = false;
-          hierarchyOutput.innerHTML = `<pre><code>${formatOutput(constituency.data)}</code></pre>`;
-        }
-      });
-
-      // Ward change handler
-      hierarchyWardSelect.addEventListener("change", () => {
-        const wardCode = hierarchyWardSelect.value;
-        if (!wardCode) {
-          return;
-        }
-
-        // Find ward by searching through all wards in the constituency
-        const constituency = getConstituencyByCode(
-          hierarchyConstituencySelect.value
-        );
-        if (constituency) {
-          const ward = constituency.wards().find((w) => w.code === wardCode);
-          if (ward) {
-            hierarchyOutput.innerHTML = `<pre><code>${formatOutput(ward)}</code></pre>`;
-          }
-        }
-      });
-
-      // Example 8: County → Locality → Area Hierarchy
-      const hierarchyCountySelectNew = document.getElementById(
-        "hierarchyCountySelectNew"
-      );
-      const hierarchyLocalitySelect = document.getElementById(
-        "hierarchyLocalitySelect"
-      );
-      const hierarchyAreaSelect = document.getElementById(
-        "hierarchyAreaSelect"
-      );
-      const hierarchyNewOutput = document.getElementById("hierarchyNewOutput");
-
-      // Load counties
-      getCounties().forEach((county) => {
-        const option = document.createElement("option");
-        option.value = county.code;
-        option.textContent = county.name;
-        hierarchyCountySelectNew.appendChild(option);
-      });
-
-      // Locality change handler
-      hierarchyCountySelectNew.addEventListener("change", () => {
-        hierarchyLocalitySelect.innerHTML =
-          '<option value="">Select a Locality</option>';
-        hierarchyLocalitySelect.disabled = true;
-        hierarchyAreaSelect.innerHTML =
-          '<option value="">Select an Area</option>';
-        hierarchyAreaSelect.disabled = true;
-
-        const countyCode = hierarchyCountySelectNew.value;
-        if (!countyCode) {
-          hierarchyLocalitySelect.disabled = true;
-          hierarchyAreaSelect.disabled = true;
-          hierarchyNewOutput.innerHTML = "";
-          return;
-        }
-
-        const countyInstance = county(countyCode);
-        if (countyInstance) {
-          const localities = countyInstance.localities();
-          localities.forEach((locality) => {
-            const option = document.createElement("option");
-            option.value = locality.name;
-            option.textContent = locality.name;
-            hierarchyLocalitySelect.appendChild(option);
-          });
-          hierarchyLocalitySelect.disabled = false;
-          hierarchyNewOutput.innerHTML = `<pre><code>${formatOutput(countyInstance.data)}</code></pre>`;
-        }
-      });
-
-      // Locality change handler
-      hierarchyLocalitySelect.addEventListener("change", () => {
-        hierarchyAreaSelect.innerHTML =
-          '<option value="">Select an Area</option>';
-        hierarchyAreaSelect.disabled = true;
-
-        const localityName = hierarchyLocalitySelect.value;
-        if (!localityName) {
-          hierarchyAreaSelect.disabled = true;
-          return;
-        }
-
         try {
-          const localityInstance = getLocalityByName(localityName);
-          if (localityInstance) {
-            const areas = localityInstance.areas();
-            areas.forEach((area) => {
-              const option = document.createElement("option");
-              option.value = area.name;
-              option.textContent = area.name;
-              hierarchyAreaSelect.appendChild(option);
-            });
-            hierarchyAreaSelect.disabled = false;
-            hierarchyNewOutput.innerHTML = `<pre><code>${formatOutput(localityInstance.data)}</code></pre>`;
-          }
+          const results = search(searchTerm, { limit: 10 });
+          displayOutput("searchOutput", results);
         } catch (error) {
-          hierarchyNewOutput.innerHTML = `<pre><code>${formatOutput({ error: error.message })}</code></pre>`;
+          displayOutput("searchOutput", { error: error.message });
         }
       });
-
-      // Area change handler
-      hierarchyAreaSelect.addEventListener("change", () => {
-        const areaName = hierarchyAreaSelect.value;
-        if (!areaName) {
-          return;
-        }
-
-        try {
-          const area = getAreaByName(areaName);
-          if (area) {
-            hierarchyNewOutput.innerHTML = `<pre><code>${formatOutput(area)}</code></pre>`;
-          }
-        } catch (error) {
-          hierarchyNewOutput.innerHTML = `<pre><code>${formatOutput({ error: error.message })}</code></pre>`;
-        }
-      });
-
-      // Quick Functions
-      document
-        .getElementById("findLocalityBtn")
-        .addEventListener("click", () => {
-          const localityName = document
-            .getElementById("localityNameInput")
-            .value.trim();
-          if (!localityName) {
-            displayOutput("localityFindOutput", {
-              error: "Please enter a locality name",
-            });
-            return;
-          }
-
-          try {
-            const localityInstance = getLocalityByName(localityName);
-            displayOutput("localityFindOutput", localityInstance);
-          } catch (error) {
-            displayOutput("localityFindOutput", { error: error.message });
-          }
-        });
-
-      document.getElementById("findAreaBtn").addEventListener("click", () => {
-        const areaName = document.getElementById("areaNameInput").value.trim();
-        if (!areaName) {
-          displayOutput("areaFindOutput", {
-            error: "Please enter an area name",
-          });
-          return;
-        }
-
-        try {
-          const areaInstance = getAreaByName(areaName);
-          displayOutput("areaFindOutput", areaInstance);
-        } catch (error) {
-          displayOutput("areaFindOutput", { error: error.message });
-        }
-      });
-
-      // Get All Data
-      document
-        .getElementById("getAllLocalitiesBtn")
-        .addEventListener("click", () => {
-          const localities = getLocalities();
-          displayOutput("allDataOutput", localities);
-        });
-
-      document
-        .getElementById("getAllAreasBtn")
-        .addEventListener("click", () => {
-          const areas = getAreas();
-          displayOutput("allDataOutput", areas);
-        });
-
-      // Relationship Queries
-      document
-        .getElementById("getAreasInLocalityBtn")
-        .addEventListener("click", () => {
-          const localityName = document
-            .getElementById("localityForAreasInput")
-            .value.trim();
-          if (!localityName) {
-            displayOutput("areasInLocalityOutput", {
-              error: "Please enter a locality name",
-            });
-            return;
-          }
-
-          try {
-            const areas = getAreasInLocality(localityName);
-            displayOutput("areasInLocalityOutput", areas);
-          } catch (error) {
-            displayOutput("areasInLocalityOutput", { error: error.message });
-          }
-        });
-
-      document
-        .getElementById("getLocalitiesInCountyBtn")
-        .addEventListener("click", () => {
-          const countyName = document
-            .getElementById("countyForLocalitiesInput")
-            .value.trim();
-          if (!countyName) {
-            displayOutput("localitiesInCountyOutput", {
-              error: "Please enter a county name",
-            });
-            return;
-          }
-
-          try {
-            const localities = getLocalitiesInCounty(countyName);
-            displayOutput("localitiesInCountyOutput", localities);
-          } catch (error) {
-            displayOutput("localitiesInCountyOutput", { error: error.message });
-          }
-        });
     </script>
   </body>
 </html>

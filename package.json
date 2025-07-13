@@ -1,7 +1,7 @@
 {
-  "name": "kenya-locations",
-  "version": "0.1.8",
-  "description": "A comprehensive and intuitive TypeScript package for working with Kenyan administrative divisions (counties, sub-counties, constituencies, and wards)",
+  "name": "cameroon-locations",
+  "version": "0.1.0",
+  "description": "A comprehensive and intuitive TypeScript package for working with Cameroonian administrative divisions (regions, divisions, subdivisions, and districts)",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -12,12 +12,12 @@
     "dist"
   ],
   "keywords": [
-    "kenya",
-    "counties",
-    "constituencies",
-    "wards",
-    "administrative",
+    "cameroon",
+    "regions",
     "divisions",
+    "subdivisions",
+    "districts",
+    "administrative",
     "locations",
     "geospatial"
   ],

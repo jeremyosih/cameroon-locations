@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Data Validation Script for Kenya Locations
+ * Data Validation Script for Cameroon Locations
  *
  * This script validates the data integrity across all data files
  * Run with: node scripts/validate-data.js
@@ -34,14 +34,12 @@ async function loadData() {
     const module = await import(modulePath);
 
     // Extract data using the exported functions
-    const counties = module.getCounties();
-    const constituencies = module.getConstituencies();
-    const wards = module.getWards();
-    const subCounties = module.getSubCounties();
-    const localities = module.getLocalities();
-    const areas = module.getAreas();
+    const regions = module.getRegions();
+    const divisions = module.getDivisions();
+    const subdivisions = module.getSubdivisions();
+    const districts = module.getDistricts();
 
-    return { counties, constituencies, wards, subCounties, localities, areas };
+    return { regions, divisions, subdivisions, districts };
   } catch (error) {
     log(
       '❌ Error loading data. Make sure to run "npm run build" first.',
@@ -84,15 +82,15 @@ function validateReferences(data, type, refField, refData, refType) {
   data.forEach((item, index) => {
     const refValue = item[refField];
     if (!refNames.has(refValue)) {
-      invalidRefs.push({ refValue, index, item: item.name || item.code });
+      invalidRefs.push({ item: item.name, refValue, index });
     }
   });
 
   if (invalidRefs.length > 0) {
     log(`❌ Invalid ${refField} references found in ${type}:`, "red");
-    invalidRefs.forEach(({ refValue, index, item }) => {
+    invalidRefs.forEach(({ item, refValue, index }) => {
       log(
-        `   - "${refValue}" in ${item} (index ${index}) - not found in ${refType}`,
+        `   - ${item} references "${refValue}" (${refType} not found)`,
         "red"
       );
     });
@@ -103,219 +101,128 @@ function validateReferences(data, type, refField, refData, refType) {
   }
 }
 
-function validateConstituencyReferences(constituencies, counties) {
-  const invalidRefs = [];
-  const countyNames = new Set(counties.map((c) => c.name));
+function validateRequiredFields(data, type, requiredFields) {
+  const missingFields = [];
 
-  constituencies.forEach((constituency, index) => {
-    const countyRef = constituency.county;
-    if (!countyRef || typeof countyRef !== "string") {
-      invalidRefs.push({
-        constituency: constituency.name,
-        index,
-        issue: "Invalid county reference - should be a string",
-      });
-    } else {
-      // Check if the referenced county exists
-      if (!countyNames.has(countyRef)) {
-        invalidRefs.push({
-          constituency: constituency.name,
-          index,
-          issue: `County "${countyRef}" not found`,
+  data.forEach((item, index) => {
+    requiredFields.forEach((field) => {
+      if (
+        !item[field] ||
+        (typeof item[field] === "string" && item[field].trim() === "")
+      ) {
+        missingFields.push({
+          item: item.name || `item at index ${index}`,
+          field,
         });
       }
-    }
+    });
   });
 
-  if (invalidRefs.length > 0) {
-    log("❌ Invalid county references found in constituencies:", "red");
-    invalidRefs.forEach(({ constituency, index, issue }) => {
-      log(`   - ${constituency} (index ${index}): ${issue}`, "red");
+  if (missingFields.length > 0) {
+    log(`❌ Missing required fields in ${type}:`, "red");
+    missingFields.forEach(({ item, field }) => {
+      log(`   - ${item} missing ${field}`, "red");
     });
     return false;
   } else {
-    log("✅ All constituency county references are valid", "green");
+    log(`✅ All ${type} have required fields`, "green");
     return true;
   }
 }
 
-function validateLocalityAreaReferences(areas, localities) {
-  const localityNames = new Set(localities.map((l) => l.name));
-  const invalidRefs = [];
-
-  areas.forEach((area, index) => {
-    if (!localityNames.has(area.locality)) {
-      invalidRefs.push({
-        area: area.name,
-        locality: area.locality,
-        index,
-      });
-    }
-  });
-
-  if (invalidRefs.length > 0) {
-    log("❌ Invalid locality references found in areas:", "red");
-    invalidRefs.forEach(({ area, locality, index }) => {
-      log(
-        `   - Area "${area}" references locality "${locality}" (index ${index}) - not found`,
-        "red"
-      );
-    });
-    return false;
-  } else {
-    log("✅ All area locality references are valid", "green");
-    return true;
-  }
-}
-
-function validateLocalityUniqueness(localities) {
-  const countyGroups = {};
-  const duplicates = [];
-
-  localities.forEach((locality, index) => {
-    const key = `${locality.county}:${locality.name}`;
-    if (countyGroups[key]) {
-      duplicates.push({
-        name: locality.name,
-        county: locality.county,
-        indices: [countyGroups[key].index, index],
-      });
-    } else {
-      countyGroups[key] = { index, locality };
-    }
-  });
-
-  if (duplicates.length > 0) {
-    log("❌ Duplicate locality names found within the same county:", "red");
-    duplicates.forEach(({ name, county, indices }) => {
-      log(
-        `   - "${name}" in ${county} (indices: ${indices.join(", ")})`,
-        "red"
-      );
-    });
-    return false;
-  } else {
-    log("✅ All locality names are unique within their counties", "green");
-    return true;
-  }
-}
-
-function validateAreaUniqueness(areas) {
-  const localityGroups = {};
-  const duplicates = [];
-
-  areas.forEach((area, index) => {
-    const key = `${area.locality}:${area.name}`;
-    if (localityGroups[key]) {
-      duplicates.push({
-        name: area.name,
-        locality: area.locality,
-        indices: [localityGroups[key].index, index],
-      });
-    } else {
-      localityGroups[key] = { index, area };
-    }
-  });
-
-  if (duplicates.length > 0) {
-    log("❌ Duplicate area names found within the same locality:", "red");
-    duplicates.forEach(({ name, locality, indices }) => {
-      log(
-        `   - "${name}" in ${locality} (indices: ${indices.join(", ")})`,
-        "red"
-      );
-    });
-    return false;
-  } else {
-    log("✅ All area names are unique within their localities", "green");
-    return true;
-  }
-}
-
-async function validateDataIntegrity() {
-  log("🔍 Starting data validation...", "blue");
+async function main() {
+  log("🔍 Starting Cameroon Locations Data Validation...", "blue");
   log("", "reset");
 
   const data = await loadData();
+  const { regions, divisions, subdivisions, districts } = data;
+
   let allValid = true;
 
+  // Validate data counts
+  log("📊 Data Summary:", "blue");
+  log(`   - Regions: ${regions.length}`, "reset");
+  log(`   - Divisions: ${divisions.length}`, "reset");
+  log(`   - Subdivisions: ${subdivisions.length}`, "reset");
+  log(`   - Districts: ${districts.length}`, "reset");
+  log("", "reset");
+
   // Validate unique IDs
-  log("📋 Checking for duplicate IDs...", "yellow");
-  allValid &= validateUniqueIds(data.counties, "counties", "code");
-  allValid &= validateUniqueIds(data.constituencies, "constituencies", "code");
-  allValid &= validateUniqueIds(data.wards, "wards", "code");
-  allValid &= validateUniqueIds(data.subCounties, "sub-counties", "code");
+  log("🔑 Validating Unique IDs...", "blue");
+  allValid &= validateUniqueIds(regions, "regions", "code");
+  allValid &= validateUniqueIds(regions, "regions", "nameFr");
+  allValid &= validateUniqueIds(regions, "regions", "nameEn");
+  allValid &= validateUniqueIds(divisions, "divisions", "code");
+  allValid &= validateUniqueIds(divisions, "divisions", "nameFr");
+  allValid &= validateUniqueIds(subdivisions, "subdivisions", "code");
+  allValid &= validateUniqueIds(subdivisions, "subdivisions", "nameFr");
+  allValid &= validateUniqueIds(districts, "districts", "code");
+  allValid &= validateUniqueIds(districts, "districts", "nameFr");
   log("", "reset");
 
-  // Validate locality uniqueness within counties
-  log("📋 Checking locality uniqueness within counties...", "yellow");
-  allValid &= validateLocalityUniqueness(data.localities);
-  log("", "reset");
-
-  // Validate area uniqueness within localities
-  log("📋 Checking area uniqueness within localities...", "yellow");
-  allValid &= validateAreaUniqueness(data.areas);
+  // Validate required fields
+  log("📝 Validating Required Fields...", "blue");
+  allValid &= validateRequiredFields(regions, "regions", [
+    "code",
+    "nameFr",
+    "nameEn",
+  ]);
+  allValid &= validateRequiredFields(divisions, "divisions", [
+    "code",
+    "nameFr",
+    "nameEn",
+    "region",
+  ]);
+  allValid &= validateRequiredFields(subdivisions, "subdivisions", [
+    "code",
+    "nameFr",
+    "nameEn",
+    "division",
+  ]);
+  allValid &= validateRequiredFields(districts, "districts", [
+    "code",
+    "nameFr",
+    "nameEn",
+    "subdivision",
+  ]);
   log("", "reset");
 
   // Validate references
-  log("🔗 Checking reference integrity...", "yellow");
+  log("🔗 Validating References...", "blue");
   allValid &= validateReferences(
-    data.subCounties,
-    "sub-counties",
-    "county",
-    data.counties,
-    "counties"
-  );
-  allValid &= validateReferences(
-    data.localities,
-    "localities",
-    "county",
-    data.counties,
-    "counties"
+    divisions,
+    "divisions",
+    "region",
+    regions,
+    "region"
   );
   allValid &= validateReferences(
-    data.areas,
-    "areas",
-    "county",
-    data.counties,
-    "counties"
-  );
-  allValid &= validateConstituencyReferences(
-    data.constituencies,
-    data.counties
+    subdivisions,
+    "subdivisions",
+    "division",
+    divisions,
+    "division"
   );
   allValid &= validateReferences(
-    data.wards,
-    "wards",
-    "constituency",
-    data.constituencies,
-    "constituencies"
+    districts,
+    "districts",
+    "subdivision",
+    subdivisions,
+    "subdivision"
   );
-  allValid &= validateLocalityAreaReferences(data.areas, data.localities);
   log("", "reset");
 
-  // Summary
+  // Final result
   if (allValid) {
-    log(
-      "🎉 All validations passed! Your data is ready for submission.",
-      "green"
-    );
-    log("", "reset");
-    log("📊 Data Summary:", "blue");
-    log(`   - Counties: ${data.counties.length}`, "reset");
-    log(`   - Sub-Counties: ${data.subCounties.length}`, "reset");
-    log(`   - Constituencies: ${data.constituencies.length}`, "reset");
-    log(`   - Wards: ${data.wards.length}`, "reset");
-    log(`   - Localities: ${data.localities.length}`, "reset");
-    log(`   - Areas: ${data.areas.length}`, "reset");
+    log("🎉 All validations passed! Data integrity is maintained.", "green");
+    process.exit(0);
   } else {
-    log(
-      "❌ Validation failed! Please fix the issues above before submitting.",
-      "red"
-    );
+    log("❌ Some validations failed. Please fix the issues above.", "red");
     process.exit(1);
   }
 }
 
-// Run validation
-validateDataIntegrity();
+main().catch((error) => {
+  log(`❌ Validation script failed: ${error.message}`, "red");
+  process.exit(1);
+});

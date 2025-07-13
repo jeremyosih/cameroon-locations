@@ -1,77 +1,114 @@
 /**
- * Interface for County data
+ * Interface for Region data
  */
-export interface County {
-  code: string;
-  name: string;
+export interface Region {
+  // Names (bilingual)
+  nameFr: string; // French name (primary for Cameroon)
+  nameEn: string; // English name
+
+  // Codes (multiple systems)
+  code: string; // Numeric code (01, 02, etc.)
+  hasc?: string; // HASC code (CM.AD, CM.CE, etc.) - optional
+  pcode?: string; // P-code (CMR001, CMR002, etc.) - optional
+
+  // Computed property for backward compatibility
+  readonly name: string; // Returns nameFr
 }
 
 /**
- * Interface for SubCounty data
+ * Interface for Division data
  */
-export interface SubCounty {
-  code: string;
-  name: string;
-  county: string;
+export interface Division {
+  // Names (bilingual)
+  nameFr: string; // French name (primary)
+  nameEn: string; // English name
+
+  // Codes (multiple systems)
+  code: string; // Alphanumeric code (AD01, CE07, etc.)
+  hasc?: string; // HASC code (CM.AD.DJ, CM.CE.MF, etc.) - optional
+  pcode?: string; // P-code (CMR001001, CMR002007, etc.) - optional
+
+  // Parent relationships
+  region: string; // Parent region (French name)
+  regionCode: string; // Parent region code
+
+  // Computed property for backward compatibility
+  readonly name: string; // Returns nameFr
 }
 
 /**
- * Interface for Constituency data
+ * Interface for Subdivision data
  */
-export interface Constituency {
-  code: string;
-  name: string;
-  county: string;
+export interface Subdivision {
+  // Names (bilingual)
+  nameFr: string; // French name (primary)
+  nameEn: string; // English name
+
+  // Codes (multiple systems)
+  code: string; // Alphanumeric code (CE0701, etc.)
+  hasc?: string; // HASC code - optional
+  pcode?: string; // P-code - optional
+
+  // Parent relationships
+  division: string; // Parent division (French name)
+  divisionCode: string; // Parent division code
+
+  // Computed property for backward compatibility
+  readonly name: string; // Returns nameFr
 }
 
 /**
- * Interface for Ward data
+ * Interface for District data
  */
-export interface Ward {
-  code: string;
-  name: string;
-  constituency: string;
-}
+export interface District {
+  // Names (bilingual)
+  nameFr: string; // French name (primary)
+  nameEn: string; // English name
 
-/**
- * Interface for Locality data
- */
-export interface Locality {
-  name: string;
-  county: string;
-}
+  // Codes (multiple systems)
+  code: string; // Alphanumeric code
+  hasc?: string; // HASC code - optional
+  pcode?: string; // P-code - optional
 
-/**
- * Interface for Area data
- */
-export interface Area {
-  name: string;
-  locality: string;
-  county: string;
+  // Parent relationships
+  subdivision: string; // Parent subdivision (French name)
+  subdivisionCode: string; // Parent subdivision code
+
+  // Computed property for backward compatibility
+  readonly name: string; // Returns nameFr
 }
 
 /**
  * Search result interface
  */
 export interface SearchResult {
-  type: "county" | "constituency" | "ward" | "sub-county" | "locality" | "area";
-  item: County | Constituency | Ward | SubCounty | Locality | Area;
+  type: "region" | "division" | "subdivision" | "district";
+  item: Region | Division | Subdivision | District;
 }
 
 /**
  * Available search types
  */
-export type SearchType =
-  | "county"
-  | "constituency"
-  | "ward"
-  | "sub-county"
-  | "locality"
-  | "area";
+export type SearchType = "region" | "division" | "subdivision" | "district";
+
+/**
+ * Language options for bilingual support
+ */
+export type Language = "fr" | "en";
+
+/**
+ * Search options with language support
+ */
+export interface SearchOptions {
+  limit?: number;
+  types?: SearchType[];
+  language?: Language | "both";
+}
 
 /**
  * Data version options
  */
-export interface KenyaDivisionsOptions {
+export interface CameroonDivisionsOptions {
   dataVersion?: string;
+  defaultLanguage?: Language;
 }

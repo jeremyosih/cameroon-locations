@@ -1,27 +1,19 @@
 import Fuse from "fuse.js";
 import type { SearchResult } from "../types";
-import { counties, constituencies, wards } from "../data";
-import { subCounties } from "../data/sub-counties";
-import { areas } from "../data/area";
-import { localities } from "../data/locality";
+import { regions, divisions, subdivisions, districts } from "../data";
 
 /**
  * Available search types
  */
-export type SearchType =
-  | "county"
-  | "constituency"
-  | "ward"
-  | "sub-county"
-  | "locality"
-  | "area";
+export type SearchType = "region" | "division" | "subdivision" | "district";
 
 /**
- * Configuration for Fuse.js fuzzy search - optimized for name-only search
- * Threshold of 0.2 provides better precision when searching localities and areas while still allowing for typos
+ * Configuration for Fuse.js fuzzy search - optimized for bilingual search
+ * Threshold of 0.2 provides better precision when searching while still allowing for typos
+ * Searches both French (nameFr) and English (nameEn) names
  */
 const searchOptions = {
-  keys: ["name"],
+  keys: ["nameFr", "nameEn"],
   threshold: 0.2,
   includeScore: true,
   ignoreLocation: true, // Performance optimization
@@ -32,24 +24,19 @@ const searchOptions = {
 /**
  * Lazy-initialized Fuse instances for better performance
  */
-let countyFuse: Fuse<any> | null = null;
-let constituencyFuse: Fuse<any> | null = null;
-let wardFuse: Fuse<any> | null = null;
-let subCountyFuse: Fuse<any> | null = null;
-let localityFuse: Fuse<any> | null = null;
-let areaFuse: Fuse<any> | null = null;
+let regionFuse: Fuse<any> | null = null;
+let divisionFuse: Fuse<any> | null = null;
+let subdivisionFuse: Fuse<any> | null = null;
+let districtFuse: Fuse<any> | null = null;
 
 /**
  * Initialize Fuse instances only when needed
  */
 function initializeFuseInstances() {
-  if (!countyFuse) countyFuse = new Fuse(counties, searchOptions);
-  if (!constituencyFuse)
-    constituencyFuse = new Fuse(constituencies, searchOptions);
-  if (!wardFuse) wardFuse = new Fuse(wards, searchOptions);
-  if (!subCountyFuse) subCountyFuse = new Fuse(subCounties, searchOptions);
-  if (!localityFuse) localityFuse = new Fuse(localities, searchOptions);
-  if (!areaFuse) areaFuse = new Fuse(areas, searchOptions);
+  if (!regionFuse) regionFuse = new Fuse(regions, searchOptions);
+  if (!divisionFuse) divisionFuse = new Fuse(divisions, searchOptions);
+  if (!subdivisionFuse) subdivisionFuse = new Fuse(subdivisions, searchOptions);
+  if (!districtFuse) districtFuse = new Fuse(districts, searchOptions);
 }
 
 /**
@@ -83,34 +70,24 @@ export function search(
   // Define search functions with type guards
   const searchFunctions = [
     {
-      type: "county" as const,
-      fuse: countyFuse!,
-      enabled: !types || types.includes("county"),
+      type: "region" as const,
+      fuse: regionFuse!,
+      enabled: !types || types.includes("region"),
     },
     {
-      type: "constituency" as const,
-      fuse: constituencyFuse!,
-      enabled: !types || types.includes("constituency"),
+      type: "division" as const,
+      fuse: divisionFuse!,
+      enabled: !types || types.includes("division"),
     },
     {
-      type: "ward" as const,
-      fuse: wardFuse!,
-      enabled: !types || types.includes("ward"),
+      type: "subdivision" as const,
+      fuse: subdivisionFuse!,
+      enabled: !types || types.includes("subdivision"),
     },
     {
-      type: "sub-county" as const,
-      fuse: subCountyFuse!,
-      enabled: !types || types.includes("sub-county"),
-    },
-    {
-      type: "locality" as const,
-      fuse: localityFuse!,
-      enabled: !types || types.includes("locality"),
-    },
-    {
-      type: "area" as const,
-      fuse: areaFuse!,
-      enabled: !types || types.includes("area"),
+      type: "district" as const,
+      fuse: districtFuse!,
+      enabled: !types || types.includes("district"),
     },
   ];
 
@@ -130,12 +107,10 @@ export function search(
 
   // Sort by score first (lower is better), then by type hierarchy
   const typeOrder = {
-    county: 1,
-    constituency: 2,
-    ward: 3,
-    "sub-county": 4,
-    locality: 5,
-    area: 6,
+    region: 1,
+    division: 2,
+    subdivision: 3,
+    district: 4,
   };
 
   return (
