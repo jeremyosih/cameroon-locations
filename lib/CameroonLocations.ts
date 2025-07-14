@@ -2,7 +2,10 @@ import type {
   Region,
   Division,
   Subdivision,
-  District,
+  Canton,
+  NeighborhoodOrVillage,
+  Block,
+  CantonType,
   SearchResult,
   Language,
   SearchOptions,
@@ -10,7 +13,9 @@ import type {
 import { regions as regionsData } from "./data/regions";
 import { divisions as divisionsData } from "./data/divisions";
 import { subdivisions as subdivisionsData } from "./data/subdivisions";
-import { districts as districtsData } from "./data/districts";
+import { cantons as cantonsData } from "./data/cantons";
+import { neighborhoodsOrVillages as neighborhoodsOrVillagesData } from "./data/neighborhoodsOrVillages";
+import { blocks as blocksData } from "./data/blocks";
 import {
   search as searchFunction,
   searchByType as searchByTypeFunction,
@@ -39,7 +44,10 @@ function addComputedName<T extends { nameFr: string }>(
 const regions: Region[] = regionsData.map(addComputedName);
 const divisions: Division[] = divisionsData.map(addComputedName);
 const subdivisions: Subdivision[] = subdivisionsData.map(addComputedName);
-const districts: District[] = districtsData.map(addComputedName);
+const cantons: Canton[] = cantonsData.map(addComputedName);
+const neighborhoodsOrVillages: NeighborhoodOrVillage[] =
+  neighborhoodsOrVillagesData.map(addComputedName);
+const blocks: Block[] = blocksData.map(addComputedName);
 
 // --- Custom Error Classes ---
 class NotFoundError extends Error {
@@ -79,25 +87,44 @@ const subdivisionPcodeMap: Map<string, Subdivision> = new Map();
 const subdivisionNameFrMap: Map<string, Subdivision> = new Map();
 const subdivisionNameEnMap: Map<string, Subdivision> = new Map();
 
-// District lookup maps
-const districtCodeMap: Map<string, District> = new Map();
-const districtHascMap: Map<string, District> = new Map();
-const districtPcodeMap: Map<string, District> = new Map();
-const districtNameFrMap: Map<string, District> = new Map();
-const districtNameEnMap: Map<string, District> = new Map();
+// Canton lookup maps
+const cantonCodeMap: Map<string, Canton> = new Map();
+const cantonNameFrMap: Map<string, Canton> = new Map();
+const cantonNameEnMap: Map<string, Canton> = new Map();
+const cantonTypeMap: Map<CantonType, Canton[]> = new Map();
+
+// NeighborhoodOrVillage lookup maps
+const neighborhoodOrVillageCodeMap: Map<string, NeighborhoodOrVillage> =
+  new Map();
+const neighborhoodOrVillageNameFrMap: Map<string, NeighborhoodOrVillage> =
+  new Map();
+const neighborhoodOrVillageNameEnMap: Map<string, NeighborhoodOrVillage> =
+  new Map();
+
+// Block lookup maps
+const blockCodeMap: Map<string, Block> = new Map();
+const blockNameFrMap: Map<string, Block> = new Map();
+const blockNameEnMap: Map<string, Block> = new Map();
 
 // --- Relationship Maps ---
 const regionToDivisionsMap: Map<string, Division[]> = new Map();
 const divisionToSubdivisionsMap: Map<string, Subdivision[]> = new Map();
-const subdivisionToDistrictsMap: Map<string, District[]> = new Map();
+const subdivisionToCantonsMap: Map<string, Canton[]> = new Map();
+const cantonToNeighborhoodOrVillagesMap: Map<string, NeighborhoodOrVillage[]> =
+  new Map();
+const neighborhoodOrVillageToBlocksMap: Map<string, Block[]> = new Map();
+
+// Cross-level relationship maps
 const regionToSubdivisionsMap: Map<string, Subdivision[]> = new Map();
-const regionToDistrictsMap: Map<string, District[]> = new Map();
-const divisionToDistrictsMap: Map<string, District[]> = new Map();
+const regionToCantonsMap: Map<string, Canton[]> = new Map();
+const divisionToCantonsMap: Map<string, Canton[]> = new Map();
+
+// Parent lookup maps
 const subdivisionToDivisionMap: Map<string, string> = new Map();
 const divisionToRegionMap: Map<string, string> = new Map();
-const districtToSubdivisionMap: Map<string, string> = new Map();
-const districtToDivisionMap: Map<string, string> = new Map();
-const districtToRegionMap: Map<string, string> = new Map();
+const cantonToSubdivisionMap: Map<string, string> = new Map();
+const neighborhoodOrVillageToCantonMap: Map<string, string> = new Map();
+const blockToNeighborhoodOrVillageMap: Map<string, string> = new Map();
 
 // Initialize all lookup maps
 regions.forEach((region) => {
@@ -165,52 +192,120 @@ subdivisions.forEach((subdivision) => {
   }
 });
 
-districts.forEach((district) => {
+cantons.forEach((canton) => {
   // Code-based lookups
-  districtCodeMap.set(district.code, district);
-  if (district.hasc) districtHascMap.set(district.hasc, district);
-  if (district.pcode) districtPcodeMap.set(district.pcode, district);
+  cantonCodeMap.set(canton.code, canton);
 
   // Language-based lookups
-  districtNameFrMap.set(district.nameFr.toLowerCase(), district);
-  districtNameEnMap.set(district.nameEn.toLowerCase(), district);
+  cantonNameFrMap.set(canton.nameFr.toLowerCase(), canton);
+  cantonNameEnMap.set(canton.nameEn.toLowerCase(), canton);
+
+  // Type-based lookups
+  const typeCantons = cantonTypeMap.get(canton.type) || [];
+  typeCantons.push(canton);
+  cantonTypeMap.set(canton.type, typeCantons);
 
   // Relationship mapping
   const subdivisionCode = subdivisions.find(
-    (s) => s.nameFr === district.subdivision
+    (s) => s.nameFr === canton.subdivision
   )?.code;
   if (subdivisionCode) {
-    districtToSubdivisionMap.set(district.code, subdivisionCode);
-    districtToSubdivisionMap.set(district.nameFr, subdivisionCode);
+    cantonToSubdivisionMap.set(canton.code, subdivisionCode);
+    cantonToSubdivisionMap.set(canton.nameFr, subdivisionCode);
 
-    const subdivisionDists =
-      subdivisionToDistrictsMap.get(subdivisionCode) || [];
-    subdivisionDists.push(district);
-    subdivisionToDistrictsMap.set(subdivisionCode, subdivisionDists);
+    const subdivisionCantons =
+      subdivisionToCantonsMap.get(subdivisionCode) || [];
+    subdivisionCantons.push(canton);
+    subdivisionToCantonsMap.set(subdivisionCode, subdivisionCantons);
 
     const divisionCode = subdivisionToDivisionMap.get(subdivisionCode);
     if (divisionCode) {
-      districtToDivisionMap.set(district.code, divisionCode);
-      districtToDivisionMap.set(district.nameFr, divisionCode);
-
-      const divisionDists = divisionToDistrictsMap.get(divisionCode) || [];
-      divisionDists.push(district);
-      divisionToDistrictsMap.set(divisionCode, divisionDists);
+      const divisionCantons = divisionToCantonsMap.get(divisionCode) || [];
+      divisionCantons.push(canton);
+      divisionToCantonsMap.set(divisionCode, divisionCantons);
 
       const regionCode = divisionToRegionMap.get(divisionCode);
       if (regionCode) {
-        districtToRegionMap.set(district.code, regionCode);
-        districtToRegionMap.set(district.nameFr, regionCode);
-
-        const regionDists = regionToDistrictsMap.get(regionCode) || [];
-        regionDists.push(district);
-        regionToDistrictsMap.set(regionCode, regionDists);
+        const regionCantons = regionToCantonsMap.get(regionCode) || [];
+        regionCantons.push(canton);
+        regionToCantonsMap.set(regionCode, regionCantons);
       }
     }
   }
 });
 
+neighborhoodsOrVillages.forEach((neighborhoodOrVillage) => {
+  // Code-based lookups
+  neighborhoodOrVillageCodeMap.set(
+    neighborhoodOrVillage.code,
+    neighborhoodOrVillage
+  );
+
+  // Language-based lookups
+  neighborhoodOrVillageNameFrMap.set(
+    neighborhoodOrVillage.nameFr.toLowerCase(),
+    neighborhoodOrVillage
+  );
+  neighborhoodOrVillageNameEnMap.set(
+    neighborhoodOrVillage.nameEn.toLowerCase(),
+    neighborhoodOrVillage
+  );
+
+  // Relationship mapping
+  const cantonCode = cantons.find(
+    (c) => c.nameFr === neighborhoodOrVillage.canton
+  )?.code;
+  if (cantonCode) {
+    neighborhoodOrVillageToCantonMap.set(
+      neighborhoodOrVillage.code,
+      cantonCode
+    );
+    neighborhoodOrVillageToCantonMap.set(
+      neighborhoodOrVillage.nameFr,
+      cantonCode
+    );
+
+    const cantonNeighborhoodOrVillages =
+      cantonToNeighborhoodOrVillagesMap.get(cantonCode) || [];
+    cantonNeighborhoodOrVillages.push(neighborhoodOrVillage);
+    cantonToNeighborhoodOrVillagesMap.set(
+      cantonCode,
+      cantonNeighborhoodOrVillages
+    );
+  }
+});
+
+blocks.forEach((block) => {
+  // Code-based lookups
+  blockCodeMap.set(block.code, block);
+
+  // Language-based lookups
+  blockNameFrMap.set(block.nameFr.toLowerCase(), block);
+  blockNameEnMap.set(block.nameEn.toLowerCase(), block);
+
+  // Relationship mapping
+  const neighborhoodOrVillageCode = neighborhoodsOrVillages.find(
+    (la) => la.nameFr === block.localArea
+  )?.code;
+  if (neighborhoodOrVillageCode) {
+    blockToNeighborhoodOrVillageMap.set(block.code, neighborhoodOrVillageCode);
+    blockToNeighborhoodOrVillageMap.set(
+      block.nameFr,
+      neighborhoodOrVillageCode
+    );
+
+    const neighborhoodOrVillageBlocks =
+      neighborhoodOrVillageToBlocksMap.get(neighborhoodOrVillageCode) || [];
+    neighborhoodOrVillageBlocks.push(block);
+    neighborhoodOrVillageToBlocksMap.set(
+      neighborhoodOrVillageCode,
+      neighborhoodOrVillageBlocks
+    );
+  }
+});
+
 // --- Enhanced Wrapper Classes with Bilingual Support ---
+
 class RegionWrapper {
   private readonly _data: Region;
 
@@ -329,12 +424,12 @@ class RegionWrapper {
   }
 
   /**
-   * Get all districts in this region
-   * @returns Array of DistrictWrapper
+   * Get all cantons in this region
+   * @returns Array of CantonWrapper
    */
-  districts(): DistrictWrapper[] {
-    const regionDists = regionToDistrictsMap.get(this._data.code) || [];
-    return regionDists.map((d) => new DistrictWrapper(d));
+  cantons(): CantonWrapper[] {
+    const regionCantons = regionToCantonsMap.get(this._data.code) || [];
+    return regionCantons.map((c) => new CantonWrapper(c));
   }
 }
 
@@ -466,12 +561,12 @@ class DivisionWrapper {
   }
 
   /**
-   * Get all districts in this division
-   * @returns Array of DistrictWrapper
+   * Get all cantons in this division
+   * @returns Array of CantonWrapper
    */
-  districts(): DistrictWrapper[] {
-    const divisionDists = divisionToDistrictsMap.get(this._data.code) || [];
-    return divisionDists.map((d) => new DistrictWrapper(d));
+  cantons(): CantonWrapper[] {
+    const divisionCantons = divisionToCantonsMap.get(this._data.code) || [];
+    return divisionCantons.map((c) => new CantonWrapper(c));
   }
 }
 
@@ -565,68 +660,64 @@ class SubdivisionWrapper {
   }
 
   /**
-   * Get all districts in this subdivision
-   * @returns Array of DistrictWrapper
+   * Get all cantons in this subdivision
+   * @returns Array of CantonWrapper
    */
-  districts(): DistrictWrapper[] {
-    const subdivisionDists =
-      subdivisionToDistrictsMap.get(this._data.code) || [];
-    return subdivisionDists.map((d) => new DistrictWrapper(d));
+  cantons(): CantonWrapper[] {
+    const subdivisionCantons =
+      subdivisionToCantonsMap.get(this._data.code) || [];
+    return subdivisionCantons.map((c) => new CantonWrapper(c));
   }
 
   /**
-   * Get a district by name or code
-   * @param nameOrCode Name (any language) or code (any type) of the district
+   * Get a canton by name or code
+   * @param nameOrCode Name (any language) or code of the canton
    * @throws NotFoundError if not found
    */
-  district(nameOrCode: string): DistrictWrapper {
+  canton(nameOrCode: string): CantonWrapper {
     // Try all lookup methods
-    const district =
-      districtCodeMap.get(nameOrCode) ||
-      districtHascMap.get(nameOrCode) ||
-      districtPcodeMap.get(nameOrCode) ||
-      districtNameFrMap.get(nameOrCode.toLowerCase()) ||
-      districtNameEnMap.get(nameOrCode.toLowerCase());
+    const canton =
+      cantonCodeMap.get(nameOrCode) ||
+      cantonNameFrMap.get(nameOrCode.toLowerCase()) ||
+      cantonNameEnMap.get(nameOrCode.toLowerCase());
 
-    if (district && district.subdivision === this._data.nameFr) {
-      return new DistrictWrapper(district);
+    if (canton && canton.subdivision === this._data.nameFr) {
+      return new CantonWrapper(canton);
     }
 
-    // If not found, look through the subdivision's districts (slower fallback)
-    const subdivisionDists =
-      subdivisionToDistrictsMap.get(this._data.code) || [];
-    const match = subdivisionDists.find(
-      (d) =>
-        d.nameFr.toLowerCase() === nameOrCode.toLowerCase() ||
-        d.nameEn.toLowerCase() === nameOrCode.toLowerCase() ||
-        d.code === nameOrCode ||
-        d.hasc === nameOrCode ||
-        d.pcode === nameOrCode
+    // If not found, look through the subdivision's cantons (slower fallback)
+    const subdivisionCantons =
+      subdivisionToCantonsMap.get(this._data.code) || [];
+    const match = subdivisionCantons.find(
+      (c) =>
+        c.nameFr.toLowerCase() === nameOrCode.toLowerCase() ||
+        c.nameEn.toLowerCase() === nameOrCode.toLowerCase() ||
+        c.code === nameOrCode
     );
 
     if (match) {
-      return new DistrictWrapper(match);
+      return new CantonWrapper(match);
     }
 
     throw new NotFoundError(
-      `District "${nameOrCode}" not found in subdivision "${this._data.nameFr}"`
+      `Canton "${nameOrCode}" not found in subdivision "${this._data.nameFr}"`
     );
   }
 }
 
-class DistrictWrapper {
-  private readonly _data: District;
+class CantonWrapper {
+  private readonly _data: Canton;
 
-  constructor(data: District) {
+  constructor(data: Canton) {
     this._data = data;
   }
 
-  /** Get the district code */
+  /** Get the canton code */
   get code(): string {
     return this._data.code;
   }
 
-  /** Get the district name (French, primary) */
+  /** Get the canton name (French, primary) */
   get name(): string {
     return this._data.nameFr;
   }
@@ -641,18 +732,13 @@ class DistrictWrapper {
     return this._data.nameEn;
   }
 
-  /** Get the HASC code (optional) */
-  get hasc(): string | undefined {
-    return this._data.hasc;
+  /** Get the canton type */
+  get type(): CantonType {
+    return this._data.type;
   }
 
-  /** Get the P-code (optional) */
-  get pcode(): string | undefined {
-    return this._data.pcode;
-  }
-
-  /** Get all data for the district */
-  get data(): District {
+  /** Get all data for the canton */
+  get data(): Canton {
     return { ...this._data };
   }
 
@@ -665,26 +751,24 @@ class DistrictWrapper {
   }
 
   /**
-   * Get all codes for this district
+   * Get all codes for this canton
    */
-  getAllCodes(): { code: string; hasc?: string; pcode?: string } {
+  getAllCodes(): { code: string } {
     return {
       code: this._data.code,
-      hasc: this._data.hasc,
-      pcode: this._data.pcode,
     };
   }
 
   /**
-   * Get the subdivision this district belongs to
+   * Get the subdivision this canton belongs to
    * @returns SubdivisionWrapper
    * @throws NotFoundError if not found
    */
   subdivision(): SubdivisionWrapper {
-    const subdivisionCode = districtToSubdivisionMap.get(this._data.code);
+    const subdivisionCode = cantonToSubdivisionMap.get(this._data.code);
     if (!subdivisionCode) {
       throw new NotFoundError(
-        `Subdivision for district "${this._data.nameFr}" not found`
+        `Subdivision for canton "${this._data.nameFr}" not found`
       );
     }
     const sub = subdivisionCodeMap.get(subdivisionCode);
@@ -697,7 +781,7 @@ class DistrictWrapper {
   }
 
   /**
-   * Get the division this district belongs to
+   * Get the division this canton belongs to
    * @returns DivisionWrapper
    * @throws NotFoundError if not found
    */
@@ -706,12 +790,338 @@ class DistrictWrapper {
   }
 
   /**
-   * Get the region this district belongs to
+   * Get the region this canton belongs to
    * @returns RegionWrapper
    * @throws NotFoundError if not found
    */
   region(): RegionWrapper {
     return this.subdivision().region();
+  }
+
+  /**
+   * Get all local areas in this canton
+   * @returns Array of NeighborhoodOrVillageWrapper
+   */
+  neighborhoodsOrVillages(): NeighborhoodOrVillageWrapper[] {
+    const cantonNeighborhoodOrVillages =
+      cantonToNeighborhoodOrVillagesMap.get(this._data.code) || [];
+    return cantonNeighborhoodOrVillages.map(
+      (la) => new NeighborhoodOrVillageWrapper(la)
+    );
+  }
+
+  /**
+   * Get a local area by name or code
+   * @param nameOrCode Name (any language) or code of the local area
+   * @throws NotFoundError if not found
+   */
+  neighborhoodOrVillage(nameOrCode: string): NeighborhoodOrVillageWrapper {
+    // Try all lookup methods
+    const neighborhoodOrVillage =
+      neighborhoodOrVillageCodeMap.get(nameOrCode) ||
+      neighborhoodOrVillageNameFrMap.get(nameOrCode.toLowerCase()) ||
+      neighborhoodOrVillageNameEnMap.get(nameOrCode.toLowerCase());
+
+    if (
+      neighborhoodOrVillage &&
+      neighborhoodOrVillage.canton === this._data.nameFr
+    ) {
+      return new NeighborhoodOrVillageWrapper(neighborhoodOrVillage);
+    }
+
+    // If not found, look through the canton's local areas (slower fallback)
+    const cantonNeighborhoodOrVillages =
+      cantonToNeighborhoodOrVillagesMap.get(this._data.code) || [];
+    const match = cantonNeighborhoodOrVillages.find(
+      (la) =>
+        la.nameFr.toLowerCase() === nameOrCode.toLowerCase() ||
+        la.nameEn.toLowerCase() === nameOrCode.toLowerCase() ||
+        la.code === nameOrCode
+    );
+
+    if (match) {
+      return new NeighborhoodOrVillageWrapper(match);
+    }
+
+    throw new NotFoundError(
+      `Local area "${nameOrCode}" not found in canton "${this._data.nameFr}"`
+    );
+  }
+
+  // Backward compatibility methods
+  localAreas(): NeighborhoodOrVillageWrapper[] {
+    return this.neighborhoodsOrVillages();
+  }
+
+  localArea(nameOrCode: string): NeighborhoodOrVillageWrapper {
+    return this.neighborhoodOrVillage(nameOrCode);
+  }
+}
+
+class NeighborhoodOrVillageWrapper {
+  private readonly _data: NeighborhoodOrVillage;
+
+  constructor(data: NeighborhoodOrVillage) {
+    this._data = data;
+  }
+
+  /** Get the local area code */
+  get code(): string {
+    return this._data.code;
+  }
+
+  /** Get the local area name (French, primary) */
+  get name(): string {
+    return this._data.nameFr;
+  }
+
+  /** Get the French name */
+  get nameFr(): string {
+    return this._data.nameFr;
+  }
+
+  /** Get the English name */
+  get nameEn(): string {
+    return this._data.nameEn;
+  }
+
+  /** Get the local area type */
+  get type(): string {
+    return this._data.type;
+  }
+
+  /** Get the population data (if available) */
+  get population():
+    | { total: number; male: number; female: number }
+    | undefined {
+    return this._data.population;
+  }
+
+  /** Get all data for the local area */
+  get data(): NeighborhoodOrVillage {
+    return { ...this._data };
+  }
+
+  /**
+   * Get name in specified language
+   * @param language Language preference ('fr' or 'en')
+   */
+  getName(language: Language = "fr"): string {
+    return language === "en" ? this._data.nameEn : this._data.nameFr;
+  }
+
+  /**
+   * Get all codes for this local area
+   */
+  getAllCodes(): { code: string } {
+    return {
+      code: this._data.code,
+    };
+  }
+
+  /**
+   * Get the canton this local area belongs to
+   * @returns CantonWrapper
+   * @throws NotFoundError if not found
+   */
+  canton(): CantonWrapper {
+    const cantonCode = neighborhoodOrVillageToCantonMap.get(this._data.code);
+    if (!cantonCode) {
+      throw new NotFoundError(
+        `Canton for local area "${this._data.nameFr}" not found`
+      );
+    }
+    const cant = cantonCodeMap.get(cantonCode);
+    if (!cant) {
+      throw new NotFoundError(`Canton with code "${cantonCode}" not found`);
+    }
+    return new CantonWrapper(cant);
+  }
+
+  /**
+   * Get the subdivision this local area belongs to
+   * @returns SubdivisionWrapper
+   * @throws NotFoundError if not found
+   */
+  subdivision(): SubdivisionWrapper {
+    return this.canton().subdivision();
+  }
+
+  /**
+   * Get the division this local area belongs to
+   * @returns DivisionWrapper
+   * @throws NotFoundError if not found
+   */
+  division(): DivisionWrapper {
+    return this.canton().division();
+  }
+
+  /**
+   * Get the region this local area belongs to
+   * @returns RegionWrapper
+   * @throws NotFoundError if not found
+   */
+  region(): RegionWrapper {
+    return this.canton().region();
+  }
+
+  /**
+   * Get all blocks in this local area
+   * @returns Array of BlockWrapper
+   */
+  blocks(): BlockWrapper[] {
+    const neighborhoodOrVillageBlocks =
+      neighborhoodOrVillageToBlocksMap.get(this._data.code) || [];
+    return neighborhoodOrVillageBlocks.map((b) => new BlockWrapper(b));
+  }
+
+  /**
+   * Get a block by name or code
+   * @param nameOrCode Name (any language) or code of the block
+   * @throws NotFoundError if not found
+   */
+  block(nameOrCode: string): BlockWrapper {
+    // Try all lookup methods
+    const block =
+      blockCodeMap.get(nameOrCode) ||
+      blockNameFrMap.get(nameOrCode.toLowerCase()) ||
+      blockNameEnMap.get(nameOrCode.toLowerCase());
+
+    if (block && block.localArea === this._data.nameFr) {
+      return new BlockWrapper(block);
+    }
+
+    // If not found, look through the local area's blocks (slower fallback)
+    const neighborhoodOrVillageBlocks =
+      neighborhoodOrVillageToBlocksMap.get(this._data.code) || [];
+    const match = neighborhoodOrVillageBlocks.find(
+      (b) =>
+        b.nameFr.toLowerCase() === nameOrCode.toLowerCase() ||
+        b.nameEn.toLowerCase() === nameOrCode.toLowerCase() ||
+        b.code === nameOrCode
+    );
+
+    if (match) {
+      return new BlockWrapper(match);
+    }
+
+    throw new NotFoundError(
+      `Block "${nameOrCode}" not found in local area "${this._data.nameFr}"`
+    );
+  }
+}
+
+class BlockWrapper {
+  private readonly _data: Block;
+
+  constructor(data: Block) {
+    this._data = data;
+  }
+
+  /** Get the block code */
+  get code(): string {
+    return this._data.code;
+  }
+
+  /** Get the block name (French, primary) */
+  get name(): string {
+    return this._data.nameFr;
+  }
+
+  /** Get the French name */
+  get nameFr(): string {
+    return this._data.nameFr;
+  }
+
+  /** Get the English name */
+  get nameEn(): string {
+    return this._data.nameEn;
+  }
+
+  /** Get all data for the block */
+  get data(): Block {
+    return { ...this._data };
+  }
+
+  /**
+   * Get name in specified language
+   * @param language Language preference ('fr' or 'en')
+   */
+  getName(language: Language = "fr"): string {
+    return language === "en" ? this._data.nameEn : this._data.nameFr;
+  }
+
+  /**
+   * Get all codes for this block
+   */
+  getAllCodes(): { code: string } {
+    return {
+      code: this._data.code,
+    };
+  }
+
+  /**
+   * Get the local area this block belongs to
+   * @returns NeighborhoodOrVillageWrapper
+   * @throws NotFoundError if not found
+   */
+  neighborhoodOrVillage(): NeighborhoodOrVillageWrapper {
+    const neighborhoodOrVillageCode = blockToNeighborhoodOrVillageMap.get(
+      this._data.code
+    );
+    if (!neighborhoodOrVillageCode) {
+      throw new NotFoundError(
+        `Local area for block "${this._data.nameFr}" not found`
+      );
+    }
+    const la = neighborhoodOrVillageCodeMap.get(neighborhoodOrVillageCode);
+    if (!la) {
+      throw new NotFoundError(
+        `Local area with code "${neighborhoodOrVillageCode}" not found`
+      );
+    }
+    return new NeighborhoodOrVillageWrapper(la);
+  }
+
+  /**
+   * Get the canton this block belongs to
+   * @returns CantonWrapper
+   * @throws NotFoundError if not found
+   */
+  canton(): CantonWrapper {
+    return this.neighborhoodOrVillage().canton();
+  }
+
+  /**
+   * Get the subdivision this block belongs to
+   * @returns SubdivisionWrapper
+   * @throws NotFoundError if not found
+   */
+  subdivision(): SubdivisionWrapper {
+    return this.neighborhoodOrVillage().subdivision();
+  }
+
+  /**
+   * Get the division this block belongs to
+   * @returns DivisionWrapper
+   * @throws NotFoundError if not found
+   */
+  division(): DivisionWrapper {
+    return this.neighborhoodOrVillage().division();
+  }
+
+  /**
+   * Get the region this block belongs to
+   * @returns RegionWrapper
+   * @throws NotFoundError if not found
+   */
+  region(): RegionWrapper {
+    return this.neighborhoodOrVillage().region();
+  }
+
+  // Backward compatibility method
+  localArea(): NeighborhoodOrVillageWrapper {
+    return this.neighborhoodOrVillage();
   }
 }
 
@@ -730,8 +1140,16 @@ export function getSubdivisions(): Subdivision[] {
   return [...subdivisions];
 }
 
-export function getDistricts(): District[] {
-  return [...districts];
+export function getCantons(): Canton[] {
+  return [...cantons];
+}
+
+export function getNeighborhoodOrVillages(): NeighborhoodOrVillage[] {
+  return [...neighborhoodsOrVillages];
+}
+
+export function getBlocks(): Block[] {
+  return [...blocks];
 }
 
 // Individual lookup functions (returning raw data) - support all code types
@@ -759,12 +1177,18 @@ export function getSubdivisionByCode(code: string): Subdivision | undefined {
   );
 }
 
-export function getDistrictByCode(code: string): District | undefined {
-  return (
-    districtCodeMap.get(code) ||
-    districtHascMap.get(code) ||
-    districtPcodeMap.get(code)
-  );
+export function getCantonByCode(code: string): Canton | undefined {
+  return cantonCodeMap.get(code);
+}
+
+export function getNeighborhoodOrVillageByCode(
+  code: string
+): NeighborhoodOrVillage | undefined {
+  return neighborhoodOrVillageCodeMap.get(code);
+}
+
+export function getBlockByCode(code: string): Block | undefined {
+  return blockCodeMap.get(code);
 }
 
 // Wrapper factory functions - support all code types and languages
@@ -800,14 +1224,30 @@ export function subdivision(
   return sub ? new SubdivisionWrapper(sub) : undefined;
 }
 
-export function district(nameOrCode: string): DistrictWrapper | undefined {
-  const dist =
-    districtCodeMap.get(nameOrCode) ||
-    districtHascMap.get(nameOrCode) ||
-    districtPcodeMap.get(nameOrCode) ||
-    districtNameFrMap.get(nameOrCode.toLowerCase()) ||
-    districtNameEnMap.get(nameOrCode.toLowerCase());
-  return dist ? new DistrictWrapper(dist) : undefined;
+export function canton(nameOrCode: string): CantonWrapper | undefined {
+  const cant =
+    cantonCodeMap.get(nameOrCode) ||
+    cantonNameFrMap.get(nameOrCode.toLowerCase()) ||
+    cantonNameEnMap.get(nameOrCode.toLowerCase());
+  return cant ? new CantonWrapper(cant) : undefined;
+}
+
+export function neighborhoodOrVillage(
+  nameOrCode: string
+): NeighborhoodOrVillageWrapper | undefined {
+  const la =
+    neighborhoodOrVillageCodeMap.get(nameOrCode) ||
+    neighborhoodOrVillageNameFrMap.get(nameOrCode.toLowerCase()) ||
+    neighborhoodOrVillageNameEnMap.get(nameOrCode.toLowerCase());
+  return la ? new NeighborhoodOrVillageWrapper(la) : undefined;
+}
+
+export function block(nameOrCode: string): BlockWrapper | undefined {
+  const bl =
+    blockCodeMap.get(nameOrCode) ||
+    blockNameFrMap.get(nameOrCode.toLowerCase()) ||
+    blockNameEnMap.get(nameOrCode.toLowerCase());
+  return bl ? new BlockWrapper(bl) : undefined;
 }
 
 // Hierarchical query functions - support all code types and languages
@@ -835,9 +1275,9 @@ export function getSubdivisionsInDivision(
   return divisionToSubdivisionsMap.get(div.code) || [];
 }
 
-export function getDistrictsInSubdivision(
+export function getCantonsInSubdivision(
   subdivisionNameOrCode: string
-): District[] {
+): Canton[] {
   const sub =
     subdivisionCodeMap.get(subdivisionNameOrCode) ||
     subdivisionHascMap.get(subdivisionNameOrCode) ||
@@ -845,9 +1285,62 @@ export function getDistrictsInSubdivision(
     subdivisionNameFrMap.get(subdivisionNameOrCode.toLowerCase()) ||
     subdivisionNameEnMap.get(subdivisionNameOrCode.toLowerCase());
   if (!sub) return [];
-  return subdivisionToDistrictsMap.get(sub.code) || [];
+  return subdivisionToCantonsMap.get(sub.code) || [];
 }
 
+export function getNeighborhoodOrVillagesInCanton(
+  cantonNameOrCode: string
+): NeighborhoodOrVillage[] {
+  const cant =
+    cantonCodeMap.get(cantonNameOrCode) ||
+    cantonNameFrMap.get(cantonNameOrCode.toLowerCase()) ||
+    cantonNameEnMap.get(cantonNameOrCode.toLowerCase());
+  if (!cant) return [];
+  return cantonToNeighborhoodOrVillagesMap.get(cant.code) || [];
+}
+
+export function getBlocksInNeighborhoodOrVillage(
+  neighborhoodOrVillageNameOrCode: string
+): Block[] {
+  const la =
+    neighborhoodOrVillageCodeMap.get(neighborhoodOrVillageNameOrCode) ||
+    neighborhoodOrVillageNameFrMap.get(
+      neighborhoodOrVillageNameOrCode.toLowerCase()
+    ) ||
+    neighborhoodOrVillageNameEnMap.get(
+      neighborhoodOrVillageNameOrCode.toLowerCase()
+    );
+  if (!la) return [];
+  return neighborhoodOrVillageToBlocksMap.get(la.code) || [];
+}
+
+// Canton type filtering functions
+export function getCantonsByType(type: CantonType): Canton[] {
+  return cantonTypeMap.get(type) || [];
+}
+
+export function getCityCantons(): Canton[] {
+  return getCantonsByType("city");
+}
+
+export function getRuralCantons(): Canton[] {
+  return getCantonsByType("rural");
+}
+
+export function getTraditionalCantons(): Canton[] {
+  return [
+    ...getCantonsByType("lamidat"),
+    ...getCantonsByType("sultanate"),
+    ...getCantonsByType("chiefdom"),
+  ];
+}
+
+// NeighborhoodOrVillage with population data
+export function getNeighborhoodOrVillagesWithPopulation(): NeighborhoodOrVillage[] {
+  return neighborhoodsOrVillages.filter((la) => la.population !== undefined);
+}
+
+// Cross-level relationship functions
 export function getSubdivisionsInRegion(
   regionNameOrCode: string
 ): Subdivision[] {
@@ -861,7 +1354,7 @@ export function getSubdivisionsInRegion(
   return regionToSubdivisionsMap.get(reg.code) || [];
 }
 
-export function getDistrictsInDivision(divisionNameOrCode: string): District[] {
+export function getCantonsInDivision(divisionNameOrCode: string): Canton[] {
   const div =
     divisionCodeMap.get(divisionNameOrCode) ||
     divisionHascMap.get(divisionNameOrCode) ||
@@ -869,10 +1362,10 @@ export function getDistrictsInDivision(divisionNameOrCode: string): District[] {
     divisionNameFrMap.get(divisionNameOrCode.toLowerCase()) ||
     divisionNameEnMap.get(divisionNameOrCode.toLowerCase());
   if (!div) return [];
-  return divisionToDistrictsMap.get(div.code) || [];
+  return divisionToCantonsMap.get(div.code) || [];
 }
 
-export function getDistrictsInRegion(regionNameOrCode: string): District[] {
+export function getCantonsInRegion(regionNameOrCode: string): Canton[] {
   const reg =
     regionCodeMap.get(regionNameOrCode) ||
     regionHascMap.get(regionNameOrCode) ||
@@ -880,7 +1373,7 @@ export function getDistrictsInRegion(regionNameOrCode: string): District[] {
     regionNameFrMap.get(regionNameOrCode.toLowerCase()) ||
     regionNameEnMap.get(regionNameOrCode.toLowerCase());
   if (!reg) return [];
-  return regionToDistrictsMap.get(reg.code) || [];
+  return regionToCantonsMap.get(reg.code) || [];
 }
 
 // Relationship query functions (returning raw data) - support all code types and languages
@@ -912,39 +1405,48 @@ export function getDivisionOfSubdivision(
   return divisionCode ? divisionCodeMap.get(divisionCode) : undefined;
 }
 
-export function getSubdivisionOfDistrict(
-  districtNameOrCode: string
+export function getSubdivisionOfCanton(
+  cantonNameOrCode: string
 ): Subdivision | undefined {
-  const dist =
-    districtCodeMap.get(districtNameOrCode) ||
-    districtHascMap.get(districtNameOrCode) ||
-    districtPcodeMap.get(districtNameOrCode) ||
-    districtNameFrMap.get(districtNameOrCode.toLowerCase()) ||
-    districtNameEnMap.get(districtNameOrCode.toLowerCase());
-  if (!dist) return undefined;
-  const subdivisionCode = districtToSubdivisionMap.get(dist.code);
+  const cant =
+    cantonCodeMap.get(cantonNameOrCode) ||
+    cantonNameFrMap.get(cantonNameOrCode.toLowerCase()) ||
+    cantonNameEnMap.get(cantonNameOrCode.toLowerCase());
+  if (!cant) return undefined;
+  const subdivisionCode = cantonToSubdivisionMap.get(cant.code);
   return subdivisionCode ? subdivisionCodeMap.get(subdivisionCode) : undefined;
 }
 
-export function getRegionOfSubdivision(
-  subdivisionNameOrCode: string
-): Region | undefined {
-  const division = getDivisionOfSubdivision(subdivisionNameOrCode);
-  return division ? getRegionOfDivision(division.code) : undefined;
+export function getCantonOfNeighborhoodOrVillage(
+  neighborhoodOrVillageNameOrCode: string
+): Canton | undefined {
+  const la =
+    neighborhoodOrVillageCodeMap.get(neighborhoodOrVillageNameOrCode) ||
+    neighborhoodOrVillageNameFrMap.get(
+      neighborhoodOrVillageNameOrCode.toLowerCase()
+    ) ||
+    neighborhoodOrVillageNameEnMap.get(
+      neighborhoodOrVillageNameOrCode.toLowerCase()
+    );
+  if (!la) return undefined;
+  const cantonCode = neighborhoodOrVillageToCantonMap.get(la.code);
+  return cantonCode ? cantonCodeMap.get(cantonCode) : undefined;
 }
 
-export function getDivisionOfDistrict(
-  districtNameOrCode: string
-): Division | undefined {
-  const subdivision = getSubdivisionOfDistrict(districtNameOrCode);
-  return subdivision ? getDivisionOfSubdivision(subdivision.code) : undefined;
-}
-
-export function getRegionOfDistrict(
-  districtNameOrCode: string
-): Region | undefined {
-  const subdivision = getSubdivisionOfDistrict(districtNameOrCode);
-  return subdivision ? getRegionOfSubdivision(subdivision.code) : undefined;
+export function getNeighborhoodOrVillageOfBlock(
+  blockNameOrCode: string
+): NeighborhoodOrVillage | undefined {
+  const bl =
+    blockCodeMap.get(blockNameOrCode) ||
+    blockNameFrMap.get(blockNameOrCode.toLowerCase()) ||
+    blockNameEnMap.get(blockNameOrCode.toLowerCase());
+  if (!bl) return undefined;
+  const neighborhoodOrVillageCode = blockToNeighborhoodOrVillageMap.get(
+    bl.code
+  );
+  return neighborhoodOrVillageCode
+    ? neighborhoodOrVillageCodeMap.get(neighborhoodOrVillageCode)
+    : undefined;
 }
 
 // Enhanced search functions with language support
@@ -957,11 +1459,73 @@ export function search(
 
 export function searchByType(
   query: string,
-  type: "region" | "division" | "subdivision" | "district",
+  type:
+    | "region"
+    | "division"
+    | "subdivision"
+    | "canton"
+    | "neighborhoodOrVillage"
+    | "localArea"
+    | "block",
   limit = 10
 ): SearchResult[] {
-  return searchByTypeFunction(query, type, limit);
+  // Map localArea to neighborhoodOrVillage for backward compatibility
+  const actualType = type === "localArea" ? "neighborhoodOrVillage" : type;
+  const results = searchByTypeFunction(query, actualType as any, limit);
+
+  // Map results back to the original type for backward compatibility
+  if (type === "localArea") {
+    return results.map((result) => ({
+      ...result,
+      type: "localArea" as const,
+    }));
+  }
+
+  return results;
 }
+
+// === Backward Compatibility Exports ===
+
+/**
+ * Backward compatibility alias for getNeighborhoodOrVillages
+ */
+export const getLocalAreas = getNeighborhoodOrVillages;
+
+/**
+ * Backward compatibility alias for getNeighborhoodOrVillageByCode
+ */
+export const getLocalAreaByCode = getNeighborhoodOrVillageByCode;
+
+/**
+ * Backward compatibility alias for neighborhoodOrVillage
+ */
+export const localArea = neighborhoodOrVillage;
+
+/**
+ * Backward compatibility alias for getNeighborhoodOrVillagesInCanton
+ */
+export const getLocalAreasInCanton = getNeighborhoodOrVillagesInCanton;
+
+/**
+ * Backward compatibility alias for getBlocksInNeighborhoodOrVillage
+ */
+export const getBlocksInLocalArea = getBlocksInNeighborhoodOrVillage;
+
+/**
+ * Backward compatibility alias for getNeighborhoodOrVillagesWithPopulation
+ */
+export const getLocalAreasWithPopulation =
+  getNeighborhoodOrVillagesWithPopulation;
+
+/**
+ * Backward compatibility alias for getCantonOfNeighborhoodOrVillage
+ */
+export const getCantonOfLocalArea = getCantonOfNeighborhoodOrVillage;
+
+/**
+ * Backward compatibility alias for getNeighborhoodOrVillageOfBlock
+ */
+export const getLocalAreaOfBlock = getNeighborhoodOrVillageOfBlock;
 
 /**
  * Main class for working with Cameroon administrative divisions
@@ -970,36 +1534,54 @@ export class CameroonLocations {
   static getRegions = getRegions;
   static getDivisions = getDivisions;
   static getSubdivisions = getSubdivisions;
-  static getDistricts = getDistricts;
+  static getCantons = getCantons;
+  static getNeighborhoodOrVillages = getNeighborhoodOrVillages;
+  static getLocalAreas = getLocalAreas;
+  static getBlocks = getBlocks;
   static getRegionByCode = getRegionByCode;
   static getDivisionByCode = getDivisionByCode;
   static getSubdivisionByCode = getSubdivisionByCode;
-  static getDistrictByCode = getDistrictByCode;
+  static getCantonByCode = getCantonByCode;
+  static getNeighborhoodOrVillageByCode = getNeighborhoodOrVillageByCode;
+  static getBlockByCode = getBlockByCode;
   static region = region;
   static division = division;
   static subdivision = subdivision;
-  static district = district;
+  static canton = canton;
+  static neighborhoodOrVillage = neighborhoodOrVillage;
+  static block = block;
   static getDivisionsInRegion = getDivisionsInRegion;
   static getSubdivisionsInDivision = getSubdivisionsInDivision;
-  static getDistrictsInSubdivision = getDistrictsInSubdivision;
+  static getCantonsInSubdivision = getCantonsInSubdivision;
+  static getNeighborhoodOrVillagesInCanton = getNeighborhoodOrVillagesInCanton;
+  static getBlocksInNeighborhoodOrVillage = getBlocksInNeighborhoodOrVillage;
+  static getCantonsByType = getCantonsByType;
+  static getCityCantons = getCityCantons;
+  static getRuralCantons = getRuralCantons;
+  static getTraditionalCantons = getTraditionalCantons;
+  static getNeighborhoodOrVillagesWithPopulation =
+    getNeighborhoodOrVillagesWithPopulation;
   static getSubdivisionsInRegion = getSubdivisionsInRegion;
-  static getDistrictsInDivision = getDistrictsInDivision;
-  static getDistrictsInRegion = getDistrictsInRegion;
+  static getCantonsInDivision = getCantonsInDivision;
+  static getCantonsInRegion = getCantonsInRegion;
   static getRegionOfDivision = getRegionOfDivision;
   static getDivisionOfSubdivision = getDivisionOfSubdivision;
-  static getSubdivisionOfDistrict = getSubdivisionOfDistrict;
-  static getRegionOfSubdivision = getRegionOfSubdivision;
-  static getDivisionOfDistrict = getDivisionOfDistrict;
-  static getRegionOfDistrict = getRegionOfDistrict;
+  static getSubdivisionOfCanton = getSubdivisionOfCanton;
+  static getCantonOfNeighborhoodOrVillage = getCantonOfNeighborhoodOrVillage;
+  static getNeighborhoodOrVillageOfBlock = getNeighborhoodOrVillageOfBlock;
   static search = search;
   static searchByType = searchByType;
 }
 
+// Export error classes
+export { NotFoundError };
+
+// Export wrapper classes
 export {
   RegionWrapper,
   DivisionWrapper,
   SubdivisionWrapper,
-  DistrictWrapper,
-  NotFoundError,
+  CantonWrapper,
+  NeighborhoodOrVillageWrapper,
+  BlockWrapper,
 };
-export default CameroonLocations;

@@ -1,11 +1,24 @@
 import Fuse from "fuse.js";
 import type { SearchResult } from "../types";
-import { regions, divisions, subdivisions, districts } from "../data";
+import {
+  regions,
+  divisions,
+  subdivisions,
+  cantons,
+  neighborhoodsOrVillages,
+  blocks,
+} from "../data";
 
 /**
  * Available search types
  */
-export type SearchType = "region" | "division" | "subdivision" | "district";
+export type SearchType =
+  | "region"
+  | "division"
+  | "subdivision"
+  | "canton"
+  | "neighborhoodOrVillage"
+  | "block";
 
 /**
  * Configuration for Fuse.js fuzzy search - optimized for bilingual search
@@ -27,7 +40,9 @@ const searchOptions = {
 let regionFuse: Fuse<any> | null = null;
 let divisionFuse: Fuse<any> | null = null;
 let subdivisionFuse: Fuse<any> | null = null;
-let districtFuse: Fuse<any> | null = null;
+let cantonFuse: Fuse<any> | null = null;
+let neighborhoodOrVillageFuse: Fuse<any> | null = null;
+let blockFuse: Fuse<any> | null = null;
 
 /**
  * Initialize Fuse instances only when needed
@@ -36,7 +51,13 @@ function initializeFuseInstances() {
   if (!regionFuse) regionFuse = new Fuse(regions, searchOptions);
   if (!divisionFuse) divisionFuse = new Fuse(divisions, searchOptions);
   if (!subdivisionFuse) subdivisionFuse = new Fuse(subdivisions, searchOptions);
-  if (!districtFuse) districtFuse = new Fuse(districts, searchOptions);
+  if (!cantonFuse) cantonFuse = new Fuse(cantons, searchOptions);
+  if (!neighborhoodOrVillageFuse)
+    neighborhoodOrVillageFuse = new Fuse(
+      neighborhoodsOrVillages,
+      searchOptions
+    );
+  if (!blockFuse) blockFuse = new Fuse(blocks, searchOptions);
 }
 
 /**
@@ -85,9 +106,19 @@ export function search(
       enabled: !types || types.includes("subdivision"),
     },
     {
-      type: "district" as const,
-      fuse: districtFuse!,
-      enabled: !types || types.includes("district"),
+      type: "canton" as const,
+      fuse: cantonFuse!,
+      enabled: !types || types.includes("canton"),
+    },
+    {
+      type: "neighborhoodOrVillage" as const,
+      fuse: neighborhoodOrVillageFuse!,
+      enabled: !types || types.includes("neighborhoodOrVillage"),
+    },
+    {
+      type: "block" as const,
+      fuse: blockFuse!,
+      enabled: !types || types.includes("block"),
     },
   ];
 
@@ -110,7 +141,9 @@ export function search(
     region: 1,
     division: 2,
     subdivision: 3,
-    district: 4,
+    canton: 4,
+    neighborhoodOrVillage: 5,
+    block: 6,
   };
 
   return (

@@ -73,17 +73,45 @@ export interface Subdivision extends SubdivisionData {
 }
 
 /**
- * Raw District data (as stored in data files)
+ * Canton types in Cameroon's administrative system
  */
-export interface DistrictData {
+export type CantonType =
+  | "city"
+  | "rural"
+  | "group"
+  | "lamidat"
+  | "sultanate"
+  | "sector"
+  | "chiefdom"
+  | "canton";
+
+/**
+ * NeighborhoodOrVillage types in Cameroon's administrative system
+ */
+export type NeighborhoodOrVillageType = "neighborhood" | "village" | "locality";
+
+/**
+ * Population data structure
+ */
+export interface PopulationData {
+  total: number;
+  male: number;
+  female: number;
+}
+
+/**
+ * Raw Canton data (as stored in data files)
+ */
+export interface CantonData {
   // Names (bilingual)
   nameFr: string; // French name (primary)
   nameEn: string; // English name
 
-  // Codes (multiple systems)
+  // Codes (simple alphanumeric only)
   code: string; // Alphanumeric code
-  hasc?: string; // HASC code - optional
-  pcode?: string; // P-code - optional
+
+  // Administrative type
+  type: CantonType;
 
   // Parent relationships
   subdivision: string; // Parent subdivision (French name)
@@ -91,9 +119,63 @@ export interface DistrictData {
 }
 
 /**
- * Interface for District with computed properties
+ * Interface for Canton with computed properties
  */
-export interface District extends DistrictData {
+export interface Canton extends CantonData {
+  // Computed property for backward compatibility
+  readonly name: string; // Returns nameFr
+}
+
+/**
+ * Raw NeighborhoodOrVillage data (as stored in data files)
+ */
+export interface NeighborhoodOrVillageData {
+  // Names (bilingual)
+  nameFr: string; // French name (primary)
+  nameEn: string; // English name
+
+  // Codes (simple alphanumeric only)
+  code: string; // Alphanumeric code
+
+  // Administrative type
+  type: NeighborhoodOrVillageType;
+
+  // Optional population data
+  population?: PopulationData;
+
+  // Parent relationships
+  canton: string; // Parent canton (French name)
+  cantonCode: string; // Parent canton code
+}
+
+/**
+ * Interface for NeighborhoodOrVillage with computed properties
+ */
+export interface NeighborhoodOrVillage extends NeighborhoodOrVillageData {
+  // Computed property for backward compatibility
+  readonly name: string; // Returns nameFr
+}
+
+/**
+ * Raw Block data (as stored in data files)
+ */
+export interface BlockData {
+  // Names (bilingual)
+  nameFr: string; // French name (primary)
+  nameEn: string; // English name
+
+  // Codes (simple alphanumeric only)
+  code: string; // Alphanumeric code
+
+  // Parent relationships
+  localArea: string; // Parent neighborhood or village (French name)
+  localAreaCode: string; // Parent neighborhood or village code
+}
+
+/**
+ * Interface for Block with computed properties
+ */
+export interface Block extends BlockData {
   // Computed property for backward compatibility
   readonly name: string; // Returns nameFr
 }
@@ -102,14 +184,34 @@ export interface District extends DistrictData {
  * Search result interface
  */
 export interface SearchResult {
-  type: "region" | "division" | "subdivision" | "district";
-  item: Region | Division | Subdivision | District;
+  type:
+    | "region"
+    | "division"
+    | "subdivision"
+    | "canton"
+    | "neighborhoodOrVillage"
+    | "localArea"
+    | "block";
+  item:
+    | Region
+    | Division
+    | Subdivision
+    | Canton
+    | NeighborhoodOrVillage
+    | Block;
 }
 
 /**
  * Available search types
  */
-export type SearchType = "region" | "division" | "subdivision" | "district";
+export type SearchType =
+  | "region"
+  | "division"
+  | "subdivision"
+  | "canton"
+  | "neighborhoodOrVillage"
+  | "localArea"
+  | "block";
 
 /**
  * Language options for bilingual support

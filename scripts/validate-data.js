@@ -37,9 +37,11 @@ async function loadData() {
     const regions = module.getRegions();
     const divisions = module.getDivisions();
     const subdivisions = module.getSubdivisions();
-    const districts = module.getDistricts();
+    const cantons = module.getCantons();
+    const localAreas = module.getLocalAreas();
+    const blocks = module.getBlocks();
 
-    return { regions, divisions, subdivisions, districts };
+    return { regions, divisions, subdivisions, cantons, localAreas, blocks };
   } catch (error) {
     log(
       '❌ Error loading data. Make sure to run "npm run build" first.',
@@ -135,7 +137,8 @@ async function main() {
   log("", "reset");
 
   const data = await loadData();
-  const { regions, divisions, subdivisions, districts } = data;
+  const { regions, divisions, subdivisions, cantons, localAreas, blocks } =
+    data;
 
   let allValid = true;
 
@@ -144,7 +147,9 @@ async function main() {
   log(`   - Regions: ${regions.length}`, "reset");
   log(`   - Divisions: ${divisions.length}`, "reset");
   log(`   - Subdivisions: ${subdivisions.length}`, "reset");
-  log(`   - Districts: ${districts.length}`, "reset");
+  log(`   - Cantons: ${cantons.length}`, "reset");
+  log(`   - Local Areas: ${localAreas.length}`, "reset");
+  log(`   - Blocks: ${blocks.length}`, "reset");
   log("", "reset");
 
   // Validate unique IDs
@@ -156,8 +161,12 @@ async function main() {
   allValid &= validateUniqueIds(divisions, "divisions", "nameFr");
   allValid &= validateUniqueIds(subdivisions, "subdivisions", "code");
   allValid &= validateUniqueIds(subdivisions, "subdivisions", "nameFr");
-  allValid &= validateUniqueIds(districts, "districts", "code");
-  allValid &= validateUniqueIds(districts, "districts", "nameFr");
+  allValid &= validateUniqueIds(cantons, "cantons", "code");
+  allValid &= validateUniqueIds(cantons, "cantons", "nameFr");
+  allValid &= validateUniqueIds(localAreas, "localAreas", "code");
+  allValid &= validateUniqueIds(localAreas, "localAreas", "nameFr");
+  allValid &= validateUniqueIds(blocks, "blocks", "code");
+  allValid &= validateUniqueIds(blocks, "blocks", "nameFr");
   log("", "reset");
 
   // Validate required fields
@@ -179,11 +188,25 @@ async function main() {
     "nameEn",
     "division",
   ]);
-  allValid &= validateRequiredFields(districts, "districts", [
+  allValid &= validateRequiredFields(cantons, "cantons", [
     "code",
     "nameFr",
     "nameEn",
+    "type",
     "subdivision",
+  ]);
+  allValid &= validateRequiredFields(localAreas, "localAreas", [
+    "code",
+    "nameFr",
+    "nameEn",
+    "type",
+    "canton",
+  ]);
+  allValid &= validateRequiredFields(blocks, "blocks", [
+    "code",
+    "nameFr",
+    "nameEn",
+    "localArea",
   ]);
   log("", "reset");
 
@@ -204,11 +227,25 @@ async function main() {
     "division"
   );
   allValid &= validateReferences(
-    districts,
-    "districts",
+    cantons,
+    "cantons",
     "subdivision",
     subdivisions,
     "subdivision"
+  );
+  allValid &= validateReferences(
+    localAreas,
+    "localAreas",
+    "canton",
+    cantons,
+    "canton"
+  );
+  allValid &= validateReferences(
+    blocks,
+    "blocks",
+    "localArea",
+    localAreas,
+    "localArea"
   );
   log("", "reset");
 

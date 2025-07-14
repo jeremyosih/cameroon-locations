@@ -109,18 +109,42 @@
     </div>
 
     <div class="container">
-      <h2>5. Bilingual Search</h2>
+      <h2>5. Get Cantons in Subdivision (New in v2.0)</h2>
+      <input
+        type="text"
+        id="subdivisionInput"
+        placeholder="Enter subdivision name (e.g., 'Yaoundé I')"
+      />
+      <button id="getCantonsBtn">Get Cantons</button>
+      <div id="cantonsOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>6. Canton Types and Population Data (New in v2.0)</h2>
+      <button id="cantonTypesBtn">Show Canton Types</button>
+      <button id="populationDataBtn">Show Population Data</button>
+      <div id="cantonTypesOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>7. 6-Level Navigation Example (New in v2.0)</h2>
+      <button id="navigationBtn">Navigate: Region → Division → Subdivision → Canton → LocalArea → Block</button>
+      <div id="navigationOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>8. Bilingual Search (All 6 Levels)</h2>
       <input
         type="text"
         id="searchInput"
-        placeholder="Try: 'Yaoundé', 'Yaounde', 'Adamaoua', 'Adamawa', 'Centre'"
+        placeholder="Try: 'Yaoundé', 'Yaounde', 'Adamaoua', 'Adamawa', 'Centre', 'Akwa'"
       />
       <button id="searchBtn">Search (Bilingual)</button>
       <div id="searchOutput"></div>
     </div>
 
     <div class="container">
-      <h2>6. Code System Examples</h2>
+      <h2>9. Code System Examples</h2>
       <button id="codeExamplesBtn">Show Code System Examples</button>
       <div id="codeExamplesOutput"></div>
     </div>
@@ -131,6 +155,12 @@
         region,
         getDivisionsInRegion,
         getSubdivisionsInDivision,
+        getCantonsInSubdivision,
+        getCityCantons,
+        getRuralCantons,
+        getTraditionalCantons,
+        getLocalAreasWithPopulation,
+        localArea,
         search,
         searchByType,
       } from "../dist/index.js";
@@ -219,30 +249,96 @@
           }
         });
 
-      // Example 4: Get Subdivisions in Division
-      document
-        .getElementById("getSubdivisionsBtn")
-        .addEventListener("click", () => {
-          const divisionName = document
-            .getElementById("divisionInput")
-            .value.trim();
-          if (!divisionName) {
-            displayOutput("subdivisionsOutput", {
-              error: "Please enter a division name",
-            });
-            return;
-          }
+       // Example 4: Get Subdivisions in Division
+       document
+         .getElementById("getSubdivisionsBtn")
+         .addEventListener("click", () => {
+           const divisionName = document
+             .getElementById("divisionInput")
+             .value.trim();
+           if (!divisionName) {
+             displayOutput("subdivisionsOutput", {
+               error: "Please enter a division name",
+             });
+             return;
+           }
 
-          try {
-            const subdivisions = getSubdivisionsInDivision(divisionName);
-            displayOutput("subdivisionsOutput", subdivisions);
-          } catch (error) {
-            displayOutput("subdivisionsOutput", { error: error.message });
-          }
-        });
+           try {
+             const subdivisions = getSubdivisionsInDivision(divisionName);
+             displayOutput("subdivisionsOutput", subdivisions);
+           } catch (error) {
+             displayOutput("subdivisionsOutput", { error: error.message });
+           }
+         });
 
-      // Example 5: Search All Locations
-      document.getElementById("searchBtn").addEventListener("click", () => {
+       // Example 5: Get Cantons in Subdivision (New in v2.0)
+       document
+         .getElementById("getCantonsBtn")
+         .addEventListener("click", () => {
+           const subdivisionName = document
+             .getElementById("subdivisionInput")
+             .value.trim();
+           if (!subdivisionName) {
+             displayOutput("cantonsOutput", {
+               error: "Please enter a subdivision name",
+             });
+             return;
+           }
+
+           try {
+             const cantons = getCantonsInSubdivision(subdivisionName);
+             displayOutput("cantonsOutput", cantons);
+           } catch (error) {
+             displayOutput("cantonsOutput", { error: error.message });
+           }
+         });
+
+       // Example 6: Canton Types and Population Data
+       document.getElementById("cantonTypesBtn").addEventListener("click", () => {
+         const cantonTypes = {
+           "City Cantons": getCityCantons(),
+           "Rural Cantons": getRuralCantons(),
+           "Traditional Cantons": getTraditionalCantons(),
+         };
+         displayOutput("cantonTypesOutput", cantonTypes);
+       });
+
+       document.getElementById("populationDataBtn").addEventListener("click", () => {
+         const localAreasWithPop = getLocalAreasWithPopulation();
+         const populationData = {
+           "Local Areas with Population Data": localAreasWithPop,
+           "Example - Centre Administratif": localArea("Centre Administratif")?.data,
+         };
+         displayOutput("cantonTypesOutput", populationData);
+       });
+
+       // Example 7: 6-Level Navigation
+       document.getElementById("navigationBtn").addEventListener("click", () => {
+         const centreRegion = region("Centre");
+         if (centreRegion) {
+           const mfoundiDivision = centreRegion.division("Mfoundi");
+           const yaounde1Subdivision = mfoundiDivision?.subdivision("Yaoundé I");
+           const yaounde1Canton = yaounde1Subdivision?.canton("Yaoundé I");
+           const centreAdminLocalArea = yaounde1Canton?.localArea("Centre Administratif");
+           const blocA = centreAdminLocalArea?.block("Bloc A");
+
+           const navigationExample = {
+             "1. Region": centreRegion.data,
+             "2. Division": mfoundiDivision?.data,
+             "3. Subdivision": yaounde1Subdivision?.data,
+             "4. Canton": yaounde1Canton?.data,
+             "5. LocalArea": centreAdminLocalArea?.data,
+             "6. Block": blocA?.data,
+             "Navigate back up": {
+               "Block → Region": blocA?.region()?.data,
+               "Block → Canton": blocA?.canton()?.data,
+               "Block → LocalArea": blocA?.localArea()?.data,
+             }
+           };
+           displayOutput("navigationOutput", navigationExample);
+         }
+       });
+       // Example 8: Search All Locations      document.getElementById("searchBtn").addEventListener("click", () => {
         const searchTerm = document.getElementById("searchInput").value.trim();
         if (!searchTerm) {
           displayOutput("searchOutput", {
@@ -259,8 +355,7 @@
         }
       });
 
-      // Example 6: Code System Examples
-      document.getElementById("codeExamplesBtn").addEventListener("click", () => {
+       // Example 9: Code System Examples      document.getElementById("codeExamplesBtn").addEventListener("click", () => {
         const examples = {
           "Finding Centre Region by different codes": {
             "By French name": region("Centre")?.data,
