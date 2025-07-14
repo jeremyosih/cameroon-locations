@@ -1,7 +1,7 @@
 /**
- * Interface for Region data
+ * Raw Region data (as stored in data files)
  */
-export interface Region {
+export interface RegionData {
   // Names (bilingual)
   nameFr: string; // French name (primary for Cameroon)
   nameEn: string; // English name
@@ -10,15 +10,20 @@ export interface Region {
   code: string; // Numeric code (01, 02, etc.)
   hasc?: string; // HASC code (CM.AD, CM.CE, etc.) - optional
   pcode?: string; // P-code (CMR001, CMR002, etc.) - optional
+}
 
+/**
+ * Interface for Region with computed properties
+ */
+export interface Region extends RegionData {
   // Computed property for backward compatibility
   readonly name: string; // Returns nameFr
 }
 
 /**
- * Interface for Division data
+ * Raw Division data (as stored in data files)
  */
-export interface Division {
+export interface DivisionData {
   // Names (bilingual)
   nameFr: string; // French name (primary)
   nameEn: string; // English name
@@ -31,15 +36,20 @@ export interface Division {
   // Parent relationships
   region: string; // Parent region (French name)
   regionCode: string; // Parent region code
+}
 
+/**
+ * Interface for Division with computed properties
+ */
+export interface Division extends DivisionData {
   // Computed property for backward compatibility
   readonly name: string; // Returns nameFr
 }
 
 /**
- * Interface for Subdivision data
+ * Raw Subdivision data (as stored in data files)
  */
-export interface Subdivision {
+export interface SubdivisionData {
   // Names (bilingual)
   nameFr: string; // French name (primary)
   nameEn: string; // English name
@@ -52,15 +62,20 @@ export interface Subdivision {
   // Parent relationships
   division: string; // Parent division (French name)
   divisionCode: string; // Parent division code
+}
 
+/**
+ * Interface for Subdivision with computed properties
+ */
+export interface Subdivision extends SubdivisionData {
   // Computed property for backward compatibility
   readonly name: string; // Returns nameFr
 }
 
 /**
- * Interface for District data
+ * Raw District data (as stored in data files)
  */
-export interface District {
+export interface DistrictData {
   // Names (bilingual)
   nameFr: string; // French name (primary)
   nameEn: string; // English name
@@ -73,7 +88,12 @@ export interface District {
   // Parent relationships
   subdivision: string; // Parent subdivision (French name)
   subdivisionCode: string; // Parent subdivision code
+}
 
+/**
+ * Interface for District with computed properties
+ */
+export interface District extends DistrictData {
   // Computed property for backward compatibility
   readonly name: string; // Returns nameFr
 }

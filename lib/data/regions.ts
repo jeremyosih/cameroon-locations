@@ -1,15 +1,12 @@
-import type { Region } from "../types";
+import type { RegionData } from "../types";
 
-export const regions: Region[] = [
+export const regions: RegionData[] = [
   {
     nameFr: "Adamaoua",
     nameEn: "Adamawa",
     code: "01",
     hasc: "CM.AD",
     pcode: "CMR001",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Centre",
@@ -17,9 +14,6 @@ export const regions: Region[] = [
     code: "02",
     hasc: "CM.CE",
     pcode: "CMR002",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Est",
@@ -27,9 +21,6 @@ export const regions: Region[] = [
     code: "03",
     hasc: "CM.ES",
     pcode: "CMR003",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Extrême-Nord",
@@ -37,9 +28,6 @@ export const regions: Region[] = [
     code: "04",
     hasc: "CM.EN",
     pcode: "CMR004",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Littoral",
@@ -47,9 +35,6 @@ export const regions: Region[] = [
     code: "05",
     hasc: "CM.LT",
     pcode: "CMR005",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Nord",
@@ -57,9 +42,6 @@ export const regions: Region[] = [
     code: "06",
     hasc: "CM.NO",
     pcode: "CMR006",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Nord-Ouest",
@@ -67,9 +49,6 @@ export const regions: Region[] = [
     code: "07",
     hasc: "CM.NW",
     pcode: "CMR007",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Ouest",
@@ -77,9 +56,6 @@ export const regions: Region[] = [
     code: "08",
     hasc: "CM.OU",
     pcode: "CMR008",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Sud",
@@ -87,9 +63,6 @@ export const regions: Region[] = [
     code: "09",
     hasc: "CM.SU",
     pcode: "CMR009",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Sud-Ouest",
@@ -97,8 +70,5 @@ export const regions: Region[] = [
     code: "10",
     hasc: "CM.SW",
     pcode: "CMR010",
-    get name() {
-      return this.nameFr;
-    },
   },
 ];

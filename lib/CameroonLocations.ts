@@ -7,14 +7,39 @@ import type {
   Language,
   SearchOptions,
 } from "./types";
-import { regions } from "./data/regions";
-import { divisions } from "./data/divisions";
-import { subdivisions } from "./data/subdivisions";
-import { districts } from "./data/districts";
+import { regions as regionsData } from "./data/regions";
+import { divisions as divisionsData } from "./data/divisions";
+import { subdivisions as subdivisionsData } from "./data/subdivisions";
+import { districts as districtsData } from "./data/districts";
 import {
   search as searchFunction,
   searchByType as searchByTypeFunction,
 } from "./utils/search";
+
+// --- Utility Functions ---
+
+/**
+ * Adds computed name property to raw data objects
+ */
+function addComputedName<T extends { nameFr: string }>(
+  data: T
+): T & { readonly name: string } {
+  return Object.defineProperty(data, "name", {
+    get() {
+      return this.nameFr;
+    },
+    enumerable: true,
+    configurable: false,
+  }) as T & { readonly name: string };
+}
+
+/**
+ * Process raw data arrays to add computed properties
+ */
+const regions: Region[] = regionsData.map(addComputedName);
+const divisions: Division[] = divisionsData.map(addComputedName);
+const subdivisions: Subdivision[] = subdivisionsData.map(addComputedName);
+const districts: District[] = districtsData.map(addComputedName);
 
 // --- Custom Error Classes ---
 class NotFoundError extends Error {

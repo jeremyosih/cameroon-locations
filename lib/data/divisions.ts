@@ -1,6 +1,6 @@
-import type { Division } from "../types";
+import type { DivisionData } from "../types";
 
-export const divisions: Division[] = [
+export const divisions: DivisionData[] = [
   // Adamaoua Region (5 divisions) - ordered alphabetically by French name
   {
     nameFr: "Djérem",
@@ -10,9 +10,6 @@ export const divisions: Division[] = [
     pcode: "CMR001001",
     region: "Adamaoua",
     regionCode: "01",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Faro-et-Déo",
@@ -21,9 +18,6 @@ export const divisions: Division[] = [
     hasc: "CM.AD.FD",
     region: "Adamaoua",
     regionCode: "01",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mayo-Banyo",
@@ -32,9 +26,6 @@ export const divisions: Division[] = [
     hasc: "CM.AD.MB",
     region: "Adamaoua",
     regionCode: "01",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mbéré",
@@ -43,9 +34,6 @@ export const divisions: Division[] = [
     hasc: "CM.AD.MR",
     region: "Adamaoua",
     regionCode: "01",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Vina",
@@ -54,9 +42,6 @@ export const divisions: Division[] = [
     hasc: "CM.AD.VI",
     region: "Adamaoua",
     regionCode: "01",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Centre Region (10 divisions) - ordered alphabetically by French name
@@ -67,9 +52,6 @@ export const divisions: Division[] = [
     hasc: "CM.CE.HS",
     region: "Centre",
     regionCode: "02",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Lékié",
@@ -78,9 +60,6 @@ export const divisions: Division[] = [
     hasc: "CM.CE.LK",
     region: "Centre",
     regionCode: "02",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mbam-et-Inoubou",
@@ -89,9 +68,6 @@ export const divisions: Division[] = [
     hasc: "CM.CE.MI",
     region: "Centre",
     regionCode: "02",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mbam-et-Kim",
@@ -100,9 +76,6 @@ export const divisions: Division[] = [
     hasc: "CM.CE.MK",
     region: "Centre",
     regionCode: "02",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Méfou-et-Afamba",
@@ -111,9 +84,6 @@ export const divisions: Division[] = [
     hasc: "CM.CE.MA",
     region: "Centre",
     regionCode: "02",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Méfou-et-Akono",
@@ -122,9 +92,6 @@ export const divisions: Division[] = [
     hasc: "CM.CE.MO",
     region: "Centre",
     regionCode: "02",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mfoundi",
@@ -134,9 +101,6 @@ export const divisions: Division[] = [
     pcode: "CMR002007",
     region: "Centre",
     regionCode: "02",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Nyong-et-Kéllé",
@@ -145,9 +109,6 @@ export const divisions: Division[] = [
     hasc: "CM.CE.NK",
     region: "Centre",
     regionCode: "02",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Nyong-et-Mfoumou",
@@ -156,9 +117,6 @@ export const divisions: Division[] = [
     hasc: "CM.CE.NM",
     region: "Centre",
     regionCode: "02",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Nyong-et-So'o",
@@ -167,9 +125,6 @@ export const divisions: Division[] = [
     hasc: "CM.CE.NS",
     region: "Centre",
     regionCode: "02",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Est Region (4 divisions) - ordered alphabetically by French name
@@ -180,9 +135,6 @@ export const divisions: Division[] = [
     hasc: "CM.ES.BN",
     region: "Est",
     regionCode: "03",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Haut-Nyong",
@@ -191,9 +143,6 @@ export const divisions: Division[] = [
     hasc: "CM.ES.HN",
     region: "Est",
     regionCode: "03",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Kadey",
@@ -202,9 +151,6 @@ export const divisions: Division[] = [
     hasc: "CM.ES.KD",
     region: "Est",
     regionCode: "03",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Lom-et-Djerem",
@@ -213,9 +159,6 @@ export const divisions: Division[] = [
     hasc: "CM.ES.LD",
     region: "Est",
     regionCode: "03",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Extrême-Nord Region (6 divisions) - ordered alphabetically by French name
@@ -226,9 +169,6 @@ export const divisions: Division[] = [
     hasc: "CM.EN.DM",
     region: "Extrême-Nord",
     regionCode: "04",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Logone-et-Chari",
@@ -237,9 +177,6 @@ export const divisions: Division[] = [
     hasc: "CM.EN.LC",
     region: "Extrême-Nord",
     regionCode: "04",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mayo-Danay",
@@ -248,9 +185,6 @@ export const divisions: Division[] = [
     hasc: "CM.EN.MD",
     region: "Extrême-Nord",
     regionCode: "04",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mayo-Kani",
@@ -259,9 +193,6 @@ export const divisions: Division[] = [
     hasc: "CM.EN.MK",
     region: "Extrême-Nord",
     regionCode: "04",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mayo-Sava",
@@ -270,9 +201,6 @@ export const divisions: Division[] = [
     hasc: "CM.EN.MS",
     region: "Extrême-Nord",
     regionCode: "04",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mayo-Tsanaga",
@@ -281,9 +209,6 @@ export const divisions: Division[] = [
     hasc: "CM.EN.MT",
     region: "Extrême-Nord",
     regionCode: "04",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Littoral Region (4 divisions) - ordered alphabetically by French name
@@ -294,9 +219,6 @@ export const divisions: Division[] = [
     hasc: "CM.LT.MG",
     region: "Littoral",
     regionCode: "05",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Nkam",
@@ -305,9 +227,6 @@ export const divisions: Division[] = [
     hasc: "CM.LT.NK",
     region: "Littoral",
     regionCode: "05",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Sanaga-Maritime",
@@ -316,9 +235,6 @@ export const divisions: Division[] = [
     hasc: "CM.LT.SM",
     region: "Littoral",
     regionCode: "05",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Wouri",
@@ -328,9 +244,6 @@ export const divisions: Division[] = [
     pcode: "CMR005004",
     region: "Littoral",
     regionCode: "05",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Nord Region (4 divisions) - ordered alphabetically by French name
@@ -341,9 +254,6 @@ export const divisions: Division[] = [
     hasc: "CM.NO.BN",
     region: "Nord",
     regionCode: "06",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Faro",
@@ -352,9 +262,6 @@ export const divisions: Division[] = [
     hasc: "CM.NO.FR",
     region: "Nord",
     regionCode: "06",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mayo-Louti",
@@ -363,9 +270,6 @@ export const divisions: Division[] = [
     hasc: "CM.NO.ML",
     region: "Nord",
     regionCode: "06",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mayo-Rey",
@@ -374,9 +278,6 @@ export const divisions: Division[] = [
     hasc: "CM.NO.MR",
     region: "Nord",
     regionCode: "06",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Nord-Ouest Region (7 divisions) - ordered alphabetically by French name
@@ -387,9 +288,6 @@ export const divisions: Division[] = [
     hasc: "CM.NW.BY",
     region: "Nord-Ouest",
     regionCode: "07",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Bui",
@@ -398,9 +296,6 @@ export const divisions: Division[] = [
     hasc: "CM.NW.BU",
     region: "Nord-Ouest",
     regionCode: "07",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Donga-Mantung",
@@ -409,9 +304,6 @@ export const divisions: Division[] = [
     hasc: "CM.NW.DM",
     region: "Nord-Ouest",
     regionCode: "07",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Menchum",
@@ -420,9 +312,6 @@ export const divisions: Division[] = [
     hasc: "CM.NW.MC",
     region: "Nord-Ouest",
     regionCode: "07",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mezam",
@@ -432,9 +321,6 @@ export const divisions: Division[] = [
     pcode: "CMR007005",
     region: "Nord-Ouest",
     regionCode: "07",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Momo",
@@ -443,9 +329,6 @@ export const divisions: Division[] = [
     hasc: "CM.NW.MM",
     region: "Nord-Ouest",
     regionCode: "07",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Ngo-Ketunjia",
@@ -454,9 +337,6 @@ export const divisions: Division[] = [
     hasc: "CM.NW.NK",
     region: "Nord-Ouest",
     regionCode: "07",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Ouest Region (8 divisions) - ordered alphabetically by French name
@@ -467,9 +347,6 @@ export const divisions: Division[] = [
     hasc: "CM.OU.BM",
     region: "Ouest",
     regionCode: "08",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Haut-Nkam",
@@ -478,9 +355,6 @@ export const divisions: Division[] = [
     hasc: "CM.OU.HN",
     region: "Ouest",
     regionCode: "08",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Hauts-Plateaux",
@@ -489,9 +363,6 @@ export const divisions: Division[] = [
     hasc: "CM.OU.HP",
     region: "Ouest",
     regionCode: "08",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Koung-Khi",
@@ -500,9 +371,6 @@ export const divisions: Division[] = [
     hasc: "CM.OU.KK",
     region: "Ouest",
     regionCode: "08",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Menoua",
@@ -511,9 +379,6 @@ export const divisions: Division[] = [
     hasc: "CM.OU.MN",
     region: "Ouest",
     regionCode: "08",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mifi",
@@ -522,9 +387,6 @@ export const divisions: Division[] = [
     hasc: "CM.OU.MF",
     region: "Ouest",
     regionCode: "08",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mino",
@@ -533,9 +395,6 @@ export const divisions: Division[] = [
     hasc: "CM.OU.MI",
     region: "Ouest",
     regionCode: "08",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Ndé",
@@ -544,9 +403,6 @@ export const divisions: Division[] = [
     hasc: "CM.OU.ND",
     region: "Ouest",
     regionCode: "08",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Sud Region (4 divisions) - ordered alphabetically by French name
@@ -557,9 +413,6 @@ export const divisions: Division[] = [
     hasc: "CM.SU.DL",
     region: "Sud",
     regionCode: "09",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mvila",
@@ -568,9 +421,6 @@ export const divisions: Division[] = [
     hasc: "CM.SU.MV",
     region: "Sud",
     regionCode: "09",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Océan",
@@ -579,9 +429,6 @@ export const divisions: Division[] = [
     hasc: "CM.SU.OC",
     region: "Sud",
     regionCode: "09",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Vallée-du-Ntem",
@@ -590,9 +437,6 @@ export const divisions: Division[] = [
     hasc: "CM.SU.VN",
     region: "Sud",
     regionCode: "09",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Sud-Ouest Region (6 divisions) - ordered alphabetically by French name
@@ -604,9 +448,6 @@ export const divisions: Division[] = [
     pcode: "CMR010001",
     region: "Sud-Ouest",
     regionCode: "10",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Koupé-Manengouba",
@@ -615,9 +456,6 @@ export const divisions: Division[] = [
     hasc: "CM.SW.KM",
     region: "Sud-Ouest",
     regionCode: "10",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Lebialem",
@@ -626,9 +464,6 @@ export const divisions: Division[] = [
     hasc: "CM.SW.LB",
     region: "Sud-Ouest",
     regionCode: "10",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Manyu",
@@ -637,9 +472,6 @@ export const divisions: Division[] = [
     hasc: "CM.SW.MY",
     region: "Sud-Ouest",
     regionCode: "10",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Meme",
@@ -648,9 +480,6 @@ export const divisions: Division[] = [
     hasc: "CM.SW.MM",
     region: "Sud-Ouest",
     regionCode: "10",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Ndian",
@@ -659,8 +488,5 @@ export const divisions: Division[] = [
     hasc: "CM.SW.ND",
     region: "Sud-Ouest",
     regionCode: "10",
-    get name() {
-      return this.nameFr;
-    },
   },
 ];

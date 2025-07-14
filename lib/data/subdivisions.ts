@@ -1,6 +1,6 @@
-import type { Subdivision } from "../types";
+import type { SubdivisionData } from "../types";
 
-export const subdivisions: Subdivision[] = [
+export const subdivisions: SubdivisionData[] = [
   // Subdivisions for Mfoundi Division (Yaoundé area) - ordered alphabetically by French name
   {
     nameFr: "Yaoundé I",
@@ -10,9 +10,6 @@ export const subdivisions: Subdivision[] = [
     pcode: "CMR002007001",
     division: "Mfoundi",
     divisionCode: "0207",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Yaoundé II",
@@ -21,9 +18,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.CE.MF.Y2",
     division: "Mfoundi",
     divisionCode: "0207",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Yaoundé III",
@@ -32,9 +26,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.CE.MF.Y3",
     division: "Mfoundi",
     divisionCode: "0207",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Yaoundé IV",
@@ -43,9 +34,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.CE.MF.Y4",
     division: "Mfoundi",
     divisionCode: "0207",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Yaoundé V",
@@ -54,9 +42,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.CE.MF.Y5",
     division: "Mfoundi",
     divisionCode: "0207",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Yaoundé VI",
@@ -65,9 +50,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.CE.MF.Y6",
     division: "Mfoundi",
     divisionCode: "0207",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Yaoundé VII",
@@ -76,9 +58,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.CE.MF.Y7",
     division: "Mfoundi",
     divisionCode: "0207",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Subdivisions for Wouri Division (Douala area) - ordered alphabetically by French name
@@ -90,9 +69,6 @@ export const subdivisions: Subdivision[] = [
     pcode: "CMR005004001",
     division: "Wouri",
     divisionCode: "0504",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Douala II",
@@ -101,9 +77,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.LT.WR.D2",
     division: "Wouri",
     divisionCode: "0504",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Douala III",
@@ -112,9 +85,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.LT.WR.D3",
     division: "Wouri",
     divisionCode: "0504",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Douala IV",
@@ -123,9 +93,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.LT.WR.D4",
     division: "Wouri",
     divisionCode: "0504",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Douala V",
@@ -134,9 +101,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.LT.WR.D5",
     division: "Wouri",
     divisionCode: "0504",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Douala VI",
@@ -145,9 +109,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.LT.WR.D6",
     division: "Wouri",
     divisionCode: "0504",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Subdivisions for Fako Division - ordered alphabetically by French name
@@ -159,9 +120,6 @@ export const subdivisions: Subdivision[] = [
     pcode: "CMR010001001",
     division: "Fako",
     divisionCode: "1001",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Limbe I",
@@ -170,9 +128,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.SW.FK.L1",
     division: "Fako",
     divisionCode: "1001",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Limbe II",
@@ -181,9 +136,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.SW.FK.L2",
     division: "Fako",
     divisionCode: "1001",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Limbe III",
@@ -192,9 +144,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.SW.FK.L3",
     division: "Fako",
     divisionCode: "1001",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Tiko",
@@ -203,9 +152,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.SW.FK.TK",
     division: "Fako",
     divisionCode: "1001",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "West Coast",
@@ -214,9 +160,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.SW.FK.WC",
     division: "Fako",
     divisionCode: "1001",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Subdivisions for Mezam Division - ordered alphabetically by French name
@@ -227,9 +170,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.NW.MZ.BF",
     division: "Mezam",
     divisionCode: "0705",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Bali",
@@ -238,9 +178,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.NW.MZ.BL",
     division: "Mezam",
     divisionCode: "0705",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Bamenda I",
@@ -250,9 +187,6 @@ export const subdivisions: Subdivision[] = [
     pcode: "CMR007005003",
     division: "Mezam",
     divisionCode: "0705",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Bamenda II",
@@ -261,9 +195,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.NW.MZ.B2",
     division: "Mezam",
     divisionCode: "0705",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Bamenda III",
@@ -272,9 +203,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.NW.MZ.B3",
     division: "Mezam",
     divisionCode: "0705",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Santa",
@@ -283,9 +211,6 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.NW.MZ.ST",
     division: "Mezam",
     divisionCode: "0705",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Tubah",
@@ -294,8 +219,5 @@ export const subdivisions: Subdivision[] = [
     hasc: "CM.NW.MZ.TB",
     division: "Mezam",
     divisionCode: "0705",
-    get name() {
-      return this.nameFr;
-    },
   },
 ];

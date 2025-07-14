@@ -1,6 +1,6 @@
-import type { District } from "../types";
+import type { DistrictData } from "../types";
 
-export const districts: District[] = [
+export const districts: DistrictData[] = [
   // Districts for Yaoundé I subdivision - ordered alphabetically by French name
   {
     nameFr: "Centre Administratif",
@@ -10,9 +10,6 @@ export const districts: District[] = [
     pcode: "CMR002007001001",
     subdivision: "Yaoundé I",
     subdivisionCode: "020701",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Nlongkak",
@@ -21,9 +18,6 @@ export const districts: District[] = [
     hasc: "CM.CE.MF.Y1.NL",
     subdivision: "Yaoundé I",
     subdivisionCode: "020701",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Tsinga",
@@ -32,9 +26,6 @@ export const districts: District[] = [
     hasc: "CM.CE.MF.Y1.TS",
     subdivision: "Yaoundé I",
     subdivisionCode: "020701",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Districts for Yaoundé II subdivision - ordered alphabetically by French name
@@ -45,9 +36,6 @@ export const districts: District[] = [
     hasc: "CM.CE.MF.Y2.BA",
     subdivision: "Yaoundé II",
     subdivisionCode: "020702",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mvan",
@@ -56,9 +44,6 @@ export const districts: District[] = [
     hasc: "CM.CE.MF.Y2.MV",
     subdivision: "Yaoundé II",
     subdivisionCode: "020702",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Nkolbisson",
@@ -67,9 +52,6 @@ export const districts: District[] = [
     hasc: "CM.CE.MF.Y2.NK",
     subdivision: "Yaoundé II",
     subdivisionCode: "020702",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Districts for Yaoundé III subdivision - ordered alphabetically by French name
@@ -80,9 +62,6 @@ export const districts: District[] = [
     hasc: "CM.CE.MF.Y3.EF",
     subdivision: "Yaoundé III",
     subdivisionCode: "020703",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Madagascar",
@@ -91,9 +70,6 @@ export const districts: District[] = [
     hasc: "CM.CE.MF.Y3.MG",
     subdivision: "Yaoundé III",
     subdivisionCode: "020703",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mfandena",
@@ -102,9 +78,6 @@ export const districts: District[] = [
     hasc: "CM.CE.MF.Y3.MF",
     subdivision: "Yaoundé III",
     subdivisionCode: "020703",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Districts for Douala I subdivision - ordered alphabetically by French name
@@ -116,9 +89,6 @@ export const districts: District[] = [
     pcode: "CMR005004001001",
     subdivision: "Douala I",
     subdivisionCode: "050401",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Bonanjo",
@@ -127,9 +97,6 @@ export const districts: District[] = [
     hasc: "CM.LT.WR.D1.BN",
     subdivision: "Douala I",
     subdivisionCode: "050401",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Deido",
@@ -138,9 +105,6 @@ export const districts: District[] = [
     hasc: "CM.LT.WR.D1.DD",
     subdivision: "Douala I",
     subdivisionCode: "050401",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Districts for Douala II subdivision - ordered alphabetically by French name
@@ -151,9 +115,6 @@ export const districts: District[] = [
     hasc: "CM.LT.WR.D2.BS",
     subdivision: "Douala II",
     subdivisionCode: "050402",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Ndogbong",
@@ -162,9 +123,6 @@ export const districts: District[] = [
     hasc: "CM.LT.WR.D2.ND",
     subdivision: "Douala II",
     subdivisionCode: "050402",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "New Bell",
@@ -173,9 +131,6 @@ export const districts: District[] = [
     hasc: "CM.LT.WR.D2.NB",
     subdivision: "Douala II",
     subdivisionCode: "050402",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Districts for Buea subdivision - ordered alphabetically by French name
@@ -187,9 +142,6 @@ export const districts: District[] = [
     pcode: "CMR010001001001",
     subdivision: "Buea",
     subdivisionCode: "100101",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Buea Town",
@@ -198,9 +150,6 @@ export const districts: District[] = [
     hasc: "CM.SW.FK.BU.BT",
     subdivision: "Buea",
     subdivisionCode: "100101",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Great Soppo",
@@ -209,9 +158,6 @@ export const districts: District[] = [
     hasc: "CM.SW.FK.BU.GS",
     subdivision: "Buea",
     subdivisionCode: "100101",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Molyko",
@@ -220,9 +166,6 @@ export const districts: District[] = [
     hasc: "CM.SW.FK.BU.ML",
     subdivision: "Buea",
     subdivisionCode: "100101",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Districts for Bamenda I subdivision - ordered alphabetically by French name
@@ -234,9 +177,6 @@ export const districts: District[] = [
     pcode: "CMR007005003001",
     subdivision: "Bamenda I",
     subdivisionCode: "070503",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Ntarikon",
@@ -245,9 +185,6 @@ export const districts: District[] = [
     hasc: "CM.NW.MZ.B1.NT",
     subdivision: "Bamenda I",
     subdivisionCode: "070503",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Old Town",
@@ -256,9 +193,6 @@ export const districts: District[] = [
     hasc: "CM.NW.MZ.B1.OT",
     subdivision: "Bamenda I",
     subdivisionCode: "070503",
-    get name() {
-      return this.nameFr;
-    },
   },
 
   // Districts for Bamenda II subdivision - ordered alphabetically by French name
@@ -269,9 +203,6 @@ export const districts: District[] = [
     hasc: "CM.NW.MZ.B2.MK",
     subdivision: "Bamenda II",
     subdivisionCode: "070504",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Mendankwe",
@@ -280,9 +211,6 @@ export const districts: District[] = [
     hasc: "CM.NW.MZ.B2.MD",
     subdivision: "Bamenda II",
     subdivisionCode: "070504",
-    get name() {
-      return this.nameFr;
-    },
   },
   {
     nameFr: "Nkwen",
@@ -291,8 +219,5 @@ export const districts: District[] = [
     hasc: "CM.NW.MZ.B2.NK",
     subdivision: "Bamenda II",
     subdivisionCode: "070504",
-    get name() {
-      return this.nameFr;
-    },
   },
 ];

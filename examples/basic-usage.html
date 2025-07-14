@@ -75,13 +75,14 @@
     </div>
 
     <div class="container">
-      <h2>2. Find Region by Name or Code</h2>
+      <h2>2. Find Region by Name or Code (Bilingual + Multi-Code)</h2>
       <input
         type="text"
         id="regionInput"
-        placeholder="Enter region name or code (e.g., 'Centre' or 'CE')"
+        placeholder="Try: 'Centre', '02', 'CM.CE', 'CMR002', 'Adamaoua', 'Adamawa'"
       />
       <button id="findRegionBtn">Find Region</button>
+      <button id="showBilingualBtn">Show Bilingual Info</button>
       <div id="regionOutput"></div>
     </div>
 
@@ -108,14 +109,20 @@
     </div>
 
     <div class="container">
-      <h2>5. Search All Locations</h2>
+      <h2>5. Bilingual Search</h2>
       <input
         type="text"
         id="searchInput"
-        placeholder="Enter search term (e.g., 'Yaoundé', 'Douala')"
+        placeholder="Try: 'Yaoundé', 'Yaounde', 'Adamaoua', 'Adamawa', 'Centre'"
       />
-      <button id="searchBtn">Search</button>
+      <button id="searchBtn">Search (Bilingual)</button>
       <div id="searchOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>6. Code System Examples</h2>
+      <button id="codeExamplesBtn">Show Code System Examples</button>
+      <div id="codeExamplesOutput"></div>
     </div>
 
     <script type="module">
@@ -162,6 +169,29 @@
         const regionWrapper = region(regionNameOrCode);
         if (regionWrapper) {
           displayOutput("regionOutput", regionWrapper.data);
+        } else {
+          displayOutput("regionOutput", { error: "Region not found" });
+        }
+      });
+
+      // Show bilingual information
+      document.getElementById("showBilingualBtn").addEventListener("click", () => {
+        const regionNameOrCode = document
+          .getElementById("regionInput")
+          .value.trim() || "Centre";
+
+        const regionWrapper = region(regionNameOrCode);
+        if (regionWrapper) {
+          const bilingualInfo = {
+            "French Name": regionWrapper.nameFr,
+            "English Name": regionWrapper.nameEn,
+            "Default Name": regionWrapper.name,
+            "Get French": regionWrapper.getName('fr'),
+            "Get English": regionWrapper.getName('en'),
+            "All Codes": regionWrapper.getAllCodes(),
+            "Raw Data": regionWrapper.data
+          };
+          displayOutput("regionOutput", bilingualInfo);
         } else {
           displayOutput("regionOutput", { error: "Region not found" });
         }
@@ -227,6 +257,28 @@
         } catch (error) {
           displayOutput("searchOutput", { error: error.message });
         }
+      });
+
+      // Example 6: Code System Examples
+      document.getElementById("codeExamplesBtn").addEventListener("click", () => {
+        const examples = {
+          "Finding Centre Region by different codes": {
+            "By French name": region("Centre")?.data,
+            "By numeric code": region("02")?.data,
+            "By HASC code": region("CM.CE")?.data,
+            "By P-code": region("CMR002")?.data,
+          },
+          "Finding Adamawa/Adamaoua Region": {
+            "By French name": region("Adamaoua")?.data,
+            "By English name": region("Adamawa")?.data,
+            "By numeric code": region("01")?.data,
+          },
+          "Code comparison": {
+            "Centre codes": region("Centre")?.getAllCodes(),
+            "Adamaoua codes": region("Adamaoua")?.getAllCodes(),
+          }
+        };
+        displayOutput("codeExamplesOutput", examples);
       });
     </script>
   </body>
