@@ -7,24 +7,24 @@ import {
   getSubdivisionByCode,
   getCantons,
   getCantonByCode,
-  getLocalAreas,
-  getLocalAreaByCode,
+  getNeighborhoodOrVillages,
+  getNeighborhoodOrVillageByCode,
   getBlocks,
   getBlockByCode,
   getDivisionsInRegion,
   getSubdivisionsInDivision,
   getCantonsInSubdivision,
-  getLocalAreasInCanton,
-  getBlocksInLocalArea,
+  getNeighborhoodOrVillagesInCanton,
+  getBlocksInNeighborhoodOrVillage,
   getCantonsByType,
   getCityCantons,
   getTraditionalCantons,
-  getLocalAreasWithPopulation,
+  getNeighborhoodOrVillagesWithPopulation,
   getRegionOfDivision,
   getDivisionOfSubdivision,
   getSubdivisionOfCanton,
-  getCantonOfLocalArea,
-  getLocalAreaOfBlock,
+  getCantonOfNeighborhoodOrVillage,
+  getNeighborhoodOrVillageOfBlock,
   search,
   searchByType,
   NotFoundError,
@@ -32,7 +32,7 @@ import {
   division,
   subdivision,
   canton,
-  localArea,
+  neighborhoodOrVillage,
   block,
 } from "../CameroonLocations";
 import { expect, it, describe } from "vitest";
@@ -243,39 +243,41 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
       expect(region?.name).toBe("Centre");
     });
 
-    it("should allow finding specific local area", () => {
+    it("should allow finding specific neighborhood or village", () => {
       const yaounde1Canton = canton("Yaoundé I");
       expect(yaounde1Canton).toBeDefined();
-      const centreAdmin = yaounde1Canton?.localArea("Centre Administratif");
+      const centreAdmin = yaounde1Canton?.neighborhoodOrVillage(
+        "Centre Administratif"
+      );
       expect(centreAdmin).toBeDefined();
       expect(centreAdmin?.name).toBe("Centre Administratif");
     });
 
-    it("should provide access to local areas", () => {
+    it("should provide access to neighborhoods or villages", () => {
       const yaounde1Canton = canton("Yaoundé I");
       expect(yaounde1Canton).toBeDefined();
-      const localAreas = yaounde1Canton?.localAreas();
-      expect(localAreas).toBeDefined();
-      expect(localAreas?.length).toBeGreaterThan(0);
+      const neighborhoodsOrVillages = yaounde1Canton?.neighborhoodsOrVillages();
+      expect(neighborhoodsOrVillages).toBeDefined();
+      expect(neighborhoodsOrVillages?.length).toBeGreaterThan(0);
     });
   });
 
-  describe("getLocalAreas", () => {
-    it("should return all local areas", () => {
-      const localAreas = getLocalAreas();
-      expect(localAreas).toBeDefined();
-      expect(localAreas.length).toBeGreaterThan(0);
-      expect(localAreas[0]).toHaveProperty("code");
-      expect(localAreas[0]).toHaveProperty("nameFr");
-      expect(localAreas[0]).toHaveProperty("nameEn");
-      expect(localAreas[0]).toHaveProperty("type");
-      expect(localAreas[0]).toHaveProperty("canton");
+  describe("getNeighborhoodOrVillages", () => {
+    it("should return all neighborhoods or villages", () => {
+      const neighborhoodsOrVillages = getNeighborhoodOrVillages();
+      expect(neighborhoodsOrVillages).toBeDefined();
+      expect(neighborhoodsOrVillages.length).toBeGreaterThan(0);
+      expect(neighborhoodsOrVillages[0]).toHaveProperty("code");
+      expect(neighborhoodsOrVillages[0]).toHaveProperty("nameFr");
+      expect(neighborhoodsOrVillages[0]).toHaveProperty("nameEn");
+      expect(neighborhoodsOrVillages[0]).toHaveProperty("type");
+      expect(neighborhoodsOrVillages[0]).toHaveProperty("canton");
     });
   });
 
-  describe("getLocalAreaByCode", () => {
-    it("should return a local area by code", () => {
-      const centreAdmin = getLocalAreaByCode("02070101");
+  describe("getNeighborhoodOrVillageByCode", () => {
+    it("should return a neighborhood or village by code", () => {
+      const centreAdmin = getNeighborhoodOrVillageByCode("02070101");
       expect(centreAdmin).toBeDefined();
       expect(centreAdmin?.code).toBe("02070101");
       expect(centreAdmin?.name).toBe("Centre Administratif");
@@ -283,9 +285,9 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
     });
   });
 
-  describe("localArea wrapper", () => {
+  describe("neighborhoodOrVillage wrapper", () => {
     it("should provide chainable API for canton, subdivision, division and region", () => {
-      const centreAdmin = localArea("Centre Administratif");
+      const centreAdmin = neighborhoodOrVillage("Centre Administratif");
       expect(centreAdmin).toBeDefined();
 
       const canton = centreAdmin?.canton();
@@ -306,7 +308,7 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
     });
 
     it("should provide population data when available", () => {
-      const centreAdmin = localArea("Centre Administratif");
+      const centreAdmin = neighborhoodOrVillage("Centre Administratif");
       expect(centreAdmin).toBeDefined();
       expect(centreAdmin?.population).toBeDefined();
       expect(centreAdmin?.population?.total).toBeGreaterThan(0);
@@ -315,7 +317,7 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
     });
 
     it("should allow finding specific block", () => {
-      const centreAdmin = localArea("Centre Administratif");
+      const centreAdmin = neighborhoodOrVillage("Centre Administratif");
       expect(centreAdmin).toBeDefined();
       const blocA = centreAdmin?.block("Bloc A");
       expect(blocA).toBeDefined();
@@ -323,7 +325,7 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
     });
 
     it("should provide access to blocks", () => {
-      const centreAdmin = localArea("Centre Administratif");
+      const centreAdmin = neighborhoodOrVillage("Centre Administratif");
       expect(centreAdmin).toBeDefined();
       const blocks = centreAdmin?.blocks();
       expect(blocks).toBeDefined();
@@ -339,7 +341,7 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
       expect(blocks[0]).toHaveProperty("code");
       expect(blocks[0]).toHaveProperty("nameFr");
       expect(blocks[0]).toHaveProperty("nameEn");
-      expect(blocks[0]).toHaveProperty("localArea");
+      expect(blocks[0]).toHaveProperty("neighborhoodOrVillage");
     });
   });
 
@@ -353,13 +355,13 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
   });
 
   describe("block wrapper", () => {
-    it("should provide chainable API for localArea, canton, subdivision, division and region", () => {
+    it("should provide chainable API for neighborhoodOrVillage, canton, subdivision, division and region", () => {
       const blocA = block("Bloc A");
       expect(blocA).toBeDefined();
 
-      const localArea = blocA?.localArea();
-      expect(localArea).toBeDefined();
-      expect(localArea?.name).toBe("Centre Administratif");
+      const neighborhoodOrVillageResult = blocA?.neighborhoodOrVillage();
+      expect(neighborhoodOrVillageResult).toBeDefined();
+      expect(neighborhoodOrVillageResult?.name).toBe("Centre Administratif");
 
       const canton = blocA?.canton();
       expect(canton).toBeDefined();
@@ -401,20 +403,23 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
       expect(cantons.every((c) => c.subdivision === "Yaoundé I")).toBe(true);
     });
 
-    it("should return local areas in Yaoundé I canton", () => {
-      const localAreas = getLocalAreasInCanton("Yaoundé I");
-      expect(localAreas).toBeDefined();
-      expect(localAreas.length).toBe(3);
-      expect(localAreas.every((la) => la.canton === "Yaoundé I")).toBe(true);
+    it("should return neighborhoods or villages in Yaoundé I canton", () => {
+      const neighborhoodsOrVillages =
+        getNeighborhoodOrVillagesInCanton("Yaoundé I");
+      expect(neighborhoodsOrVillages).toBeDefined();
+      expect(neighborhoodsOrVillages.length).toBe(3);
+      expect(
+        neighborhoodsOrVillages.every((la) => la.canton === "Yaoundé I")
+      ).toBe(true);
     });
 
-    it("should return blocks in Centre Administratif local area", () => {
-      const blocks = getBlocksInLocalArea("Centre Administratif");
+    it("should return blocks in Centre Administratif neighborhood or village", () => {
+      const blocks = getBlocksInNeighborhoodOrVillage("Centre Administratif");
       expect(blocks).toBeDefined();
       expect(blocks.length).toBe(3);
-      expect(blocks.every((b) => b.localArea === "Centre Administratif")).toBe(
-        true
-      );
+      expect(
+        blocks.every((b) => b.neighborhoodOrVillage === "Centre Administratif")
+      ).toBe(true);
     });
   });
 
@@ -447,8 +452,8 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
   });
 
   describe("population data", () => {
-    it("should return local areas with population data", () => {
-      const withPopulation = getLocalAreasWithPopulation();
+    it("should return neighborhoods or villages with population data", () => {
+      const withPopulation = getNeighborhoodOrVillagesWithPopulation();
       expect(withPopulation).toBeDefined();
       expect(withPopulation.length).toBeGreaterThan(0);
       expect(withPopulation.every((la) => la.population !== undefined)).toBe(
@@ -479,26 +484,27 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
       expect(subdivision?.code).toBe("020701");
     });
 
-    it("should get canton of local area", () => {
-      const canton = getCantonOfLocalArea("Centre Administratif");
+    it("should get canton of neighborhood or village", () => {
+      const canton = getCantonOfNeighborhoodOrVillage("Centre Administratif");
       expect(canton).toBeDefined();
       expect(canton?.name).toBe("Yaoundé I");
       expect(canton?.code).toBe("020701");
     });
 
-    it("should get local area of block", () => {
-      const localArea = getLocalAreaOfBlock("Bloc A");
-      expect(localArea).toBeDefined();
-      expect(localArea?.name).toBe("Centre Administratif");
-      expect(localArea?.code).toBe("02070101");
+    it("should get neighborhood or village of block", () => {
+      const neighborhoodOrVillageResult =
+        getNeighborhoodOrVillageOfBlock("Bloc A");
+      expect(neighborhoodOrVillageResult).toBeDefined();
+      expect(neighborhoodOrVillageResult?.name).toBe("Centre Administratif");
+      expect(neighborhoodOrVillageResult?.code).toBe("02070101");
     });
 
     it("should return undefined for non-existent relationships", () => {
       expect(getRegionOfDivision("NonExistent")).toBeUndefined();
       expect(getDivisionOfSubdivision("NonExistent")).toBeUndefined();
       expect(getSubdivisionOfCanton("NonExistent")).toBeUndefined();
-      expect(getCantonOfLocalArea("NonExistent")).toBeUndefined();
-      expect(getLocalAreaOfBlock("NonExistent")).toBeUndefined();
+      expect(getCantonOfNeighborhoodOrVillage("NonExistent")).toBeUndefined();
+      expect(getNeighborhoodOrVillageOfBlock("NonExistent")).toBeUndefined();
     });
   });
 
@@ -552,10 +558,12 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
       expect(results.every((r) => r.type === "canton")).toBe(true);
     });
 
-    it("should search only local areas", () => {
-      const results = searchByType("Centre", "localArea");
+    it("should search only neighborhoods or villages", () => {
+      const results = searchByType("Centre", "neighborhoodOrVillage");
       expect(results).toBeDefined();
-      expect(results.every((r) => r.type === "localArea")).toBe(true);
+      expect(results.every((r) => r.type === "neighborhoodOrVillage")).toBe(
+        true
+      );
     });
 
     it("should search only blocks", () => {
@@ -570,7 +578,9 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
       expect(typeof CameroonLocations.getRegions).toBe("function");
       expect(typeof CameroonLocations.getDivisions).toBe("function");
       expect(typeof CameroonLocations.getCantons).toBe("function");
-      expect(typeof CameroonLocations.getLocalAreas).toBe("function");
+      expect(typeof CameroonLocations.getNeighborhoodOrVillages).toBe(
+        "function"
+      );
       expect(typeof CameroonLocations.getBlocks).toBe("function");
       expect(typeof CameroonLocations.search).toBe("function");
 
@@ -625,7 +635,9 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
       const yaounde1Canton = yaounde1Sub?.canton("Yaoundé I");
       expect(yaounde1Canton).toBeDefined();
 
-      const centreAdmin = yaounde1Canton?.localArea("Centre Administratif");
+      const centreAdmin = yaounde1Canton?.neighborhoodOrVillage(
+        "Centre Administratif"
+      );
       expect(centreAdmin).toBeDefined();
 
       const blocA = centreAdmin?.block("Bloc A");
@@ -637,8 +649,8 @@ describe("CameroonLocations v2.0 - 6-Level Hierarchy", () => {
       const blocA = block("Bloc A");
       expect(blocA).toBeDefined();
 
-      const localArea = blocA?.localArea();
-      expect(localArea?.name).toBe("Centre Administratif");
+      const neighborhoodOrVillageResult = blocA?.neighborhoodOrVillage();
+      expect(neighborhoodOrVillageResult?.name).toBe("Centre Administratif");
 
       const canton = blocA?.canton();
       expect(canton?.name).toBe("Yaoundé I");

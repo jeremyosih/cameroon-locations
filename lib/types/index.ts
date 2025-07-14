@@ -16,7 +16,7 @@ export interface RegionData {
  * Interface for Region with computed properties
  */
 export interface Region extends RegionData {
-  // Computed property for backward compatibility
+  // Computed property
   readonly name: string; // Returns nameFr
 }
 
@@ -42,7 +42,7 @@ export interface DivisionData {
  * Interface for Division with computed properties
  */
 export interface Division extends DivisionData {
-  // Computed property for backward compatibility
+  // Computed property
   readonly name: string; // Returns nameFr
 }
 
@@ -68,7 +68,7 @@ export interface SubdivisionData {
  * Interface for Subdivision with computed properties
  */
 export interface Subdivision extends SubdivisionData {
-  // Computed property for backward compatibility
+  // Computed property
   readonly name: string; // Returns nameFr
 }
 
@@ -122,7 +122,7 @@ export interface CantonData {
  * Interface for Canton with computed properties
  */
 export interface Canton extends CantonData {
-  // Computed property for backward compatibility
+  // Computed property
   readonly name: string; // Returns nameFr
 }
 
@@ -152,7 +152,7 @@ export interface NeighborhoodOrVillageData {
  * Interface for NeighborhoodOrVillage with computed properties
  */
 export interface NeighborhoodOrVillage extends NeighborhoodOrVillageData {
-  // Computed property for backward compatibility
+  // Computed property
   readonly name: string; // Returns nameFr
 }
 
@@ -168,15 +168,15 @@ export interface BlockData {
   code: string; // Alphanumeric code
 
   // Parent relationships
-  localArea: string; // Parent neighborhood or village (French name)
-  localAreaCode: string; // Parent neighborhood or village code
+  neighborhoodOrVillage: string; // Parent neighborhood or village (French name)
+  neighborhoodOrVillageCode: string; // Parent neighborhood or village code
 }
 
 /**
  * Interface for Block with computed properties
  */
 export interface Block extends BlockData {
-  // Computed property for backward compatibility
+  // Computed property
   readonly name: string; // Returns nameFr
 }
 
@@ -190,7 +190,6 @@ export interface SearchResult {
     | "subdivision"
     | "canton"
     | "neighborhoodOrVillage"
-    | "localArea"
     | "block";
   item:
     | Region
@@ -210,7 +209,6 @@ export type SearchType =
   | "subdivision"
   | "canton"
   | "neighborhoodOrVillage"
-  | "localArea"
   | "block";
 
 /**

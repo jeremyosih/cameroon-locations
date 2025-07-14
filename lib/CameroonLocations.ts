@@ -285,7 +285,7 @@ blocks.forEach((block) => {
 
   // Relationship mapping
   const neighborhoodOrVillageCode = neighborhoodsOrVillages.find(
-    (la) => la.nameFr === block.localArea
+    (la) => la.nameFr === block.neighborhoodOrVillage
   )?.code;
   if (neighborhoodOrVillageCode) {
     blockToNeighborhoodOrVillageMap.set(block.code, neighborhoodOrVillageCode);
@@ -847,15 +847,6 @@ class CantonWrapper {
       `Local area "${nameOrCode}" not found in canton "${this._data.nameFr}"`
     );
   }
-
-  // Backward compatibility methods
-  localAreas(): NeighborhoodOrVillageWrapper[] {
-    return this.neighborhoodsOrVillages();
-  }
-
-  localArea(nameOrCode: string): NeighborhoodOrVillageWrapper {
-    return this.neighborhoodOrVillage(nameOrCode);
-  }
 }
 
 class NeighborhoodOrVillageWrapper {
@@ -987,7 +978,7 @@ class NeighborhoodOrVillageWrapper {
       blockNameFrMap.get(nameOrCode.toLowerCase()) ||
       blockNameEnMap.get(nameOrCode.toLowerCase());
 
-    if (block && block.localArea === this._data.nameFr) {
+    if (block && block.neighborhoodOrVillage === this._data.nameFr) {
       return new BlockWrapper(block);
     }
 
@@ -1117,11 +1108,6 @@ class BlockWrapper {
    */
   region(): RegionWrapper {
     return this.neighborhoodOrVillage().region();
-  }
-
-  // Backward compatibility method
-  localArea(): NeighborhoodOrVillageWrapper {
-    return this.neighborhoodOrVillage();
   }
 }
 
@@ -1465,67 +1451,11 @@ export function searchByType(
     | "subdivision"
     | "canton"
     | "neighborhoodOrVillage"
-    | "localArea"
     | "block",
   limit = 10
 ): SearchResult[] {
-  // Map localArea to neighborhoodOrVillage for backward compatibility
-  const actualType = type === "localArea" ? "neighborhoodOrVillage" : type;
-  const results = searchByTypeFunction(query, actualType as any, limit);
-
-  // Map results back to the original type for backward compatibility
-  if (type === "localArea") {
-    return results.map((result) => ({
-      ...result,
-      type: "localArea" as const,
-    }));
-  }
-
-  return results;
+  return searchByTypeFunction(query, type, limit);
 }
-
-// === Backward Compatibility Exports ===
-
-/**
- * Backward compatibility alias for getNeighborhoodOrVillages
- */
-export const getLocalAreas = getNeighborhoodOrVillages;
-
-/**
- * Backward compatibility alias for getNeighborhoodOrVillageByCode
- */
-export const getLocalAreaByCode = getNeighborhoodOrVillageByCode;
-
-/**
- * Backward compatibility alias for neighborhoodOrVillage
- */
-export const localArea = neighborhoodOrVillage;
-
-/**
- * Backward compatibility alias for getNeighborhoodOrVillagesInCanton
- */
-export const getLocalAreasInCanton = getNeighborhoodOrVillagesInCanton;
-
-/**
- * Backward compatibility alias for getBlocksInNeighborhoodOrVillage
- */
-export const getBlocksInLocalArea = getBlocksInNeighborhoodOrVillage;
-
-/**
- * Backward compatibility alias for getNeighborhoodOrVillagesWithPopulation
- */
-export const getLocalAreasWithPopulation =
-  getNeighborhoodOrVillagesWithPopulation;
-
-/**
- * Backward compatibility alias for getCantonOfNeighborhoodOrVillage
- */
-export const getCantonOfLocalArea = getCantonOfNeighborhoodOrVillage;
-
-/**
- * Backward compatibility alias for getNeighborhoodOrVillageOfBlock
- */
-export const getLocalAreaOfBlock = getNeighborhoodOrVillageOfBlock;
 
 /**
  * Main class for working with Cameroon administrative divisions
@@ -1536,7 +1466,6 @@ export class CameroonLocations {
   static getSubdivisions = getSubdivisions;
   static getCantons = getCantons;
   static getNeighborhoodOrVillages = getNeighborhoodOrVillages;
-  static getLocalAreas = getLocalAreas;
   static getBlocks = getBlocks;
   static getRegionByCode = getRegionByCode;
   static getDivisionByCode = getDivisionByCode;
