@@ -2,22 +2,22 @@
 
 A comprehensive and intuitive TypeScript package for working with Cameroonian administrative
 divisions including the complete 6-level hierarchy: **Regions → Divisions → Subdivisions → Cantons →
-LocalAreas → Blocks**.
+NeighborhoodsOrVillages → Blocks**.
 
 ## Features
 
-- 🏗️ **Complete Administrative Hierarchy** - Region → Division → Subdivision → Canton → LocalArea →
-  Block
+- 🏗️ **Complete Administrative Hierarchy** - Region → Division → Subdivision → Canton →
+  NeighborhoodOrVillage → Block
 - 🌍 **Bilingual Support** - French and English names for all administrative divisions
 - 🔢 **Multiple Code Systems** - Numeric codes, HASC codes, and P-codes support
 - 🔍 **Intuitive API** for navigating Cameroon's administrative hierarchy
 - 🔎 **Bilingual Search** capabilities across all administrative levels
-- 🏛️ **Canton Type Support** - City, rural, traditional (lamidat/sultanate/chefferie) cantons
-- 👥 **Population Data** - Optional population statistics for local areas
+- 🏛️ **Canton Type Support** - City, rural, traditional (lamidat/sultanate/chiefdom) cantons
+- 👥 **Population Data** - Optional population statistics for neighborhoods and villages
 - 🧩 **TypeScript support** with full type definitions
 - 🚀 **Lightning-fast performance** with optimized Maps and pre-computed relationships
-- 📊 **Complete data** for all 10 regions, 58 divisions, subdivisions, cantons, local areas, and
-  blocks
+- 📊 **Complete data** for all 10 regions, 58 divisions, subdivisions, cantons,
+  neighborhoods/villages, and blocks
 - 📱 **Lightweight** with minimal dependencies
 - 📖 **Well-documented** API with examples
 - ✅ **Well-tested** with comprehensive unit tests
@@ -37,129 +37,220 @@ Region (10 regions)
 ├── Division (58 divisions)
 │   └── Subdivision (arrondissements)
 │       └── Canton (city/rural/traditional)
-│           └── LocalArea (neighborhoods/villages/localities)
+│           └── NeighborhoodOrVillage (neighborhoods/villages/localities)
 │               └── Block (smallest administrative units)
 ```
 
-## Usage
+## Usage Examples
 
 ### Basic Usage
 
+Get started with simple region and division queries
+
 ```typescript
-import { CameroonLocations, region } from "cameroon-locations";
+import { getRegions, region, search } from "cameroon-locations";
 
-// Get all administrative levels
-const regions = CameroonLocations.getRegions();
-const cantons = CameroonLocations.getCantons();
-const localAreas = CameroonLocations.getLocalAreas();
-const blocks = CameroonLocations.getBlocks();
+// Get all regions
+const regions = getRegions();
 
-// Find a specific region (multiple ways)
+// Get a specific region
+const centre = region("Centre");
+
+// Search across all levels
+const results = search("Yaoundé");
+```
+
+### Chainable API
+
+Navigate the hierarchy with intuitive chaining
+
+```typescript
+import { region } from "cameroon-locations";
+
+// Chain through the hierarchy
+const centre = region("Centre");
+const mfoundi = centre?.division("Mfoundi");
+const yaounde1 = mfoundi?.subdivision("Yaoundé I");
+const canton = yaounde1?.canton("Yaoundé I");
+const neighborhood = canton?.neighborhoodOrVillage("Centre Administratif");
+const block = neighborhood?.block("Bloc A");
+
+console.log(block?.name); // "Bloc A"
+```
+
+### Hierarchical Navigation
+
+Work with the complete administrative hierarchy
+
+```typescript
+import {
+  getDivisionsInRegion,
+  getSubdivisionsInDivision,
+  getCantonsInSubdivision,
+  getNeighborhoodOrVillagesInCanton,
+  getBlocksInNeighborhoodOrVillage,
+  search,
+  subdivision,
+} from "cameroon-locations";
+
+// Get divisions in a region
+const divisions = getDivisionsInRegion("Centre");
+
+// Get subdivisions in a division
+const subdivisions = getSubdivisionsInDivision("Mfoundi");
+
+// Get cantons in a subdivision
+const cantons = getCantonsInSubdivision("Yaoundé I");
+
+// Enhanced search with type filtering
+const results = search("Yaoundé", {
+  limit: 10,
+  types: ["region", "subdivision"],
+});
+
+// Direct subdivision access
+const yaounde1 = subdivision("Yaoundé I");
+```
+
+### Error Handling & Navigation
+
+Robust error handling and hierarchy navigation
+
+```typescript
+import {
+  region,
+  getNeighborhoodOrVillageByCode,
+  getCantonOfNeighborhoodOrVillage,
+  NotFoundError,
+} from "cameroon-locations";
+
+try {
+  // Navigate hierarchy safely
+  const centre = region("Centre");
+  const mfoundi = centre?.division("Mfoundi");
+  const yaounde1 = mfoundi?.subdivision("Yaoundé I");
+  const canton = yaounde1?.canton("Yaoundé I");
+
+  // Find parent hierarchy
+  const neighborhood = getNeighborhoodOrVillageByCode(123456);
+  const parentCanton = getCantonOfNeighborhoodOrVillage("Centre Administratif");
+
+  console.log(`${neighborhood?.name} → ${parentCanton?.name} → ${centre?.name}`);
+} catch (error) {
+  if (error instanceof NotFoundError) {
+    console.log("Location not found:", error.message);
+  }
+}
+```
+
+### Bilingual & Multi-Code Support
+
+Comprehensive language and coding system support
+
+```typescript
+import { region, division } from "cameroon-locations";
+
+// Multiple ways to find the same region
 const centre1 = region("Centre"); // By French name
 const centre2 = region("02"); // By numeric code
 const centre3 = region("CM.CE"); // By HASC code
 const centre4 = region("CMR002"); // By P-code
 
-// Access bilingual names
-console.log(centre1.nameFr); // "Centre"
-console.log(centre1.nameEn); // "Centre"
-console.log(centre1.name); // "Centre" (defaults to French)
-console.log(centre1.getName("en")); // "Centre"
+// Bilingual access
+console.log(centre1?.nameFr); // "Centre"
+console.log(centre1?.nameEn); // "Centre"
+console.log(centre1?.name); // "Centre" (defaults to French)
+console.log(centre1?.getName("en")); // "Centre"
 
-// Get all codes for a location
-console.log(centre1.getAllCodes());
-// { code: "02", hasc: "CM.CE", pcode: "CMR002" }
+// Get all codes
+console.log(centre1?.getAllCodes());
+// { code: 2, hasc: "CM.CE", pcode: "CMR002" }
 
-// Get child administrative levels
-const centreDivisions = CameroonLocations.getDivisionsInRegion("Centre");
-const mfoundiSubdivisions = CameroonLocations.getSubdivisionsInDivision("Mfoundi");
-const yaounde1Cantons = CameroonLocations.getCantonsInSubdivision("Yaoundé I");
-
-// Search across all administrative levels (bilingual)
-const results = CameroonLocations.search("Yaoundé");
-console.log(results); // Searches both French and English names
-
-// Search by specific type
-const regionResults = CameroonLocations.searchByType("Centre", "region");
-const cantonResults = CameroonLocations.searchByType("Yaoundé", "canton");
+// Works for Adamawa/Adamaoua region too
+const adamawa1 = region("Adamaoua"); // French name
+const adamawa2 = region("Adamawa"); // English name
+const adamawa3 = region("01"); // Numeric code
 ```
 
-### Advanced Usage
+### Canton Types & Population Data
+
+Work with canton classifications and demographic information
 
 ```typescript
-import { division, subdivision, canton, localArea, block } from "cameroon-locations";
+import {
+  getCityCantons,
+  getRuralCantons,
+  getTraditionalCantons,
+  getNeighborhoodOrVillagesWithPopulation,
+  neighborhoodOrVillage,
+} from "cameroon-locations";
 
-// Chainable API for 6-level navigation
-const centreRegion = region("Centre");
-const mfoundiDivision = centreRegion.division("Mfoundi");
-const yaounde1Subdivision = mfoundiDivision.subdivision("Yaoundé I");
-const yaounde1Canton = yaounde1Subdivision.canton("Yaoundé I");
-const centreAdminLocalArea = yaounde1Canton.localArea("Centre Administratif");
-const blocA = centreAdminLocalArea.block("Bloc A");
-
-// Navigate up the hierarchy
-const regionFromBlock = blocA.region();
-const cantonFromBlock = blocA.canton();
-console.log(regionFromBlock.nameFr); // "Centre"
-console.log(cantonFromBlock.type); // "city"
-
-// Direct lookup with relationship functions
-const region = CameroonLocations.getRegionOfDivision("Mfoundi");
-const division = CameroonLocations.getDivisionOfSubdivision("Yaoundé I");
-const subdivision = CameroonLocations.getSubdivisionOfCanton("Yaoundé I");
-const canton = CameroonLocations.getCantonOfLocalArea("Centre Administratif");
-const localArea = CameroonLocations.getLocalAreaOfBlock("Bloc A");
-
-// Canton type filtering
-const cityCantons = CameroonLocations.getCityCantons();
-const ruralCantons = CameroonLocations.getRuralCantons();
-const traditionalCantons = CameroonLocations.getTraditionalCantons();
+// Get cantons by type
+const cityCantons = getCityCantons();
+const ruralCantons = getRuralCantons();
+const traditionalCantons = getTraditionalCantons();
 
 // Population data access
-const localAreasWithPopulation = CameroonLocations.getLocalAreasWithPopulation();
-const centreAdmin = localArea("Centre Administratif");
-console.log(centreAdmin.population?.total); // 15420
+const withPopulation = getNeighborhoodOrVillagesWithPopulation();
+const centreAdmin = neighborhoodOrVillage("Centre Administratif");
+console.log(centreAdmin?.population?.total); // Population count if available
+```
 
-// Search with options
-const limitedResults = CameroonLocations.search("Yaoundé", { limit: 5 });
-const cantonOnly = CameroonLocations.search("Centre", { types: ["canton"] });
+### TypeScript Support
 
-// Language-specific operations
-const yaounde = subdivision("Yaoundé I");
-console.log(yaounde.getName("fr")); // "Yaoundé I"
-console.log(yaounde.getName("en")); // "Yaoundé I"
+Full type safety with comprehensive interfaces
+
+```typescript
+interface Region {
+  code: number;
+  nameFr: string;
+  nameEn: string;
+  hasc?: string;
+  pcode?: string;
+  readonly name: string;
+}
+
+interface SearchResult {
+  type: "region" | "division" | "subdivision" | "canton" | "neighborhoodOrVillage" | "block";
+  item: Region | Division | Subdivision | Canton | NeighborhoodOrVillage | Block;
+}
+
+const results: SearchResult[] = search("Yaoundé", {
+  limit: 10,
+  types: ["region", "subdivision"],
+});
 ```
 
 ## API Reference
 
 ### Wrapper Functions
 
-#### `region(identifier: string): RegionWrapper | undefined`
+#### `region(nameOrCode: string | number): RegionWrapper | undefined`
 
 Find a region by any identifier (name, code, HASC, P-code). Returns a wrapper with chainable
 methods.
 
-#### `division(identifier: string): DivisionWrapper | undefined`
+#### `division(nameOrCode: string | number): DivisionWrapper | undefined`
 
 Find a division by any identifier. Returns a wrapper with chainable methods.
 
-#### `subdivision(identifier: string): SubdivisionWrapper | undefined`
+#### `subdivision(nameOrCode: string | number): SubdivisionWrapper | undefined`
 
 Find a subdivision by any identifier. Returns a wrapper with chainable methods.
 
-#### `canton(identifier: string): CantonWrapper | undefined`
+#### `canton(nameOrCode: string | number): CantonWrapper | undefined`
 
 Find a canton by any identifier. Returns a wrapper with chainable methods.
 
-#### `localArea(identifier: string): LocalAreaWrapper | undefined`
+#### `neighborhoodOrVillage(nameOrCode: string | number): NeighborhoodOrVillageWrapper | undefined`
 
-Find a local area by any identifier. Returns a wrapper with chainable methods.
+Find a neighborhood or village by any identifier. Returns a wrapper with chainable methods.
 
-#### `block(identifier: string): BlockWrapper | undefined`
+#### `block(nameOrCode: string | number): BlockWrapper | undefined`
 
 Find a block by any identifier. Returns a wrapper with chainable methods.
 
-### Static Methods
+### Data Access Functions
 
 #### `getRegions(): Region[]`
 
@@ -177,35 +268,73 @@ Returns all subdivisions in Cameroon.
 
 Returns all cantons in Cameroon.
 
-#### `getLocalAreas(): LocalArea[]`
+#### `getNeighborhoodOrVillages(): NeighborhoodOrVillage[]`
 
-Returns all local areas in Cameroon.
+Returns all neighborhoods and villages in Cameroon.
 
 #### `getBlocks(): Block[]`
 
 Returns all blocks in Cameroon.
 
-#### `getDivisionsInRegion(regionIdentifier: string): Division[]`
+### Hierarchical Query Functions
+
+#### `getDivisionsInRegion(regionNameOrCode: string): Division[]`
 
 Get all divisions in a specific region.
 
-#### `getSubdivisionsInDivision(divisionIdentifier: string): Subdivision[]`
+#### `getSubdivisionsInDivision(divisionNameOrCode: string): Subdivision[]`
 
 Get all subdivisions in a specific division.
 
-#### `getCantonsInSubdivision(subdivisionIdentifier: string): Canton[]`
+#### `getCantonsInSubdivision(subdivisionNameOrCode: string): Canton[]`
 
 Get all cantons in a specific subdivision.
 
-#### `getLocalAreasInCanton(cantonIdentifier: string): LocalArea[]`
+#### `getNeighborhoodOrVillagesInCanton(cantonNameOrCode: string): NeighborhoodOrVillage[]`
 
-Get all local areas in a specific canton.
+Get all neighborhoods and villages in a specific canton.
 
-#### `getBlocksInLocalArea(localAreaIdentifier: string): Block[]`
+#### `getBlocksInNeighborhoodOrVillage(neighborhoodOrVillageNameOrCode: string): Block[]`
 
-Get all blocks in a specific local area.
+Get all blocks in a specific neighborhood or village.
 
-#### Canton Type Methods
+### Cross-Level Relationships
+
+#### `getSubdivisionsInRegion(regionNameOrCode: string): Subdivision[]`
+
+Get all subdivisions in a specific region (across divisions).
+
+#### `getCantonsInDivision(divisionNameOrCode: string): Canton[]`
+
+Get all cantons in a specific division (across subdivisions).
+
+#### `getCantonsInRegion(regionNameOrCode: string): Canton[]`
+
+Get all cantons in a specific region (across divisions and subdivisions).
+
+### Parent Lookup Functions
+
+#### `getRegionOfDivision(divisionNameOrCode: string): Region | undefined`
+
+Get the parent region of a division.
+
+#### `getDivisionOfSubdivision(subdivisionNameOrCode: string): Division | undefined`
+
+Get the parent division of a subdivision.
+
+#### `getSubdivisionOfCanton(cantonNameOrCode: string): Subdivision | undefined`
+
+Get the parent subdivision of a canton.
+
+#### `getCantonOfNeighborhoodOrVillage(neighborhoodOrVillageNameOrCode: string): Canton | undefined`
+
+Get the parent canton of a neighborhood or village.
+
+#### `getNeighborhoodOrVillageOfBlock(blockNameOrCode: string): NeighborhoodOrVillage | undefined`
+
+Get the parent neighborhood or village of a block.
+
+### Canton Type Methods
 
 #### `getCityCantons(): Canton[]`
 
@@ -217,13 +346,19 @@ Get all rural-type cantons.
 
 #### `getTraditionalCantons(): Canton[]`
 
-Get all traditional cantons (lamidat, sultanate, chefferie, groupement).
+Get all traditional cantons (lamidat, sultanate, chiefdom).
 
-#### Population Methods
+#### `getCantonsByType(type: CantonType): Canton[]`
 
-#### `getLocalAreasWithPopulation(): LocalArea[]`
+Get cantons by specific type.
 
-Get all local areas that have population data.
+### Population Methods
+
+#### `getNeighborhoodOrVillagesWithPopulation(): NeighborhoodOrVillage[]`
+
+Get all neighborhoods and villages that have population data.
+
+### Search Functions
 
 #### `search(query: string, options?: SearchOptions): SearchResult[]`
 
@@ -233,6 +368,7 @@ Search across all administrative divisions (bilingual).
 interface SearchOptions {
   limit?: number; // Maximum results (default: 10)
   types?: SearchType[]; // Filter by types
+  language?: Language | "both"; // Language preference
 }
 ```
 
@@ -240,15 +376,42 @@ interface SearchOptions {
 
 Search within a specific administrative type.
 
+### Individual Lookup Functions
+
+#### `getRegionByCode(code: string | number): Region | undefined`
+
+Get region by any code type (numeric, HASC, P-code).
+
+#### `getDivisionByCode(code: string | number): Division | undefined`
+
+Get division by any code type.
+
+#### `getSubdivisionByCode(code: string | number): Subdivision | undefined`
+
+Get subdivision by any code type.
+
+#### `getCantonByCode(code: string | number): Canton | undefined`
+
+Get canton by code.
+
+#### `getNeighborhoodOrVillageByCode(code: string | number): NeighborhoodOrVillage | undefined`
+
+Get neighborhood or village by code.
+
+#### `getBlockByCode(code: string | number): Block | undefined`
+
+Get block by code.
+
 ### Wrapper Methods
 
-Each wrapper (RegionWrapper, DivisionWrapper, CantonWrapper, LocalAreaWrapper, BlockWrapper)
-provides:
+Each wrapper (RegionWrapper, DivisionWrapper, SubdivisionWrapper, CantonWrapper,
+NeighborhoodOrVillageWrapper, BlockWrapper) provides:
 
-- `getName(language?: Language): string` - Get name in specific language
+- `getName(language?: Language): string` - Get name in specific language ('fr' or 'en')
 - `getAllCodes(): object` - Get all available codes
-- Navigation methods (e.g., `region.divisions()`, `canton.localAreas()`, `block.region()`)
-- Chainable lookup methods (e.g., `region.division("name")`, `canton.localArea("name")`)
+- Navigation methods (e.g., `region.divisions()`, `canton.neighborhoodsOrVillages()`,
+  `block.region()`)
+- Chainable lookup methods (e.g., `region.division("name")`, `canton.neighborhoodOrVillage("name")`)
 
 ## Types
 
@@ -256,62 +419,64 @@ provides:
 interface Region {
   nameFr: string; // French name
   nameEn: string; // English name
-  code: string; // Numeric code (e.g., "02")
+  code: number; // Numeric code (e.g., 2)
   hasc?: string; // HASC code (e.g., "CM.CE")
   pcode?: string; // P-code (e.g., "CMR002")
-  get name(): string; // Computed property (returns nameFr)
+  readonly name: string; // Computed property (returns nameFr)
 }
 
 interface Division {
   nameFr: string; // French name
   nameEn: string; // English name
-  code: string; // Numeric code (e.g., "0207")
+  code: number; // Numeric code
   hasc?: string; // HASC code (e.g., "CM.CE.MF")
   pcode?: string; // P-code (e.g., "CMR002007")
   region: string; // Parent region name (French)
-  regionCode: string; // Parent region code
-  get name(): string; // Computed property (returns nameFr)
+  regionCode: number; // Parent region code
+  readonly name: string; // Computed property (returns nameFr)
 }
 
 interface Subdivision {
   nameFr: string; // French name
   nameEn: string; // English name
-  code: string; // Numeric code (e.g., "020701")
+  councilNameFr?: string; // French council name (optional)
+  councilNameEn?: string; // English council name (optional)
+  code: number; // Numeric code
   hasc?: string; // HASC code (optional)
   pcode?: string; // P-code (optional)
   division: string; // Parent division name (French)
-  divisionCode: string; // Parent division code
-  get name(): string; // Computed property (returns nameFr)
+  divisionCode: number; // Parent division code
+  readonly name: string; // Computed property (returns nameFr)
 }
 
 interface Canton {
   nameFr: string; // French name
   nameEn: string; // English name
-  code: string; // Numeric code (e.g., "020701")
-  type: CantonType; // Canton type (city/rural/traditional)
+  code: number; // Numeric code
+  type: CantonType; // Canton type
   subdivision: string; // Parent subdivision name (French)
-  subdivisionCode: string; // Parent subdivision code
-  get name(): string; // Computed property (returns nameFr)
+  subdivisionCode: number; // Parent subdivision code
+  readonly name: string; // Computed property (returns nameFr)
 }
 
-interface LocalArea {
+interface NeighborhoodOrVillage {
   nameFr: string; // French name
   nameEn: string; // English name
-  code: string; // Numeric code (e.g., "02070101")
-  type: LocalAreaType; // Type (quarter/village/locality)
+  code: number; // Numeric code
+  type: string; // Type (neighborhood/village/locality)
   population?: PopulationData; // Optional population data
   canton: string; // Parent canton name (French)
-  cantonCode: string; // Parent canton code
-  get name(): string; // Computed property (returns nameFr)
+  cantonCode: number; // Parent canton code
+  readonly name: string; // Computed property (returns nameFr)
 }
 
 interface Block {
   nameFr: string; // French name
   nameEn: string; // English name
-  code: string; // Numeric code (e.g., "0207010101")
-  localArea: string; // Parent local area name (French)
-  localAreaCode: string; // Parent local area code
-  get name(): string; // Computed property (returns nameFr)
+  code: number; // Numeric code
+  neighborhoodOrVillage: string; // Parent neighborhood/village name (French)
+  neighborhoodOrVillageCode: number; // Parent neighborhood/village code
+  readonly name: string; // Computed property (returns nameFr)
 }
 
 interface PopulationData {
@@ -321,13 +486,26 @@ interface PopulationData {
 }
 
 interface SearchResult {
-  type: "region" | "division" | "subdivision" | "canton" | "localArea" | "block";
-  item: Region | Division | Subdivision | Canton | LocalArea | Block;
+  type: "region" | "division" | "subdivision" | "canton" | "neighborhoodOrVillage" | "block";
+  item: Region | Division | Subdivision | Canton | NeighborhoodOrVillage | Block;
 }
 
-type SearchType = "region" | "division" | "subdivision" | "canton" | "localArea" | "block";
-type CantonType = "city" | "rural" | "lamidat" | "sultanate" | "chefferie" | "groupement";
-type LocalAreaType = "neighborhood" | "village" | "locality";
+type SearchType =
+  | "region"
+  | "division"
+  | "subdivision"
+  | "canton"
+  | "neighborhoodOrVillage"
+  | "block";
+type CantonType =
+  | "city"
+  | "rural"
+  | "group"
+  | "lamidat"
+  | "sultanate"
+  | "sector"
+  | "chiefdom"
+  | "canton";
 type Language = "fr" | "en";
 ```
 
@@ -351,11 +529,11 @@ type Language = "fr" | "en";
 ### Major Cities and Their Administrative Locations
 
 - **Yaoundé** (Capital): Centre Region → Mfoundi Division → Yaoundé I-VII Subdivisions → Yaoundé I
-  Canton → Centre Administratif LocalArea → Bloc A Block
+  Canton → Centre Administratif NeighborhoodOrVillage → Bloc A Block
 - **Douala** (Economic Capital): Littoral Region → Wouri Division → Douala I-VI Subdivisions →
-  Douala I Canton → Akwa LocalArea → Akwa Centre Block
+  Douala I Canton → Akwa NeighborhoodOrVillage → Akwa Centre Block
 - **Bamenda**: Northwest Region → Mezam Division → Bamenda I-III Subdivisions → Bamenda Centre
-  Canton → Centre Commercial Bamenda LocalArea
+  Canton → Centre Commercial Bamenda NeighborhoodOrVillage
 
 ### Canton Types
 
@@ -367,18 +545,20 @@ structure:
 - **Traditional Cantons**:
   - **Lamidat** (`lamidat`): Traditional Islamic administrative units
   - **Sultanate** (`sultanate`): Traditional sultanate territories
-  - **Chefferie** (`chefferie`): Traditional chiefdom areas
-  - **Groupement** (`groupement`): Traditional community groupings
+  - **Chiefdom** (`chiefdom`): Traditional chiefdom areas
+  - **Group** (`group`): Traditional community groupings
+  - **Sector** (`sector`): Administrative sectors
+  - **Canton** (`canton`): General canton classification
 
 ### Population Data
 
-Local areas can include optional population statistics:
+Neighborhoods and villages can include optional population statistics:
 
 ```typescript
-const centreAdmin = localArea("Centre Administratif");
-console.log(centreAdmin.population?.total); // 15420
-console.log(centreAdmin.population?.male); // 7650
-console.log(centreAdmin.population?.female); // 7770
+const centreAdmin = neighborhoodOrVillage("Centre Administratif");
+console.log(centreAdmin?.population?.total); // Total population if available
+console.log(centreAdmin?.population?.male); // Male population
+console.log(centreAdmin?.population?.female); // Female population
 ```
 
 ## Bilingual Support
@@ -391,14 +571,14 @@ This package provides comprehensive bilingual support for French and English:
 const region = region("Centre");
 
 // Direct property access
-console.log(region.nameFr); // "Centre"
-console.log(region.nameEn); // "Centre"
-console.log(region.name); // "Centre" (defaults to French)
+console.log(region?.nameFr); // "Centre"
+console.log(region?.nameEn); // "Centre"
+console.log(region?.name); // "Centre" (defaults to French)
 
 // Method access with language parameter
-console.log(region.getName("fr")); // "Centre"
-console.log(region.getName("en")); // "Centre"
-console.log(region.getName()); // "Centre" (defaults to French)
+console.log(region?.getName("fr")); // "Centre"
+console.log(region?.getName("en")); // "Centre"
+console.log(region?.getName()); // "Centre" (defaults to French)
 ```
 
 ### Bilingual Search
@@ -409,7 +589,8 @@ Search works across both French and English names:
 // These will all find Yaoundé-related locations
 const results1 = search("Yaoundé"); // French name
 const results2 = search("Yaounde"); // English variant
-const results3 = search("Centre"); // Works for both languages
+const results3 = search("Adamaoua"); // French name
+const results4 = search("Adamawa"); // English name
 ```
 
 ### Multiple Code Systems
@@ -417,73 +598,35 @@ const results3 = search("Centre"); // Works for both languages
 The package supports multiple coding systems used in Cameroon:
 
 ```typescript
-const region = region("02"); // Numeric code
+const region1 = region("02"); // Numeric code
 const region2 = region("CM.CE"); // HASC (Hierarchical Administrative Subdivision Codes)
 const region3 = region("CMR002"); // P-codes (Place codes)
 
 // Get all codes for a location
-console.log(region.getAllCodes());
-// Output: { code: "02", hasc: "CM.CE", pcode: "CMR002" }
+console.log(region1?.getAllCodes());
+// Output: { code: 2, hasc: "CM.CE", pcode: "CMR002" }
 ```
 
-## Migration from v1.x to v2.0
+## Extensions
 
-**⚠️ Breaking Changes**: Version 2.0 introduces a new 6-level administrative hierarchy. The old
-4-level District system has been replaced with the new Canton → LocalArea → Block structure.
+### Electoral Data (ELECAM Integration)
 
-### What Changed
-
-- **Removed**: All District-related functionality
-- **Added**: Canton, LocalArea, and Block administrative levels
-- **Enhanced**: Canton type support (city/rural/traditional)
-- **Added**: Optional population data for LocalAreas
-
-### Migration Guide
+Access electoral polling station data for subdivisions:
 
 ```typescript
-// ❌ v1.x - Districts no longer exist
-const district = district("Centre Administratif"); // Will return undefined
-
-// ✅ v2.0 - Use LocalAreas and Blocks instead
-const localArea = localArea("Centre Administratif");
-const block = block("Bloc A");
-
-// ❌ v1.x - District methods removed
-const districts = getDistricts(); // Method no longer exists
-const districtsInSubdivision = getDistrictsInSubdivision("Yaoundé I"); // Removed
-
-// ✅ v2.0 - Use new 6-level methods
-const cantons = getCantons();
-const localAreas = getLocalAreas();
-const blocks = getBlocks();
-const cantonsInSubdivision = getCantonsInSubdivision("Yaoundé I");
-const localAreasInCanton = getLocalAreasInCanton("Yaoundé I");
-const blocksInLocalArea = getBlocksInLocalArea("Centre Administratif");
-
-// ✅ Still works - Core functionality maintained
-const regionName = region("Centre").name;
-const divisions = getDivisionsInRegion("Centre");
-const results = search("Yaoundé");
+const subdivision = subdivision("Yaoundé I");
+const electoralData = subdivision?.getElectoralData();
+// Returns polling stations and voter statistics if available
 ```
 
-### New Features in v2.0
+### GeoJSON Integration
+
+Access geographic boundary data:
 
 ```typescript
-// Canton type filtering
-const cityCantons = getCityCantons();
-const traditionalCantons = getTraditionalCantons();
-
-// Population data access
-const localAreasWithPopulation = getLocalAreasWithPopulation();
-const population = localArea("Centre Administratif").population;
-
-// 6-level navigation
-const block = region("Centre")
-  .division("Mfoundi")
-  .subdivision("Yaoundé I")
-  .canton("Yaoundé I")
-  .localArea("Centre Administratif")
-  .block("Bloc A");
+const region = region("Centre");
+const geoData = region?.getGeoJson();
+// Returns GeoJSON feature with geographic boundaries if available
 ```
 
 ## Examples
