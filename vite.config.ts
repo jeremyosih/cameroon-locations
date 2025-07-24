@@ -5,10 +5,14 @@ import { resolve } from "path";
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, "lib/index.ts"),
-      name: "KenyaLocations",
+      entry: {
+        index: resolve(__dirname, "lib/index.ts"),
+        "extensions/elecam/index": resolve(__dirname, "lib/extensions/elecam/index.ts"),
+        "extensions/geojson/index": resolve(__dirname, "lib/extensions/geojson/index.ts"),
+      },
+      name: "CameroonLocations",
       formats: ["es", "cjs"],
-      fileName: (format) => `index.${format === "cjs" ? "cjs" : "js"}`,
+      fileName: (format, entryName) => `${entryName}.${format === "cjs" ? "cjs" : "js"}`,
     },
     rollupOptions: {
       external: [],

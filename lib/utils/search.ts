@@ -35,6 +35,18 @@ const searchOptions = {
 };
 
 /**
+ * Configuration for subdivision search - includes council names
+ */
+const subdivisionSearchOptions = {
+  keys: ["nameFr", "nameEn", "councilNameFr", "councilNameEn"],
+  threshold: 0.2,
+  includeScore: true,
+  ignoreLocation: true,
+  findAllMatches: false,
+  minMatchCharLength: 2,
+};
+
+/**
  * Lazy-initialized Fuse instances for better performance
  */
 let regionFuse: Fuse<any> | null = null;
@@ -50,7 +62,7 @@ let blockFuse: Fuse<any> | null = null;
 function initializeFuseInstances() {
   if (!regionFuse) regionFuse = new Fuse(regions, searchOptions);
   if (!divisionFuse) divisionFuse = new Fuse(divisions, searchOptions);
-  if (!subdivisionFuse) subdivisionFuse = new Fuse(subdivisions, searchOptions);
+  if (!subdivisionFuse) subdivisionFuse = new Fuse(subdivisions, subdivisionSearchOptions);
   if (!cantonFuse) cantonFuse = new Fuse(cantons, searchOptions);
   if (!neighborhoodOrVillageFuse)
     neighborhoodOrVillageFuse = new Fuse(

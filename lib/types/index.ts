@@ -7,7 +7,7 @@ export interface RegionData {
   nameEn: string; // English name
 
   // Codes (multiple systems)
-  code: string; // Numeric code (01, 02, etc.)
+  code: number; // Numeric code (01, 02, etc.)
   hasc?: string; // HASC code (CM.AD, CM.CE, etc.) - optional
   pcode?: string; // P-code (CMR001, CMR002, etc.) - optional
 }
@@ -29,13 +29,13 @@ export interface DivisionData {
   nameEn: string; // English name
 
   // Codes (multiple systems)
-  code: string; // Alphanumeric code (AD01, CE07, etc.)
+  code: number; // Alphanumeric code (AD01, CE07, etc.)
   hasc?: string; // HASC code (CM.AD.DJ, CM.CE.MF, etc.) - optional
   pcode?: string; // P-code (CMR001001, CMR002007, etc.) - optional
 
   // Parent relationships
   region: string; // Parent region (French name)
-  regionCode: string; // Parent region code
+  regionCode: number; // Parent region code
 }
 
 /**
@@ -54,14 +54,18 @@ export interface SubdivisionData {
   nameFr: string; // French name (primary)
   nameEn: string; // English name
 
+  // Council names (bilingual, optional)
+  councilNameFr?: string; // French council name
+  councilNameEn?: string; // English council name
+
   // Codes (multiple systems)
-  code: string; // Alphanumeric code (CE0701, etc.)
+  code: number; // Alphanumeric code (CE0701, etc.)
   hasc?: string; // HASC code - optional
   pcode?: string; // P-code - optional
 
   // Parent relationships
   division: string; // Parent division (French name)
-  divisionCode: string; // Parent division code
+  divisionCode: number; // Parent division code
 }
 
 /**
@@ -108,14 +112,14 @@ export interface CantonData {
   nameEn: string; // English name
 
   // Codes (simple alphanumeric only)
-  code: string; // Alphanumeric code
+  code: number; // Alphanumeric code
 
   // Administrative type
   type: CantonType;
 
   // Parent relationships
   subdivision: string; // Parent subdivision (French name)
-  subdivisionCode: string; // Parent subdivision code
+  subdivisionCode: number; // Parent subdivision code
 }
 
 /**
@@ -135,7 +139,7 @@ export interface NeighborhoodOrVillageData {
   nameEn: string; // English name
 
   // Codes (simple alphanumeric only)
-  code: string; // Alphanumeric code
+  code: number; // Alphanumeric code
 
   // Administrative type
   type: NeighborhoodOrVillageType;
@@ -145,7 +149,7 @@ export interface NeighborhoodOrVillageData {
 
   // Parent relationships
   canton: string; // Parent canton (French name)
-  cantonCode: string; // Parent canton code
+  cantonCode: number; // Parent canton code
 }
 
 /**
@@ -165,11 +169,11 @@ export interface BlockData {
   nameEn: string; // English name
 
   // Codes (simple alphanumeric only)
-  code: string; // Alphanumeric code
+  code: number; // Alphanumeric code
 
   // Parent relationships
   neighborhoodOrVillage: string; // Parent neighborhood or village (French name)
-  neighborhoodOrVillageCode: string; // Parent neighborhood or village code
+  neighborhoodOrVillageCode: number; // Parent neighborhood or village code
 }
 
 /**

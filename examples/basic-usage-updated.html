@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cameroon Locations - Basic Usage Examples (Updated)</title>
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      .container {
+        margin-bottom: 30px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+      }
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      h2 {
+        color: #3498db;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 5px;
+        margin-top: 30px;
+      }
+      button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+        font-size: 14px;
+      }
+      button:hover {
+        background-color: #2980b9;
+      }
+      pre {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 15px;
+        overflow-x: auto;
+        margin: 15px 0;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 16px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+      .error {
+        color: #e74c3c;
+        background-color: #fdf2f2;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #e74c3c;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🇨🇲 Cameroon Locations - Basic Usage Examples (Updated)</h1>
+
+    <div class="container">
+      <h2>1. List All Regions</h2>
+      <button id="listRegionsBtn">List All Regions</button>
+      <div id="regionsOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>2. Find Region by Name or Code</h2>
+      <input
+        type="text"
+        id="regionInput"
+        placeholder="Try: 'Centre', 'Adamaoua', 'Adamawa', '1', '2'"
+      />
+      <button id="findRegionBtn">Find Region</button>
+      <button id="showRegionDetailsBtn">Show Region Details</button>
+      <div id="regionOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>3. Get Divisions in Region</h2>
+      <input
+        type="text"
+        id="regionForDivisionsInput"
+        placeholder="Enter region name (e.g., 'Centre')"
+      />
+      <button id="getDivisionsBtn">Get Divisions</button>
+      <div id="divisionsOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>4. Get Subdivisions in Division</h2>
+      <input
+        type="text"
+        id="divisionInput"
+        placeholder="Enter division name (e.g., 'Mfoundi')"
+      />
+      <button id="getSubdivisionsBtn">Get Subdivisions</button>
+      <div id="subdivisionsOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>5. Get Cantons in Subdivision</h2>
+      <input
+        type="text"
+        id="subdivisionInput"
+        placeholder="Enter subdivision name (e.g., 'Yaoundé I')"
+      />
+      <button id="getCantonsBtn">Get Cantons</button>
+      <div id="cantonsOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>6. Canton Types and Filtering</h2>
+      <button id="cityCantons">Show City Cantons</button>
+      <button id="ruralCantons">Show Rural Cantons</button>
+      <button id="traditionalCantons">Show Traditional Cantons</button>
+      <div id="cantonTypesOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>7. Neighborhoods/Villages with Population</h2>
+      <button id="populationDataBtn">Show Areas with Population Data</button>
+      <div id="populationOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>8. Hierarchical Navigation</h2>
+      <button id="navigationBtn">Navigate: Region → Division → Subdivision → Canton</button>
+      <div id="navigationOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>9. Search All Locations</h2>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Try: 'Yaoundé', 'Douala', 'Bamenda', 'Ngaoundéré'"
+      />
+      <button id="searchBtn">Search (All Types)</button>
+      <button id="searchRegionsBtn">Search Regions Only</button>
+      <div id="searchOutput"></div>
+    </div>
+
+    <div class="container">
+      <h2>10. Code Examples</h2>
+      <button id="codeExamplesBtn">Show Code System Examples</button>
+      <div id="codeExamplesOutput"></div>
+    </div>
+
+    <script type="module">
+      import {
+        getRegions,
+        getDivisions,
+        getSubdivisions,
+        getCantons,
+        getNeighborhoodOrVillages,
+        region,
+        division,
+        subdivision,
+        canton,
+        getDivisionsInRegion,
+        getSubdivisionsInDivision,
+        getCantonsInSubdivision,
+        search,
+        searchByType,
+      } from "../dist/index.js";
+
+      // Utility to format JSON output
+      function formatOutput(data) {
+        return JSON.stringify(data, null, 2);
+      }
+
+      // Display output with error handling
+      function displayOutput(elementId, data) {
+        const element = document.getElementById(elementId);
+        if (data && data.error) {
+          element.innerHTML = `<div class="error">${data.error}</div>`;
+        } else {
+          element.innerHTML = `<pre><code>${formatOutput(data)}</code></pre>`;
+        }
+      }
+
+      // Example 1: List All Regions
+      document.getElementById("listRegionsBtn").addEventListener("click", () => {
+        const regions = getRegions();
+        displayOutput("regionsOutput", regions.slice(0, 5)); // Show first 5
+      });
+
+      // Example 2: Find Region by Name or Code
+      document.getElementById("findRegionBtn").addEventListener("click", () => {
+        const regionNameOrCode = document.getElementById("regionInput").value.trim();
+        if (!regionNameOrCode) {
+          displayOutput("regionOutput", { error: "Please enter a region name or code" });
+          return;
+        }
+
+        const regionWrapper = region(regionNameOrCode);
+        if (regionWrapper) {
+          displayOutput("regionOutput", regionWrapper.data);
+        } else {
+          displayOutput("regionOutput", { error: "Region not found" });
+        }
+      });
+
+      // Show region details with wrapper methods
+      document.getElementById("showRegionDetailsBtn").addEventListener("click", () => {
+        const regionNameOrCode = document.getElementById("regionInput").value.trim() || "Centre";
+
+        const regionWrapper = region(regionNameOrCode);
+        if (regionWrapper) {
+          const details = {
+            "Basic Info": regionWrapper.data,
+            "Divisions Count": regionWrapper.divisions().length,
+            "First 3 Divisions": regionWrapper.divisions().slice(0, 3).map(d => d.nameFr),
+            "Subdivisions Count": regionWrapper.subdivisions().length,
+            "Sample Subdivisions": regionWrapper.subdivisions().slice(0, 3).map(s => s.nameFr)
+          };
+          displayOutput("regionOutput", details);
+        } else {
+          displayOutput("regionOutput", { error: "Region not found" });
+        }
+      });
+
+      // Example 3: Get Divisions in Region
+      document.getElementById("getDivisionsBtn").addEventListener("click", () => {
+        const regionNameOrCode = document.getElementById("regionForDivisionsInput").value.trim();
+        if (!regionNameOrCode) {
+          displayOutput("divisionsOutput", { error: "Please enter a region name" });
+          return;
+        }
+
+        try {
+          const divisions = getDivisionsInRegion(regionNameOrCode);
+          displayOutput("divisionsOutput", divisions);
+        } catch (error) {
+          displayOutput("divisionsOutput", { error: error.message });
+        }
+      });
+
+      // Example 4: Get Subdivisions in Division
+      document.getElementById("getSubdivisionsBtn").addEventListener("click", () => {
+        const divisionName = document.getElementById("divisionInput").value.trim();
+        if (!divisionName) {
+          displayOutput("subdivisionsOutput", { error: "Please enter a division name" });
+          return;
+        }
+
+        try {
+          const subdivisions = getSubdivisionsInDivision(divisionName);
+          displayOutput("subdivisionsOutput", subdivisions);
+        } catch (error) {
+          displayOutput("subdivisionsOutput", { error: error.message });
+        }
+      });
+
+      // Example 5: Get Cantons in Subdivision
+      document.getElementById("getCantonsBtn").addEventListener("click", () => {
+        const subdivisionName = document.getElementById("subdivisionInput").value.trim();
+        if (!subdivisionName) {
+          displayOutput("cantonsOutput", { error: "Please enter a subdivision name" });
+          return;
+        }
+
+        try {
+          const cantons = getCantonsInSubdivision(subdivisionName);
+          displayOutput("cantonsOutput", cantons);
+        } catch (error) {
+          displayOutput("cantonsOutput", { error: error.message });
+        }
+      });
+
+      // Example 6: Canton Types
+      document.getElementById("cityCantons").addEventListener("click", () => {
+        const allCantons = getCantons();
+        const cityCantons = allCantons.filter(c => c.type === 'city');
+        displayOutput("cantonTypesOutput", cityCantons.slice(0, 10));
+      });
+
+      document.getElementById("ruralCantons").addEventListener("click", () => {
+        const allCantons = getCantons();
+        const ruralCantons = allCantons.filter(c => c.type === 'rural');
+        displayOutput("cantonTypesOutput", ruralCantons.slice(0, 10));
+      });
+
+      document.getElementById("traditionalCantons").addEventListener("click", () => {
+        const allCantons = getCantons();
+        const traditionalCantons = allCantons.filter(c => 
+          ['lamidat', 'sultanate', 'chiefdom'].includes(c.type)
+        );
+        displayOutput("cantonTypesOutput", traditionalCantons.slice(0, 10));
+      });
+
+      // Example 7: Population Data
+      document.getElementById("populationDataBtn").addEventListener("click", () => {
+        const neighborhoods = getNeighborhoodOrVillages();
+        const withPopulation = neighborhoods.filter(n => n.population).slice(0, 10);
+        displayOutput("populationOutput", withPopulation);
+      });
+
+      // Example 8: Hierarchical Navigation
+      document.getElementById("navigationBtn").addEventListener("click", () => {
+        const centreRegion = region("Centre");
+        if (centreRegion) {
+          const mfoundiDivision = centreRegion.division("Mfoundi");
+          const yaounde1Subdivision = mfoundiDivision?.subdivision("Yaoundé I");
+          const yaounde1Canton = yaounde1Subdivision?.canton("Yaoundé I");
+
+          const navigationExample = {
+            "1. Region": centreRegion.data,
+            "2. Division": mfoundiDivision?.data,
+            "3. Subdivision": yaounde1Subdivision?.data,
+            "4. Canton": yaounde1Canton?.data,
+            "Navigation Methods": {
+              "From Canton back to Region": yaounde1Canton?.region()?.data,
+              "From Canton back to Division": yaounde1Canton?.division()?.data,
+              "From Canton back to Subdivision": yaounde1Canton?.subdivision()?.data,
+            }
+          };
+          displayOutput("navigationOutput", navigationExample);
+        }
+      });
+
+      // Example 9: Search
+      document.getElementById("searchBtn").addEventListener("click", () => {
+        const searchTerm = document.getElementById("searchInput").value.trim();
+        if (!searchTerm) {
+          displayOutput("searchOutput", { error: "Please enter a search term" });
+          return;
+        }
+
+        try {
+          const results = search(searchTerm, { limit: 10 });
+          displayOutput("searchOutput", results);
+        } catch (error) {
+          displayOutput("searchOutput", { error: error.message });
+        }
+      });
+
+      document.getElementById("searchRegionsBtn").addEventListener("click", () => {
+        const searchTerm = document.getElementById("searchInput").value.trim();
+        if (!searchTerm) {
+          displayOutput("searchOutput", { error: "Please enter a search term" });
+          return;
+        }
+
+        try {
+          const results = searchByType(searchTerm, "region", { limit: 5 });
+          displayOutput("searchOutput", results);
+        } catch (error) {
+          displayOutput("searchOutput", { error: error.message });
+        }
+      });
+
+      // Example 10: Code Examples
+      document.getElementById("codeExamplesBtn").addEventListener("click", () => {
+        const examples = {
+          "Region Codes": {
+            "Adamaoua": region("Adamaoua")?.data,
+            "Centre": region("Centre")?.data,
+            "Littoral": region("Littoral")?.data,
+          },
+          "Division Codes": {
+            "Mfoundi": division("Mfoundi")?.data,
+            "Wouri": division("Wouri")?.data,
+          },
+          "Subdivision Codes": {
+            "Yaoundé I": subdivision("Yaoundé I")?.data,
+            "Douala I": subdivision("Douala I")?.data,
+          },
+          "Code Statistics": {
+            "Total Regions": getRegions().length,
+            "Total Divisions": getDivisions().length,
+            "Total Subdivisions": getSubdivisions().length,
+            "Total Cantons": getCantons().length,
+            "Total Neighborhoods/Villages": getNeighborhoodOrVillages().length,
+          }
+        };
+        displayOutput("codeExamplesOutput", examples);
+      });
+    </script>
+  </body>
+</html>
