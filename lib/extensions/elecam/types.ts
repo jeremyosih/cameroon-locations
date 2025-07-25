@@ -25,7 +25,7 @@ export interface PollingCenter {
 }
 
 export interface Council {
-  subdivisionCode: string;
+  subdivisionCode: number;
   councilName: string;
   totalVoters: number;
   totalCenters: number;

@@ -363,7 +363,7 @@
         }
 
         try {
-          const results = searchByType(searchTerm, "region", { limit: 5 });
+          const results = searchByType(searchTerm, "region", 5);
           displayOutput("searchOutput", results);
         } catch (error) {
           displayOutput("searchOutput", { error: error.message });
