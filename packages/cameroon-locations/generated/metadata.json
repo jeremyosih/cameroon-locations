@@ -1,0 +1,24 @@
+{
+  "name": "cameroon-locations",
+  "version": "2026.10.17+5448fb56",
+  "generated": "2026-10-17",
+  "sources": [
+    "ocha-cod-ab-cmr",
+    "bucrep-rgph2005-repertoire-villages",
+    "elecam-polling-stations-2025",
+    "geoboundaries-cmr-gbopen",
+    "location-script-reference-tables",
+    "wikidata",
+    "research-2026-10-17",
+    "cameroon-locations-0.1.0-july-2025"
+  ],
+  "counts": {
+    "regions": 10,
+    "divisions": 58,
+    "arrondissements": 360,
+    "cantons": 1504,
+    "villages": 17070,
+    "pollingStations": 30353
+  },
+  "canonicalSha256": "5448fb564840382567477ea03684d986725749db4b1affa0b8f1d38221d6debe"
+}
