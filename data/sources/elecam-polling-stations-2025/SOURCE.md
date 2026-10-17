@@ -5,7 +5,8 @@
 | Source id | `elecam-polling-stations-2025` |
 | Producer | ELECAM (Elections Cameroon), https://www.elecam.cm |
 | Retrieved | File dated 2025-07-24, obtained by Jeremy Osih. **The download URL and method were not recorded.** ELECAM has no known open-data CSV; it published the provisional roll online in July 2025, organised by commune and polling station. |
-| Licence | Unknown. Treat this file as restricted until it's clarified. Voter counts by station are public notices, but redistributing them in a package needs checking. |
+| Licence | No licence stated. Voter counts by station are public notices. **Published in the package with attribution** (owner decision D7, 2026-10-17). |
+| Online | https://portail.elecam.cm/fr/documentation/ (regional PDFs of the 2025 lists) |
 | Columns | `REGION_NAME, DIVISION_NAME, COUNCIL_NAME, CENTER_NAME, STATION_NAME, TOTAL` (TOTAL is registered voters) |
 
 ## Contents (from `location-script` analysis)

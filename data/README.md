@@ -10,9 +10,9 @@ This is the raw material for the `cameroon-locations` package. Rules:
 | Id | What | Levels | Licence | Trust |
 |---|---|---|---|---|
 | [`ocha-cod-ab-cmr`](sources/ocha-cod-ab-cmr/SOURCE.md) | Official boundaries and gazetteer (INC / OCHA), v01, reviewed 2025-10-30 | ADM0–3 geometry, P-codes, EN/FR names, area, centroids, capitals | CC BY-IGO | **Authoritative** for codes, ADM1–3 names and geometry |
-| [`bucrep-rgph2005-repertoire-villages`](sources/bucrep-rgph2005-repertoire-villages/SOURCE.md) | 2005 census village directory (PDF) | ADM1–3, about 1,520 cantons, about 17k villages, population by sex | Unstated (government publication) | **Authoritative** for villages, cantons and 2005 population. The official link is dead, so the local copy is precious. |
+| [`bucrep-rgph2005-repertoire-villages`](sources/bucrep-rgph2005-repertoire-villages/SOURCE.md) | 2005 census village directory (PDF) | ADM1–3, about 1,520 cantons, about 17k villages, population by sex | Unstated (government publication); facts published with attribution (D7) | **Authoritative** for villages, cantons and 2005 population. The official link is dead, so the local copy is precious. |
 | [`geoboundaries-cmr-gbopen`](sources/geoboundaries-cmr-gbopen/SOURCE.md) | geoBoundaries `9469f09` | ADM1–3 geometry | CC BY 3.0 / CC BY 4.0 / **ODbL** (ADM3) | Secondary. Use COD-AB instead. Kept for cross-checking. |
-| [`elecam-polling-stations-2025`](sources/elecam-polling-stations-2025/SOURCE.md) | Electoral roll by polling station, probably the July 2025 provisional roll | Communes, about 17.6k centres, about 30k stations, voters | Unknown | Good, but the provenance URL is missing |
+| [`elecam-polling-stations-2025`](sources/elecam-polling-stations-2025/SOURCE.md) | Electoral roll by polling station, probably the July 2025 provisional roll | Communes, about 17.6k centres, about 30k stations, voters | Not stated; published with attribution (D7) | Good, but the provenance URL is missing |
 | [`location-script-reference-tables`](sources/location-script-reference-tables/SOURCE.md) | P-code, HASC and population CSVs of unrecorded origin | ADM1–3 | — | Superseded by COD-AB and BUCREP. Kept. |
 
 ## Research

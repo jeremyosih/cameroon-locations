@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      # No LFS: the package is generated from data/canonical, which is plain git.
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+      - run: bun install --frozen-lockfile
+      - run: bun run check
+      - run: bun run typecheck
+      - name: Generated data is up to date
+        if: hashFiles('packages/cameroon-locations/scripts/generate.ts') != ''
+        run: bun run data:generate && git diff --exit-code -- packages/cameroon-locations/generated
+      - run: bun run test
+      - run: bun run build
+      - run: bun run --filter cameroon-locations check:package
+      - name: Docs
+        if: hashFiles('apps/docs/package.json') != ''
+        run: bun run docs:build

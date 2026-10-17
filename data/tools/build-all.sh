@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Rebuild canonical/ from the sources. Run from data-pool/. Requires bun and uv.
 set -euo pipefail
+# Use a uv-managed Python: system interpreters can make uv scan unreadable dirs such as /usr/local/bin.
+export UV_PYTHON_PREFERENCE="${UV_PYTHON_PREFERENCE:-only-managed}" UV_PYTHON="${UV_PYTHON:-3.12}"
 S=sources; C=$S/ocha-cod-ab-cmr/extracted/geojson; T=derived/location-script-2025-07/snapshot
 mkdir -p build
 uv run -q --with pymupdf python -I tools/extract_bucrep_layout.py $S/bucrep-rgph2005-repertoire-villages/raw/loc.pdf build/bucrep-layout.json

@@ -51,3 +51,20 @@ Decree 2010/198, p. 4 (checked visually): "DÉPARTEMENT DU NYONG-ET-SO'O – Arr
 ## D6: The data pool lives in the cameroon-locations repo, with large files in Git LFS (2026-10-17, Jeremy)
 
 Sources stay next to the code. The npm package never includes `data/` (enforced by `files` in package.json).
+
+## D7: Publish every source in the package, with attribution (2026-10-17, Jeremy)
+
+All sources, including BUCREP (cantons, villages, population) and ELECAM (polling stations), are published in the npm package and the shadcn registry. The PDFs themselves are not redistributed. Every published dataset carries its provenance:
+
+- each record has a `sources` list of source ids;
+- the package exports `sources` and `attribution()` with, for each source, its licence, its online URL and the URL of its archived copy under `data/sources/<id>`;
+- every GeoJSON file has a top-level `metadata` member with the same information;
+- `NOTICE.md` at the repository root is shipped in the package.
+
+*Applied in:* `packages/cameroon-locations/src/sources.ts`, `NOTICE.md`, `data/sources/*/SOURCE.md`.
+
+## D8: Display names are bilingual, with Roman numerals (2026-10-17, Jeremy)
+
+`name.fr` and `name.en` in the package use one bilingual convention for numbered arrondissements: Roman numerals, as in "Yaoundé I", "Bamenda II". Neither the French ordinal ("Yaoundé 1er") nor the English one ("Bamenda 1st") is used for display. The ordinal is also stored as an integer (`ordinal`). Accents are restored where an official or established spelling has them ("Yaoundé", "Ngaoundéré"), with evidence from `research/official-names.json` or the decrees. OCHA's ASCII forms stay in `refName` and in `aliases`, like every other spelling. Regions keep their distinct French and English names (Extrême-Nord / Far North).
+
+*Applied in:* `packages/cameroon-locations/scripts/generate.ts`.
