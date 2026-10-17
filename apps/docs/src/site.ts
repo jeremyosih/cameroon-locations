@@ -20,7 +20,7 @@ export const NPM_URL = "https://www.npmjs.com/package/cameroon-locations";
  */
 export const SPONSOR = {
   name: "Social Democratic Front",
-  url: "https://sdfcameroon.org",
+  url: "https://sdf.cm",
   logo: "/sponsors/sdf.png",
 } as const;
 

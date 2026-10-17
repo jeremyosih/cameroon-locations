@@ -8,9 +8,9 @@ census population, GeoJSON boundaries and 2025 polling stations.
 **Docs: https://cameroon-locations.vercel.app**
 
 <p>
-  <a href="https://sdfcameroon.org"><img src="https://raw.githubusercontent.com/jeremyosih/cameroon-locations/main/apps/docs/public/sponsors/sdf.png" alt="Social Democratic Front (SDF) logo" width="64" height="64"></a>
+  <a href="https://sdf.cm"><img src="https://raw.githubusercontent.com/jeremyosih/cameroon-locations/main/apps/docs/public/sponsors/sdf.png" alt="Social Democratic Front (SDF) logo" width="64" height="64"></a>
   <br>
-  Brought to you by the <a href="https://sdfcameroon.org">SDF</a> (Social Democratic Front).
+  Brought to you by the <a href="https://sdf.cm">SDF</a> (Social Democratic Front).
 </p>
 
 ```sh
