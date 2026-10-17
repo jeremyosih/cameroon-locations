@@ -20,6 +20,62 @@
         { "path": "search.ts", "type": "registry:lib" },
         { "path": "data/admin.ts", "type": "registry:lib" }
       ]
+    },
+    {
+      "name": "location-picker",
+      "type": "registry:component",
+      "title": "Location picker",
+      "description": "Cascading region, division and arrondissement picker for Cameroon, with accent- and typo-tolerant search in French and English. Values are OCHA P-codes. Built on Popover and Command; data comes from the cameroon-locations-core item, so there is no npm dependency.",
+      "registryDependencies": [
+        "{{SITE_URL}}/r/cameroon-locations-core.json",
+        "popover",
+        "command",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/location-picker/location-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "cameroon-map",
+      "type": "registry:component",
+      "title": "Cameroon map",
+      "description": "Map of Cameroon's regions, divisions or arrondissements on shadcn-map (react-leaflet): selection, tooltips, a sequential choropleth keyed by P-code and drill-down. Boundaries come from the cameroon-locations npm package and are credited in the attribution control.",
+      "dependencies": ["cameroon-locations"],
+      "devDependencies": ["@types/geojson"],
+      "registryDependencies": [
+        "https://shadcn-map.vercel.app/r/map.json",
+        "button"
+      ],
+      "cssVars": {
+        "light": {
+          "choropleth-1": "#b7d3f6",
+          "choropleth-2": "#6da7ec",
+          "choropleth-3": "#2a78d6",
+          "choropleth-4": "#184f95",
+          "choropleth-5": "#0d366b"
+        },
+        "dark": {
+          "choropleth-1": "#0d366b",
+          "choropleth-2": "#1c5cab",
+          "choropleth-3": "#3987e5",
+          "choropleth-4": "#86b6ef",
+          "choropleth-5": "#cde2fb"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/cameroon-map/cameroon-map.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/cameroon-map/cameroon-map-scale.ts",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

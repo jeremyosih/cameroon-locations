@@ -1,38 +1,145 @@
 ---
 title: Cameroon map
-description: An SVG map of Cameroon's regions, divisions or arrondissements, keyed by P-code, for choropleths and selection. Copy it into your project with the shadcn CLI.
+description: An interactive map of Cameroon's regions, divisions or arrondissements on shadcn-map, keyed by P-code, for choropleths, selection and drill-down. Copy it into your project with the shadcn CLI.
 eyebrow: shadcn/ui component
 ---
 
-{/*
-  Components agent: this page is a shell. See location-picker.mdx for the
-  steps (registry.json item, demo island in ComponentPreview, InstallCommand
-  with shadcn={registryUrl("cameroon-map")}, PropsTable rows).
-*/}
+import InstallCommand from "@/components/docs/InstallCommand";
+import MapPreview from "@/components/demos/map-preview";
+import basicSource from "@/components/demos/cameroon-map-demo.tsx?raw";
+import choroplethSource from "@/components/demos/cameroon-map-choropleth-demo.tsx?raw";
+import drillDownSource from "@/components/demos/cameroon-map-drilldown-demo.tsx?raw";
+import mapSource from "../../../registry/cameroon-map/cameroon-map.tsx?raw";
+import scaleSource from "../../../registry/cameroon-map/cameroon-map-scale.ts?raw";
+import { registryUrl } from "@/site";
 
-<ComponentPreview>
-  <div class="text-muted-foreground flex flex-col items-center gap-2 text-center text-sm">
-    <span class="text-foreground font-medium">Preview coming soon</span>
-    <span class="max-w-xs text-xs leading-relaxed">
-      Regions, divisions or arrondissements from the simplified OCHA
-      boundaries, coloured by your data.
-    </span>
-  </div>
+<ComponentPreview code={basicSource} align="stretch" class="p-4 sm:p-6">
+  <MapPreview demo="basic" client:only="react" />
 </ComponentPreview>
 
 ## Installation
 
-<Callout title="Not published yet" tone="brand">
-  The component is being built. It will install with one `shadcn add`
-  command from this site's registry.
+<InstallCommand client:load shadcn={registryUrl("cameroon-map")} />
+
+The map is built on [shadcn-map](https://shadcn-map.vercel.app) (Leaflet and
+react-leaflet), which the command installs too, with the `cameroon-locations`
+npm package for the boundaries: the GeoJSON is too large to copy into your
+source. It adds `components/cameroon-map.tsx`, `components/cameroon-map-scale.ts`
+and five `--choropleth-*` colours to your CSS.
+
+<CodeBlock code={mapSource} lang="tsx" title="components/cameroon-map.tsx" />
+
+<CodeBlock code={scaleSource} lang="ts" title="components/cameroon-map-scale.ts" />
+
+<Callout title="Client only" tone="brand">
+  Leaflet needs the browser. In Next.js, load the map with
+  `dynamic(() => import(...), { ssr: false })`; in Astro, use
+  `client:only="react"`. Base map tiles follow `next-themes`, like the rest
+  of shadcn-map.
 </Callout>
 
 ## Usage
 
-Shapes are keyed by P-code, so you colour them with a `Map` or object keyed
-the same way as the rest of the package. Until then, see
-[Geo & GeoJSON](/docs/geo) for Leaflet, MapLibre and d3 recipes.
+```tsx
+import { CameroonMap } from "@/components/cameroon-map";
+
+<CameroonMap
+  level="division"
+  selected={pcode}
+  onSelect={(unit) => setPcode(unit.pcode)}
+/>;
+```
+
+Shapes are keyed by P-code, like the rest of the package, and `onSelect`
+receives the record (`Region`, `Division` or `Arrondissement`). Only the
+GeoJSON file for the level and `detail` shown is downloaded: each one is a
+separate dynamic import, so bundlers split them.
+
+The boundary attribution from `attribution()` is always shown in the map's
+attribution control, as the OCHA licence requires. Add the sources of your
+own data with `sources`, for example
+`sources={["bucrep-rgph2005-repertoire-villages"]}` for census figures. See
+[Metadata & attribution](/docs/metadata).
+
+## Examples
+
+### Choropleth
+
+Pass `values` keyed by P-code and the map colours each unit on a five-class
+sequential scale, with a legend and the value in the tooltip. Classes are
+quantiles by default, so skewed data such as population still uses every
+colour; `scale="linear"` splits the range into equal steps instead. Units
+without a value are drawn in grey.
+
+This one maps population density from the 2005 census
+(`population2005.total / areaSqKm`). Density, rather than the raw count, is
+what a choropleth should show: large units would otherwise look important
+because they are large.
+
+<ComponentPreview code={choroplethSource} align="stretch" class="p-4 sm:p-6">
+  <MapPreview demo="choropleth" client:only="react" />
+</ComponentPreview>
+
+The colours are CSS variables, one blue hue from light to dark, with the
+dark theme reversed so low values recede into the background. Change them
+in your CSS:
+
+```css
+:root {
+  --choropleth-1: #b7d3f6;
+  --choropleth-2: #6da7ec;
+  --choropleth-3: #2a78d6;
+  --choropleth-4: #184f95;
+  --choropleth-5: #0d366b;
+}
+.dark {
+  --choropleth-1: #0d366b;
+  --choropleth-2: #1c5cab;
+  --choropleth-3: #3987e5;
+  --choropleth-4: #86b6ef;
+  --choropleth-5: #cde2fb;
+}
+```
+
+### Drill-down
+
+With `drillDown`, clicking a region shows its divisions, and a division its
+arrondissements, with a back control. A `selected` P-code from elsewhere
+moves the map the same way, so here a
+[location picker](/docs/location-picker) and the map share one state.
+
+<ComponentPreview code={drillDownSource} align="stretch" class="p-4 sm:p-6">
+  <MapPreview demo="drilldown" client:only="react" />
+</ComponentPreview>
 
 ## API
 
-The props table will be filled in when the component lands.
+<PropsTable
+  rows={[
+    { name: "level", type: '"region" | "division" | "arrondissement"', default: '"region"', description: "Level shown. With drillDown, the level you start from." },
+    { name: "detail", type: '"low" | "default" | "high"', default: '"default"', description: "Boundary simplification: low for small maps, high when zoomed in to a city." },
+    { name: "selected", type: "Pcode | null", description: "Selected P-code (controlled). The unit, or the unit containing it, is outlined." },
+    { name: "defaultSelected", type: "Pcode", description: "Initial selection when uncontrolled." },
+    { name: "onSelect", type: "(unit: AdminUnit) => void", description: "Called with the record of the unit clicked, or focused and Enter-pressed." },
+    { name: "values", type: "Record<Pcode, number>", description: "Values for a sequential choropleth." },
+    { name: "scale", type: '"quantile" | "linear"', default: '"quantile"', description: "How values are split into the five colour classes." },
+    { name: "legend", type: "string | false", description: "Legend title, or false to hide the legend. Shown when values are set." },
+    { name: "formatValue", type: "(value: number) => string", description: "Formats values in tooltips and the legend. Default: compact numbers in lang." },
+    { name: "tooltip", type: "boolean", default: "true", description: "Show the name (in lang) and value on hover and focus." },
+    { name: "lang", type: '"fr" | "en"', default: '"en"', description: "Language of names and default texts." },
+    { name: "drillDown", type: "boolean", default: "false", description: "Click a region to show its divisions, then their arrondissements, with a back control." },
+    { name: "fitBounds", type: "boolean", default: "true", description: "Fit the view to the selection, the drilled unit, or the country." },
+    { name: "tiles", type: "boolean", default: "true", description: "Show the shadcn-map base tiles. false draws the shapes alone." },
+    { name: "sources", type: "SourceId[]", description: "More sources to credit in the attribution control, after the boundaries." },
+    { name: "className", type: "string", description: "Classes for the wrapper. Set the height here; the default is 420px." },
+    { name: "children", type: "ReactNode", description: "Extra shadcn-map layers or controls, e.g. MapMarker or MapFullscreenControl." },
+  ]}
+/>
+
+## Accessibility
+
+- Every unit is focusable and announced as a button with its name; Tab
+  moves between units, Enter or Space selects, and focus shows the tooltip.
+- The legend lists every class range for screen readers.
+- The scale is one hue that only changes lightness, readable with colour
+  vision deficiencies. For exact figures, pair the map with a table.

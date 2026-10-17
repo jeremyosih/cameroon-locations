@@ -10,9 +10,18 @@
     "noUnusedParameters": true,
     "types": ["bun"],
     "baseUrl": ".",
+    "resolveJsonModule": true,
     "paths": {
+      "@/components/location-picker": [
+        "./registry/location-picker/location-picker.tsx"
+      ],
+      "@/components/cameroon-map": ["./registry/cameroon-map/cameroon-map.tsx"],
+      "@/lib/cameroon-locations/*": ["../../packages/cameroon-locations/src/*"],
       "@/*": ["./src/*"],
       "cameroon-locations": ["../../packages/cameroon-locations/src/index.ts"],
+      "cameroon-locations/geojson/*": [
+        "../../packages/cameroon-locations/geojson/*"
+      ],
       "cameroon-locations/*": ["../../packages/cameroon-locations/src/*.ts"]
     }
   }

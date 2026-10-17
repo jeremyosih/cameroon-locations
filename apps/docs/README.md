@@ -73,6 +73,14 @@ Hand-written items (components) list their files normally, with paths
 relative to `apps/docs` (e.g. `registry/location-picker/location-picker.tsx`).
 `registry/generated/` and `public/r/` are build output and gitignored.
 
+The components (`registry/location-picker`, `registry/cameroon-map`) import
+what users will have after `shadcn add`: `@/lib/cameroon-locations/*` (the
+core item) is aliased to the package source, and demos import
+`@/components/location-picker` and `@/components/cameroon-map`
+(`astro.config.ts` and `tsconfig.json`). Map demos render through
+`demos/map-preview.tsx` (`client:only="react"`), which lazy-loads Leaflet and
+forwards the docs theme to next-themes for shadcn-map's tiles.
+
 Users install with:
 
 ```sh
