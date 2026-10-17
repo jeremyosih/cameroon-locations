@@ -11,8 +11,9 @@ import { registryUrl } from "@/site";
 <InstallCommand client:load />
 
 The package ships ESM and CommonJS builds with type declarations, has no
-runtime dependencies and needs Node 18 or later (or any modern bundler,
-Bun or Deno).
+runtime dependencies and needs Node 20.19 or later (or any modern bundler,
+Bun or Deno). `cameroon-locations/effect` is ESM-only, like `effect` itself:
+import it from an ES module.
 
 ```ts
 import { getRegion, regions } from "cameroon-locations";

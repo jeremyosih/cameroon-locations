@@ -6,13 +6,14 @@ description: Where every value comes from, under which terms, how it becomes the
 The code is MIT. The data is derived from the public sources below, which
 keep their own terms. If you display or redistribute the data, credit the
 sources you use: [`attribution()`](/docs/metadata#attribution) returns the
-text, and every GeoJSON file carries it in its `metadata` member.
+text, and every GeoJSON file carries the boundary credit in its `metadata`
+member.
 
 ## Sources
 
 This list is rendered from the package's `sources` export, so it is exactly
 what the code ships. Each entry links to the source online and to the
-archived copy (untouched download, `SHA256SUMS` and `SOURCE.md`) in the
+archived copy (the download, `SHA256SUMS` and `SOURCE.md`) in the
 repository.
 
 <SourcesTable />
@@ -28,9 +29,16 @@ Data flows one way. Nothing downstream is edited by hand.
 
 <PipelineDiagram />
 
-1. **Sources.** Every download is kept untouched in `data/sources/<id>/raw`
+1. **Sources.** Every download is kept as received in `data/sources/<id>/raw`
    with checksums and a `SOURCE.md` (origin URL, licence, retrieval date, known
-   limits). The pool is stored in Git LFS and never published to npm.
+   limits), and is never modified afterwards. "As received" is not always
+   pristine, and each `SOURCE.md` says so: the BUCREP `loc.pdf` had its
+   front matter trimmed before it was archived (its text matches pages 11–436
+   of the official edition), `pop-region-division.pdf` is a two-page extract
+   of the same document, and geoBoundaries `as-used-in-location-script/`
+   carries 8 hand-made ADM3 name fixes (the untouched upstream files sit next
+   to it in `pristine-9469f09/`). The pool is stored in Git LFS and never
+   published to npm.
 2. **Canonical.** `data/tools/build-all.sh` builds one JSON file per level,
    keyed by P-code, where every value carries its source id. Text-extraction
    fixes live in `data/patches/`, name-to-P-code decisions in
@@ -45,7 +53,11 @@ Data flows one way. Nothing downstream is edited by hand.
 
 - **BUCREP text to records.** Two independent extractions of the census PDF
   (text indentation and PDF typography) agree on all 18,934 names and
-  populations; the build fails on any new disagreement.
+  populations. They disagree on the level of 7 rows; each was checked
+  against the rendered page and the printed totals, and all 7 are cantons, as
+  the text indentation says (decision D9, listed in
+  `data/patches/known-extraction-differences.json`). The build fails on any
+  new disagreement.
 - **BUCREP and ELECAM names to P-codes.** Exact normalised name within the
   matched parent, plus a small number of manual decisions, each with
   evidence.

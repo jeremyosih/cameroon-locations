@@ -39,12 +39,13 @@ const credit = attribution(shown.flatMap((a) => a.sources));
 
 ```ts
 const sources: Readonly<Record<SourceId, SourceInfo>>;
-function getSources(ids: readonly SourceId[]): SourceInfo[];
+function getSources(ids: readonly SourceId[]): readonly SourceInfo[];
 ```
 
 The source registry: title, publisher, licence, where it is published online
 and the archived copy in this repository. `getSources` returns records for the
-given ids, in order, without duplicates.
+given ids, in order, without duplicates, as a frozen array; unknown ids are
+skipped (and `attribution` skips them too).
 
 ```ts
 import { getSources, sources } from "cameroon-locations";
@@ -85,8 +86,15 @@ interface DatasetMetadata {
 }
 ```
 
-The same object is attached to every dataset export and every GeoJSON file
-(in its `metadata` member), so provenance travels with the data.
+`metadata` describes the bundled dataset as a whole. Records don't carry it;
+each record lists its own `sources` instead.
+
+The GeoJSON files have their own top-level `metadata` member, with a
+different shape: `name`, `version` and `generated` (the same values as
+`metadata` above), `repository`, a `license` note, the boundary
+`attribution`, a `notice` link to NOTICE.md, `sources` (the OCHA record
+only), and the file's `level` (`levels` in `cameroon.topo.json`),
+`detail` and `simplification`.
 
 ## REPOSITORY_URL
 

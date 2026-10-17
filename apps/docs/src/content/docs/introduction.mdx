@@ -8,7 +8,10 @@ description: Every region, division, arrondissement, canton and village of Camer
 `cameroon-locations` is a typed, zero-dependency TypeScript package. Records are
 plain, deep-frozen, JSON-serialisable objects, so they work the same in Node,
 Bun, Deno, the browser and React Server Components. Lookups are plain functions
-that return `T | undefined` or a readonly array. Nothing throws.
+that return `T | undefined` or a readonly array. Nothing throws: unknown names,
+malformed codes and out-of-range inputs give `undefined` or an empty array.
+Only the optional [Effect adapter](/docs/effect) reports errors, as typed
+Effect errors.
 
 ```ts
 import { getArrondissement, getRegion, getAncestors } from "cameroon-locations";
@@ -32,8 +35,8 @@ getAncestors("CM002007001").map((u) => u.name.fr); // ["Centre", "Mfoundi"]
   and every known spelling.
 - **Geo.** Simplified OCHA boundaries as GeoJSON, point-in-polygon `locate()`
   and `nearest()`.
-- **ELECAM.** Polling stations and registered voters from the July 2025
-  electoral roll.
+- **ELECAM.** Polling stations and registered voters from the 2025 electoral
+  roll, probably the July 2025 provisional roll.
 - **Provenance.** Every record lists its sources, and `attribution()` returns
   the credit line to display.
 
@@ -71,7 +74,9 @@ terms:
 
 - **Boundaries, P-codes, names**: OCHA COD-AB Cameroon (INC / OCHA), CC BY-IGO 3.0.
 - **Cantons, villages, 2005 population**: BUCREP, 3rd General Census (RGPH 2005).
-- **Polling stations**: ELECAM, 2025 electoral roll.
+- **Polling stations**: ELECAM, 2025 electoral roll, probably the July 2025
+  provisional roll (download origin not recorded). ELECAM publishes the
+  official lists as PDFs on [its portal](https://portail.elecam.cm/fr/documentation/).
 
 If you display or redistribute the data, credit the sources you use.
 `attribution()` returns the right text. Full details, archived copies and

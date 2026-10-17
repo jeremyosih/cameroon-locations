@@ -28,7 +28,9 @@ search("bamenda", { levels: ["arrondissement"], limit: 3 });
 ```
 
 Records are plain, deep-frozen, JSON-serialisable objects. Lookups return
-`T | undefined` or readonly arrays and never throw.
+`T | undefined` or readonly arrays and never throw; only
+`cameroon-locations/effect` reports errors, as typed Effect errors. ESM and
+CommonJS (`cameroon-locations/effect` is ESM-only), Node 20.19+.
 
 ## Entry points
 
@@ -74,7 +76,9 @@ returns the text.
 
 - Boundaries, P-codes and names: OCHA COD-AB Cameroon (INC / OCHA), CC BY-IGO 3.0
 - Cantons, villages and 2005 population: BUCREP, RGPH 2005
-- Polling stations: ELECAM, 2025 electoral roll
+- Polling stations: ELECAM 2025 electoral roll, probably the July 2025
+  provisional roll (download origin not recorded). ELECAM publishes the
+  official lists as PDFs on [its portal](https://portail.elecam.cm/fr/documentation/).
 
 Full list, archived copies and checksums: [NOTICE.md](NOTICE.md).
 
@@ -83,4 +87,6 @@ by [David Amunga](https://github.com/DavidAmunga).
 
 ## Licence
 
-Code: [MIT](LICENSE). Data: see [NOTICE.md](NOTICE.md).
+Code: [MIT](LICENSE). The data is not covered by the MIT licence: it keeps
+the terms of its sources, listed in [NOTICE.md](NOTICE.md). Both files ship in
+the npm package.

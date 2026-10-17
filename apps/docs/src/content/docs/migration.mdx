@@ -30,29 +30,82 @@ plain functions over frozen records. Most code changes are mechanical.
 
 ## Function map
 
+Every export of 0.1 is listed. In 0.1 they were also static methods of the
+`CameroonLocations` class; call the functions directly instead.
+
 | 0.1                                                  | 0.2                                                       |
 | :--------------------------------------------------- | :-------------------------------------------------------- |
+| `CameroonLocations.*` (static methods)               | removed; import the functions below                       |
 | `getRegions()`                                       | `regions`                                                 |
 | `getDivisions()`                                     | `divisions` or `getDivisions()`                           |
 | `getSubdivisions()`                                  | `arrondissements` or `getArrondissements()`               |
+| `getCantons()` (all cantons)                         | `cantons` from `/cantons`. `getCantons(pcode)` now takes a scope |
+| `getNeighborhoodOrVillages()`                        | `villages` from `/villages`                               |
 | `region(x)`, `getRegionByCode(x)`                    | `getRegion(x)`                                            |
 | `division(x)`, `getDivisionByCode(x)`                | `getDivision(x)`                                          |
 | `subdivision(x)`, `getSubdivisionByCode(x)`          | `getArrondissement(x)`                                    |
-| `getDivisionsInRegion(r)`                            | `getDivisions(r)`                                         |
-| `getSubdivisionsInDivision(d)`                       | `getArrondissements(d)`                                   |
-| `getSubdivisionsInRegion(r)`                         | `getArrondissements(r)`                                   |
-| `getRegionOfDivision(d)`, `getDivisionOfSubdivision(s)` | `getParent(pcode)`, `getAncestors(pcode)`              |
 | `canton(x)`, `getCantonByCode(x)`                    | `getCanton(id)`, `findCantons(name)` from `/cantons`      |
+| `neighborhoodOrVillage(x)`, `getNeighborhoodOrVillageByCode(x)` | `getVillage(id)`, `findVillages(name)` from `/villages` |
+| `getDivisionsInRegion(r)`                            | `getDivisions(r)`                                         |
+| `getSubdivisionsInDivision(d)`, `getSubdivisionsInRegion(r)` | `getArrondissements(d)`, `getArrondissements(r)`  |
 | `getCantonsInSubdivision(s)`, `getCantonsInDivision(d)`, `getCantonsInRegion(r)` | `getCantons(pcode)` from `/cantons` |
-| `neighborhoodOrVillage(x)`                           | `getVillage(id)`, `findVillages(name)` from `/villages`   |
 | `getNeighborhoodOrVillagesInCanton(c)`               | `getVillages(cantonId)` from `/villages`                  |
-| `getNeighborhoodOrVillagesWithPopulation()`          | `villages.filter((v) => v.population2005)`                |
-| `getSubdivisionOfCanton(c)`, `getCantonOfNeighborhoodOrVillage(v)` | `canton.arrondissementPcode`, `village.cantonId` |
+| `getNeighborhoodOrVillagesWithPopulation()`          | `villages`: every village has `population2005`            |
+| `getRegionOfDivision(d)`, `getDivisionOfSubdivision(s)` | `getParent(pcode)`, `getAncestors(pcode)`              |
+| `getSubdivisionOfCanton(c)`                          | `getUnit(canton.arrondissementPcode)`                     |
+| `getCantonOfNeighborhoodOrVillage(v)`                | `getCanton(village.cantonId)`                             |
 | `getCantonsByType()`, `getCityCantons()`, `getRuralCantons()`, `getTraditionalCantons()` | removed; the census source has no canton types |
-| `block(x)`, `getBlocks()`, `getBlocksInNeighborhoodOrVillage()` | removed                                        |
-| `search(q, { types })`, `searchByType(q, type)`      | `search(q, { levels })` from `/search`                    |
-| `cameroon-locations/geojson`: `getGeoJson(pcode)`    | `cameroon-locations/geojson/*.geojson` files, `locate()` from `/geo` |
-| `cameroon-locations/elecam`: `getElectoralData(code)` | `getCouncilSummary(pcode)`, `getPollingStations(pcode)`  |
+| `block(x)`, `getBlocks()`, `getBlockByCode(x)`, `getBlocksInNeighborhoodOrVillage(v)`, `getNeighborhoodOrVillageOfBlock(b)` | removed; no public source has blocks |
+| `search(q, { types, limit, language })`              | `search(q, { levels, limit })` from `/search`; both languages are always searched |
+| `searchByType(q, type)`                              | `search(q, { levels: [level] })`; for cantons and villages, `createSearch(cantons, …)` |
+| `NotFoundError`, `CameroonLocationsError`            | removed; lookups return `undefined`. `/effect` has tagged errors |
+
+## Wrapper methods
+
+`RegionWrapper`, `DivisionWrapper`, `SubdivisionWrapper`, `CantonWrapper`,
+`NeighborhoodOrVillageWrapper` and `BlockWrapper` are removed: lookups return
+the plain record.
+
+| 0.1 wrapper method                         | 0.2                                                     |
+| :----------------------------------------- | :------------------------------------------------------ |
+| `.data`                                    | the record itself                                       |
+| `.divisions()`, `.subdivisions()`          | `getDivisions(pcode)`, `getArrondissements(pcode)`      |
+| `.division(x)`, `.subdivision(x)`          | `getDivision(x, { within: pcode })`, `getArrondissement(x, { within: pcode })` |
+| `.cantons()`, `.canton(x)`                 | `getCantons(pcode)`, `findCantons(x, { within: pcode })` |
+| `.neighborhoodsOrVillages()`, `.neighborhoodOrVillage(x)` | `getVillages(cantonId)`, `findVillages(x, { within: pcode })` |
+| `.region()`, `.division()` (parents)       | `getParent(pcode)`, `getAncestors(pcode)`               |
+| `.getGeoJson()`                            | the `geojson/*.geo.json` files, features keyed by P-code |
+| `.getElectoralData()`                      | `getCouncilSummary(pcode)` from `/elecam`               |
+| `.getCouncilName(lang)`, `.councilNameFr`, `.councilNameEn` | `getCouncilSummary(pcode)?.council` (ELECAM's spelling); council names are also `aliases` |
+| `.blocks()`, `.block(x)`                   | removed                                                 |
+
+## Data and types
+
+| 0.1                                          | 0.2                                                  |
+| :------------------------------------------- | :--------------------------------------------------- |
+| `regions`, `divisions`                       | `regions`, `divisions`                               |
+| `subdivisions`                               | `arrondissements`                                    |
+| `cantons`, `neighborhoodsOrVillages`         | `cantons` from `/cantons`, `villages` from `/villages` |
+| `blocks`                                     | removed                                              |
+| `Region`, `Division`, `Canton`               | same names, new shapes (see [Data model](/docs/data-model)) |
+| `Subdivision`, `NeighborhoodOrVillage`       | `Arrondissement`, `Village`                          |
+| `PopulationData`                             | `Population`                                         |
+| `Language`                                   | `Language`                                           |
+| `SearchType`                                 | `AdminLevel`                                         |
+| `SearchResult`, `SearchOptions`              | `SearchResult`, `SearchOptions` from `/search` (new shapes: `score` and `matched`, `levels` and `within`) |
+| `Block`, `CantonType`, `NeighborhoodOrVillageType`, `CameroonDivisionsOptions` | removed |
+
+## Extensions
+
+| 0.1                                          | 0.2                                                  |
+| :------------------------------------------- | :--------------------------------------------------- |
+| `cameroon-locations/elecam`: `getElectoralData(code)` | `getCouncilSummary(pcode)`, `getPollingStations(pcode)` |
+| `cameroon-locations/elecam`: `electoralData` | `pollingStations`, `councilSummaries`                |
+| `Council`, `PollingStation` types            | `CouncilElectoralSummary`, `PollingStation`          |
+| `PollingCenter`, `VoterStats`, `ElectoralData`, `ElectoralMetadata` types | removed; `centre` is a field of `PollingStation`, provenance is in `sources` |
+| `cameroon-locations/geojson`: `getGeoJson(pcode)`, `geoJsonData` | the `cameroon-locations/geojson/*.geo.json` and `cameroon.topo.json` files (feature `id` is the P-code), `locate()` from `/geo` |
+| `GeoJsonFeature`, `GeoJsonFeatureCollection`, `GeoJsonProperties`, `GeoJsonGeometry` types | removed; use `@types/geojson` |
+| `BoundingBox` type                           | `BBox`                                               |
 
 ## Fields
 
@@ -61,10 +114,13 @@ plain functions over frozen records. Most code changes are mechanical.
 | `nameFr`, `nameEn`           | `name.fr`, `name.en`                  |
 | `name`, `getName("en")`      | `name.fr`, `name.en`                  |
 | `code` (numeric)             | removed; use `pcode`                  |
-| `pcode`, `hasc`              | `pcode`, `hasc`                       |
+| `pcode`, `hasc` (optional)   | `pcode` (always set), `hasc`          |
 | `getAllCodes()`              | `pcode`, `hasc`, `wikidata`           |
 | `region`, `regionCode`       | `regionPcode`                         |
 | `division`, `divisionCode`   | `parentPcode` / `divisionPcode`       |
+| `subdivision`, `subdivisionCode` (cantons) | `arrondissementPcode`   |
+| `canton`, `cantonCode` (villages) | `cantonId`, `arrondissementPcode` |
+| `type` (cantons, villages)   | removed                               |
 | `population`                 | `population2005`                      |
 
 ## Before and after

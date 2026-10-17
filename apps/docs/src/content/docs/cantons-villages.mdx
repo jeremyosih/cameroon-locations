@@ -24,6 +24,8 @@ groupement, or an urban "ville" block.
 function getCanton(id: string): Canton | undefined;
 ```
 
+Ids are compared trimmed and upper case, here and in `getVillage`.
+
 ```ts
 getCanton("CM002007001-C01")?.label; // "Yaounde Ville"
 ```
@@ -34,7 +36,10 @@ getCanton("CM002007001-C01")?.label; // "Yaounde Ville"
 function getCantons(within: Pcode): readonly Canton[];
 ```
 
-Cantons of an arrondissement, division or region.
+Cantons of an arrondissement, division or region, by P-code (case and
+surrounding whitespace ignored). Anything that is not a P-code, such as a
+name or a partial code like `"CM00"`, returns an empty array; resolve a
+name to its P-code first with [`getRegion`](/docs/lookups) and friends.
 
 ```ts
 getCantons("CM002007001").map((c) => c.label); // ["Yaounde Ville", "Yaounde 1 Rural"]
@@ -44,10 +49,11 @@ getCantons("CM001").length; // 56, in Adamaoua
 ### findCantons
 
 ```ts
-function findCantons(name: string, options?: { within?: Pcode }): readonly Canton[];
+function findCantons(name: string, options?: { within?: Pcode | undefined }): readonly Canton[];
 ```
 
-Cantons whose normalised name matches.
+Cantons whose normalised name matches, optionally `within` a P-code. As with
+`getCantons`, a `within` that is not a P-code matches nothing.
 
 ```ts
 findCantons("Ngaoundal ville").map((c) => c.id); // ["CM001001001-C01"]
@@ -76,7 +82,8 @@ function getVillages(within: string): readonly Village[];
 ```
 
 Villages of a canton (by id) or of an arrondissement, division or region (by
-P-code).
+P-code). Case and surrounding whitespace are ignored; anything else returns
+an empty array.
 
 ```ts
 getVillages("CM001001001-C01").length; // 16, one canton
@@ -86,11 +93,12 @@ getVillages("CM002007").length; // 255, all of Mfoundi
 ### findVillages
 
 ```ts
-function findVillages(name: string, options?: { within?: Pcode }): readonly Village[];
+function findVillages(name: string, options?: { within?: Pcode | undefined }): readonly Village[];
 ```
 
-More than 2,000 village names repeat across the country, so this always
-returns every match. Narrow it with `within`.
+Village names repeat: 1,188 normalised names are shared by two or more
+villages, 3,162 of the 17,070 in all ("Haoussa" alone appears 23 times). So
+this always returns every match. Narrow it with `within`.
 
 ```ts
 findVillages("Nkolbisson").map((v) => v.id); // ["CM002007007-C01-V008"]

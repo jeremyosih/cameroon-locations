@@ -27,6 +27,31 @@ npm package for the boundaries: the GeoJSON is too large to copy into your
 source. It adds `components/cameroon-map.tsx`, `components/cameroon-map-scale.ts`
 and five `--choropleth-*` colours to your CSS.
 
+<Callout title="Patch dropdown-menu for shadcn-map">
+  shadcn-map's layers control passes a `container` prop to
+  `DropdownMenuContent`, so the menu opens inside the map (and in
+  fullscreen). The stock shadcn `dropdown-menu` doesn't accept that prop: you
+  get a type error in `components/ui/map.tsx`, and the menu renders in
+  `document.body`. This is an upstream shadcn-map issue; the registry item
+  can't ship the fix without overwriting your `dropdown-menu`. Patch
+  `components/ui/dropdown-menu.tsx` once, as below.
+</Callout>
+
+```diff title="components/ui/dropdown-menu.tsx"
+ function DropdownMenuContent({
+   className,
+   sideOffset = 4,
++  container,
+   ...props
+-}: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
++}: React.ComponentProps<typeof DropdownMenuPrimitive.Content> & {
++  container?: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>["container"];
++}) {
+   return (
+-    <DropdownMenuPrimitive.Portal>
++    <DropdownMenuPrimitive.Portal container={container}>
+```
+
 <CodeBlock code={mapSource} lang="tsx" title="components/cameroon-map.tsx" />
 
 <CodeBlock code={scaleSource} lang="ts" title="components/cameroon-map-scale.ts" />
