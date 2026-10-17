@@ -84,6 +84,6 @@ Cloning requires `git-lfs`. Husky runs the LFS hooks (`.husky/pre-push`, `post-c
 - TypeScript strict (`noUncheckedIndexedAccess`), ESM, `import type` for types. No `any`.
 - Biome formats: 2 spaces, double quotes, semicolons, 80 columns.
 - Public API: plain functions returning `T | undefined` or readonly arrays; never expose mutable
-  internal state. JSDoc on every export. Errors only in the Effect adapter (tagged errors).
+  internal state. JSDoc on every export. Failures are only reported by the Effect adapter, as schema issues from its decoders.
 - Names: PascalCase types, camelCase values. Levels are `region`, `division`, `arrondissement`.
 - Commits: Conventional Commits (`feat(search): …`, `data: …`), enforced by `.husky/commit-msg`.

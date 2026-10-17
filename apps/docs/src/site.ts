@@ -14,6 +14,16 @@ export const GITHUB_URL = "https://github.com/jeremyosih/cameroon-locations";
 
 export const NPM_URL = "https://www.npmjs.com/package/cameroon-locations";
 
+/**
+ * Project sponsor, credited in the sidebar and on the introduction page. The
+ * URL is the party's site as listed on its Wikipedia article.
+ */
+export const SPONSOR = {
+  name: "Social Democratic Front",
+  url: "https://sdf.cm",
+  logo: "/sponsors/sdf.png",
+} as const;
+
 /** URL of a registry item, e.g. `registryUrl("cameroon-locations-core")`. */
 export function registryUrl(name: string): string {
   return `${SITE_URL}/r/${name}.json`;

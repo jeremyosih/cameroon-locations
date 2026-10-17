@@ -1,84 +1,104 @@
 ---
 title: Effect
-description: Effect v4 schemas for every record, P-code decoders, lookups with tagged errors, Option variants and a service layer, over the same data as the core.
+description: Effect v4 schemas that validate untrusted input (form values, route params, API payloads) and decode it into the bundled records, plus a schema for every record type.
 eyebrow: import … from "cameroon-locations/effect"
 ---
 
 import InstallCommand from "@/components/docs/InstallCommand";
 
-`effect` 4 is an optional peer dependency: only this entry point imports it.
+Effect v4 schemas that turn untrusted input into the records the core
+returns. `effect` 4 is an optional peer dependency: only this entry point
+imports it, and like `effect` 4 it is ESM-only.
 
 <InstallCommand client:load packages="cameroon-locations effect" />
 
 ```ts
-import { Effect, Schema } from "effect";
-import { ArrondissementFromPcode, CameroonLocations } from "cameroon-locations/effect";
+import { Result, Schema } from "effect";
+import { ArrondissementFromString } from "cameroon-locations/effect";
 
-const Form = Schema.Struct({ commune: ArrondissementFromPcode });
-const { commune } = Schema.decodeUnknownSync(Form)({ commune: "CM002007001" });
-commune.name.fr; // "Yaoundé I"
+const Signup = Schema.Struct({
+  email: Schema.String,
+  commune: ArrondissementFromString, // a P-code, HASC code or name
+});
 
-const program = Effect.gen(function* () {
-  const locations = yield* CameroonLocations;
-  const region = yield* locations.getRegion("Littoral");
-  return `${commune.name.fr}, ${region.name.en}`;
-}).pipe(Effect.catchTag("LocationNotFound", (e) => Effect.succeed(e.message)));
-
-Effect.runSync(program.pipe(Effect.provide(CameroonLocations.layer)));
-// "Yaoundé I, Littoral"
+export async function POST(request: Request): Promise<Response> {
+  const result = Schema.decodeUnknownResult(Signup)(await request.json());
+  if (Result.isFailure(result)) {
+    return Response.json({ error: result.failure.message }, { status: 400 });
+  }
+  const { email, commune } = result.success; // commune: Arrondissement
+  return Response.json({ email, commune: commune.pcode, region: commune.regionPcode });
+}
 ```
 
-## When to use it
+`{ "email": "a@b.cm", "commune": "Yaoundé 1er" }` gets a 200 with
+`"commune": "CM002007001"` and `"region": "CM002"`; `"commune": "nowhere"`
+gets a 400 with `No arrondissement matches "nowhere"` at `["commune"]`.
 
-- **Use the core** (`cameroon-locations`) for plain lookups. It returns
-  `T | undefined`, never throws and has no dependencies.
-- **This entry point is ESM-only**, like `effect` 4 itself: import it from
-  an ES module (`require` is not supported).
-- **Use `/effect`** to validate untrusted input (form values, route params,
-  API payloads, JSON from storage) and when you want typed errors in the
-  error channel instead of `undefined` checks.
+For plain lookups, use the core: `getRegion(q)` returns `Region | undefined`,
+and `Option.fromUndefinedOr(getRegion(q))` makes it an `Option`.
 
-Both read the same frozen records; you can mix them.
+## Decoding input
 
-## Decoding P-codes
+Each decoder takes a string and decodes it into the bundled record: the
+same frozen object the core returns. It encodes the record back to its
+P-code, so you can store or send the code.
 
-The `*FromPcode` schemas decode a P-code string into its record and encode
-the record back to the P-code, so a form or API field can hold the stable
-code while your code works with the full record. Unknown codes fail.
+| Schema | Accepts |
+| :----- | :------ |
+| `RegionFromString`, `DivisionFromString`, `ArrondissementFromString` | A P-code, HASC code or name, as in the core [lookups](/docs/lookups#queries) (case, accents and numbering style ignored) |
+| `RegionFromPcode`, `DivisionFromPcode`, `ArrondissementFromPcode` | That level's P-code only: for `<select>` values, route params and stored ids |
+| `AdminUnitFromPcode` | A P-code of any level |
 
 ```ts
 import { Schema } from "effect";
 import {
   AdminUnitFromPcode,
   ArrondissementFromPcode,
-  DivisionFromPcode,
-  RegionFromPcode,
+  ArrondissementFromString,
+  RegionFromString,
 } from "cameroon-locations/effect";
 
-Schema.decodeUnknownSync(RegionFromPcode)("CM002").name.en; // "Centre"
-Schema.decodeUnknownSync(DivisionFromPcode)("CM002007").name.fr; // "Mfoundi"
+Schema.decodeUnknownSync(RegionFromString)("littoral").pcode; // "CM005"
+Schema.decodeUnknownSync(ArrondissementFromString)("Yaounde 1").pcode; // "CM002007001"
 Schema.decodeUnknownSync(AdminUnitFromPcode)("CM002007").level; // "division"
 
 const Form = Schema.Struct({ commune: ArrondissementFromPcode });
-Schema.decodeUnknownSync(Form)({ commune: "CM002007999" });
-// throws SchemaError: Unknown arrondissement P-code "CM002007999" at ["commune"]
-Schema.decodeUnknownSync(Form)({ commune: "Yaoundé I" });
-// throws SchemaError: Expected an arrondissement P-code such as CM002007001
-```
-
-Encoding gives back the code, ready to store or send:
-
-```ts
+const { commune } = Schema.decodeUnknownSync(Form)({ commune: "CM002007001" });
 Schema.encodeSync(Form)({ commune }); // { commune: "CM002007001" }
 ```
 
-## Schemas
+Failures are ordinary schema issues, at the path of the field:
 
-Every type of the [data model](/docs/data-model) has a schema. Record
-schemas check the shape and that a record's codes agree with each other (a
-division's `parentPcode` and `regionPcode` are the start of its `pcode`, a
-village's `id` starts with its `cantonId`, and so on), not that the unit
-exists; use the `*FromPcode` decoders for that.
+| Input | Message |
+| :---- | :------ |
+| Unknown name or code (`*FromString`) | `No arrondissement matches "nowhere"` |
+| Name shared by several units (`*FromString`) | `"…" matches 2 arrondissements: CM…, CM…`. No name is shared in the current data, but aliases may collide as sources are added |
+| Unknown P-code (`*FromPcode`) | `Unknown arrondissement P-code "CM002007999"` |
+| Malformed P-code (`*FromPcode`) | `Expected an arrondissement P-code such as CM002007001` |
+
+In an Effect, they arrive as a `SchemaError` in the error channel:
+
+```ts
+import { Effect, Schema } from "effect";
+import { RegionFromString } from "cameroon-locations/effect";
+
+const program = Schema.decodeUnknownEffect(RegionFromString)("Atlantis").pipe(
+  Effect.map((region) => region.name.fr),
+  Effect.catchTag("SchemaError", (error) => Effect.succeed(error.message)),
+);
+Effect.runSync(program); // 'No region matches "Atlantis"'
+```
+
+## Record schemas
+
+Every type of the [data model](/docs/data-model) has a schema, for records
+that left the process and came back (a cache, a queue, another service).
+They check the shape and that a record's codes agree with each other (a
+division's `parentPcode` and `regionPcode` start its `pcode`, a village's
+`id` starts with its `cantonId`, and so on), not that the unit exists: use
+the decoders above for that. Their types are checked against the core types
+at build time.
 
 | Schema | Validates |
 | :----- | :-------- |
@@ -95,119 +115,43 @@ exists; use the `*FromPcode` decoders for that.
 
 ```ts
 import { Schema } from "effect";
-import { AdminUnit, Pcode, Region, RegionPcode } from "cameroon-locations/effect";
+import { AdminUnit, Region, RegionPcode } from "cameroon-locations/effect";
 
-Schema.decodeUnknownSync(Pcode)("CM004"); // "CM004"
-Schema.is(RegionPcode)("CM002007"); // false
+declare const cached: string, payload: unknown;
+
 Schema.decodeUnknownSync(Region)(JSON.parse(cached)); // a Region, or throws
-```
+Schema.is(RegionPcode)("CM002007"); // false
 
-`AdminUnit` comes with the tagged-union helpers `AdminUnit.match` and
-`AdminUnit.guards`:
-
-```ts
 const unit = Schema.decodeUnknownSync(AdminUnit)(payload);
-
 AdminUnit.match(unit, {
   region: (r) => r.name.en,
-  division: (d) => `division in ${d.regionPcode}`,
+  division: (d) => d.regionPcode,
   arrondissement: (a) => a.divisionPcode,
 });
-
-if (AdminUnit.guards.division(unit)) unit.regionPcode;
 ```
 
-## Lookups
+## Cantons and villages
 
-The name-based lookups accept the same [queries](/docs/lookups#queries) as
-the core (P-code, HASC code or any name or alias) and return an `Effect`
-that fails with a tagged error.
-
-```ts
-function getRegion(query: LocationQuery): Effect<Region, LookupError>;
-function getDivision(query: LocationQuery, options?: { within?: Pcode | undefined }): Effect<Division, LookupError>;
-function getArrondissement(query: LocationQuery, options?: { within?: Pcode | undefined }): Effect<Arrondissement, LookupError>;
-function getUnit(pcode: Pcode): Effect<AdminUnit, LocationNotFound>;
-```
+`/effect` only loads the administrative units, so it ships no decoder for
+cantons, villages or polling stations: that data lives behind its own entry
+point. Build one with `Schema.decodeTo` and the lookup of that entry point:
 
 ```ts
-import { Effect } from "effect";
-import { getArrondissement, getRegion } from "cameroon-locations/effect";
+import { Effect, Schema, SchemaGetter, SchemaIssue } from "effect";
+import { getCanton } from "cameroon-locations/cantons";
+import { Canton, CantonId } from "cameroon-locations/effect";
 
-Effect.runSync(getRegion("Littoral")).pcode; // "CM005"
-Effect.runSync(getArrondissement("Yaoundé 1er", { within: "CM002007" })).pcode;
-// "CM002007001"
-
-getRegion("Atlantis").pipe(
-  Effect.map((r) => r.pcode),
-  Effect.catchTag("LocationNotFound", (e) => Effect.succeed(e.message)),
-); // succeeds with 'No region matches "Atlantis"'
-```
-
-### Errors
-
-<PropsTable
-  label="Error"
-  rows={[
-    { name: "LocationNotFound", type: "{ query: string; level?: AdminLevel }", description: "Nothing matches the query at that level. level is absent for getUnit, which accepts every level." },
-    { name: "AmbiguousLocation", type: "{ query: string; level: AdminLevel; candidates: readonly Pcode[] }", description: "Several units at the level carry the name. Retry with one of the candidate P-codes, or narrow with within." },
-  ]}
-/>
-
-`LookupError` is `LocationNotFound | AmbiguousLocation`. No name is shared
-within a level in the current data, but aliases may collide as sources are
-added, so handle both:
-
-```ts
-getArrondissement(input, { within: divisionPcode }).pipe(
-  Effect.catchTags({
-    LocationNotFound: () => Effect.succeed(undefined),
-    AmbiguousLocation: (e) => Effect.fail(new Error(`pick one of ${e.candidates.join(", ")}`)),
+export const CantonFromId = CantonId.pipe(
+  Schema.decodeTo(Canton, {
+    decode: SchemaGetter.transformEffect((id: string) => {
+      const canton = getCanton(id);
+      return canton
+        ? Effect.succeed(canton)
+        : Effect.fail(new SchemaIssue.InvalidValue({ message: `Unknown canton "${id}"` }, id));
+    }),
+    encode: SchemaGetter.transform((canton) => canton.id),
   }),
 );
-```
 
-### Option variants
-
-`getRegionOption`, `getDivisionOption`, `getArrondissementOption` and
-`getUnitOption` return an `Option`: `None` when nothing matches or the name is
-ambiguous.
-
-```ts
-import { Option } from "effect";
-import { getArrondissementOption, getRegionOption } from "cameroon-locations/effect";
-
-Option.map(getRegionOption("Centre"), (r) => r.pcode); // Some("CM002")
-getArrondissementOption("nowhere"); // None
-```
-
-## Service
-
-`CameroonLocations` exposes `getRegion`, `getDivision`, `getArrondissement`
-and `getUnit` as a service, so your code can depend on it through the context
-and tests can swap in a stub. `CameroonLocations.layer` provides the dataset
-bundled with the package.
-
-```ts
-import { Effect, Layer } from "effect";
-import { regions } from "cameroon-locations";
-import { CameroonLocations } from "cameroon-locations/effect";
-
-const program = Effect.gen(function* () {
-  const locations = yield* CameroonLocations;
-  return (yield* locations.getRegion("Littoral")).name.fr;
-});
-
-Effect.runSync(program.pipe(Effect.provide(CameroonLocations.layer))); // "Littoral"
-
-// In tests
-const Stub = Layer.succeed(
-  CameroonLocations,
-  CameroonLocations.of({
-    getRegion: () => Effect.succeed(regions[4]!),
-    getDivision: () => Effect.die("unused"),
-    getArrondissement: () => Effect.die("unused"),
-    getUnit: () => Effect.die("unused"),
-  }),
-);
+Schema.decodeUnknownSync(CantonFromId)("CM002007001-C01").label; // "Yaounde Ville"
 ```
