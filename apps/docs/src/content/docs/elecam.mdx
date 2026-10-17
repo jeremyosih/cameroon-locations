@@ -1,6 +1,6 @@
 ---
 title: ELECAM
-description: Polling stations and registered voters per council, from the ELECAM 2025 electoral roll (July 2025 snapshot), linked to arrondissement P-codes.
+description: Polling stations and registered voters per council, from the ELECAM 2025 electoral roll (probably the July 2025 provisional roll), linked to arrondissement P-codes.
 eyebrow: import … from "cameroon-locations/elecam"
 ---
 
@@ -19,8 +19,12 @@ arrondissement P-code, so you can join it with everything else. Stations
 abroad (diaspora) have `arrondissementPcode: null`.
 
 <Callout title="A snapshot">
-  The figures are the July 2025 roll published by ELECAM before the
-  presidential election. They are not updated live.
+  The figures come from a CSV of the 2025 roll dated 24 July 2025, probably
+  the July 2025 provisional roll; where it was downloaded from was not
+  recorded. ELECAM publishes the official polling-station lists as PDFs on
+  [its portal](https://portail.elecam.cm/fr/documentation/); the final roll
+  of October 2025 is larger (about 8.0 million voters). The figures are not
+  updated live.
 </Callout>
 
 ## getCouncilSummary
@@ -45,8 +49,10 @@ s?.pollingStations; // 368
 function getPollingStations(within: Pcode | null): readonly PollingStation[];
 ```
 
-Stations in an arrondissement, division or region. `null` returns the
-diaspora stations.
+Stations in an arrondissement, division or region, by P-code (case and
+surrounding whitespace ignored). `null` returns the diaspora stations.
+Anything that is not a P-code, such as a name or a partial code like
+`"CM00"`, returns an empty array.
 
 ```ts
 getPollingStations("CM002007").length; // 2297, every station in Mfoundi
@@ -55,7 +61,7 @@ getPollingStations(null).length; // 95, abroad
 const voters = getPollingStations("CM005").reduce(
   (sum, s) => sum + s.registeredVoters,
   0,
-); // 1275406 in Littoral
+); // 1275475 in Littoral
 ```
 
 ## Datasets
@@ -75,6 +81,7 @@ councilSummaries; // readonly CouncilElectoralSummary[], one per arrondissement
     { name: "centre", type: "string", description: "Polling centre." },
     { name: "station", type: "string", description: "Polling station." },
     { name: "registeredVoters", type: "number", description: "Registered voters at the station." },
+    { name: "sources", type: "readonly SourceId[]", description: '["elecam-polling-stations-2025"], shared by every station.' },
   ]}
 />
 
@@ -83,16 +90,19 @@ councilSummaries; // readonly CouncilElectoralSummary[], one per arrondissement
   rows={[
     { name: "arrondissementPcode", type: "Pcode", description: "The council's arrondissement." },
     { name: "council", type: "string", description: "Council name as printed." },
-    { name: "registeredVoters", type: "number", description: "Total registered voters." },
+    { name: "registeredVoters", type: "number", description: "Total registered voters: the sum over the council's stations." },
     { name: "pollingCentres", type: "number", description: "Number of polling centres." },
     { name: "pollingStations", type: "number", description: "Number of polling stations." },
+    { name: "sources", type: "readonly SourceId[]", description: '["elecam-polling-stations-2025"].' },
   ]}
 />
 
 ## How councils are matched
 
 ELECAM council names are matched to arrondissements by normalised name within
-the right division, with 39 manual decisions, mostly communes named after
-their chef-lieu. Each decision is recorded with its evidence in
-`data/crosswalks/elecam-codab.json`. Credit the source with
+the right division, plus 39 manual decisions: 36 councils (most of them
+communes named after their chef-lieu), 2 division spellings
+("VALLE DU NTEM", "KOUPE-MANENGOUBA") and the diaspora entry
+("CMR A L'ETRANGER", kept with no P-code). Each decision is recorded with
+its evidence in `data/crosswalks/elecam-codab.json`. Credit the source with
 `attribution(["elecam-polling-stations-2025"])`.

@@ -12,5 +12,5 @@ export const metadata: DatasetMetadata = Object.freeze({
   version: data.version,
   generated: data.generated,
   repository: REPOSITORY_URL,
-  sources: Object.freeze(getSources(data.sources as SourceId[])),
+  sources: getSources(data.sources as SourceId[]),
 });

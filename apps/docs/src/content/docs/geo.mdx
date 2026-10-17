@@ -36,13 +36,17 @@ to [`nearest`](#nearest) if you always need an answer.
 ```ts
 function nearest(
   point: LngLat,
-  options?: { level?: AdminLevel; limit?: number },
+  options?: { level?: AdminLevel | undefined; limit?: number | undefined },
 ): readonly { unit: AdminUnit; distanceKm: number }[];
 ```
 
 Units sorted by the distance from the point to their centroid. `level`
 defaults to `"arrondissement"` and `limit` to 5; `Infinity` returns every
-unit of the level. Ties are ordered by P-code.
+unit of the level, and a fractional limit is rounded down. Ties are ordered
+by P-code. The array and its entries are frozen.
+
+It never throws: a point with a `NaN` or infinite coordinate, a `limit`
+below 1 (or `NaN`) and an unknown `level` all return an empty array.
 
 ```ts
 import { nearest } from "cameroon-locations/geo";

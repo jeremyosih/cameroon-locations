@@ -15,14 +15,15 @@ const ROMAN: Readonly<Record<string, number>> = {
 const ORDINAL = /^(\d+)(?:er|re|e|eme|ere|st|nd|rd|th)$/;
 
 /**
- * Folds a name for comparison: lower case, accents removed, apostrophes and
+ * Folds a name for comparison: compatibility forms unified (NFKD, so "Ⅱ"
+ * reads "II" and full-width letters are plain), lower case, accents removed, apostrophes and
  * punctuation dropped, `-`/`_`/whitespace collapsed to one space, and a
  * trailing ordinal unified so "Yaoundé 1er", "Yaounde I", "Yaoundé-1" and
  * "YAOUNDE 1ER" all fold to `"yaounde 1"`.
  */
 export function normalizeName(name: string): string {
   const words = name
-    .normalize("NFD")
+    .normalize("NFKD")
     .replace(/\p{M}/gu, "")
     .toLowerCase()
     .replace(/['’`ʼ]/g, "")

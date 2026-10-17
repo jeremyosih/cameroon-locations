@@ -1,8 +1,8 @@
 // Match ELECAM (region, division, council) to COD-AB P-codes hierarchically. Diaspora councils are kept, with pcode null.
+import { parseCsvStrict } from "./csv";
 import { matchKey } from "./names";
 const [csvPath, codabDir, crosswalkPath, outPath] = process.argv.slice(2);
-const text = (await Bun.file(csvPath).text()).replace(/^﻿/, "");
-const [head, ...rows] = text.trim().split(/\r?\n/).map(l => l.split(","));
+const [head, ...rows] = parseCsvStrict(await Bun.file(csvPath).text(), csvPath);
 const cw: Record<string, { pcode: string | null; reason: string }> = (await Bun.file(crosswalkPath).exists()) ? (await Bun.file(crosswalkPath).json()).manual : {};
 const feats = async (n: number) => (await Bun.file(`${codabDir}/cmr_admin${n}.geojson`).json()).features.map((f: any) => f.properties);
 const A = [null, await feats(1), await feats(2), await feats(3)] as any[];

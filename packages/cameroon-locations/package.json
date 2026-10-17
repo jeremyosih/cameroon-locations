@@ -29,11 +29,12 @@
   "type": "module",
   "sideEffects": false,
   "engines": {
-    "node": ">=18"
+    "node": ">=20.19"
   },
   "files": [
     "dist",
     "geojson",
+    "LICENSE",
     "NOTICE.md"
   ],
   "main": "./dist/index.cjs",
@@ -65,8 +66,7 @@
       "require": "./dist/elecam.cjs"
     },
     "./effect": {
-      "import": "./dist/effect.js",
-      "require": "./dist/effect.cjs"
+      "import": "./dist/effect.js"
     },
     "./geojson/*": "./geojson/*",
     "./package.json": "./package.json"
@@ -79,8 +79,8 @@
     "generate": "bun scripts/generate.ts",
     "geo": "bun scripts/geo.ts",
     "check:bundle": "bun scripts/check-bundle.ts",
-    "check:package": "publint --strict && attw --pack . --profile node16",
-    "prepack": "cp ../../NOTICE.md NOTICE.md && bun run build"
+    "check:package": "publint --strict && attw --pack . --profile node16 --exclude-entrypoints effect && attw --pack . --profile esm-only --entrypoints effect",
+    "prepack": "cp ../../LICENSE ../../NOTICE.md . && bun run build"
   },
   "peerDependencies": {
     "effect": "^4.0.0"

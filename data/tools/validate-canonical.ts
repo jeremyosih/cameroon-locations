@@ -12,6 +12,8 @@ a3.forEach((x: any) => ok(x.elecam2025?.pollingStations > 0, `elecam ${x.pcode}`
 ca.forEach((c: any) => { ok(p3.has(c.adm3Pcode), `canton parent ${c.id}`); ok(c.source?.docPage > 0, `canton page ${c.id}`); });
 vi.forEach((v: any) => { ok(pc.has(v.cantonId) && v.cantonId.startsWith(v.adm3Pcode), `village parent ${v.id}`); ok(v.source?.docPage > 0, `village page ${v.id}`); });
 st.forEach((s: any) => ok(s.adm3Pcode === null ? s.region === "CMR A L'ETRANGER" : p3.has(s.adm3Pcode), `station ${s.council}`));
+st.forEach((s: any) => ok(Number.isInteger(s.registeredVoters) && s.registeredVoters > 0, `station voters ${s.council}/${s.centre}/${s.station}`));
+a3.forEach((x: any) => ok(x.elecam2025.registeredVoters === st.filter((s: any) => s.adm3Pcode === x.pcode).reduce((t: number, s: any) => t + s.registeredVoters, 0), `elecam voters Σ ${x.pcode}`));
 const cantonsPerArr = new Set(ca.map((c: any) => c.adm3Pcode)).size;
 console.log({ errors: errs.length, arrondissementsWithCantons: cantonsPerArr, sample: errs.slice(0, 5) });
 process.exit(errs.length ? 1 : 0);

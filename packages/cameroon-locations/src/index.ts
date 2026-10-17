@@ -1,6 +1,7 @@
 export { arrondissements, divisions, regions } from "./data/admin";
 export { metadata } from "./data/metadata";
-export type { FindOptions, LocationQuery } from "./lookup";
+export { isPcode } from "./data/scope";
+export type { FindOptions, LocationQuery, WithinOptions } from "./lookup";
 export {
   find,
   getAncestors,
@@ -12,7 +13,6 @@ export {
   getParent,
   getRegion,
   getUnit,
-  isPcode,
 } from "./lookup";
 export { normalizeName } from "./normalize";
 export { attribution, getSources, REPOSITORY_URL, sources } from "./sources";

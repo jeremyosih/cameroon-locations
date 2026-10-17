@@ -39,8 +39,8 @@ search("mbalmayo", { within: "CM002" }).map((r) => r.item.pcode); // ["CM0020100
   label="Option"
   rows={[
     { name: "levels", type: "readonly AdminLevel[]", default: "all", description: "Restrict to some levels." },
-    { name: "within", type: "Pcode", description: "Only descendants of this region or division." },
-    { name: "limit", type: "number", default: "10", description: "Maximum number of results." },
+    { name: "within", type: "Pcode", description: "Only descendants of this region or division. Blank means no restriction; any other value that is not a P-code (a name, or a partial code like CM00) matches nothing." },
+    { name: "limit", type: "number", default: "10", description: "Maximum number of results. Zero or less returns nothing." },
   ]}
 />
 
@@ -55,7 +55,13 @@ interface SearchResult<T = AdminUnit> {
 ```
 
 Results are sorted by score. Exact matches (after
-[`normalizeName`](/docs/lookups#normalizename)) score 1.
+[`normalizeName`](/docs/lookups#normalizename)) score 1. An exact P-code or
+HASC code is always the first result, with score 1:
+
+```ts
+search("CM002007")[0]?.item.name.fr; // "Mfoundi"
+search("CM.LT")[0]?.item.name.fr; // "Littoral"
+```
 
 ## createSearch
 
@@ -63,7 +69,7 @@ Results are sorted by score. Exact matches (after
 function createSearch<T>(
   items: readonly T[],
   names: (item: T) => readonly string[],
-): (query: string, options?: { limit?: number }) => readonly SearchResult<T>[];
+): (query: string, options?: { limit?: number | undefined }) => readonly SearchResult<T>[];
 ```
 
 Builds the same search over any records. The index is built once, when you

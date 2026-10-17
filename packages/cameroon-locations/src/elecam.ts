@@ -1,5 +1,6 @@
 import data from "../generated/elecam.json";
-import { EMPTY, isAdminPcode } from "./data/hydrate";
+import { ELECAM_SOURCES } from "./data/hydrate";
+import { EMPTY, isWithin, normalizeCode } from "./data/scope";
 import type { CouncilElectoralSummary, Pcode, PollingStation } from "./types";
 
 export type { CouncilElectoralSummary, PollingStation } from "./types";
@@ -20,7 +21,10 @@ type SummaryRow = readonly [
   pollingStations: number,
 ];
 
-/** The 30,353 polling stations of the ELECAM July 2025 roll snapshot, in roll order. Deep-frozen. */
+/**
+ * The 30,353 polling stations of the ELECAM 2025 roll (probably the July 2025
+ * provisional roll), in roll order. Deep-frozen.
+ */
 export const pollingStations: readonly PollingStation[] = Object.freeze(
   (data.stations as unknown as readonly StationGroup[]).flatMap(
     ([arrondissementPcode, council, centres]) =>
@@ -32,13 +36,17 @@ export const pollingStations: readonly PollingStation[] = Object.freeze(
             centre,
             station,
             registeredVoters,
+            sources: ELECAM_SOURCES,
           }),
         ),
       ),
   ),
 );
 
-/** ELECAM totals for each of the 360 arrondissement councils, ordered by P-code. */
+/**
+ * ELECAM totals for each of the 360 arrondissement councils, ordered by
+ * P-code. `registeredVoters` is the sum over the council's stations.
+ */
 export const councilSummaries: readonly CouncilElectoralSummary[] =
   Object.freeze(
     (data.summaries as unknown as readonly SummaryRow[]).map(
@@ -55,6 +63,7 @@ export const councilSummaries: readonly CouncilElectoralSummary[] =
           registeredVoters,
           pollingCentres,
           pollingStations,
+          sources: ELECAM_SOURCES,
         }),
     ),
   );
@@ -62,32 +71,39 @@ export const councilSummaries: readonly CouncilElectoralSummary[] =
 let summaryByPcode: Map<Pcode, CouncilElectoralSummary> | undefined;
 const byScope = new Map<string, readonly PollingStation[]>();
 
-/** ELECAM totals for the council of an arrondissement. */
+/**
+ * ELECAM totals for the council of an arrondissement, by P-code (case and
+ * surrounding whitespace ignored).
+ */
 export function getCouncilSummary(
   arrondissementPcode: Pcode,
 ): CouncilElectoralSummary | undefined {
   summaryByPcode ??= new Map(
     councilSummaries.map((s) => [s.arrondissementPcode, s]),
   );
-  return summaryByPcode.get(arrondissementPcode);
+  return summaryByPcode.get(normalizeCode(arrondissementPcode));
 }
 
-/** Stations in an arrondissement, division or region. `null` returns diaspora stations. */
+/**
+ * Stations in an arrondissement, division or region, by P-code (case and
+ * surrounding whitespace ignored). `null` returns the diaspora stations.
+ * Anything else, including a name or a partial code, returns an empty array.
+ */
 export function getPollingStations(
   within: Pcode | null,
 ): readonly PollingStation[] {
-  if (within !== null && !isAdminPcode(within)) return EMPTY;
-  const key = within ?? "";
-  let list = byScope.get(key);
-  if (!list) {
-    list = Object.freeze(
-      pollingStations.filter((s) =>
-        within === null
-          ? s.arrondissementPcode === null
-          : s.arrondissementPcode?.startsWith(within) === true,
-      ),
-    );
-    byScope.set(key, list);
-  }
+  const scope = within === null ? null : normalizeCode(within);
+  const key = scope ?? "";
+  const cached = byScope.get(key);
+  if (cached) return cached;
+  const list = pollingStations.filter((s) =>
+    scope === null
+      ? s.arrondissementPcode === null
+      : s.arrondissementPcode !== null &&
+        isWithin(s.arrondissementPcode, scope),
+  );
+  if (!list.length) return EMPTY;
+  Object.freeze(list);
+  byScope.set(key, list);
   return list;
 }

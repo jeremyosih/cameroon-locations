@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "bun run --filter cameroon-locations build",
-    "test": "bun run --filter cameroon-locations test",
+    "test": "bun run --filter cameroon-locations test && bun test ./data/tools",
     "typecheck": "bun run --filter '*' typecheck",
     "check": "biome check .",
     "fix": "biome check --write .",

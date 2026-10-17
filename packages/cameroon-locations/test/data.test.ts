@@ -1,6 +1,4 @@
 import { describe, expect, test } from "bun:test";
-import { existsSync, readFileSync, statSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
 import { cantons, findCantons, getCanton, getCantons } from "../src/cantons";
 import { arrondissements, divisions, regions } from "../src/data/admin";
 import { metadata } from "../src/data/metadata";
@@ -20,7 +18,6 @@ import {
   villages,
 } from "../src/villages";
 
-const pkg = join(import.meta.dir, "..");
 const units: readonly AdminUnit[] = [
   ...regions,
   ...divisions,
@@ -256,40 +253,61 @@ describe("immutability", () => {
   });
 });
 
-describe("entry isolation", () => {
-  // Static import graph from src/index.ts: the core entry must not reach the
-  // canton, village or ELECAM data.
-  const reachable = (entry: string): Set<string> => {
-    const seen = new Set<string>();
-    const visit = (file: string) => {
-      if (seen.has(file)) return;
-      seen.add(file);
-      if (!file.endsWith(".ts")) return;
-      const text = readFileSync(file, "utf8");
-      for (const [, spec = ""] of text.matchAll(
-        /(?:import|export)\s[^;]*?from\s+"(\.[^"]+)"/g,
-      )) {
-        const base = resolve(dirname(file), spec);
-        const target = [base, `${base}.ts`, join(base, "index.ts")].find(
-          (p) => existsSync(p) && statSync(p).isFile(),
+describe("ELECAM", () => {
+  test("every station has voters, and each council summary sums its stations", () => {
+    const sums = new Map<string, number>();
+    for (const s of pollingStations) {
+      expect(Number.isInteger(s.registeredVoters)).toBe(true);
+      expect(s.registeredVoters).toBeGreaterThan(0);
+      expect(s.sources).toEqual(["elecam-polling-stations-2025"]);
+      if (s.arrondissementPcode !== null)
+        sums.set(
+          s.arrondissementPcode,
+          (sums.get(s.arrondissementPcode) ?? 0) + s.registeredVoters,
         );
-        if (target) visit(target);
-      }
-    };
-    visit(entry);
-    return seen;
-  };
+    }
+    for (const c of councilSummaries) {
+      expect(c.registeredVoters).toBe(sums.get(c.arrondissementPcode) ?? -1);
+      expect(c.sources).toBe(pollingStations[0]?.sources as never);
+    }
+  });
+});
 
-  test("the core entry does not import canton, village or ELECAM data", () => {
-    const files = [...reachable(join(pkg, "src/index.ts"))].map((f) =>
-      f.slice(pkg.length + 1),
+describe("codes and ids ignore case and whitespace; `within` must be a P-code", () => {
+  test("cantons and villages", () => {
+    const canton = getCanton("CM001001001-C01");
+    const village = getVillage("CM001001001-C01-V001");
+    expect(canton).toBeDefined();
+    expect(getCanton(" cm001001001-c01 ")).toBe(canton as never);
+    expect(getVillage(" cm001001001-c01-v001\n")).toBe(village as never);
+    expect(getCantons(" cm001 ")).toBe(getCantons("CM001"));
+    expect(getVillages("cm001001001-c01")).toBe(getVillages("CM001001001-C01"));
+    expect(findCantons("Ngaoundal ville", { within: " cm001 " })).toHaveLength(
+      1,
     );
-    expect(files).toContain("generated/admin.json");
-    for (const heavy of [
-      "generated/cantons.json",
-      "generated/villages.json",
-      "generated/elecam.json",
-    ])
-      expect(files).not.toContain(heavy);
+    expect(findCantons("Ngaoundal ville", { within: undefined })).toHaveLength(
+      1,
+    );
+    expect(findCantons("Ngaoundal ville", { within: " " })).toHaveLength(1);
+    expect(findVillages("baya hadjida", { within: "" })).toEqual(
+      findVillages("baya hadjida"),
+    );
+    for (const within of ["CM00", "CM0010", "Adamaoua", "CM", ""]) {
+      // getCantons and getVillages take a required scope: blank is no scope.
+      expect(getCantons(within)).toEqual([]);
+      expect(getVillages(within)).toEqual([]);
+      if (within === "") continue;
+      expect(findCantons("Ngaoundal ville", { within })).toEqual([]);
+      expect(findVillages("baya hadjida", { within })).toEqual([]);
+    }
+  });
+
+  test("ELECAM", () => {
+    expect(getCouncilSummary(" cm002007001 ")).toBe(
+      getCouncilSummary("CM002007001") as never,
+    );
+    expect(getPollingStations("cm002007")).toBe(getPollingStations("CM002007"));
+    for (const within of ["CM00", "Centre", "CM999"])
+      expect(getPollingStations(within)).toEqual([]);
   });
 });

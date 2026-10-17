@@ -37,10 +37,13 @@ const sourceFile = join(
 );
 const outDir = join(pkgDir, "geojson");
 const generatedDir = join(pkgDir, "generated");
-const pkg = JSON.parse(readFileSync(join(pkgDir, "package.json"), "utf8")) as {
-  name: string;
-  version: string;
-};
+// Stamp the files with the dataset version they are built from
+// (generated/metadata.json, as in the package's `metadata` export). Not
+// checked by tests: canonical-only changes must not require LFS. The npm
+// version is left out: a release bumps it without regenerating these files.
+const dataset = JSON.parse(
+  readFileSync(join(pkgDir, "generated/metadata.json"), "utf8"),
+) as { name: string; version: string; generated: string };
 
 type Level = "country" | "region" | "division" | "arrondissement";
 type Pos = [number, number];
@@ -155,8 +158,9 @@ const ochaSources = getSources(["ocha-cod-ab-cmr"]);
 
 function metadata(extra: Record<string, unknown>) {
   return {
-    name: pkg.name,
-    version: pkg.version,
+    name: dataset.name,
+    version: dataset.version,
+    generated: dataset.generated,
     repository: REPOSITORY_URL,
     license:
       "Boundaries derived from OCHA COD-AB Cameroon (INC / OCHA), CC BY-IGO 3.0: attribution required. Package code: MIT.",
@@ -449,8 +453,12 @@ ${rows.join("\n")}
   records with \`getUnit(feature.id)\`. \`properties\`: \`pcode\`, \`level\`,
   \`name_fr\`, \`name_en\`, \`parentPcode\`, plus \`regionPcode\` and
   \`divisionPcode\` where they apply.
-- Each file has a top-level \`metadata\` member with the version, licence
-  and sources (online URL and archived copy in this repository).
+- Each file has a top-level \`metadata\` member of its own shape: \`name\`,
+  \`version\` and \`generated\` (the dataset version and date the files
+  were built from, as in the package's \`metadata\` export), \`repository\`, \`license\`, \`attribution\`,
+  \`notice\`, \`sources\` (the OCHA record only: online URL and archived copy
+  in this repository), and the file's \`level\` (or \`levels\`), \`detail\`
+  and \`simplification\`.
 - Files use the \`.geo.json\` / \`.topo.json\` extensions so that Node,
   bundlers and TypeScript (\`resolveJsonModule\`) import them as JSON with
   no loader.

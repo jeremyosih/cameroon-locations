@@ -5296,9 +5296,9 @@
   "region": "ADAMAOUA",
   "division": "MAYO-BANYO",
   "council": "BANYO",
-  "centre": "\"ECOLE PARENTS MAYO DJARANDI B",
-  "station": " DJAMAN\"",
-  "registeredVoters": null
+  "centre": "ECOLE PARENTS MAYO DJARANDI B, DJAMAN",
+  "station": "A",
+  "registeredVoters": 168
  },
  {
   "adm3Pcode": "CM001003002",
@@ -55516,7 +55516,7 @@
   "region": "CENTRE",
   "division": "MFOUNDI",
   "council": "YAOUNDE V",
-  "centre": "\"ESPLANADE DU STADE BENOUE \"\"OYACK RAILS''\"",
+  "centre": "ESPLANADE DU STADE BENOUE \"OYACK RAILS''",
   "station": "A",
   "registeredVoters": 325
  },
@@ -64471,18 +64471,18 @@
   "region": "CENTRE",
   "division": "NYONG-ET-MFOUMOU",
   "council": "AKONOLINGA",
-  "centre": "\"ECOLE PUB",
-  "station": " BILINGUE D'EKAM\"",
-  "registeredVoters": null
+  "centre": "ECOLE PUB, BILINGUE D'EKAM",
+  "station": "A",
+  "registeredVoters": 374
  },
  {
   "adm3Pcode": "CM002009001",
   "region": "CENTRE",
   "division": "NYONG-ET-MFOUMOU",
   "council": "AKONOLINGA",
-  "centre": "\"ECOLE PUB",
-  "station": " BILINGUE D'EKAM\"",
-  "registeredVoters": null
+  "centre": "ECOLE PUB, BILINGUE D'EKAM",
+  "station": "B",
+  "registeredVoters": 219
  },
  {
   "adm3Pcode": "CM002009001",
@@ -64669,9 +64669,9 @@
   "region": "CENTRE",
   "division": "NYONG-ET-MFOUMOU",
   "council": "AKONOLINGA",
-  "centre": "\"ECOLE PUB. KOUDOU",
-  "station": " MEKONG SSO\"",
-  "registeredVoters": null
+  "centre": "ECOLE PUB. KOUDOU, MEKONG SSO",
+  "station": "A",
+  "registeredVoters": 174
  },
  {
   "adm3Pcode": "CM002009001",
@@ -74083,9 +74083,9 @@
   "region": "EST",
   "division": "HAUT-NYONG",
   "council": "DOUMAINTANG",
-  "centre": "\"E",
-  "station": "P DOUMAINTANG\"",
-  "registeredVoters": null
+  "centre": "E,P DOUMAINTANG",
+  "station": "A",
+  "registeredVoters": 382
  },
  {
   "adm3Pcode": "CM003002005",
@@ -75046,9 +75046,9 @@
   "region": "EST",
   "division": "HAUT-NYONG",
   "council": "LOMIE",
-  "centre": "\"C",
-  "station": "E",
-  "registeredVoters": null
+  "centre": "C,E,S DE ZOULABOT I",
+  "station": "A",
+  "registeredVoters": 259
  },
  {
   "adm3Pcode": "CM003002007",
@@ -128200,9 +128200,9 @@
   "region": "LITTORAL",
   "division": "MOUNGO",
   "council": "DIBOMBARI",
-  "centre": "\"N",
-  "station": "B",
-  "registeredVoters": null
+  "centre": "N,B,C/EBC MINYOUNGOU",
+  "station": "A",
+  "registeredVoters": 69
  },
  {
   "adm3Pcode": "CM005001002",
@@ -193360,9 +193360,9 @@
   "region": "NORD-OUEST",
   "division": "BUI",
   "council": "NKOR",
-  "centre": "\"FONTI",
-  "station": " COOPERATIVE HALL\"",
-  "registeredVoters": null
+  "centre": "FONTI, COOPERATIVE HALL",
+  "station": "A",
+  "registeredVoters": 192
  },
  {
   "adm3Pcode": "CM007002005",
@@ -196969,9 +196969,9 @@
   "region": "NORD-OUEST",
   "division": "DONGA-MANTUNG",
   "council": "NKAMBE",
-  "centre": "\"MBAYA HALL",
-  "station": " TFUM\"",
-  "registeredVoters": null
+  "centre": "MBAYA HALL, TFUM",
+  "station": "A",
+  "registeredVoters": 476
  },
  {
   "adm3Pcode": "CM007003004",
@@ -226435,27 +226435,27 @@
   "region": "OUEST",
   "division": "MIFI",
   "council": "BAFOUSSAM I",
-  "centre": "\"EBC BANENGO",
-  "station": " \"",
-  "registeredVoters": null
+  "centre": "EBC BANENGO, ",
+  "station": "A",
+  "registeredVoters": 259
  },
  {
   "adm3Pcode": "CM008006001",
   "region": "OUEST",
   "division": "MIFI",
   "council": "BAFOUSSAM I",
-  "centre": "\"EBC BANENGO",
-  "station": " \"",
-  "registeredVoters": null
+  "centre": "EBC BANENGO, ",
+  "station": "B",
+  "registeredVoters": 279
  },
  {
   "adm3Pcode": "CM008006001",
   "region": "OUEST",
   "division": "MIFI",
   "council": "BAFOUSSAM I",
-  "centre": "\"EBC BANENGO",
-  "station": " \"",
-  "registeredVoters": null
+  "centre": "EBC BANENGO, ",
+  "station": "C",
+  "registeredVoters": 147
  },
  {
   "adm3Pcode": "CM008006001",
@@ -249178,9 +249178,9 @@
   "region": "SUD",
   "division": "OCEAN",
   "council": "BIPINDI",
-  "centre": "\"ANNEXE RESIDENCE REV",
-  "station": " MVONDO MOISE\"",
-  "registeredVoters": null
+  "centre": "ANNEXE RESIDENCE REV, MVONDO MOISE",
+  "station": "A",
+  "registeredVoters": 99
  },
  {
   "adm3Pcode": "CM009003002",
@@ -257125,36 +257125,36 @@
   "region": "SUD-OUEST",
   "division": "FAKO",
   "council": "LIMBE I",
-  "centre": "\"COMMUNITY HALL",
-  "station": " BONADIKOMBO\"",
-  "registeredVoters": null
+  "centre": "COMMUNITY HALL, BONADIKOMBO",
+  "station": "A",
+  "registeredVoters": 358
  },
  {
   "adm3Pcode": "CM010001002",
   "region": "SUD-OUEST",
   "division": "FAKO",
   "council": "LIMBE I",
-  "centre": "\"COMMUNITY HALL",
-  "station": " BONADIKOMBO\"",
-  "registeredVoters": null
+  "centre": "COMMUNITY HALL, BONADIKOMBO",
+  "station": "B",
+  "registeredVoters": 341
  },
  {
   "adm3Pcode": "CM010001002",
   "region": "SUD-OUEST",
   "division": "FAKO",
   "council": "LIMBE I",
-  "centre": "\"COMMUNITY HALL",
-  "station": " BONADIKOMBO\"",
-  "registeredVoters": null
+  "centre": "COMMUNITY HALL, BONADIKOMBO",
+  "station": "C",
+  "registeredVoters": 341
  },
  {
   "adm3Pcode": "CM010001002",
   "region": "SUD-OUEST",
   "division": "FAKO",
   "council": "LIMBE I",
-  "centre": "\"COMMUNITY HALL",
-  "station": " BONADIKOMBO\"",
-  "registeredVoters": null
+  "centre": "COMMUNITY HALL, BONADIKOMBO",
+  "station": "D",
+  "registeredVoters": 446
  },
  {
   "adm3Pcode": "CM010001002",
@@ -257278,9 +257278,9 @@
   "region": "SUD-OUEST",
   "division": "FAKO",
   "council": "LIMBE I",
-  "centre": "\"SENIOR OVERSEERS OFFICE",
-  "station": " MOLIWE\"",
-  "registeredVoters": null
+  "centre": "SENIOR OVERSEERS OFFICE, MOLIWE",
+  "station": "A",
+  "registeredVoters": 97
  },
  {
   "adm3Pcode": "CM010001002",
@@ -257503,18 +257503,18 @@
   "region": "SUD-OUEST",
   "division": "FAKO",
   "council": "LIMBE I",
-  "centre": "\"ECOLE FRANCOPHONE",
-  "station": "MILE ONE\"",
-  "registeredVoters": null
+  "centre": "ECOLE FRANCOPHONE,MILE ONE",
+  "station": "A",
+  "registeredVoters": 308
  },
  {
   "adm3Pcode": "CM010001002",
   "region": "SUD-OUEST",
   "division": "FAKO",
   "council": "LIMBE I",
-  "centre": "\"ECOLE FRANCOPHONE",
-  "station": "MILE ONE\"",
-  "registeredVoters": null
+  "centre": "ECOLE FRANCOPHONE,MILE ONE",
+  "station": "B",
+  "registeredVoters": 310
  },
  {
   "adm3Pcode": "CM010001002",

@@ -35,21 +35,26 @@ const sourceList: Record<SourceId, SourceInfo> = {
   },
   "elecam-polling-stations-2025": {
     id: "elecam-polling-stations-2025",
-    title: "ELECAM 2025 electoral roll by polling station (July 2025 snapshot)",
+    title:
+      "ELECAM 2025 electoral roll by polling station (probably the July 2025 provisional roll; download origin not recorded)",
     publisher: "ELECAM (Elections Cameroon)",
     license:
       "Public notice, no licence stated. Facts republished with attribution.",
+    // Where ELECAM publishes the official lists (PDFs). The CSV used here
+    // was not downloaded from it: its origin was not recorded.
     url: "https://portail.elecam.cm/fr/documentation/",
     repositoryUrl: repo("elecam-polling-stations-2025"),
+    // Date of the archived CSV file; the retrieval date is unknown.
     retrieved: "2025-07-24",
     attribution:
-      "Polling stations and registered voters: ELECAM, 2025 electoral roll (July 2025 snapshot).",
+      "Polling stations and registered voters: ELECAM (Elections Cameroon), 2025 electoral roll, probably the July 2025 provisional roll.",
   },
   "geoboundaries-cmr-gbopen": {
     id: "geoboundaries-cmr-gbopen",
     title: "geoBoundaries gbOpen CMR (commit 9469f09)",
     publisher: "geoBoundaries, William & Mary geoLab",
-    license: "CC BY 4.0 (ADM1-2), ODbL (ADM3). Only shape IDs are republished.",
+    license:
+      "CC BY 3.0 (ADM1), CC BY 4.0 (ADM2), ODbL 1.0 (ADM3). Only shape IDs are republished.",
     licenseUrl: "https://www.geoboundaries.org/",
     url: "https://github.com/wmgeolab/geoBoundaries/tree/9469f09/releaseData/gbOpen/CMR",
     repositoryUrl: repo("geoboundaries-cmr-gbopen"),
@@ -111,9 +116,16 @@ export const sources: Readonly<Record<SourceId, SourceInfo>> = Object.freeze(
   ) as Record<SourceId, SourceInfo>,
 );
 
-/** Returns the source records for the given ids, in order, without duplicates. */
-export function getSources(ids: readonly SourceId[]): SourceInfo[] {
-  return [...new Set(ids)].map((id) => sources[id]);
+/**
+ * Returns the source records for the given ids, in order, without duplicates.
+ * Unknown ids are skipped. The array is frozen.
+ */
+export function getSources(ids: readonly SourceId[]): readonly SourceInfo[] {
+  return Object.freeze(
+    [...new Set(ids)].flatMap((id) =>
+      Object.hasOwn(sources, id) ? [sources[id]] : [],
+    ),
+  );
 }
 
 /** One-paragraph attribution suitable for a map footer or an "about" page. */

@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { arrondissements, divisions, regions } from "../src/data/admin";
 import {
   type AdminUnit,
   find,
@@ -12,9 +13,7 @@ import {
   getRegion,
   getUnit,
   isPcode,
-  normalizeName,
 } from "../src/index";
-import { arrondissements, divisions, regions } from "./fixtures";
 
 const units: readonly AdminUnit[] = [
   ...regions,
@@ -76,24 +75,16 @@ describe("lookups by code, name and alias", () => {
     }
   });
 
-  test("names shared within a level are ambiguous for getX, listed by find", () => {
-    const shared = new Map<string, Set<AdminUnit>>();
-    for (const unit of units) {
-      for (const name of namesOf(unit)) {
-        const key = `${unit.level}:${normalizeName(name)}`;
-        shared.set(key, (shared.get(key) ?? new Set()).add(unit));
-      }
+  test("`within` must be a P-code (names and partial codes match nothing); blank means none", () => {
+    expect(find("Yaoundé I", { within: " cm002 " })).toHaveLength(1);
+    expect(getArrondissement("Yaoundé I", { within: undefined })).toBeDefined();
+    for (const within of ["", "  "]) {
+      expect(find("Yaoundé I", { within })).toHaveLength(1);
+      expect(getArrondissement("Yaoundé I", { within })).toBeDefined();
     }
-    const get = {
-      region: getRegion,
-      division: getDivision,
-      arrondissement: getArrondissement,
-    };
-    for (const [key, set] of shared) {
-      if (set.size < 2) continue;
-      const [level, name] = key.split(":") as [AdminUnit["level"], string];
-      expect(get[level](name)).toBeUndefined();
-      expect(find(name, { level })).toEqual([...set]);
+    for (const within of ["CM00", "CM0020", "Centre", "CM"]) {
+      expect(find("Yaoundé I", { within })).toEqual([]);
+      expect(getArrondissement("Yaoundé I", { within })).toBeUndefined();
     }
   });
 });

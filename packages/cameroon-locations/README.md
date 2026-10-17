@@ -28,7 +28,9 @@ search("bamenda", { levels: ["arrondissement"], limit: 3 });
 ```
 
 Records are plain, deep-frozen, JSON-serialisable objects. Lookups return
-`T | undefined` or readonly arrays and never throw. ESM and CommonJS, Node 18+.
+`T | undefined` or readonly arrays and never throw; only
+`cameroon-locations/effect` reports errors, as typed Effect errors. ESM and
+CommonJS (`cameroon-locations/effect` is ESM-only, like `effect`), Node 20.19+.
 
 ## Entry points
 
@@ -48,17 +50,21 @@ Heavy data lives behind its own import, so the root import stays small.
 Upgrading from 0.1? See the
 [migration guide](https://cameroon-locations.vercel.app/docs/migration).
 
-## Attribution
+## Licence and attribution
 
-The code is MIT. The data is derived from public sources that keep their own
-terms. If you display or redistribute it, credit the sources you use;
-`attribution()` returns the text and every GeoJSON file carries it.
+The code is MIT (`LICENSE`, shipped in this package). The data is not covered
+by the MIT licence: it is derived from public sources that keep their own
+terms, listed in `NOTICE.md` (also shipped). If you display or redistribute
+it, credit the sources you use; `attribution()` returns the text and every
+GeoJSON file carries the boundary credit.
 
 - Boundaries, P-codes and names: OCHA COD-AB Cameroon (INC / OCHA), CC BY-IGO 3.0
 - Cantons, villages and 2005 population: BUCREP, RGPH 2005
-- Polling stations: ELECAM, 2025 electoral roll
+- Polling stations: ELECAM 2025 electoral roll, probably the July 2025
+  provisional roll (download origin not recorded). ELECAM publishes the
+  official lists as PDFs on [its portal](https://portail.elecam.cm/fr/documentation/).
 
-Full list in `NOTICE.md` (shipped in this package) and on
+Full list on
 [Data & sources](https://cameroon-locations.vercel.app/docs/data-sources).
 
 Forked from [kenya-locations](https://github.com/DavidAmunga/kenya-locations)

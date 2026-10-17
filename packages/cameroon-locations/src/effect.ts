@@ -32,6 +32,7 @@ import {
   SchemaGetter,
   SchemaIssue,
 } from "effect";
+import { isPcode, PCODE, PCODE_LENGTH } from "./data/scope";
 import * as core from "./lookup";
 import type * as T from "./types";
 
@@ -51,11 +52,22 @@ import type * as T from "./types";
  */
 export const Pcode = Schema.String.pipe(
   Schema.check(
-    Schema.isPattern(/^CM\d{3}(?:\d{3}(?:\d{3})?)?$/, {
+    Schema.isPattern(PCODE, {
       expected: "a P-code such as CM001, CM001001 or CM001001001",
     }),
   ),
 );
+
+// One check, so the error names the level ("an arrondissement P-code …").
+const levelPcode = (level: T.AdminLevel, expected: string) =>
+  Schema.String.pipe(
+    Schema.check(
+      Schema.makeFilter(
+        (s: string) => isPcode(s) && s.length === PCODE_LENGTH[level],
+        { expected },
+      ),
+    ),
+  );
 
 /**
  * Region P-code, `CM` followed by 3 digits.
@@ -66,12 +78,9 @@ export const Pcode = Schema.String.pipe(
  * Schema.is(RegionPcode)("CM002007"); // false
  * ```
  */
-export const RegionPcode = Schema.String.pipe(
-  Schema.check(
-    Schema.isPattern(/^CM\d{3}$/, {
-      expected: "a region P-code such as CM002",
-    }),
-  ),
+export const RegionPcode = levelPcode(
+  "region",
+  "a region P-code such as CM002",
 );
 
 /**
@@ -82,12 +91,9 @@ export const RegionPcode = Schema.String.pipe(
  * Schema.is(DivisionPcode)("CM002007"); // true
  * ```
  */
-export const DivisionPcode = Schema.String.pipe(
-  Schema.check(
-    Schema.isPattern(/^CM\d{6}$/, {
-      expected: "a division P-code such as CM002007",
-    }),
-  ),
+export const DivisionPcode = levelPcode(
+  "division",
+  "a division P-code such as CM002007",
 );
 
 /**
@@ -98,13 +104,59 @@ export const DivisionPcode = Schema.String.pipe(
  * Schema.is(ArrondissementPcode)("CM002007001"); // true
  * ```
  */
-export const ArrondissementPcode = Schema.String.pipe(
+export const ArrondissementPcode = levelPcode(
+  "arrondissement",
+  "an arrondissement P-code such as CM002007001",
+);
+
+/**
+ * Canton id, `<arrondissement pcode>-Cnn`.
+ *
+ * @example
+ * ```ts
+ * Schema.is(CantonId)("CM002007001-C01"); // true
+ * ```
+ */
+export const CantonId = Schema.String.pipe(
   Schema.check(
-    Schema.isPattern(/^CM\d{9}$/, {
-      expected: "an arrondissement P-code such as CM002007001",
+    Schema.isPattern(/^CM\d{9}-C\d{2}$/, {
+      expected: "a canton id such as CM002007001-C01",
     }),
   ),
 );
+
+/**
+ * Village id, `<canton id>-Vnnn`.
+ *
+ * @example
+ * ```ts
+ * Schema.is(VillageId)("CM002007001-C01-V001"); // true
+ * ```
+ */
+export const VillageId = Schema.String.pipe(
+  Schema.check(
+    Schema.isPattern(/^CM\d{9}-C\d{2}-V\d{3}$/, {
+      expected: "a village id such as CM002007001-C01-V001",
+    }),
+  ),
+);
+
+/**
+ * Fails, at the path of `child`, unless `record[child]` starts with
+ * `record[parent]`: the codes of a record must agree with each other.
+ */
+function nested<K extends string>(
+  pairs: readonly (readonly [child: K, parent: K])[],
+) {
+  return Schema.makeFilter((record: { readonly [P in K]: string }) => {
+    for (const [child, parent] of pairs) {
+      if (!record[child].startsWith(record[parent])) {
+        return { path: [child], issue: `${child} must start with ${parent}` };
+      }
+    }
+    return undefined;
+  });
+}
 
 /**
  * `"region" | "division" | "arrondissement"`.
@@ -268,7 +320,13 @@ export const Division = Schema.Struct({
   ...unitFields,
   parentPcode: RegionPcode,
   regionPcode: RegionPcode,
-}) satisfies Schema.Codec<T.Division>;
+}).check(
+  nested([
+    ["pcode", "parentPcode"],
+    ["parentPcode", "regionPcode"],
+    ["regionPcode", "parentPcode"],
+  ]),
+) satisfies Schema.Codec<T.Division>;
 
 /**
  * An arrondissement record (ADM3, subdivision).
@@ -286,7 +344,14 @@ export const Arrondissement = Schema.Struct({
   regionPcode: RegionPcode,
   divisionPcode: DivisionPcode,
   ordinal: Schema.optionalKey(Schema.Int),
-}) satisfies Schema.Codec<T.Arrondissement>;
+}).check(
+  nested([
+    ["pcode", "parentPcode"],
+    ["parentPcode", "divisionPcode"],
+    ["divisionPcode", "parentPcode"],
+    ["divisionPcode", "regionPcode"],
+  ]),
+) satisfies Schema.Codec<T.Arrondissement>;
 
 /**
  * Any administrative unit, discriminated by `level`. Comes with the tagged
@@ -315,19 +380,15 @@ export const AdminUnit = Schema.Union([Region, Division, Arrondissement]).pipe(
  * ```
  */
 export const Canton = Schema.Struct({
-  id: Schema.String.pipe(
-    Schema.check(
-      Schema.isPattern(/^CM\d{9}-C\d{2}$/, {
-        expected: "a canton id such as CM002007001-C01",
-      }),
-    ),
-  ),
+  id: CantonId,
   arrondissementPcode: ArrondissementPcode,
   name: Schema.String,
   label: Schema.String,
   population2005: Schema.optionalKey(Population),
   sources: Schema.Array(SourceId),
-}) satisfies Schema.Codec<T.Canton>;
+}).check(
+  nested([["id", "arrondissementPcode"]]),
+) satisfies Schema.Codec<T.Canton>;
 
 /**
  * A quartier or village as printed by BUCREP. `id` is `<canton id>-Vnnn`.
@@ -338,20 +399,97 @@ export const Canton = Schema.Struct({
  * ```
  */
 export const Village = Schema.Struct({
-  id: Schema.String.pipe(
-    Schema.check(
-      Schema.isPattern(/^CM\d{9}-C\d{2}-V\d{3}$/, {
-        expected: "a village id such as CM002007001-C01-V001",
-      }),
-    ),
-  ),
-  cantonId: Schema.String,
+  id: VillageId,
+  cantonId: CantonId,
   arrondissementPcode: ArrondissementPcode,
   name: Schema.String,
   label: Schema.String,
   population2005: Schema.optionalKey(Population),
   sources: Schema.Array(SourceId),
-}) satisfies Schema.Codec<T.Village>;
+}).check(
+  nested([
+    ["id", "cantonId"],
+    ["cantonId", "arrondissementPcode"],
+  ]),
+) satisfies Schema.Codec<T.Village>;
+
+/**
+ * One ELECAM polling station. `arrondissementPcode` is `null` abroad.
+ *
+ * @example
+ * ```ts
+ * import { pollingStations } from "cameroon-locations/elecam";
+ *
+ * Schema.is(PollingStation)(pollingStations[0]); // true
+ * ```
+ */
+export const PollingStation = Schema.Struct({
+  arrondissementPcode: Schema.NullOr(ArrondissementPcode),
+  council: Schema.String,
+  centre: Schema.String,
+  station: Schema.String,
+  registeredVoters: Count,
+  sources: Schema.Array(SourceId),
+}) satisfies Schema.Codec<T.PollingStation>;
+
+/**
+ * ELECAM totals for one arrondissement's council.
+ *
+ * @example
+ * ```ts
+ * import { getCouncilSummary } from "cameroon-locations/elecam";
+ *
+ * Schema.is(CouncilElectoralSummary)(getCouncilSummary("CM002007001")); // true
+ * ```
+ */
+export const CouncilElectoralSummary = Schema.Struct({
+  arrondissementPcode: ArrondissementPcode,
+  council: Schema.String,
+  registeredVoters: Count,
+  pollingCentres: Count,
+  pollingStations: Count,
+  sources: Schema.Array(SourceId),
+}) satisfies Schema.Codec<T.CouncilElectoralSummary>;
+
+/**
+ * A data source: licence, online URL, archived copy and attribution.
+ *
+ * @example
+ * ```ts
+ * import { sources } from "cameroon-locations";
+ *
+ * Schema.is(SourceInfo)(sources.wikidata); // true
+ * ```
+ */
+export const SourceInfo = Schema.Struct({
+  id: SourceId,
+  title: Schema.String,
+  publisher: Schema.String,
+  license: Schema.String,
+  licenseUrl: Schema.optionalKey(Schema.String),
+  url: Schema.String,
+  repositoryUrl: Schema.String,
+  retrieved: Schema.String,
+  attribution: Schema.String,
+}) satisfies Schema.Codec<T.SourceInfo>;
+
+/**
+ * Name, version and sources of the bundled dataset (`metadata`).
+ *
+ * @example
+ * ```ts
+ * import { metadata } from "cameroon-locations";
+ *
+ * Schema.decodeUnknownSync(DatasetMetadata)(metadata).version;
+ * ```
+ */
+export const DatasetMetadata = Schema.Struct({
+  name: Schema.String,
+  version: Schema.String,
+  generated: Schema.String,
+  repository: Schema.String,
+  sources: Schema.Array(SourceInfo),
+}) satisfies Schema.Codec<T.DatasetMetadata>;
 
 // ---------------------------------------------------------------------------
 // P-code → record
@@ -493,16 +631,16 @@ export type LookupError = LocationNotFound | AmbiguousLocation;
 // Lookups
 // ---------------------------------------------------------------------------
 
-type Within = { readonly within?: T.Pcode };
+type Within = core.WithinOptions;
 
 function lookup<A extends T.AdminUnit>(
   query: core.LocationQuery,
   level: A["level"],
   unit: A | undefined,
-  within?: T.Pcode,
+  within: T.Pcode | undefined,
 ): Effect.Effect<A, LookupError> {
   if (unit) return Effect.succeed(unit);
-  const matches = core.find(query, within ? { level, within } : { level });
+  const matches = core.find(query, { level, within });
   return Effect.fail(
     matches.length > 1
       ? new AmbiguousLocation({
@@ -526,7 +664,7 @@ function lookup<A extends T.AdminUnit>(
 export const getRegion = (
   query: core.LocationQuery,
 ): Effect.Effect<T.Region, LookupError> =>
-  lookup(query, "region", core.getRegion(query));
+  lookup(query, "region", core.getRegion(query), undefined);
 
 /**
  * Division by P-code, HASC code or name, optionally `within` a region.

@@ -58,7 +58,7 @@ getRegion("Far North")?.pcode; // "CM004", hyphens don't matter
 ```ts
 function getDivision(
   query: LocationQuery,
-  options?: { within?: Pcode },
+  options?: { within?: Pcode | undefined },
 ): Division | undefined;
 ```
 
@@ -72,7 +72,7 @@ getDivision("Wouri", { within: "CM005" })?.name.fr; // "Wouri"
 ```ts
 function getArrondissement(
   query: LocationQuery,
-  options?: { within?: Pcode },
+  options?: { within?: Pcode | undefined },
 ): Arrondissement | undefined;
 ```
 
@@ -83,8 +83,12 @@ getArrondissement("Ngaoundere 2e")?.name.fr; // "Ngaoundéré II"
 getArrondissement("Buea")?.name; // { fr: "Buéa", en: "Buea" }
 ```
 
-`within` takes a region or division P-code. Use it for names that exist in
-several places.
+`within` takes a region or division P-code (case and surrounding whitespace
+ignored). Use it for names that exist in several places. `""` or
+whitespace means no restriction, like leaving it out, which suits form
+fields. Any other value that is not a P-code, such as a name or a partial
+code like `"CM00"`, matches nothing, so a typo never silently widens the
+search.
 
 ### getUnit
 
@@ -105,8 +109,8 @@ if (unit?.level === "arrondissement") unit.divisionPcode; // "CM002007"
 function find(query: LocationQuery, options?: FindOptions): readonly AdminUnit[];
 
 interface FindOptions {
-  level?: "region" | "division" | "arrondissement";
-  within?: Pcode;
+  level?: "region" | "division" | "arrondissement" | undefined;
+  within?: Pcode | undefined; // descendants only; blank = none; not a P-code = no match
 }
 ```
 
@@ -195,12 +199,14 @@ getArrondissements("CM002").length; // 70, every arrondissement in Centre
 function isPcode(value: string): value is Pcode;
 ```
 
-`true` for well-formed region, division and arrondissement P-codes that exist
-in the dataset.
+`true` for well-formed region, division and arrondissement P-codes: `CM`
+and 3, 6 or 9 digits, upper case, no surrounding whitespace. It checks the
+format only; use [`getUnit`](#getunit) to check that the unit exists.
 
 ```ts
 isPcode("CM002007001"); // true
 isPcode("CMR002"); // false
+isPcode("CM999"); // true, well formed (getUnit("CM999") is undefined)
 ```
 
 ### normalizeName

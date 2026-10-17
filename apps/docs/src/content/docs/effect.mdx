@@ -32,6 +32,8 @@ Effect.runSync(program.pipe(Effect.provide(CameroonLocations.layer)));
 
 - **Use the core** (`cameroon-locations`) for plain lookups. It returns
   `T | undefined`, never throws and has no dependencies.
+- **This entry point is ESM-only**, like `effect` 4 itself: import it from
+  an ES module (`require` is not supported).
 - **Use `/effect`** to validate untrusted input (form values, route params,
   API payloads, JSON from storage) and when you want typed errors in the
   error channel instead of `undefined` checks.
@@ -73,18 +75,23 @@ Schema.encodeSync(Form)({ commune }); // { commune: "CM002007001" }
 ## Schemas
 
 Every type of the [data model](/docs/data-model) has a schema. Record
-schemas check the shape, not that the unit exists; use the `*FromPcode`
-decoders for that.
+schemas check the shape and that a record's codes agree with each other (a
+division's `parentPcode` and `regionPcode` are the start of its `pcode`, a
+village's `id` starts with its `cantonId`, and so on), not that the unit
+exists; use the `*FromPcode` decoders for that.
 
 | Schema | Validates |
 | :----- | :-------- |
 | `Pcode` | Any P-code: `CM001`, `CM001001` or `CM001001001` |
 | `RegionPcode`, `DivisionPcode`, `ArrondissementPcode` | A P-code of one level |
+| `CantonId`, `VillageId` | `CM002007001-C01`, `CM002007001-C01-V001` |
 | `AdminLevel`, `Language`, `SourceId` | The literal unions |
 | `LocalizedName`, `Alias`, `Population`, `LngLat`, `BBox` | Building blocks |
 | `Region`, `Division`, `Arrondissement` | Administrative unit records |
 | `AdminUnit` | Union of the three, tagged on `level` |
 | `Canton`, `Village` | BUCREP records |
+| `PollingStation`, `CouncilElectoralSummary` | ELECAM records |
+| `SourceInfo`, `DatasetMetadata` | Provenance: `sources` entries and `metadata` |
 
 ```ts
 import { Schema } from "effect";
@@ -118,8 +125,8 @@ that fails with a tagged error.
 
 ```ts
 function getRegion(query: LocationQuery): Effect<Region, LookupError>;
-function getDivision(query: LocationQuery, options?: { within?: Pcode }): Effect<Division, LookupError>;
-function getArrondissement(query: LocationQuery, options?: { within?: Pcode }): Effect<Arrondissement, LookupError>;
+function getDivision(query: LocationQuery, options?: { within?: Pcode | undefined }): Effect<Division, LookupError>;
+function getArrondissement(query: LocationQuery, options?: { within?: Pcode | undefined }): Effect<Arrondissement, LookupError>;
 function getUnit(pcode: Pcode): Effect<AdminUnit, LocationNotFound>;
 ```
 
