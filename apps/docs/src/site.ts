@@ -55,7 +55,7 @@ export const NAV: readonly NavGroup[] = [
       { slug: "search", label: "Search" },
       { slug: "geo", label: "Geo & GeoJSON" },
       { slug: "elecam", label: "ELECAM" },
-      { slug: "effect", label: "Effect", soon: true },
+      { slug: "effect", label: "Effect" },
     ],
   },
   {
