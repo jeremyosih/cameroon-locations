@@ -47,15 +47,12 @@ const links = [
                     href={pagePath(item.slug)}
                     aria-current={active ? "page" : undefined}
                     class:list={[
-                      "relative flex items-center justify-between rounded-md px-3 py-1.5 text-sm transition-colors",
+                      "flex items-center justify-between rounded-md px-3 py-1.5 text-sm transition-colors",
                       active
                         ? "bg-accent text-foreground font-medium"
                         : "text-foreground/75 hover:text-foreground hover:bg-accent/60",
                     ]}
                   >
-                    {active && (
-                      <span class="bg-brand absolute top-1.5 bottom-1.5 left-0 w-0.5 rounded-full" />
-                    )}
                     <span>{item.label}</span>
                     {item.soon && (
                       <span class="text-muted-foreground text-[11px] font-normal">
