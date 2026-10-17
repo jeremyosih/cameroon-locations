@@ -29,7 +29,15 @@ const alias = (list: any[], name: string | null | undefined, source: string, ext
 };
 
 // --- COD-AB backbone -------------------------------------------------------
-const cod = async (n: number) => (await json(`${P.codab}/cmr_admin${n}.geojson`)).features.map((f: any) => f.properties);
+// bbox [minLon, minLat, maxLon, maxLat] of the polygon, rounded outward to 1e-6 so it always contains the shape.
+const floor6 = (x: number) => Math.floor(x * 1e6) / 1e6, ceil6 = (x: number) => Math.ceil(x * 1e6) / 1e6;
+const bboxOf = (g: any) => {
+  const rings: number[][][] = g.type === "Polygon" ? g.coordinates : g.coordinates.flat();
+  let [x0, y0, x1, y1] = [180, 90, -180, -90];
+  for (const ring of rings) for (const [x, y] of ring) { if (x < x0) x0 = x; if (y < y0) y0 = y; if (x > x1) x1 = x; if (y > y1) y1 = y; }
+  return [floor6(x0), floor6(y0), ceil6(x1), ceil6(y1)];
+};
+const cod = async (n: number) => (await json(`${P.codab}/cmr_admin${n}.geojson`)).features.map((f: any) => ({ ...f.properties, bbox: bboxOf(f.geometry) }));
 const [c1, c2, c3] = [await cod(1), await cod(2), await cod(3)];
 const unit = (p: any, n: number) => {
   const en = p[`adm${n}_name`], fr = p[`adm${n}_name1`];
@@ -41,6 +49,7 @@ const unit = (p: any, n: number) => {
     refName: p[`adm${n}_ref_name1`] ?? null,
     areaSqKm: +p.area_sqkm.toFixed(3),
     centroid: [+p.center_lon.toFixed(6), +p.center_lat.toFixed(6)],
+    bbox: p.bbox,
     aliases: [] as any[],
     sources: { [SRC.codab]: { version: p.version, validOn: String(p.valid_on).slice(0, 10) } },
   };

@@ -1,0 +1,1670 @@
+{
+  "decision": "D8",
+  "description": "Display names (name.fr / name.en) for arrondissements whose OCHA COD-AB name dropped accents or an apostrophe. Only diacritics and apostrophes change: every display name folds (normalizeName) to the OCHA name. Numbered arrondissements get Roman numerals by rule in scripts/generate.ts, not here. OCHA's form stays in refName and aliases.",
+  "rule": "Evidence order: signed decree (2007/115, 2010/198) > other official source (MINFI 2019, BUCREP 2005, ELECAM 2025) > established usage (OSM / geoBoundaries, French-language usage). A decree that prints the plain form in mixed case overrides weaker evidence (see notRestored). MINFI drops accents almost everywhere, so its plain forms are not counted against an accent. Capital initials stay unaccented, as in official usage (Ebolowa, Edéa, Eséka).",
+  "entries": [
+    {
+      "pcodes": [
+        "CM002007001",
+        "CM002007002",
+        "CM002007003",
+        "CM002007004",
+        "CM002007005",
+        "CM002007006",
+        "CM002007007"
+      ],
+      "ocha": "Yaounde",
+      "fr": "Yaoundé",
+      "basis": "decree",
+      "reason": "Accent printed in a signed decree.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2007/115",
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "page": 2,
+          "quote": "1. Arrondissement de Yaoundé VIle Chef-lieu : Nkolbisson"
+        },
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 11,
+          "quote": "Yaoundé, le {6 JUIN 2010"
+        },
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 29,
+          "quote": "1160 Yaoundé 1er"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Yaoundé I",
+            "Yaoundé II",
+            "Yaoundé III",
+            "Yaoundé IV",
+            "Yaoundé V",
+            "Yaoundé VI",
+            "Yaoundé VII"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Yaoundé I",
+            "Yaoundé II",
+            "Yaoundé III",
+            "Yaoundé IV",
+            "Yaoundé V",
+            "Yaoundé VI",
+            "Yaoundé VII"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM001005005",
+        "CM001005006",
+        "CM001005007"
+      ],
+      "ocha": "Ngaoundere",
+      "fr": "Ngaoundéré",
+      "basis": "decree",
+      "reason": "Accent printed in a signed decree.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2007/115",
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "page": 1,
+          "quote": "1. Arrondissement de Ngaoundéré 1er Chef-lieu : Mbideng"
+        },
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 28,
+          "quote": "1044 Ngaoundéré 1er"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Ngaoundéré I",
+            "Ngaoundéré II",
+            "Ngaoundéré III"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Ngaoundéré I",
+            "Ngaoundéré II",
+            "Ngaoundéré III"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM005003003",
+        "CM005003004"
+      ],
+      "ocha": "Edea",
+      "fr": "Edéa",
+      "basis": "decree",
+      "reason": "The decree and the 0.1.0 council list write Edéa; BUCREP prints ÉDÉA and OSM Édéa. Official usage drops the accent on the capital, as for Ebolowa and Eséka, so the initial E stays plain.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2007/115",
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "page": 4,
+          "quote": "2. Arrondissement d'Edéa 1er Chef-lieu : Pongo"
+        },
+        {
+          "source": "bucrep-rgph2005-repertoire-villages",
+          "printed": [
+            "ÉDÉA I",
+            "ÉDÉA II"
+          ]
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Édéa I",
+            "Édéa II"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "ÉDÉA I",
+            "Edéa I",
+            "ÉDÉA II",
+            "Edéa II"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM001002001"
+      ],
+      "ocha": "Galim-Tignere",
+      "fr": "Galim-Tignère",
+      "basis": "established",
+      "reason": "Same spelling of Tignère as decree 2010/198 p. 1 (scan).",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Galim-Tignère"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Galim-Tignère"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM001002003"
+      ],
+      "ocha": "Mayo-Baleo",
+      "fr": "Mayo-Baléo",
+      "basis": "official",
+      "reason": "Accent printed in an official source (MINFI, BUCREP or ELECAM).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 27,
+          "quote": "(Tignere) 1012 Mayo - Baléo"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Mayo-Baléo"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Mayo-Baléo"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM001002004"
+      ],
+      "ocha": "Tignere",
+      "fr": "Tignère",
+      "basis": "decree",
+      "reason": "The OCR reads 'Tignére'; the scan (page-001.png) clearly shows 'Tignère'.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 1,
+          "quote": "limites territoriales de I’'Arrondissement de Tignére sont modifiées en"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Tignère"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Tignère"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM001003003"
+      ],
+      "ocha": "Mayo-Darle",
+      "fr": "Mayo-Darlé",
+      "basis": "decree",
+      "reason": "Accent printed in a signed decree.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 1,
+          "quote": "- Arrondissement de MAYO-DARLE, chef-lieu : Mayo-Darlé"
+        },
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 27,
+          "quote": "1022 Mayo-Darlé"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Mayo-Darlé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Mayo-Darlé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM001005003"
+      ],
+      "ocha": "Mbe",
+      "fr": "Mbé",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Mbé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Mbé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM002001002"
+      ],
+      "ocha": "Lembe Yezoum",
+      "fr": "Lembé Yezoum",
+      "basis": "decree",
+      "reason": "Only the accent is restored; OCHA's space is kept (the decree hyphenates).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 2,
+          "quote": "Son ressort territorial couvre celui de |’ex-District de Lembé-Yezoum."
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM002002006"
+      ],
+      "ocha": "Monatele",
+      "fr": "Monatélé",
+      "basis": "official",
+      "reason": "Accent printed in an official source (MINFI, BUCREP or ELECAM).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 28,
+          "quote": "111 Lékié (Monatélé) 1114 Lobo"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Monatélé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Monatélé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM002004002"
+      ],
+      "ocha": "Ngambe-Tikar",
+      "fr": "Ngambé-Tikar",
+      "basis": "established",
+      "reason": "Same spelling of Ngambé as decree 2010/198 for the Sanaga-Maritime arrondissement.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Ngambé-Tikar"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Ngambé-Tikar"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM002005003"
+      ],
+      "ocha": "Awae",
+      "fr": "Awaé",
+      "basis": "decree",
+      "reason": "The scan (page-003.png) prints 'Awaè' with a grave accent, which the OCR reads as 'Awaé'; Awaé is the form used by OSM and the 0.1.0 council list.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 3,
+          "quote": "limites territoriales de |’Arrondissement d’Awaé sont modifiées en"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Awaé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Awaé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM002008005"
+      ],
+      "ocha": "Eseka",
+      "fr": "Eséka",
+      "basis": "official",
+      "reason": "MINFI and the 0.1.0 council list write Eséka; OSM writes Éséka. Official usage is kept (no accent on the capital).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 29,
+          "quote": "(Eséka) 1172 Bot-Makak"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Éséka"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Eséka"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM003001003"
+      ],
+      "ocha": "Salapoumbe",
+      "fr": "Salapoumbé",
+      "basis": "decree",
+      "reason": "Accent printed in a signed decree.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 5,
+          "quote": "- Arrondissement de SALAPOUMBE, chef-lieu : Salapoumbé"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Salapoumbé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Salapoumbé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM003002006"
+      ],
+      "ocha": "Doume",
+      "fr": "Doumé",
+      "basis": "decree",
+      "reason": "Scan checked (page-006.png).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 6,
+          "quote": "limites territoriales de |’Arrondissement de Doumé sont modifiées en"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Doumé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Doumé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM003002007"
+      ],
+      "ocha": "Lomie",
+      "fr": "Lomié",
+      "basis": "decree",
+      "reason": "Scan checked (page-006.png).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 6,
+          "quote": "territoriales de l'Arrondissement de Lomié sont modifiées en"
+        },
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 30,
+          "quote": "1216 Lomié"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Lomié"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Lomié"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM003002013"
+      ],
+      "ocha": "Nguelemendouka",
+      "fr": "Nguélémendouka",
+      "basis": "decree",
+      "reason": "Scan checked (page-006.png).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 6,
+          "quote": "territoriales de l'Arrondissement de Nguélémendouka sont modifiées en"
+        },
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 31,
+          "quote": "121B Nguélémendouka"
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM003003002"
+      ],
+      "ocha": "Bombe",
+      "fr": "Bombé",
+      "basis": "decree",
+      "reason": "Scan checked (page-006.png). Also the spelling used in DECISIONS.md D2.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 6,
+          "quote": "Son ressort territorial couvre celui de |’ex-District de Bombé. Les limites"
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM003003003"
+      ],
+      "ocha": "Kette",
+      "fr": "Ketté",
+      "basis": "decree",
+      "reason": "Scan checked (page-006.png): 'Ketté'. OSM's 'Kétté' is kept as an alias.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 6,
+          "quote": "limites territoriales de l'Arrondissement de Ketté sont modifiées en"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Kétté"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Kétté"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM003003006"
+      ],
+      "ocha": "Ndelele",
+      "fr": "Ndélélé",
+      "basis": "decree",
+      "reason": "Scan checked (page-006.png).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 6,
+          "quote": "territoriales de lArrondissement de Ndélélé sont modifiées en"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Ndélélé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Ndélélé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM003004001"
+      ],
+      "ocha": "Belabo",
+      "fr": "Bélabo",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Bélabo"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Bélabo"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM003004004"
+      ],
+      "ocha": "Betare-Oya",
+      "fr": "Bétaré-Oya",
+      "basis": "decree",
+      "reason": "Accent printed in a signed decree.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 7,
+          "quote": "territoriales de |’Arrondissement de Bétaré-Oya sont modifiées en"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Bétaré-Oya"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Bétaré-Oya"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM003004006"
+      ],
+      "ocha": "Garoua-Boulai",
+      "fr": "Garoua-Boulaï",
+      "basis": "official",
+      "reason": "Accent printed in an official source (MINFI, BUCREP or ELECAM).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 31,
+          "quote": "1235 Garoua - Boulaï"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Garoua-Boulaï"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Garoua-Boulaï"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004001009"
+      ],
+      "ocha": "Pette",
+      "fr": "Pétté",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Pétté"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Pétté"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004002005"
+      ],
+      "ocha": "Hile-Alifa",
+      "fr": "Hilé-Alifa",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Hilé - Alifa"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Hilé - Alifa"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004002006"
+      ],
+      "ocha": "Kousseri",
+      "fr": "Kousséri",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Kousséri"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Kousséri"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004003001"
+      ],
+      "ocha": "Datcheka",
+      "fr": "Datchéka",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Datchéka"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Datchéka"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004003003"
+      ],
+      "ocha": "Guere",
+      "fr": "Guéré",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Guéré"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Guéré"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004003004"
+      ],
+      "ocha": "Kai-Kai",
+      "fr": "Kaï-Kaï",
+      "basis": "official",
+      "reason": "Accent printed in an official source (MINFI, BUCREP or ELECAM).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 32,
+          "quote": "Extrême 1323 Kaï-Kaï 13 – Nord 1324 Kalfou"
+        },
+        {
+          "source": "bucrep-rgph2005-repertoire-villages",
+          "printed": [
+            "KAÏ-KAÏ"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004004002"
+      ],
+      "ocha": "Kaele",
+      "fr": "Kaélé",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Kaélé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Kaélé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004004007"
+      ],
+      "ocha": "Taibong",
+      "fr": "Taïbong",
+      "basis": "official",
+      "reason": "Accent printed in an official source (MINFI, BUCREP or ELECAM).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 32,
+          "quote": "1336 Taïbong"
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004005003"
+      ],
+      "ocha": "Tokombere",
+      "fr": "Tokombéré",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Tokombéré"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Tokombéré"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004006005"
+      ],
+      "ocha": "Mogode",
+      "fr": "Mogodé",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Mogodé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Mogodé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM004006007"
+      ],
+      "ocha": "Soulede-Roua",
+      "fr": "Soulédé-Roua",
+      "basis": "decree",
+      "reason": "Scan checked (page-008.png): 'Soulédé-Roua'. OSM's 'Soulèdé-Roua' is kept as an alias.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 8,
+          "quote": "- Arrondissement de SOULEDE-ROUA, chef-lieu : Soulédé-Roua"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Soulèdé-Roua"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Soulèdé-Roua"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM005001001"
+      ],
+      "ocha": "Bare-Bakem",
+      "fr": "Baré-Bakem",
+      "basis": "official",
+      "reason": "Accent printed in an official source (MINFI, BUCREP or ELECAM).",
+      "evidence": [
+        {
+          "source": "bucrep-rgph2005-repertoire-villages",
+          "printed": [
+            "BARÉ-BAKEM"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "BARÉ-BAKEM",
+            "Baré-Bakem"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM005001007"
+      ],
+      "ocha": "Melong",
+      "fr": "Mélong",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Mélong"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Mélong"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM005001009"
+      ],
+      "ocha": "Njombe-Penja",
+      "fr": "Njombé-Penja",
+      "basis": "official",
+      "reason": "Accent printed in an official source (MINFI, BUCREP or ELECAM).",
+      "evidence": [
+        {
+          "source": "bucrep-rgph2005-repertoire-villages",
+          "printed": [
+            "NJOMBÉ-PENJA"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "NJOMBÉ-PENJA"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM005002002"
+      ],
+      "ocha": "Nord-Makombe",
+      "fr": "Nord-Makombé",
+      "basis": "decree",
+      "reason": "Scan checked (page-008.png).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 8,
+          "quote": "Son ressort territorial couvre celui de l’ex-District du Nord-Makombé."
+        },
+        {
+          "source": "bucrep-rgph2005-repertoire-villages",
+          "printed": [
+            "NORD MAKOMBÉ"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "NORD-MAKOMBÉ"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM005003002"
+      ],
+      "ocha": "Dizangue",
+      "fr": "Dizangué",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Dizangué"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Dizangué"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM005003008"
+      ],
+      "ocha": "Ngambe",
+      "fr": "Ngambé",
+      "basis": "decree",
+      "reason": "Scan checked (page-008.png).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 8,
+          "quote": "Songloulou. Les limites territoriales de |’Arrondissement de Ngambé"
+        },
+        {
+          "source": "bucrep-rgph2005-repertoire-villages",
+          "printed": [
+            "NGAMBÉ"
+          ]
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Ngambé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "NGAMBÉ",
+            "Ngambé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM006001001"
+      ],
+      "ocha": "Bascheo",
+      "fr": "Baschéo",
+      "basis": "decree",
+      "reason": "Accent printed in a signed decree.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 9,
+          "quote": "- Arrondissement de BASCHEO, chef-lieu : Baschéo"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Baschéo"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Baschéo"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM006001011"
+      ],
+      "ocha": "Tcheboa",
+      "fr": "Tchéboa",
+      "basis": "decree",
+      "reason": "Decree 2007/115 writes Tchéboa; decree 2010/198 writes Tcheboa. The accented form is kept since accents are often dropped but rarely added.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2007/115",
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "page": 6,
+          "quote": "Le ressort territorial de l’arrondissement de Tchéboa est modifié en conséquence."
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM006004003"
+      ],
+      "ocha": "Tchollire",
+      "fr": "Tcholliré",
+      "basis": "decree",
+      "reason": "Accent printed in a signed decree.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 9,
+          "quote": "limites territoriales de l’Arrondissement de Tcholliré sont modifiées en"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Tcholliré"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Tcholliré"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM008003004"
+      ],
+      "ocha": "Batie",
+      "fr": "Batié",
+      "basis": "decree",
+      "reason": "Accent printed in a signed decree.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 9,
+          "quote": "- Arrondissement de BATIE, chef-lieu : Batié"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Batié"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Batié"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM008005002"
+      ],
+      "ocha": "Fokoue",
+      "fr": "Fokoué",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Fokoué"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Fokoué"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM008007001"
+      ],
+      "ocha": "Bangangte",
+      "fr": "Bangangté",
+      "basis": "decree",
+      "reason": "Scan checked (page-010.png).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 10,
+          "quote": "limites territoriales de I'Arrondissement de Bangangté sont modifiées en"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Bangangté"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Bangangté"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM009001007"
+      ],
+      "ocha": "Sangmelima",
+      "fr": "Sangmélima",
+      "basis": "decree",
+      "reason": "Accent printed in a signed decree.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2007/115",
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "page": 8,
+          "quote": "Le ressort territorial de l'arrondissement de Sangmélima est modifié en conséquence."
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Sangmélima"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Sangmélima"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM009001008"
+      ],
+      "ocha": "Zoetele",
+      "fr": "Zoétélé",
+      "basis": "official",
+      "reason": "Accent printed in an official source (MINFI, BUCREP or ELECAM).",
+      "evidence": [
+        {
+          "source": "bucrep-rgph2005-repertoire-villages",
+          "printed": [
+            "ZOÉTÉLÉ"
+          ]
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Zoétélé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "ZOÉTÉLÉ",
+            "Zoétélé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM009002001"
+      ],
+      "ocha": "Biwong-Bane",
+      "fr": "Biwong-Bané",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Biwong-Bané"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Biwong-Bané"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM009003009"
+      ],
+      "ocha": "Niete",
+      "fr": "Niété",
+      "basis": "decree",
+      "reason": "Scan checked (page-010.png).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 10,
+          "quote": "Son ressort territorial couvre celui de |’ex-District de Niété. Les limites"
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Niété"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Niété"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM009004002"
+      ],
+      "ocha": "Kye-Ossi",
+      "fr": "Kyé-Ossi",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Kyé-Ossi"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Kyé-Ossi"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM009004004"
+      ],
+      "ocha": "Olamze",
+      "fr": "Olamzé",
+      "basis": "established",
+      "reason": "Established spelling (OSM / geoBoundaries, French-language usage); no official source contradicts it, and the MINFI table drops accents throughout.",
+      "evidence": [
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Olamzé"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Olamzé"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM002002009"
+      ],
+      "ocha": "Saa",
+      "fr": "Sa'a",
+      "basis": "official",
+      "reason": "Apostrophe restored: MINFI 'Sa’a', BUCREP and ELECAM 'SA'A'/'SA’A'. OCHA's ASCII form drops it, as with accents.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 28,
+          "quote": "1118 Sa’a"
+        },
+        {
+          "source": "bucrep-rgph2005-repertoire-villages",
+          "printed": [
+            "SA’A",
+            "SA'A"
+          ]
+        },
+        {
+          "source": "elecam-polling-stations-2025",
+          "printed": [
+            "SA'A"
+          ]
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Sa'a"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Sa'a"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM009004003"
+      ],
+      "ocha": "Maan",
+      "fr": "Ma'an",
+      "basis": "official",
+      "reason": "Apostrophe restored: MINFI 'Ma'an', BUCREP and ELECAM 'MA'AN'/'MA’AN'.",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "MINFI budget nomenclature 2019, administrative table",
+          "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+          "page": 38,
+          "quote": "1832 Ma'an"
+        },
+        {
+          "source": "bucrep-rgph2005-repertoire-villages",
+          "printed": [
+            "MA’AN",
+            "MA'AN"
+          ]
+        },
+        {
+          "source": "elecam-polling-stations-2025",
+          "printed": [
+            "MA'AN"
+          ]
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Ma'an"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Ma'an"
+          ]
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM010001001"
+      ],
+      "ocha": "Buea",
+      "fr": "Buéa",
+      "en": "Buea",
+      "basis": "decree",
+      "reason": "South-West: the English name stays Buea (OCHA, English usage); the French name takes the accent printed in decree 2010/198 (scan checked, page-010.png).",
+      "evidence": [
+        {
+          "source": "research-2026-10-17",
+          "document": "Decree 2010/198 (OCR of the signed scan)",
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "page": 10,
+          "quote": "limites territoriales de l’'Arrondissement de Buéa sont modifiées en"
+        }
+      ]
+    },
+    {
+      "pcodes": [
+        "CM010001002",
+        "CM010001003",
+        "CM010001004"
+      ],
+      "ocha": "Limbe",
+      "fr": "Limbé",
+      "en": "Limbe",
+      "basis": "official",
+      "reason": "South-West: the English name stays Limbe (OCHA); the French name takes the accent printed in BUCREP's arrondissement total rows (LIMBÉ I-III).",
+      "evidence": [
+        {
+          "source": "bucrep-rgph2005-repertoire-villages",
+          "printed": [
+            "LIMBÉ I",
+            "LIMBÉ II",
+            "LIMBÉ III"
+          ]
+        },
+        {
+          "source": "geoboundaries-cmr-gbopen",
+          "printed": [
+            "Limbé I",
+            "Limbé II",
+            "Limbé III"
+          ]
+        },
+        {
+          "source": "cameroon-locations-0.1.0-july-2025",
+          "printed": [
+            "Limbé I",
+            "Limbé II",
+            "Limbé III"
+          ]
+        }
+      ]
+    }
+  ],
+  "notRestored": [
+    {
+      "pcodes": [
+        "CM009002003",
+        "CM009002004"
+      ],
+      "ocha": "Ebolowa",
+      "reason": "Decree 2007/115 and MINFI write Ebolowa; only BUCREP prints ÉBOLOWA (accent on the capital only)."
+    },
+    {
+      "pcodes": [
+        "CM009002005"
+      ],
+      "ocha": "Efoulan",
+      "reason": "Decree 2007/115 and MINFI write Efoulan; only BUCREP prints ÉFOULAN."
+    },
+    {
+      "pcodes": [
+        "CM001005001"
+      ],
+      "ocha": "Belel",
+      "reason": "Decree 2007/115 writes Belel; only OSM has Bélel."
+    },
+    {
+      "pcodes": [
+        "CM006002001"
+      ],
+      "ocha": "Beka",
+      "reason": "Decree 2007/115 writes Beka; only OSM has Béka."
+    },
+    {
+      "pcodes": [
+        "CM009002008"
+      ],
+      "ocha": "Ngoulemakong",
+      "reason": "Decree 2007/115 writes Ngoulemakong; only OSM has Ngoulémakong."
+    },
+    {
+      "pcodes": [
+        "CM009003006"
+      ],
+      "ocha": "Lokoundje",
+      "reason": "Decree 2007/115 writes Lokoundje; BUCREP prints LOKOUNDJÉ. The signed decree is preferred."
+    },
+    {
+      "pcodes": [
+        "CM002003007"
+      ],
+      "ocha": "Ndikinimeki",
+      "reason": "Decree 2010/198 writes Ndikinimeki (scan checked, page-003.png); only OSM has Ndikiniméki."
+    },
+    {
+      "pcodes": [
+        "CM002010001"
+      ],
+      "ocha": "Akoeman",
+      "reason": "Decree 2010/198 writes Akoeman (checked visually for D5); only OSM has Akoéman."
+    },
+    {
+      "pcodes": [
+        "CM003002010"
+      ],
+      "ocha": "Messamena",
+      "reason": "Decree 2010/198 writes Messamena (scan checked, page-006.png); only OSM has Messaména."
+    },
+    {
+      "pcodes": [
+        "CM008002007"
+      ],
+      "ocha": "Kekem",
+      "reason": "Decree 2010/198 writes Kekem (scan checked, page-010.png); only OSM has Kékem."
+    },
+    {
+      "pcodes": [
+        "CM001005004"
+      ],
+      "ocha": "Nganha",
+      "reason": "Decree 2007/115 and MINFI write Nganha; OSM's Ngan'ha is kept as an alias."
+    }
+  ]
+}
