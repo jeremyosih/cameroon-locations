@@ -11,6 +11,7 @@
    "elecam-polling-stations-2025"
   ],
   "status": "resolved",
+  "decision": "D5",
   "resolution": "Decree 2010/198 (16 June 2010), p.4: 'DEPARTEMENT DU NYONG-ET-SO'O – Arrondissement d'AKOEMAN, chef-lieu : Akoeman' (ex-District d'Akoeman, carved from Mbalmayo). BUCREP's placement under Nyong-et-Mfoumou is an error in the directory. Verified visually 2026-10-17.",
   "evidence": [
    "research/downloads/decree-2010-198/source.pdf"
@@ -1042,6 +1043,104 @@
   "source": "bucrep-rgph2005-repertoire-villages"
  },
  {
+  "kind": "printed-typography-inconsistency",
+  "cantonId": "CM005002001-C02",
+  "adm3Pcode": "CM005002001",
+  "name": "BANDEM RIVE GAUCHE",
+  "docPage": 228,
+  "textLine": 12752,
+  "levelInText": "canton",
+  "levelFromTypography": "village",
+  "detail": "PDF p228: printed at the canton indent (same as NKONDJOCK VILLE and MBANG) but in regular weight and without the canton shading.",
+  "totals": "Printed total 3581 = Σ of the 11 rows below it (ABINYAM … TOUMBASSALA); NKONDJOCK VILLE 4232 = Σ of its own 8 rows; NKONDJOCK 17428 = 4232 + 3581 + 9615 (MBANG).",
+  "note": "Level taken from the text indentation and confirmed by the printed totals; the irregular typography is kept as printed. See patches/known-extraction-differences.json.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-typography-inconsistency",
+  "cantonId": "CM007001001-C03",
+  "adm3Pcode": "CM007001001",
+  "name": "MBESA",
+  "docPage": 298,
+  "textLine": 16889,
+  "levelInText": "canton",
+  "levelFromTypography": "arr",
+  "detail": "PDF p298: bold and shaded like the cantons BELO TOWN and KOM, but set slightly left of them (x=102.7 vs 107.3), still well right of the arrondissement row (x=98.2). The layout heuristic's x<103 cut-off reads it as an arrondissement row.",
+  "totals": "Printed total 5621 = its single village MBESA (5621); BELO 40757 = 10130 (BELO TOWN) + 25006 (KOM) + 5621. BELO already has its arrondissement row on the same page.",
+  "note": "Level taken from the text indentation and confirmed by the printed totals; the irregular typography is kept as printed. See patches/known-extraction-differences.json.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-typography-inconsistency",
+  "cantonId": "CM007002001-C01",
+  "adm3Pcode": "CM007002001",
+  "name": "JAKIRI TOWN",
+  "docPage": 300,
+  "textLine": 16997,
+  "levelInText": "canton",
+  "levelFromTypography": "village",
+  "detail": "PDF p300: printed at the canton indent with the canton shading, but in regular weight (DZEKWA and JAKIRI RURAL below are bold).",
+  "totals": "Printed total 9959 = Σ of the 10 rows below it (FIANGO … YER); JAKIRI 47022 = 9959 + 495 (DZEKWA) + 36568 (JAKIRI RURAL). As a village it would precede the first canton.",
+  "note": "Level taken from the text indentation and confirmed by the printed totals; the irregular typography is kept as printed. See patches/known-extraction-differences.json.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-typography-inconsistency",
+  "cantonId": "CM007002004-C01",
+  "adm3Pcode": "CM007002004",
+  "name": "NKUM",
+  "docPage": 302,
+  "textLine": 17130,
+  "levelInText": "canton",
+  "levelFromTypography": "village",
+  "detail": "PDF p302: printed at the canton indent with the canton shading, but in regular weight.",
+  "totals": "Printed total 44059 = Σ of the 26 rows below it (BANTEN … NGONDZEN, pp. 302-303) = NKUM arrondissement total 44059. It is the arrondissement's only canton.",
+  "note": "Level taken from the text indentation and confirmed by the printed totals; the irregular typography is kept as printed. See patches/known-extraction-differences.json.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-typography-inconsistency",
+  "cantonId": "CM007006003-C01",
+  "adm3Pcode": "CM007006003",
+  "name": "NGIE TOWN",
+  "docPage": 319,
+  "textLine": 18116,
+  "levelInText": "canton",
+  "levelFromTypography": "village",
+  "detail": "PDF p319: printed at the canton indent with the canton shading, but in regular weight.",
+  "totals": "Printed total 1983 = ANDEK 1908 + BONATU 75; NGIE 17697 = 1983 + 15714 (canton NGIE). As a village it would precede the first canton.",
+  "note": "Level taken from the text indentation and confirmed by the printed totals; the irregular typography is kept as printed. See patches/known-extraction-differences.json.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-typography-inconsistency",
+  "cantonId": "CM007006003-C02",
+  "adm3Pcode": "CM007006003",
+  "name": "NGIE",
+  "docPage": 319,
+  "textLine": 18119,
+  "levelInText": "canton",
+  "levelFromTypography": "village",
+  "detail": "PDF p319: printed at the canton indent with the canton shading, but in regular weight.",
+  "totals": "Printed total 15714 = Σ of the 19 rows below it (ABEBUNG … TINECHUNG, pp. 319-320); NGIE 17697 = 1983 (NGIE TOWN) + 15714.",
+  "note": "Level taken from the text indentation and confirmed by the printed totals; the irregular typography is kept as printed. See patches/known-extraction-differences.json.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-typography-inconsistency",
+  "cantonId": "CM008005002-C04",
+  "adm3Pcode": "CM008005002",
+  "name": "FOMOPEA",
+  "docPage": 343,
+  "textLine": 19543,
+  "levelInText": "canton",
+  "levelFromTypography": "village",
+  "detail": "PDF p343: printed at the canton indent (same as FOKOUE RURAL above) but in regular weight and without the canton shading.",
+  "totals": "Printed total 1193 = its single village FOMOPEA (1193); FOKOUE RURAL 1722 = 189 + 761 + 772 without it; FOKOUE 9576 = 1127 + 1213 + 1722 + 1193 + 2178 + 2143.",
+  "note": "Level taken from the text indentation and confirmed by the printed totals; the irregular typography is kept as printed. See patches/known-extraction-differences.json.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
   "kind": "population-table≠Σchildren",
   "pcode": "CM009004",
   "name": "Vallée-du-Ntem",
@@ -1957,11 +2056,16 @@
  },
  {
   "kind": "open-question",
-  "status": "resolved",
-  "resolution": "DECISIONS.md D2: treated as a distinct village with a similar name; no change",
   "pcode": "CM003003006",
   "name": "Ndelele",
   "detail": "BUCREP lists a village KENTZOU II under Ndélélé (also in the 2023 Ndélélé forest-management plan), while Kentzou (chef-lieu of Bombé, decree 2010/198) is in CM003003002. Exact location of Kentzou II unknown.",
-  "source": "research-2026-10-17"
+  "source": "research-2026-10-17",
+  "status": "resolved",
+  "decision": "D2",
+  "resolution": "DECISIONS.md D2: KENTZOU II (Ndélélé) is treated as a village distinct from Kentzou (chef-lieu of Bombé); no record is moved.",
+  "evidence": [
+   "research/DECISIONS.md D14",
+   "research/downloads/decree-2010-198/source.pdf"
+  ]
  }
 ]
