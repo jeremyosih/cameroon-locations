@@ -34,8 +34,8 @@ search("bamenda", { levels: ["arrondissement"], limit: 3 });
 ```
 
 Records are plain, deep-frozen, JSON-serialisable objects. Lookups return
-`T | undefined` or readonly arrays and never throw; only
-`cameroon-locations/effect` reports errors, as typed Effect errors. ESM and
+`T | undefined` or readonly arrays and never throw; only the
+`cameroon-locations/effect` schemas report errors, as Effect schema issues. ESM and
 CommonJS (`cameroon-locations/effect` is ESM-only), Node 20.19+.
 
 ## Entry points
@@ -48,7 +48,7 @@ CommonJS (`cameroon-locations/effect` is ESM-only), Node 20.19+.
 | `cameroon-locations/search`    | `search`, `createSearch`                                       |
 | `cameroon-locations/geo`       | `locate`, `nearest`, `distanceKm`                              |
 | `cameroon-locations/elecam`    | Polling stations and council summaries (July 2025)             |
-| `cameroon-locations/effect`    | Effect adapter (optional `effect` peer)                        |
+| `cameroon-locations/effect`    | Effect schemas to validate input (optional `effect` peer)      |
 | `cameroon-locations/geojson/*` | Simplified OCHA boundaries                                     |
 
 Prefer to own the code? Copy the core with shadcn:

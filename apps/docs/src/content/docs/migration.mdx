@@ -23,8 +23,8 @@ plain functions over frozen records. Most code changes are mechanical.
 - **Bilingual names are an object**: `name.fr` and `name.en` instead of
   `nameFr`, `nameEn`, `name` and `getName(lang)`.
 - **No exceptions.** `NotFoundError` and `CameroonLocationsError` are gone;
-  check for `undefined`. The [Effect adapter](/docs/effect) has tagged errors
-  if you want them.
+  check for `undefined`. The [Effect schemas](/docs/effect) validate input
+  and report why it was rejected, if you want that.
 - **Heavy data has its own entry point**: cantons, villages, search, geo and
   ELECAM.
 
@@ -58,7 +58,7 @@ Every export of 0.1 is listed. In 0.1 they were also static methods of the
 | `block(x)`, `getBlocks()`, `getBlockByCode(x)`, `getBlocksInNeighborhoodOrVillage(v)`, `getNeighborhoodOrVillageOfBlock(b)` | removed; no public source has blocks |
 | `search(q, { types, limit, language })`              | `search(q, { levels, limit })` from `/search`; both languages are always searched |
 | `searchByType(q, type)`                              | `search(q, { levels: [level] })`; for cantons and villages, `createSearch(cantons, …)` |
-| `NotFoundError`, `CameroonLocationsError`            | removed; lookups return `undefined`. `/effect` has tagged errors |
+| `NotFoundError`, `CameroonLocationsError`            | removed; lookups return `undefined`. `/effect` schemas report decode errors |
 
 ## Wrapper methods
 
