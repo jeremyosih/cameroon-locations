@@ -73,7 +73,7 @@
       "eslint --fix --max-warnings 50 --no-warn-ignored",
       "prettier --write"
     ],
-    "*.{json,md,yml,yaml}": [
+    "!(CLAUDE).{json,md,yml,yaml}": [
       "prettier --write"
     ],
     "lib/data/*.ts": [

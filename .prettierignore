@@ -47,3 +47,6 @@ ehthumbs.db
 Thumbs.db 
 # Data pool: raw sources must never be reformatted
 data/
+
+# Symlink to AGENTS.md (formatted there)
+CLAUDE.md
