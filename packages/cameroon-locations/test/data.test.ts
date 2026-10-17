@@ -209,6 +209,13 @@ describe("names (decision D8)", () => {
       expect(r.label).not.toBe("");
     }
     expect(getVillage("CM001001001-C01-V001")?.label).toBe("Baya Hadjida");
+    // Acronyms, and upper case kept after a word printed in mixed case.
+    expect(getVillage("CM005003002-C03-V009")?.label).toBe(
+      "Village 1 SOCAPALM",
+    );
+    expect(getVillage("CM005003003-C01-V029")?.label).toBe(
+      "Pongo I (Bloc SAR)",
+    );
   });
 
   test("name search folds case, accents and punctuation", () => {

@@ -132,14 +132,17 @@ const features = arrondissements.features.map((f) => ({
 
 ```ts
 import L from "leaflet";
+import type { FeatureCollection, MultiPolygon, Polygon } from "geojson";
 import { attribution } from "cameroon-locations";
 import regions from "cameroon-locations/geojson/regions.geo.json" with { type: "json" };
 
 const map = L.map("map").setView([7.37, 12.35], 6);
 
-L.geoJSON(regions, {
+type Regions = FeatureCollection<Polygon | MultiPolygon, { name_fr: string }>;
+
+L.geoJSON(regions as Regions, {
   style: { color: "#007a5e", weight: 1, fillOpacity: 0.08 },
-  onEachFeature: (feature, layer) => layer.bindTooltip(feature.properties.name_fr),
+  onEachFeature: (feature, layer) => layer.bindTooltip(feature?.properties.name_fr ?? ""),
 }).addTo(map);
 
 map.attributionControl.addAttribution(attribution());
@@ -148,11 +151,12 @@ map.attributionControl.addAttribution(attribution());
 ### MapLibre
 
 ```ts
-import maplibregl from "maplibre-gl";
+import type { FeatureCollection } from "geojson";
+import { Map as MapLibreMap } from "maplibre-gl";
 import { attribution } from "cameroon-locations";
 import arrondissements from "cameroon-locations/geojson/arrondissements.geo.json" with { type: "json" };
 
-const map = new maplibregl.Map({
+const map = new MapLibreMap({
   container: "map",
   style: "https://demotiles.maplibre.org/style.json",
   center: [12.35, 7.37],
@@ -162,7 +166,7 @@ const map = new maplibregl.Map({
 map.on("load", () => {
   map.addSource("arrondissements", {
     type: "geojson",
-    data: arrondissements,
+    data: arrondissements as FeatureCollection,
     promoteId: "pcode",
     attribution: attribution(),
   });
@@ -178,13 +182,19 @@ map.on("load", () => {
 ### d3
 
 d3-geo expects the opposite ring winding to RFC 7946 GeoJSON, so use the
-TopoJSON file with `topojson-client`. Its objects are `country`, `regions`,
+TopoJSON file with `topojson-client`. TypeScript reads JSON string fields as
+`string`, so the imported files need a cast to their GeoJSON or TopoJSON type,
+as in these examples. Its objects are `country`, `regions`,
 `divisions` and `arrondissements`.
 
 ```ts
 import * as d3 from "d3";
 import { feature, mesh } from "topojson-client";
-import topology from "cameroon-locations/geojson/cameroon.topo.json" with { type: "json" };
+import type { GeometryCollection, Topology } from "topojson-specification";
+import data from "cameroon-locations/geojson/cameroon.topo.json" with { type: "json" };
+
+type Objects = "country" | "regions" | "divisions" | "arrondissements";
+const topology = data as unknown as Topology<Record<Objects, GeometryCollection>>;
 
 const regions = feature(topology, topology.objects.regions);
 const projection = d3.geoMercator().fitSize([640, 640], regions);

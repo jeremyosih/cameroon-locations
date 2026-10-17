@@ -4,6 +4,7 @@
 |---|---|
 | Source id | `location-script-reference-tables` |
 | Retrieved | 2025-07-15 by Jeremy Osih. **No URLs recorded.** |
+| Licence | None stated. Only facts (codes) are republished, with attribution to Statoids and OCHA. |
 
 | File | Most likely origin | Evidence | Confidence |
 |---|---|---|---|

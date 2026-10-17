@@ -1,6 +1,6 @@
 {
   "name": "cameroon-locations",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Cameroon's administrative divisions (10 regions, 58 divisions, 360 arrondissements, 1,504 cantons, 17,070 villages) with official P-codes, bilingual names, population, GeoJSON and polling stations. Zero dependencies.",
   "keywords": [
     "cameroon",

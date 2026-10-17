@@ -39,6 +39,9 @@ The two BUCREP extractions (text indentation and PDF typography) agree on all 18
 
 - `tools/xref-codab.ts`: compares COD-AB P-codes and names with the library and with geoBoundaries
 - `tools/inspect_xlsx.py`: lists the sheets and columns of an XLSX (`uv run --with openpyxl python -I tools/inspect_xlsx.py <file>`)
+- `tools/survey-census.ts`: surveys the BUCREP text (indentation levels, rows whose totals don't add up)
+- `tools/propose-elecam-crosswalk.ts`: proposes P-codes for unmatched ELECAM councils, for review before they go in `crosswalks/`
+- `tools/render_pages.py`: renders PDF pages to PNG to check extractions by eye (`uv run --with pymupdf python -I tools/render_pages.py <pdf> <outdir> <page>...`)
 
 ## Cross-reference status (2026-10-17)
 
