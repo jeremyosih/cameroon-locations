@@ -74,10 +74,10 @@ relative to `apps/docs` (e.g. `registry/location-picker/location-picker.tsx`).
 The components (`registry/location-picker`, `registry/cameroon-map`) import
 what users will have after `shadcn add`: `@/lib/cameroon-locations/*` (the
 core item) is aliased to the package source, and demos import
-`@/components/location-picker` and `@/components/cameroon-map`
+`@/components/location-picker`, `@/components/cameroon-map` and
+`@/components/cameroon-map-leaflet`
 (`astro.config.ts` and `tsconfig.json`). Map demos render through
-`demos/map-preview.tsx` (`client:only="react"`), which lazy-loads Leaflet and
-forwards the docs theme to next-themes for shadcn-map's tiles.
+`demos/map-preview.tsx` (`client:only="react"`), which lazy-loads Leaflet.
 
 Users install with:
 

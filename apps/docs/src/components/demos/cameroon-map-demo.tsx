@@ -1,6 +1,7 @@
 import type { AdminUnit } from "cameroon-locations";
 import { useState } from "react";
 import { CameroonMap } from "@/components/cameroon-map";
+import { MapTileLayer } from "@/components/cameroon-map-leaflet";
 
 export default function CameroonMapDemo() {
   const [unit, setUnit] = useState<AdminUnit>();
@@ -11,7 +12,15 @@ export default function CameroonMapDemo() {
         level="region"
         selected={unit?.pcode ?? null}
         onSelect={setUnit}
-      />
+        fullscreen
+      >
+        {/* A second base map adds the layers menu. */}
+        <MapTileLayer
+          name="OpenStreetMap"
+          rasterUrl="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+          rasterAttribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        />
+      </CameroonMap>
       <p className="text-muted-foreground text-sm">
         {unit ? (
           <>

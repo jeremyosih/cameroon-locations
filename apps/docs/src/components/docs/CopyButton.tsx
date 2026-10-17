@@ -19,7 +19,7 @@ export function CopyButton({ value }: { readonly value: string }) {
       size="icon-sm"
       onClick={copy}
       aria-label={copied ? "Copied" : "Copy to clipboard"}
-      className="text-muted-foreground hover:text-foreground"
+      className="text-muted-foreground hover:text-foreground size-7"
     >
       {copied ? (
         <CheckIcon className="size-3.5" />

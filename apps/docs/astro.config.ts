@@ -34,6 +34,15 @@ export default defineConfig({
             new URL("./registry/$1/$1.tsx", import.meta.url),
           ),
         },
+        {
+          find: /^@\/components\/cameroon-map-leaflet$/,
+          replacement: fileURLToPath(
+            new URL(
+              "./registry/cameroon-map/cameroon-map-leaflet.tsx",
+              import.meta.url,
+            ),
+          ),
+        },
         // The `cameroon-locations-core` registry item, as installed.
         {
           find: /^@\/lib\/cameroon-locations\/(.+)$/,

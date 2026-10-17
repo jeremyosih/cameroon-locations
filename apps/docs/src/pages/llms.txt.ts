@@ -34,7 +34,7 @@ export const GET: APIRoute = async () => {
     `- [Repository](${GITHUB_URL}): source, data pool and NOTICE.md`,
     `- [shadcn registry item](${registryUrl("cameroon-locations-core")}): copy-paste core utilities`,
     `- [Location picker registry item](${registryUrl("location-picker")}): cascading region/division/arrondissement picker (shadcn/ui, no npm dependency)`,
-    `- [Cameroon map registry item](${registryUrl("cameroon-map")}): choropleth and drill-down map on shadcn-map (depends on the npm package)`,
+    `- [Cameroon map registry item](${registryUrl("cameroon-map")}): choropleth and drill-down map on Leaflet (depends on the npm package)`,
     "",
   ].join("\n");
 

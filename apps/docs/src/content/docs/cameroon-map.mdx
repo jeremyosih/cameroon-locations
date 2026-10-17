@@ -1,6 +1,6 @@
 ---
 title: Cameroon map
-description: An interactive map of Cameroon's regions, divisions or arrondissements on shadcn-map, keyed by P-code, for choropleths, selection and drill-down. Copy it into your project with the shadcn CLI.
+description: An interactive map of Cameroon's regions, divisions or arrondissements on Leaflet, keyed by P-code, for choropleths, selection and drill-down. Copy it into your project with the shadcn CLI.
 eyebrow: shadcn/ui component
 ---
 
@@ -10,6 +10,7 @@ import basicSource from "@/components/demos/cameroon-map-demo.tsx?raw";
 import choroplethSource from "@/components/demos/cameroon-map-choropleth-demo.tsx?raw";
 import drillDownSource from "@/components/demos/cameroon-map-drilldown-demo.tsx?raw";
 import mapSource from "../../../registry/cameroon-map/cameroon-map.tsx?raw";
+import leafletSource from "../../../registry/cameroon-map/cameroon-map-leaflet.tsx?raw";
 import scaleSource from "../../../registry/cameroon-map/cameroon-map-scale.ts?raw";
 import { registryUrl } from "@/site";
 
@@ -21,75 +22,30 @@ import { registryUrl } from "@/site";
 
 <InstallCommand client:load shadcn={registryUrl("cameroon-map")} />
 
-The map is built on [shadcn-map](https://shadcn-map.vercel.app) (Leaflet and
-react-leaflet), which the command installs too, with the `cameroon-locations`
-npm package for the boundaries: the GeoJSON is too large to copy into your
-source. It adds `components/cameroon-map.tsx`, `components/cameroon-map-scale.ts`
-and five `--choropleth-*` colours to your CSS.
+The map uses Leaflet and react-leaflet, with the `cameroon-locations` npm
+package for the boundaries: the GeoJSON is too large to copy into your
+source. The command adds `components/cameroon-map.tsx`,
+`components/cameroon-map-leaflet.tsx` (the map, base map tiles, a layers menu
+and zoom and fullscreen controls), `components/cameroon-map-scale.ts`, the
+Leaflet styles and five `--choropleth-*` colours to your CSS. It only needs
+the stock `button` and `button-group` components.
 
-<Callout title="Patch dropdown-menu for shadcn-map">
-  shadcn-map's layers control passes a `container` prop to
-  `DropdownMenuContent`, so the menu opens inside the map (and in
-  fullscreen). The stock shadcn `dropdown-menu` doesn't accept that prop: you
-  get a type error in `components/ui/map.tsx`, and the menu renders in
-  `document.body`. This is an upstream shadcn-map issue; the registry item
-  can't ship the fix without overwriting your `dropdown-menu`. Patch
-  `components/ui/dropdown-menu.tsx` once, as below. The patch depends on
-  your project's flavour of shadcn/ui; otherwise the map installs and works
-  the same with Radix and Base UI.
-</Callout>
-
-With Radix (`shadcn init -b radix`):
-
-```diff title="components/ui/dropdown-menu.tsx"
- function DropdownMenuContent({
-   className,
-   sideOffset = 4,
-+  container,
-   ...props
--}: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
-+}: React.ComponentProps<typeof DropdownMenuPrimitive.Content> & {
-+  container?: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>["container"];
-+}) {
-   return (
--    <DropdownMenuPrimitive.Portal>
-+    <DropdownMenuPrimitive.Portal container={container}>
-```
-
-With Base UI (`shadcn init -b base`):
-
-```diff title="components/ui/dropdown-menu.tsx"
- function DropdownMenuContent({
-   align = "start",
-   alignOffset = 0,
-   side = "bottom",
-   sideOffset = 4,
-   className,
-+  container,
-   ...props
- }: MenuPrimitive.Popup.Props &
-   Pick<
-     MenuPrimitive.Positioner.Props,
-     "align" | "alignOffset" | "side" | "sideOffset"
--  >) {
-+  > & {
-+    container?: MenuPrimitive.Portal.Props["container"];
-+  }) {
-   return (
--    <MenuPrimitive.Portal>
-+    <MenuPrimitive.Portal container={container}>
-```
+The Leaflet building blocks are adapted from
+[shadcn-map](https://github.com/tonghohin/shadcn-map) (MIT).
 
 <CodeBlock code={mapSource} lang="tsx" title="components/cameroon-map.tsx" />
+
+<CodeBlock code={leafletSource} lang="tsx" title="components/cameroon-map-leaflet.tsx" />
 
 <CodeBlock code={scaleSource} lang="ts" title="components/cameroon-map-scale.ts" />
 
 <Callout title="Client only" tone="brand">
   Leaflet needs the browser. In Next.js, load the map with
   `dynamic(() => import(...), { ssr: false })`; in Astro, use
-  `client:only="react"`. Base map tiles follow `next-themes`, like the rest
-  of shadcn-map.
+  `client:only="react"`. Base map tiles switch to dark with the `dark` class
+  on `<html>`, as shadcn/ui's dark mode sets it.
 </Callout>
+
 
 ## Usage
 
@@ -113,6 +69,24 @@ attribution control, as the OCHA licence requires. Add the sources of your
 own data with `sources`, for example
 `sources={["bucrep-rgph2005-repertoire-villages"]}` for census figures. See
 [Metadata & attribution](/docs/metadata).
+
+Add base maps with `MapTileLayer` and overlays with `MapLayerGroup` from
+`cameroon-map-leaflet`, as children. With more than one base map, or any
+overlay, a layers menu appears under the zoom buttons, as in the map above.
+It opens inside the map, so it also works in fullscreen.
+
+```tsx
+import { MapLayerGroup, MapTileLayer } from "@/components/cameroon-map-leaflet";
+
+<CameroonMap fullscreen>
+  <MapTileLayer
+    name="OpenStreetMap"
+    rasterUrl="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+    rasterAttribution="&copy; OpenStreetMap"
+  />
+  <MapLayerGroup name="Offices">{/* react-leaflet markers */}</MapLayerGroup>
+</CameroonMap>;
+```
 
 ## Examples
 
@@ -182,10 +156,11 @@ moves the map the same way, so here a
     { name: "lang", type: '"fr" | "en"', default: '"en"', description: "Language of names and default texts." },
     { name: "drillDown", type: "boolean", default: "false", description: "Click a region to show its divisions, then their arrondissements, with a back control." },
     { name: "fitBounds", type: "boolean", default: "true", description: "Fit the view to the selection, the drilled unit, or the country." },
-    { name: "tiles", type: "boolean", default: "true", description: "Show the shadcn-map base tiles. false draws the shapes alone." },
+    { name: "tiles", type: "boolean", default: "true", description: "Show the base map tiles (OpenFreeMap vector tiles, or OpenStreetMap raster tiles without WebGL). false draws the shapes alone." },
+    { name: "fullscreen", type: "boolean", default: "false", description: "Show a fullscreen button, where the browser supports it." },
     { name: "sources", type: "SourceId[]", description: "More sources to credit in the attribution control, after the boundaries." },
     { name: "className", type: "string", description: "Classes for the wrapper. Set the height here; the default is 420px." },
-    { name: "children", type: "ReactNode", description: "Extra shadcn-map layers or controls, e.g. MapMarker or MapFullscreenControl." },
+    { name: "children", type: "ReactNode", description: "Extra react-leaflet layers, or MapTileLayer and MapLayerGroup from cameroon-map-leaflet: with more than one base map, or any layer group, a layers menu appears." },
   ]}
 />
 

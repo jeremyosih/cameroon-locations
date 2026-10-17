@@ -16,6 +16,9 @@
         "./registry/location-picker/location-picker.tsx"
       ],
       "@/components/cameroon-map": ["./registry/cameroon-map/cameroon-map.tsx"],
+      "@/components/cameroon-map-leaflet": [
+        "./registry/cameroon-map/cameroon-map-leaflet.tsx"
+      ],
       "@/lib/cameroon-locations/*": ["../../packages/cameroon-locations/src/*"],
       "@/*": ["./src/*"],
       "cameroon-locations": ["../../packages/cameroon-locations/src/index.ts"],

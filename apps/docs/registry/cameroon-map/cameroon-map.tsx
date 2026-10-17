@@ -20,13 +20,16 @@ import { ArrowLeftIcon } from "lucide-react";
 import * as React from "react";
 import { GeoJSON, useMap } from "react-leaflet";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   MapControlContainer,
-  Map as MapRoot,
+  MapFullscreenControl,
+  MapLayers,
+  MapLayersControl,
+  MapRoot,
   MapTileLayer,
   MapZoomControl,
-} from "@/components/ui/map";
-import { cn } from "@/lib/utils";
+} from "./cameroon-map-leaflet";
 import { type ColorScaleMethod, createColorScale } from "./cameroon-map-scale";
 
 type Loader = () => Promise<{ default: unknown }>;
@@ -96,10 +99,16 @@ export interface CameroonMapProps {
   readonly fitBounds?: boolean;
   /** Show the base map tiles. */
   readonly tiles?: boolean;
+  /** Show a fullscreen button (where the browser supports it). */
+  readonly fullscreen?: boolean;
   /** Sources credited in the attribution control, after the boundaries. */
   readonly sources?: readonly SourceId[];
   readonly className?: string;
-  /** Extra map layers or controls (shadcn-map components). */
+  /**
+   * Extra map content: react-leaflet layers, or the `MapTileLayer` and
+   * `MapLayerGroup` of `cameroon-map-leaflet`, which are listed in a layers
+   * menu.
+   */
   readonly children?: React.ReactNode;
 }
 
@@ -109,8 +118,22 @@ const CHILD: Partial<Record<AdminLevel, AdminLevel>> = {
 };
 
 const TEXT = {
-  en: { back: "Back", all: "Cameroon", noData: "No data" },
-  fr: { back: "Retour", all: "Cameroun", noData: "Pas de données" },
+  en: {
+    back: "Back",
+    all: "Cameroon",
+    noData: "No data",
+    tiles: "Map",
+    tileLayers: "Map type",
+    layerGroups: "Layers",
+  },
+  fr: {
+    back: "Retour",
+    all: "Cameroun",
+    noData: "Pas de données",
+    tiles: "Carte",
+    tileLayers: "Type de carte",
+    layerGroups: "Calques",
+  },
 } as const;
 
 /** Colour classes, low to high. Defined by the registry item's CSS vars. */
@@ -195,7 +218,7 @@ function escapeHtml(text: string): string {
 }
 
 /**
- * Map of Cameroon's regions, divisions or arrondissements on shadcn-map
+ * Map of Cameroon's regions, divisions or arrondissements on Leaflet
  * (react-leaflet), keyed by OCHA P-code: selection, tooltips, a sequential
  * choropleth and optional drill-down. Boundaries come from the
  * `cameroon-locations` package and are credited in the attribution control.
@@ -215,6 +238,7 @@ export function CameroonMap({
   drillDown = false,
   fitBounds = true,
   tiles = true,
+  fullscreen = false,
   sources,
   className,
   children,
@@ -328,88 +352,103 @@ export function CameroonMap({
         attributionControl
         className="absolute inset-0 z-0 min-h-0 rounded-none"
       >
-        {tiles ? <MapTileLayer /> : null}
-        <Attribution html={credit} />
-        <MapZoomControl position="top-2 left-2" />
-        {features ? (
-          <Boundaries
-            key={`${viewLevel}:${detail}:${focus?.pcode ?? ""}`}
-            data={features}
-            refocus={refocus}
-            state={{
-              lang,
-              tooltip,
-              selected: current,
-              values,
-              colorScale,
-              format,
-              noData: text.noData,
-              onActivate: activate,
-            }}
-          />
-        ) : null}
-        {fitBounds ? (
-          <FitView bounds={fitTarget ? boundsOf(fitTarget) : CAMEROON} />
-        ) : null}
-        {drillDown && focus ? (
-          <MapControlContainer className="top-2 left-12">
-            <Button
-              type="button"
-              size="sm"
-              variant="secondary"
-              className="border shadow-xs"
-              onClick={back}
-            >
-              <ArrowLeftIcon />
-              <span>
-                {text.back}
-                <span className="text-muted-foreground font-normal">
-                  {" · "}
-                  {focus.name[lang]}
+        <MapLayers>
+          {tiles ? <MapTileLayer name={text.tiles} /> : null}
+          <Attribution html={credit} />
+          <MapControlContainer className="top-2 left-2 flex flex-col items-start gap-2">
+            <MapZoomControl position="relative" />
+            {fullscreen ? <MapFullscreenControl position="relative" /> : null}
+            <MapLayersControl
+              position="relative"
+              align="start"
+              tileLayersLabel={text.tileLayers}
+              layerGroupsLabel={text.layerGroups}
+            />
+          </MapControlContainer>
+          {features ? (
+            <Boundaries
+              key={`${viewLevel}:${detail}:${focus?.pcode ?? ""}`}
+              data={features}
+              refocus={refocus}
+              state={{
+                lang,
+                tooltip,
+                selected: current,
+                values,
+                colorScale,
+                format,
+                noData: text.noData,
+                onActivate: activate,
+              }}
+            />
+          ) : null}
+          {fitBounds ? (
+            <FitView bounds={fitTarget ? boundsOf(fitTarget) : CAMEROON} />
+          ) : null}
+          {drillDown && focus ? (
+            <MapControlContainer className="top-2 left-12">
+              <Button
+                type="button"
+                size="sm"
+                variant="secondary"
+                className="border shadow-xs"
+                onClick={back}
+              >
+                <ArrowLeftIcon />
+                <span>
+                  {text.back}
+                  <span className="text-muted-foreground font-normal">
+                    {" · "}
+                    {focus.name[lang]}
+                  </span>
                 </span>
-              </span>
-            </Button>
-          </MapControlContainer>
-        ) : null}
-        {showLegend && colorScale?.domain ? (
-          <MapControlContainer className="top-2 right-2">
-            <figure className="bg-background/90 text-foreground rounded-md border px-2.5 py-2 text-[11px] shadow-xs backdrop-blur-sm">
-              {legend ? (
-                <figcaption className="mb-1.5 font-medium">{legend}</figcaption>
-              ) : null}
-              <div className="flex gap-0.5" aria-hidden="true">
-                {FILLS.map((fill) => (
-                  <span
-                    key={fill}
-                    className="h-2.5 w-9 first:rounded-l-sm last:rounded-r-sm"
-                    style={{ background: fill }}
-                  />
-                ))}
-              </div>
-              <div className="text-muted-foreground mt-1 flex justify-between gap-2 tabular-nums">
-                <span>{format(colorScale.domain[0])}</span>
-                <span>{format(colorScale.domain[1])}</span>
-              </div>
-              <ul className="sr-only">
-                {FILLS.map((fill, i) => {
-                  const lo =
-                    i === 0 ? colorScale.domain?.[0] : colorScale.breaks[i - 1];
-                  const hi =
-                    i === FILLS.length - 1
-                      ? colorScale.domain?.[1]
-                      : colorScale.breaks[i];
-                  return (
-                    <li key={fill}>
-                      {lo === undefined ? "" : format(lo)} –{" "}
-                      {hi === undefined ? "" : format(hi)}
-                    </li>
-                  );
-                })}
-              </ul>
-            </figure>
-          </MapControlContainer>
-        ) : null}
-        {children}
+              </Button>
+            </MapControlContainer>
+          ) : null}
+          {showLegend && colorScale?.domain ? (
+            <MapControlContainer className="top-2 right-2">
+              <figure className="bg-background/90 text-foreground rounded-md border px-2.5 py-2 text-[11px] shadow-xs backdrop-blur-sm">
+                {legend ? (
+                  <figcaption className="mb-1.5 font-medium">
+                    {legend}
+                  </figcaption>
+                ) : null}
+                <div className="flex gap-0.5" aria-hidden="true">
+                  {FILLS.map((fill) => (
+                    <span
+                      key={fill}
+                      className="h-2.5 w-9 first:rounded-l-sm last:rounded-r-sm"
+                      style={{ background: fill }}
+                    />
+                  ))}
+                </div>
+                <div className="text-muted-foreground mt-1 flex justify-between gap-2 tabular-nums">
+                  <span>{format(colorScale.domain[0])}</span>
+                  <span>{format(colorScale.domain[1])}</span>
+                </div>
+                <ul className="sr-only">
+                  {FILLS.map((fill, i) => {
+                    const lo =
+                      i === 0
+                        ? colorScale.domain?.[0]
+                        : colorScale.breaks[i - 1];
+                    const hi =
+                      i === FILLS.length - 1
+                        ? colorScale.domain?.[1]
+                        : colorScale.breaks[i];
+                    return (
+                      <li key={fill}>
+                        {lo === undefined ? "" : format(lo)} –{" "}
+                        {hi === undefined ? "" : format(hi)}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </figure>
+            </MapControlContainer>
+          ) : null}
+          {children}
+        </MapLayers>
       </MapRoot>
     </div>
   );
