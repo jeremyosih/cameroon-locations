@@ -27,16 +27,44 @@ import ThemeToggle from "./ThemeToggle.astro";
   const sidebar = document.getElementById("sidebar");
   const backdrop = document.getElementById("sidebar-backdrop");
   const trigger = document.getElementById("sidebar-trigger");
+  // Below `md` the sidebar is an off-canvas drawer: when closed it must be
+  // out of the tab order and the accessibility tree, not just off-screen.
+  const mobile = matchMedia("(max-width: 767.98px)");
+  const isOpen = () => sidebar?.getAttribute("data-open") === "true";
+
+  const sync = () => {
+    if (!sidebar) return;
+    sidebar.inert = mobile.matches && !isOpen();
+  };
+
   const setOpen = (open: boolean) => {
-    sidebar?.setAttribute("data-open", String(open));
+    if (!sidebar || open === isOpen()) return;
+    sidebar.setAttribute("data-open", String(open));
     backdrop?.classList.toggle("hidden", !open);
     trigger?.setAttribute("aria-expanded", String(open));
+    trigger?.setAttribute(
+      "aria-label",
+      open ? "Close navigation" : "Open navigation",
+    );
+    sync();
+    if (open) {
+      (
+        sidebar.querySelector<HTMLElement>('[aria-current="page"]') ??
+        sidebar.querySelector<HTMLElement>("a[href]")
+      )?.focus();
+    } else {
+      trigger?.focus();
+    }
   };
-  trigger?.addEventListener("click", () =>
-    setOpen(sidebar?.getAttribute("data-open") !== "true"),
-  );
+
+  sync();
+  mobile.addEventListener("change", () => {
+    if (!mobile.matches && isOpen()) setOpen(false);
+    sync();
+  });
+  trigger?.addEventListener("click", () => setOpen(!isOpen()));
   backdrop?.addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setOpen(false);
+    if (e.key === "Escape" && isOpen()) setOpen(false);
   });
 </script>

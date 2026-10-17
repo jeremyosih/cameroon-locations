@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "bun run registry && astro dev",
-    "build": "bun run registry && astro build",
+    "build": "bun test src && bun run registry && astro build",
     "preview": "astro preview",
+    "test": "bun test src",
     "registry": "bun scripts/registry.ts",
     "typecheck": "astro check"
   },

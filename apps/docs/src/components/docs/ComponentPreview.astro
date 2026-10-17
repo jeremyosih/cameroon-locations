@@ -34,34 +34,36 @@ const {
   align = "center",
 } = Astro.props;
 const hasCode = Boolean(code || file);
+const id = `preview-${crypto.randomUUID().slice(0, 8)}`;
+const tabs = hasCode ? (["preview", "code"] as const) : (["preview"] as const);
+const label = { preview: "Preview", code: "Code" } as const;
 ---
 
 <preview-tabs class="not-prose my-6 block">
-  <div class="mb-2 flex items-center gap-1" role="tablist">
-    <button
-      type="button"
-      role="tab"
-      data-tab="preview"
-      aria-selected="true"
-      class="tab-trigger text-muted-foreground hover:text-foreground aria-selected:bg-accent aria-selected:text-foreground inline-flex h-7 items-center rounded-md px-2.5 text-[13px] font-medium transition-colors"
-    >
-      Preview
-    </button>
+  <div class="mb-2 flex items-center gap-1" role="tablist" aria-label="Example">
     {
-      hasCode && (
+      tabs.map((tab, i) => (
         <button
           type="button"
           role="tab"
-          data-tab="code"
-          aria-selected="false"
-          class="tab-trigger text-muted-foreground hover:text-foreground aria-selected:bg-accent aria-selected:text-foreground inline-flex h-7 items-center rounded-md px-2.5 text-[13px] font-medium transition-colors"
+          id={`${id}-tab-${tab}`}
+          aria-controls={`${id}-panel-${tab}`}
+          aria-selected={i === 0 ? "true" : "false"}
+          tabindex={i === 0 ? 0 : -1}
+          data-tab={tab}
+          class="text-muted-foreground hover:text-foreground aria-selected:bg-accent aria-selected:text-foreground focus-visible:ring-ring/50 inline-flex h-7 items-center rounded-md px-2.5 text-[13px] font-medium transition-colors outline-none focus-visible:ring-[3px]"
         >
-          Code
+          {label[tab]}
         </button>
-      )
+      ))
     }
   </div>
-  <div data-panel="preview" role="tabpanel">
+  <div
+    id={`${id}-panel-preview`}
+    role="tabpanel"
+    aria-labelledby={`${id}-tab-preview`}
+    data-panel="preview"
+  >
     <div
       class:list={[
         "bg-background relative flex min-h-[320px] w-full rounded-lg border p-8",
@@ -77,7 +79,15 @@ const hasCode = Boolean(code || file);
   </div>
   {
     hasCode && (
-      <div data-panel="code" role="tabpanel" hidden>
+      <div
+        id={`${id}-panel-code`}
+        role="tabpanel"
+        aria-labelledby={`${id}-tab-code`}
+        data-panel="code"
+        tabindex="0"
+        class="focus-visible:ring-ring/50 rounded-lg outline-none focus-visible:ring-[3px]"
+        hidden
+      >
         <CodeBlock code={code} file={file} lang={lang} class="my-0" />
       </div>
     )
@@ -85,20 +95,42 @@ const hasCode = Boolean(code || file);
 </preview-tabs>
 
 <script>
+  // WAI-ARIA tabs with automatic activation: one tab stop, arrows move and
+  // select, Home/End jump to the first/last tab.
   class PreviewTabs extends HTMLElement {
     connectedCallback() {
-      const triggers = this.querySelectorAll<HTMLButtonElement>("[data-tab]");
-      for (const trigger of triggers) {
-        trigger.addEventListener("click", () => {
-          const tab = trigger.dataset.tab;
-          for (const t of triggers) {
-            t.setAttribute("aria-selected", String(t === trigger));
-          }
-          for (const panel of this.querySelectorAll<HTMLElement>(
-            ":scope > [data-panel]",
-          )) {
-            panel.hidden = panel.dataset.panel !== tab;
-          }
+      const tabs = [
+        ...this.querySelectorAll<HTMLButtonElement>('[role="tab"]'),
+      ];
+      const select = (tab: HTMLButtonElement, focus: boolean) => {
+        for (const t of tabs) {
+          const selected = t === tab;
+          t.setAttribute("aria-selected", String(selected));
+          t.tabIndex = selected ? 0 : -1;
+          const panel = document.getElementById(
+            t.getAttribute("aria-controls") ?? "",
+          );
+          if (panel) panel.hidden = !selected;
+        }
+        if (focus) tab.focus();
+      };
+      for (const [i, tab] of tabs.entries()) {
+        tab.addEventListener("click", () => select(tab, false));
+        tab.addEventListener("keydown", (e) => {
+          const last = tabs.length - 1;
+          const target =
+            e.key === "ArrowRight"
+              ? tabs[i === last ? 0 : i + 1]
+              : e.key === "ArrowLeft"
+                ? tabs[i === 0 ? last : i - 1]
+                : e.key === "Home"
+                  ? tabs[0]
+                  : e.key === "End"
+                    ? tabs[last]
+                    : undefined;
+          if (!target) return;
+          e.preventDefault();
+          select(target, true);
         });
       }
     }

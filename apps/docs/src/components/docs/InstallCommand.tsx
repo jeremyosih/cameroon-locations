@@ -41,6 +41,24 @@ function isManager(value: string | null): value is Manager {
   return MANAGERS.includes(value as Manager);
 }
 
+// Remembering the choice is optional: storage can be blocked or full.
+function readStoredManager(): Manager | undefined {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return isManager(saved) ? saved : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+function storeManager(value: Manager): void {
+  try {
+    localStorage.setItem(STORAGE_KEY, value);
+  } catch {
+    // Not persisted; the switch still works for this page.
+  }
+}
+
 /**
  * Install command with an npm/pnpm/bun/yarn switcher. The choice is
  * remembered and shared by every instance on the page.
@@ -49,19 +67,20 @@ export function InstallCommand(props: InstallCommandProps) {
   const [manager, setManager] = useState<Manager>("npm");
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (isManager(saved)) setManager(saved);
     const onChange = (e: Event) => {
       const next = (e as CustomEvent<string>).detail;
       if (isManager(next)) setManager(next);
     };
     window.addEventListener(EVENT, onChange);
+    const saved = readStoredManager();
+    if (saved) setManager(saved);
     return () => window.removeEventListener(EVENT, onChange);
   }, []);
 
   const select = (value: string) => {
     if (!isManager(value)) return;
-    localStorage.setItem(STORAGE_KEY, value);
+    setManager(value);
+    storeManager(value);
     window.dispatchEvent(new CustomEvent(EVENT, { detail: value }));
   };
 

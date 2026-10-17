@@ -31,7 +31,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#151515" media="(prefers-color-scheme: dark)" />
     <script is:inline>
       (() => {
-        const stored = localStorage.getItem("theme");
+        let stored = null;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch {}
         const dark =
           stored === "dark" ||
           (stored !== "light" &&

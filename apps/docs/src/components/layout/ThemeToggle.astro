@@ -24,7 +24,11 @@ const { class: className } = Astro.props;
       const dark = !document.documentElement.classList.contains("dark");
       document.documentElement.classList.toggle("dark", dark);
       document.documentElement.style.colorScheme = dark ? "dark" : "light";
-      localStorage.setItem("theme", dark ? "dark" : "light");
+      try {
+        localStorage.setItem("theme", dark ? "dark" : "light");
+      } catch {
+        // Not persisted; the toggle still applies to this page.
+      }
     });
   }
 </script>
