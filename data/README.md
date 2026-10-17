@@ -10,7 +10,7 @@ This is the raw material for the `cameroon-locations` package. Rules:
 | Id | What | Levels | Licence | Trust |
 |---|---|---|---|---|
 | [`ocha-cod-ab-cmr`](sources/ocha-cod-ab-cmr/SOURCE.md) | Official boundaries and gazetteer (INC / OCHA), v01, reviewed 2025-10-30 | ADM0–3 geometry, P-codes, EN/FR names, area, centroids, capitals | CC BY-IGO | **Authoritative** for codes, ADM1–3 names and geometry |
-| [`bucrep-rgph2005-repertoire-villages`](sources/bucrep-rgph2005-repertoire-villages/SOURCE.md) | 2005 census village directory (PDF) | ADM1–3, about 1,520 cantons, about 17k villages, population by sex | Unstated (government publication); facts published with attribution (D7) | **Authoritative** for villages, cantons and 2005 population. The official link is dead, so the local copy is precious. |
+| [`bucrep-rgph2005-repertoire-villages`](sources/bucrep-rgph2005-repertoire-villages/SOURCE.md) | 2005 census village directory (PDF) | ADM1–3, 1,504 cantons, 17,070 villages, population by sex | Unstated (government publication); facts published with attribution (D7) | **Authoritative** for villages, cantons and 2005 population. The official link is dead, so the local copy is precious. |
 | [`geoboundaries-cmr-gbopen`](sources/geoboundaries-cmr-gbopen/SOURCE.md) | geoBoundaries `9469f09` | ADM1–3 geometry | CC BY 3.0 / CC BY 4.0 / **ODbL** (ADM3) | Secondary. Use COD-AB instead. Kept for cross-checking. |
 | [`elecam-polling-stations-2025`](sources/elecam-polling-stations-2025/SOURCE.md) | Electoral roll by polling station, probably the July 2025 provisional roll | Communes, about 17.6k centres, about 30k stations, voters | Not stated; published with attribution (D7) | Good, but the provenance URL is missing |
 | [`location-script-reference-tables`](sources/location-script-reference-tables/SOURCE.md) | P-code, HASC and population CSVs of unrecorded origin | ADM1–3 | — | Superseded by COD-AB and BUCREP. Kept. |
@@ -31,7 +31,9 @@ This is the raw material for the `cameroon-locations` package. Rules:
 
 ## Canonical dataset
 
-[`canonical/`](canonical/README.md) is the merged, source-attributed dataset keyed by OCHA P-code: 10 / 58 / 360 / 1,504 cantons / 17,070 villages / 30,353 polling stations. Rebuild it with `./tools/build-all.sh`. Manual decisions live in `patches/` and `crosswalks/`, each with a reason.
+[`canonical/`](canonical/README.md) is the merged, source-attributed dataset keyed by OCHA P-code: 10 / 58 / 360 / 1,504 cantons / 17,070 villages / 30,353 polling stations. Rebuild it with `./tools/build-all.sh`; it must end with `errors: 0`. Manual corrections live in `patches/` (text extraction) and `crosswalks/` (name→P-code), and judgement calls in `decisions/` (logged in [`DECISIONS.md`](DECISIONS.md)), each with a reason and evidence.
+
+The two BUCREP extractions (text indentation and PDF typography) agree on all 18,934 rows except 7 level differences, all confirmed as cantons by the printed totals (D9). `canonical/issues.json` has 201 entries: 199 open (27 printed totals, 73 printed sex sums, 7 printed typography irregularities, 1 department table total, 52 name-variant sets, 39 verified ELECAM crosswalks) and 2 resolved by decisions (D2, D5).
 
 ## Tools
 

@@ -20,7 +20,7 @@ Every other spelling is kept in `aliases` with its source: BUCREP, ELECAM, decre
 
 Two sources agree on Ndélélé, and the "II" suffix is the usual way of naming a separate settlement. So these are treated as two places with similar names. That's common in Cameroon, where 2,000+ villages share a name with another. Neither record is moved.
 
-*Applied in:* nothing changes. The open question in `issues.json` is closed by this decision.
+*Applied in:* no record changes. The open question in `issues.json` is marked resolved by `decisions/issue-resolutions.json` (D10).
 
 ## D3: POUNGO belongs to canton SOCAPALM, not MABI SUD (2026-10-17, educated guess)
 
@@ -46,7 +46,7 @@ The differences are expected between snapshots, so the two versions are not reco
 
 Decree 2010/198, p. 4 (checked visually): "DÉPARTEMENT DU NYONG-ET-SO'O – Arrondissement d'AKOEMAN, chef-lieu : Akoeman". The BUCREP directory placing it under Nyong-et-Mfoumou is an error in the directory. Its villages are kept under CM002010001.
 
-*Applied in:* `crosswalks/bucrep-codab.json`. The issue is marked resolved in `issues.json`.
+*Applied in:* `crosswalks/bucrep-codab.json`. The parent conflict in `issues.json` is marked resolved by `decisions/issue-resolutions.json` (D10).
 
 ## D6: The data pool lives in the cameroon-locations repo, with large files in Git LFS (2026-10-17, Jeremy)
 
@@ -68,3 +68,27 @@ All sources, including BUCREP (cantons, villages, population) and ELECAM (pollin
 `name.fr` and `name.en` in the package use one bilingual convention for numbered arrondissements: Roman numerals, as in "Yaoundé I", "Bamenda II". Neither the French ordinal ("Yaoundé 1er") nor the English one ("Bamenda 1st") is used for display. The ordinal is also stored as an integer (`ordinal`). Accents are restored where an official or established spelling has them ("Yaoundé", "Ngaoundéré"), with evidence from `research/official-names.json` or the decrees. OCHA's ASCII forms stay in `refName` and in `aliases`, like every other spelling. Regions keep their distinct French and English names (Extrême-Nord / Far North).
 
 *Applied in:* `packages/cameroon-locations/scripts/generate.ts`.
+
+## D9: The 7 BUCREP level disagreements are cantons, as the text indentation says (2026-10-17, verified)
+
+The text parse (indentation) and the PDF typography (bold, x position) disagree on 7 rows. Each was checked on the rendered page and against the printed totals. In all 7, the row's printed total equals the sum of the rows below it, and the arrondissement total equals the sum of its cantons only if the row is counted as a canton.
+
+| Row | Page | Typography | Totals |
+|---|---|---|---|
+| BANDEM RIVE GAUCHE (Nkondjock) | 228 | canton indent, regular weight, no shading | 3,581 = Σ 11 villages; 17,428 = 4,232 + 3,581 + 9,615 |
+| MBESA (Belo) | 298 | bold and shaded, set slightly left (x 102.7 vs 107.3) | 5,621 = Σ 1 village; 40,757 = 10,130 + 25,006 + 5,621 |
+| JAKIRI TOWN (Jakiri) | 300 | shaded, regular weight | 9,959 = Σ 10 villages; 47,022 = 9,959 + 495 + 36,568 |
+| NKUM (Nkum) | 302 | shaded, regular weight | 44,059 = Σ 26 villages = arrondissement total |
+| NGIE TOWN (Ngie) | 319 | shaded, regular weight | 1,983 = Σ 2 villages; 17,697 = 1,983 + 15,714 |
+| NGIE (Ngie) | 319 | shaded, regular weight | 15,714 = Σ 19 villages |
+| FOMOPEA (Fokoué) | 343 | canton indent, regular weight, no shading | 1,193 = Σ 1 village; 9,576 = Σ 6 cantons |
+
+The totals were computed from the census records, whereas weight and shading are typesetting. So the text level stands: no patch is added and the canonical records don't change. The irregular typography is a printing inconsistency, so it is kept as printed and listed in `issues.json` as `printed-typography-inconsistency`.
+
+*Applied in:* `patches/known-extraction-differences.json` (each entry has `status: "confirmed"` and its evidence). `tools/compare-extractions.ts` now also fails when a listed difference no longer occurs.
+
+## D10: Issues closed by a decision are counted apart from open ones (2026-10-17, verified)
+
+`summary.json` counted issues by kind regardless of status, so it still showed 1 `open-question` (closed by D2) and 1 `parent-conflict` (closed by D5). The status of a closed issue now comes from `decisions/issue-resolutions.json`, which names the decision, the resolution and the evidence; the build fails if an entry matches no issue. `summary.issues` counts open issues and `summary.resolvedIssues` counts closed ones. D3 needs no entry, because its move removes the two canton mismatches altogether.
+
+*Applied in:* `decisions/issue-resolutions.json`, `tools/build-canonical.ts`.
