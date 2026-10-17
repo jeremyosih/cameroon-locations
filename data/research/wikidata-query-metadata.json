@@ -1,0 +1,128 @@
+{
+  "retrieved": "2026-10-17",
+  "endpoint": "https://query.wikidata.org/sparql",
+  "totalPcodes": 428,
+  "matchedByLevel": {
+    "1": 10,
+    "2": 58,
+    "3": 349
+  },
+  "unmatched": [
+    {
+      "pcode": "CM001005006",
+      "name": "Ngaoundere 2e"
+    },
+    {
+      "pcode": "CM003004002",
+      "name": "Bertoua 1er"
+    },
+    {
+      "pcode": "CM003004003",
+      "name": "Bertoua 2e"
+    },
+    {
+      "pcode": "CM006001005",
+      "name": "Garoua 1er"
+    },
+    {
+      "pcode": "CM006001006",
+      "name": "Garoua 2e"
+    },
+    {
+      "pcode": "CM006001007",
+      "name": "Garoua 3e"
+    },
+    {
+      "pcode": "CM009002003",
+      "name": "Ebolowa 1er"
+    },
+    {
+      "pcode": "CM009002004",
+      "name": "Ebolowa 2e"
+    },
+    {
+      "pcode": "CM010005002",
+      "name": "Kumba 1st"
+    },
+    {
+      "pcode": "CM010005003",
+      "name": "Kumba 2nd"
+    },
+    {
+      "pcode": "CM010005004",
+      "name": "Kumba 3rd"
+    }
+  ],
+  "entityScopeCounts": {
+    "region": 10,
+    "department": 58,
+    "commune (may also represent town)": 332,
+    "locality or administrative-unit candidate; manual scope check required": 14,
+    "arrondissement": 3
+  },
+  "enrichmentAvailability": {
+    "coord": 414,
+    "capital": 71,
+    "geonames": 263,
+    "cog": 3,
+    "population2005Statements": 18,
+    "website": 43
+  },
+  "ochaProperty": "P14503",
+  "cameroonOchaBindings": 0,
+  "queries": [
+    {
+      "file": "wikidata-enrichment-1-query.sparql",
+      "query": "SELECT ?item ?country ?type ?typeLabel ?geonames ?hasc ?cog ?pcode ?coord ?capital ?capitalLabel ?website ?pop ?date ?referenceUrl ?statedIn WHERE {\n VALUES ?item { wd:Q351514 wd:Q739951 wd:Q845168 wd:Q823976 wd:Q845172 wd:Q502341 wd:Q823946 wd:Q165784 wd:Q857122 wd:Q607499 wd:Q1232309 wd:Q2583647 wd:Q2443291 wd:Q937235 wd:Q667019 wd:Q2443161 wd:Q607493 wd:Q2445034 wd:Q2445194 wd:Q2445054 wd:Q2444484 wd:Q2445046 wd:Q729464 wd:Q587099 wd:Q2445625 wd:Q2443133 wd:Q2442655 wd:Q2444345 wd:Q2443276 wd:Q2583656 wd:Q576311 wd:Q2444290 wd:Q2444363 wd:Q613340 wd:Q2443777 wd:Q2445609 wd:Q2445718 wd:Q2445164 wd:Q769841 wd:Q2442627 wd:Q2443138 wd:Q2443752 wd:Q2443767 wd:Q2442750 wd:Q702284 wd:Q2442736 wd:Q685677 wd:Q966674 wd:Q2538015 wd:Q2445374 wd:Q2442690 wd:Q2442640 wd:Q2443778 wd:Q2443749 wd:Q921417 wd:Q2445728 wd:Q2445638 wd:Q2445359 wd:Q784802 wd:Q2445743 wd:Q2445229 wd:Q2445579 wd:Q955885 wd:Q2444337 wd:Q2443757 wd:Q636257 wd:Q2582684 wd:Q2445180 wd:Q7022029 wd:Q2005262 wd:Q5518638 wd:Q6430329 wd:Q12697488 wd:Q1987701 wd:Q4853505 wd:Q520600 wd:Q6797477 wd:Q23012983 wd:Q5285362 wd:Q2629052 wd:Q7022027 wd:Q4882158 wd:Q23013059 wd:Q6799654 wd:Q14944570 wd:Q134326881 wd:Q134463869 wd:Q7070841 wd:Q4903000 wd:Q6521064 }\n OPTIONAL {?item wdt:P17 ?country} OPTIONAL {?item wdt:P31 ?type}\n OPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P8119 ?hasc} OPTIONAL {?item wdt:P10581 ?cog}\n OPTIONAL {?item wdt:P14503 ?pcode} OPTIONAL {?item wdt:P625 ?coord} OPTIONAL {?item wdt:P36 ?capital}\n OPTIONAL {?item wdt:P856 ?website}\n OPTIONAL {?item p:P1082 ?statement . ?statement ps:P1082 ?pop; pq:P585 ?date . FILTER(YEAR(?date)=2005)\n OPTIONAL {?statement prov:wasDerivedFrom ?ref . OPTIONAL {?ref pr:P854 ?referenceUrl} OPTIONAL {?ref pr:P248 ?statedIn}} }\n SERVICE wikibase:label {bd:serviceParam wikibase:language \"fr,en\"}\n }"
+    },
+    {
+      "file": "wikidata-enrichment-2-query.sparql",
+      "query": "SELECT ?item ?country ?type ?typeLabel ?geonames ?hasc ?cog ?pcode ?coord ?capital ?capitalLabel ?website ?pop ?date ?referenceUrl ?statedIn WHERE {\n VALUES ?item { wd:Q6799613 wd:Q6869583 wd:Q2445214 wd:Q7042632 wd:Q12699001 wd:Q4868730 wd:Q5331585 wd:Q5360804 wd:Q5418557 wd:Q6663731 wd:Q1988452 wd:Q2604706 wd:Q7082476 wd:Q7241144 wd:Q799790 wd:Q2090268 wd:Q5266150 wd:Q3196512 wd:Q6428681 wd:Q6740518 wd:Q14944568 wd:Q7041351 wd:Q7089921 wd:Q3303485 wd:Q3339266 wd:Q7022577 wd:Q1988849 wd:Q2600586 wd:Q4688799 wd:Q3350147 wd:Q2874674 wd:Q5346992 wd:Q5399420 wd:Q1989000 wd:Q7042598 wd:Q7549734 wd:Q4701537 wd:Q4907428 wd:Q11325258 wd:Q748575 wd:Q109046712 wd:Q109046713 wd:Q109046714 wd:Q109046715 wd:Q109046716 wd:Q109046717 wd:Q109046718 wd:Q12684052 wd:Q4941421 wd:Q2911632 wd:Q12685725 wd:Q3591508 wd:Q3280642 wd:Q6787736 wd:Q6822037 wd:Q7022483 wd:Q7022672 wd:Q2829121 wd:Q4831578 wd:Q5376357 wd:Q3305830 wd:Q12690239 wd:Q2829111 wd:Q3042188 wd:Q2702755 wd:Q3305842 wd:Q3339327 wd:Q3342352 wd:Q5523256 wd:Q1943777 wd:Q7403639 wd:Q2708630 wd:Q322917 wd:Q4817170 wd:Q1100817 wd:Q6863897 wd:Q5302247 wd:Q5302264 wd:Q1027828 wd:Q4763863 wd:Q14944542 wd:Q12697742 wd:Q6822036 wd:Q7022489 wd:Q7022665 wd:Q7559202 wd:Q673185 wd:Q12689933 wd:Q6395456 wd:Q22680674 }\n OPTIONAL {?item wdt:P17 ?country} OPTIONAL {?item wdt:P31 ?type}\n OPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P8119 ?hasc} OPTIONAL {?item wdt:P10581 ?cog}\n OPTIONAL {?item wdt:P14503 ?pcode} OPTIONAL {?item wdt:P625 ?coord} OPTIONAL {?item wdt:P36 ?capital}\n OPTIONAL {?item wdt:P856 ?website}\n OPTIONAL {?item p:P1082 ?statement . ?statement ps:P1082 ?pop; pq:P585 ?date . FILTER(YEAR(?date)=2005)\n OPTIONAL {?statement prov:wasDerivedFrom ?ref . OPTIONAL {?ref pr:P854 ?referenceUrl} OPTIONAL {?ref pr:P248 ?statedIn}} }\n SERVICE wikibase:label {bd:serviceParam wikibase:language \"fr,en\"}\n }"
+    },
+    {
+      "file": "wikidata-enrichment-3-query.sparql",
+      "query": "SELECT ?item ?country ?type ?typeLabel ?geonames ?hasc ?cog ?pcode ?coord ?capital ?capitalLabel ?website ?pop ?date ?referenceUrl ?statedIn WHERE {\n VALUES ?item { wd:Q7110459 wd:Q14944567 wd:Q12698859 wd:Q2929807 wd:Q5005064 wd:Q5271638 wd:Q5523752 wd:Q6748103 wd:Q7022606 wd:Q23012952 wd:Q961662 wd:Q5528434 wd:Q56305546 wd:Q115433458 wd:Q125520363 wd:Q23013064 wd:Q12698778 wd:Q7179410 wd:Q4925100 wd:Q5222059 wd:Q5473997 wd:Q5588320 wd:Q5761763 wd:Q697662 wd:Q6667783 wd:Q6738809 wd:Q23013165 wd:Q23013167 wd:Q5227504 wd:Q23013006 wd:Q23013009 wd:Q6347328 wd:Q3192173 wd:Q6380133 wd:Q28040583 wd:Q7690634 wd:Q5614811 wd:Q28040586 wd:Q523657 wd:Q12687157 wd:Q2708429 wd:Q3314784 wd:Q6919074 wd:Q6926401 wd:Q7828886 wd:Q5319905 wd:Q6427461 wd:Q2708675 wd:Q7813671 wd:Q2922418 wd:Q5765546 wd:Q11744500 wd:Q6889883 wd:Q1952049 wd:Q2708658 wd:Q23013147 wd:Q28840899 wd:Q3026494 wd:Q2909901 wd:Q1828275 wd:Q3285999 wd:Q3303483 wd:Q3305268 wd:Q2409032 wd:Q7163055 wd:Q60823668 wd:Q109040109 wd:Q124802086 wd:Q5331918 wd:Q3342357 wd:Q3337490 wd:Q2465841 wd:Q3572296 wd:Q5272208 wd:Q5285065 wd:Q109021488 wd:Q97279914 wd:Q23013060 wd:Q6918844 wd:Q12698776 wd:Q7021939 wd:Q7023174 wd:Q7070896 wd:Q12701247 wd:Q97366336 wd:Q97367122 wd:Q86733727 wd:Q133868499 wd:Q97367158 wd:Q97293245 }\n OPTIONAL {?item wdt:P17 ?country} OPTIONAL {?item wdt:P31 ?type}\n OPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P8119 ?hasc} OPTIONAL {?item wdt:P10581 ?cog}\n OPTIONAL {?item wdt:P14503 ?pcode} OPTIONAL {?item wdt:P625 ?coord} OPTIONAL {?item wdt:P36 ?capital}\n OPTIONAL {?item wdt:P856 ?website}\n OPTIONAL {?item p:P1082 ?statement . ?statement ps:P1082 ?pop; pq:P585 ?date . FILTER(YEAR(?date)=2005)\n OPTIONAL {?statement prov:wasDerivedFrom ?ref . OPTIONAL {?ref pr:P854 ?referenceUrl} OPTIONAL {?ref pr:P248 ?statedIn}} }\n SERVICE wikibase:label {bd:serviceParam wikibase:language \"fr,en\"}\n }"
+    },
+    {
+      "file": "wikidata-enrichment-4-query.sparql",
+      "query": "SELECT ?item ?country ?type ?typeLabel ?geonames ?hasc ?cog ?pcode ?coord ?capital ?capitalLabel ?website ?pop ?date ?referenceUrl ?statedIn WHERE {\n VALUES ?item { wd:Q4866914 wd:Q4902988 wd:Q12685605 wd:Q5526437 wd:Q6471958 wd:Q23012947 wd:Q11818718 wd:Q24329394 wd:Q7829367 wd:Q4881570 wd:Q1987664 wd:Q5447990 wd:Q2708439 wd:Q6797481 wd:Q6748085 wd:Q23013122 wd:Q549251 wd:Q7828536 wd:Q3637843 wd:Q5465024 wd:Q2445752 wd:Q7042443 wd:Q6125182 wd:Q2533580 wd:Q6799685 wd:Q7042652 wd:Q7042612 wd:Q5353335 wd:Q4701477 wd:Q6875050 wd:Q12698777 wd:Q2445980 wd:Q12699022 wd:Q8070884 wd:Q5509782 wd:Q4886823 wd:Q2034978 wd:Q4841354 wd:Q4850827 wd:Q60823665 wd:Q113833604 wd:Q124745259 wd:Q7419130 wd:Q7850702 wd:Q4869256 wd:Q1989172 wd:Q4753676 wd:Q7042440 wd:Q23013166 wd:Q4837801 wd:Q4850904 wd:Q2450615 wd:Q2877751 wd:Q2891098 wd:Q3094745 wd:Q2709339 wd:Q667828 wd:Q2880315 wd:Q2881848 wd:Q2882356 wd:Q4856230 wd:Q2883555 wd:Q3194813 wd:Q1988066 wd:Q2881815 wd:Q2882492 wd:Q642909 wd:Q2892201 wd:Q3022075 wd:Q2629132 wd:Q289267 wd:Q5464218 wd:Q3075954 wd:Q7042605 wd:Q771802 wd:Q7420089 wd:Q106698066 wd:Q106698080 wd:Q111207436 wd:Q2449186 wd:Q4868018 wd:Q2892446 wd:Q7820954 wd:Q2882495 wd:Q1439847 wd:Q608765 wd:Q6434666 wd:Q6434760 wd:Q6729772 wd:Q6743108 }\n OPTIONAL {?item wdt:P17 ?country} OPTIONAL {?item wdt:P31 ?type}\n OPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P8119 ?hasc} OPTIONAL {?item wdt:P10581 ?cog}\n OPTIONAL {?item wdt:P14503 ?pcode} OPTIONAL {?item wdt:P625 ?coord} OPTIONAL {?item wdt:P36 ?capital}\n OPTIONAL {?item wdt:P856 ?website}\n OPTIONAL {?item p:P1082 ?statement . ?statement ps:P1082 ?pop; pq:P585 ?date . FILTER(YEAR(?date)=2005)\n OPTIONAL {?statement prov:wasDerivedFrom ?ref . OPTIONAL {?ref pr:P854 ?referenceUrl} OPTIONAL {?ref pr:P248 ?statedIn}} }\n SERVICE wikibase:label {bd:serviceParam wikibase:language \"fr,en\"}\n }"
+    },
+    {
+      "file": "wikidata-enrichment-5-query.sparql",
+      "query": "SELECT ?item ?country ?type ?typeLabel ?geonames ?hasc ?cog ?pcode ?coord ?capital ?capitalLabel ?website ?pop ?date ?referenceUrl ?statedIn WHERE {\n VALUES ?item { wd:Q1907422 wd:Q7042442 wd:Q4887722 wd:Q3033077 wd:Q6826540 wd:Q6826542 wd:Q6869679 wd:Q7113345 wd:Q2708780 wd:Q3576213 wd:Q4919276 wd:Q4919278 wd:Q5347560 wd:Q6817020 wd:Q12698639 wd:Q12698850 wd:Q2829114 wd:Q4915448 wd:Q1100812 wd:Q97621927 wd:Q97580944 wd:Q3258738 wd:Q324195 wd:Q6944577 wd:Q3341306 wd:Q2841553 wd:Q6459366 wd:Q3273390 wd:Q7083075 wd:Q312209 wd:Q109314817 wd:Q111210279 wd:Q111210280 wd:Q742871 wd:Q2228759 wd:Q25396900 wd:Q2446919 wd:Q10600392 wd:Q7818676 wd:Q4734651 wd:Q1988420 wd:Q7958609 wd:Q4702015 wd:Q5423051 wd:Q1888230 wd:Q25388976 wd:Q22680860 wd:Q6799744 wd:Q4853554 wd:Q1225319 wd:Q5350540 wd:Q5987223 wd:Q6078857 wd:Q6428261 wd:Q6428262 wd:Q677694 wd:Q7813646 }\n OPTIONAL {?item wdt:P17 ?country} OPTIONAL {?item wdt:P31 ?type}\n OPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P8119 ?hasc} OPTIONAL {?item wdt:P10581 ?cog}\n OPTIONAL {?item wdt:P14503 ?pcode} OPTIONAL {?item wdt:P625 ?coord} OPTIONAL {?item wdt:P36 ?capital}\n OPTIONAL {?item wdt:P856 ?website}\n OPTIONAL {?item p:P1082 ?statement . ?statement ps:P1082 ?pop; pq:P585 ?date . FILTER(YEAR(?date)=2005)\n OPTIONAL {?statement prov:wasDerivedFrom ?ref . OPTIONAL {?ref pr:P854 ?referenceUrl} OPTIONAL {?ref pr:P248 ?statedIn}} }\n SERVICE wikibase:label {bd:serviceParam wikibase:language \"fr,en\"}\n }"
+    },
+    {
+      "file": "wikidata-enrichment-6-query.sparql",
+      "query": "SELECT ?item ?country ?type ?typeLabel ?geonames ?hasc ?cog ?pcode ?coord ?capital ?capitalLabel ?website ?pop ?date ?referenceUrl ?statedIn WHERE {\n VALUES ?item { wd:Q106698052 }\n OPTIONAL {?item wdt:P17 ?country} OPTIONAL {?item wdt:P31 ?type}\n OPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P8119 ?hasc} OPTIONAL {?item wdt:P10581 ?cog}\n OPTIONAL {?item wdt:P14503 ?pcode} OPTIONAL {?item wdt:P625 ?coord} OPTIONAL {?item wdt:P36 ?capital}\n OPTIONAL {?item wdt:P856 ?website}\n OPTIONAL {?item p:P1082 ?statement . ?statement ps:P1082 ?pop; pq:P585 ?date . FILTER(YEAR(?date)=2005)\n OPTIONAL {?statement prov:wasDerivedFrom ?ref . OPTIONAL {?ref pr:P854 ?referenceUrl} OPTIONAL {?ref pr:P248 ?statedIn}} }\n SERVICE wikibase:label {bd:serviceParam wikibase:language \"fr,en\"}\n }"
+    },
+    {
+      "file": "wikidata-extra-query.sparql",
+      "query": "SELECT ?item ?itemLabel ?enLabel ?alias ?type ?parent ?hasc ?cog WHERE {\n{ ?item wdt:P31/wdt:P279* wd:Q3076994 } UNION { ?item wdt:P31 wd:Q106698210 } UNION { ?item wdt:P10581 ?cog }\nOPTIONAL {?item wdt:P31 ?type} OPTIONAL {?item wdt:P131 ?parent} OPTIONAL {?item wdt:P10581 ?cog}\nOPTIONAL {?item rdfs:label ?enLabel FILTER(LANG(?enLabel)=\"en\")}\nOPTIONAL {?item skos:altLabel ?alias FILTER(LANG(?alias)=\"en\" || LANG(?alias)=\"fr\")}\nSERVICE wikibase:label {bd:serviceParam wikibase:language \"fr,en\"}\n}"
+    },
+    {
+      "file": "wikidata-missing-query.sparql",
+      "query": "SELECT ?item ?itemLabel ?type ?parent ?parentLabel ?geonames ?cog ?coord ?website WHERE {\nVALUES ?label { \"Ngaoundéré I\"@fr \"Ngaoundéré I\"@en \"Ngaoundéré II\"@fr \"Ngaoundéré II\"@en \"Ngaoundéré III\"@fr \"Ngaoundéré III\"@en \"Bertoua I\"@fr \"Bertoua I\"@en \"Bertoua II\"@fr \"Bertoua II\"@en \"Nkongsamba I\"@fr \"Nkongsamba I\"@en \"Édéa II\"@fr \"Édéa II\"@en \"Douala II\"@fr \"Douala II\"@en \"Douala III\"@fr \"Douala III\"@en \"Douala IV\"@fr \"Douala IV\"@en \"Douala VI\"@fr \"Douala VI\"@en \"Garoua I\"@fr \"Garoua I\"@en \"Garoua II\"@fr \"Garoua II\"@en \"Garoua III\"@fr \"Garoua III\"@en \"Barndaké\"@fr \"Barndaké\"@en \"Bamenda III\"@fr \"Bamenda III\"@en \"Bayangam\"@fr \"Bayangam\"@en \"Dschang\"@fr \"Dschang\"@en \"Éséka\"@fr \"Éséka\"@en \"Pète-Bandjoun\"@fr \"Pète-Bandjoun\"@en \"Ebolowa I\"@fr \"Ebolowa I\"@en \"Ebolowa II\"@fr \"Ebolowa II\"@en \"Kribi Ier\"@fr \"Kribi Ier\"@en \"Kribi IIe\"@fr \"Kribi IIe\"@en \"Lokoundjé\"@fr \"Lokoundjé\"@en \"Buéa\"@fr \"Buéa\"@en \"Limbé Ier\"@fr \"Limbé Ier\"@en \"Kumba I\"@fr \"Kumba I\"@en \"Kumba II\"@fr \"Kumba II\"@en \"Kumba III\"@fr \"Kumba III\"@en \"Bafoussam III\"@fr \"Bafoussam III\"@en \"Baré-Bakem\"@fr \"Baré-Bakem\"@en \"Elak-Oku\"@fr \"Elak-Oku\"@en }\n?item rdfs:label ?label . OPTIONAL {?item wdt:P31 ?type} OPTIONAL {?item wdt:P131 ?parent}\nOPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P10581 ?cog} OPTIONAL {?item wdt:P625 ?coord}\nOPTIONAL {?item wdt:P856 ?website}\nSERVICE wikibase:label {bd:serviceParam wikibase:language \"fr,en\"}\n}"
+    },
+    {
+      "file": "wikidata-numbered-query.sparql",
+      "query": "SELECT ?item ?itemLabel ?type ?parent ?geonames ?cog ?coord ?website WHERE {\n?item wdt:P17 wd:Q1009; rdfs:label ?label . FILTER(LANG(?label) IN (\"fr\",\"en\"))\nFILTER(REGEX(STR(?label),\"Ngaound|Garoua|Kumba|Bertoua|déa|Ebolowa|Buea|Buéa\",\"i\"))\nOPTIONAL {?item wdt:P31 ?type} OPTIONAL {?item wdt:P131 ?parent}\nOPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P10581 ?cog} OPTIONAL {?item wdt:P625 ?coord}\nOPTIONAL {?item wdt:P856 ?website}\nSERVICE wikibase:label {bd:serviceParam wikibase:language \"fr,en\"}\n}"
+    },
+    {
+      "file": "wikidata-pcodes-query.sparql",
+      "query": "SELECT ?item ?itemLabel ?pcode ?type ?parent ?hasc ?geonames ?cog ?coord ?capital ?website WHERE {\n?item wdt:P14503 ?pcode . FILTER(STRSTARTS(STR(?pcode),\"CM\"))\nOPTIONAL {?item wdt:P31 ?type} OPTIONAL {?item wdt:P131 ?parent}\nOPTIONAL {?item wdt:P8119 ?hasc} OPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P10581 ?cog}\nOPTIONAL {?item wdt:P625 ?coord} OPTIONAL {?item wdt:P36 ?capital} OPTIONAL {?item wdt:P856 ?website}\nSERVICE wikibase:label {bd:serviceParam wikibase:language \"fr,en\"}\n}"
+    },
+    {
+      "file": "wikidata-properties-query.sparql",
+      "query": "SELECT ?property ?propertyLabel WHERE {\n?property a wikibase:Property; rdfs:label ?label . FILTER(LANG(?label)=\"en\")\nFILTER(REGEX(STR(?label),\"OCHA|HASC|p-code|P code|humanitarian|Cameroun|GeoNames\",\"i\"))\nSERVICE wikibase:label {bd:serviceParam wikibase:language \"en\"}\n}"
+    },
+    {
+      "file": "wikidata-query.sparql",
+      "query": "SELECT ?item ?itemLabel ?type ?parent ?parentLabel ?geonames ?hasc ?cog ?coord ?capital ?capitalLabel ?website WHERE {\nVALUES ?type { wd:Q106698210 wd:Q2306813 wd:Q869042 wd:Q3076994 }\n?item wdt:P31 ?type .\nOPTIONAL { ?item wdt:P131 ?parent }\nOPTIONAL { ?item wdt:P1566 ?geonames }\nOPTIONAL { ?item wdt:P8119 ?hasc }\nOPTIONAL { ?item wdt:P10581 ?cog }\nOPTIONAL { ?item wdt:P625 ?coord }\nOPTIONAL { ?item wdt:P36 ?capital }\nOPTIONAL { ?item wdt:P856 ?website }\nSERVICE wikibase:label { bd:serviceParam wikibase:language \"fr,en\" }\n}"
+    }
+  ],
+  "limitations": [
+    "Name-based ADM3 candidates are not all distinct arrondissement entities.",
+    "No Cameroon P14503 assignments returned; this is query coverage, not proof none exist in unindexed revisions.",
+    "Null QIDs mean not found in the executed queries, not proof no item exists."
+  ]
+}

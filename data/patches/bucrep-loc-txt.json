@@ -1,0 +1,125 @@
+{
+ "description": "Corrections to parsing artefacts of loc.txt (pdf-parse output of loc.pdf). Only extraction errors are patched; inconsistencies printed in the PDF itself are kept and flagged.",
+ "patches": [
+  {
+   "line": 16869,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16870,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16871,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16872,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16873,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16874,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16875,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16876,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16877,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16878,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16879,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16880,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16881,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16882,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16883,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16884,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16885,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16886,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16887,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  },
+  {
+   "line": 16888,
+   "setLevel": "village",
+   "reason": "BELO/KOM: village printed at canton indentation by pdf-parse",
+   "evidence": "PDF p298 shows a regular (non-bold) village row; KOM printed total 25006 = Σ of these 20 rows + ABOH + AFUA; BELO total 40757 = BELO TOWN + KOM + MBESA"
+  }
+ ]
+}

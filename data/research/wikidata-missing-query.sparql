@@ -1,0 +1,7 @@
+SELECT ?item ?itemLabel ?type ?parent ?parentLabel ?geonames ?cog ?coord ?website WHERE {
+VALUES ?label { "Ngaoundéré I"@fr "Ngaoundéré I"@en "Ngaoundéré II"@fr "Ngaoundéré II"@en "Ngaoundéré III"@fr "Ngaoundéré III"@en "Bertoua I"@fr "Bertoua I"@en "Bertoua II"@fr "Bertoua II"@en "Nkongsamba I"@fr "Nkongsamba I"@en "Édéa II"@fr "Édéa II"@en "Douala II"@fr "Douala II"@en "Douala III"@fr "Douala III"@en "Douala IV"@fr "Douala IV"@en "Douala VI"@fr "Douala VI"@en "Garoua I"@fr "Garoua I"@en "Garoua II"@fr "Garoua II"@en "Garoua III"@fr "Garoua III"@en "Barndaké"@fr "Barndaké"@en "Bamenda III"@fr "Bamenda III"@en "Bayangam"@fr "Bayangam"@en "Dschang"@fr "Dschang"@en "Éséka"@fr "Éséka"@en "Pète-Bandjoun"@fr "Pète-Bandjoun"@en "Ebolowa I"@fr "Ebolowa I"@en "Ebolowa II"@fr "Ebolowa II"@en "Kribi Ier"@fr "Kribi Ier"@en "Kribi IIe"@fr "Kribi IIe"@en "Lokoundjé"@fr "Lokoundjé"@en "Buéa"@fr "Buéa"@en "Limbé Ier"@fr "Limbé Ier"@en "Kumba I"@fr "Kumba I"@en "Kumba II"@fr "Kumba II"@en "Kumba III"@fr "Kumba III"@en "Bafoussam III"@fr "Bafoussam III"@en "Baré-Bakem"@fr "Baré-Bakem"@en "Elak-Oku"@fr "Elak-Oku"@en }
+?item rdfs:label ?label . OPTIONAL {?item wdt:P31 ?type} OPTIONAL {?item wdt:P131 ?parent}
+OPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P10581 ?cog} OPTIONAL {?item wdt:P625 ?coord}
+OPTIONAL {?item wdt:P856 ?website}
+SERVICE wikibase:label {bd:serviceParam wikibase:language "fr,en"}
+}

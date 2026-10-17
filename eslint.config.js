@@ -75,6 +75,7 @@ export default [
       "node_modules/**",
       "dist/**",
       "build/**",
+      "data/**",
       "*.config.js",
       "*.config.ts",
       "scripts/**",

@@ -1,0 +1,25 @@
+{
+ "adm1": 10,
+ "adm2": 58,
+ "adm3": 360,
+ "cantons": 1504,
+ "villages": 17070,
+ "pollingStations": 30353,
+ "diasporaStations": 95,
+ "pop2005": {
+  "national": 17463836,
+  "Σadm1Table": 17463836,
+  "Σadm3": 17463839,
+  "Σvillages": 17461371
+ },
+ "issues": {
+  "parent-conflict": 1,
+  "canton-total≠Σvillages": 25,
+  "arr-total≠Σcantons": 2,
+  "printed-sex-sum-inconsistency": 73,
+  "population-table≠Σchildren": 1,
+  "name-variants": 52,
+  "crosswalk-verified": 39,
+  "open-question": 1
+ }
+}

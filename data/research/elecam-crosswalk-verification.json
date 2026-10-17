@@ -1,0 +1,708 @@
+[
+  {
+    "key": "2|CM009|VALLE DU NTEM",
+    "councilName": "VALLE DU NTEM",
+    "arrondissement": "Vallée-du-Ntem",
+    "pcode": "CM009004",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "183 Vallée-Du-Ntem",
+        "page": 38,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 2
+  },
+  {
+    "key": "2|CM010|KOUPE-MANENGOUBA",
+    "councilName": "KOUPE-MANENGOUBA",
+    "arrondissement": "Kupe-Manenguba",
+    "pcode": "CM010002",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://droitcamerounais.info/en/files/128.11.08-Decret-du-12-novembre-2008-portant-organisation-administrative-de-la-republique-du-Cameroun.pdf",
+        "quote": "département du Koupe Manengouba ;",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Decree 2008/376, Article 14. ADM2 spelling equivalence, not a council-to-arrondissement decision.",
+    "level": 2
+  },
+  {
+    "key": "1|null|CMR A L'ETRANGER",
+    "councilName": "CMR A L'ETRANGER",
+    "arrondissement": null,
+    "pcode": null,
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://portail.elecam.cm/download/k-liste-bv-diaspora-presidentielle-2025/",
+        "quote": "K. LISTE BV DIASPORA - PRÉSIDENTIELLE 2025",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Confirmed treatment as non-domestic electoral grouping; no domestic OCHA P-code. This row is not an arrondissement mapping.",
+    "level": null
+  },
+  {
+    "key": "3|CM002005|OLANGUINA",
+    "councilName": "OLANGUINA",
+    "arrondissement": "Assamba",
+    "pcode": "CM002005002",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement d’ASSAMBA, chef-lieu : Olanguina",
+        "page": 3,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM002009|KOBDOMBO",
+    "councilName": "KOBDOMBO",
+    "arrondissement": "Nyakokombo",
+    "pcode": "CM002009005",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de NYAKOKOMBO, chef-lieu : Kobdombo",
+        "page": 5,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM003002|ANGOSSAS",
+    "councilName": "ANGOSSAS",
+    "arrondissement": "Mboanz",
+    "pcode": "CM003002008",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de MBOANZ, chef-lieu : Angossas",
+        "page": 6,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM003002|ATOK",
+    "councilName": "ATOK",
+    "arrondissement": "Bebend",
+    "pcode": "CM003002002",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de BEDEND, chef-lieu : Atok",
+        "page": 5,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Geographical pairing confirmed. The signed 2010 decree prints BEDEND, while MINFI 2019 and OCHA use Bebend; do not silently claim that the decree spells it Bebend.",
+    "level": 3
+  },
+  {
+    "key": "3|CM003002|MINDOUROU",
+    "councilName": "MINDOUROU",
+    "arrondissement": "Dja",
+    "pcode": "CM003002004",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de DJA, chef-lieu : Mindourou",
+        "page": 5,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM003003|KENTZOU",
+    "councilName": "KENTZOU",
+    "arrondissement": "Bombe",
+    "pcode": "CM003003002",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de BOMBE, chef-lieu : Kentzou",
+        "page": 6,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM003003|NGUELEBOK",
+    "councilName": "NGUELEBOK",
+    "arrondissement": "Ndem Nam",
+    "pcode": "CM003003007",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de NDEM-NAM, chef-lieu : Nguelebok",
+        "page": 7,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM003003|OULI",
+    "councilName": "OULI",
+    "arrondissement": "Mbotoro",
+    "pcode": "CM003003005",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de MBOTORO, chef-lieu : Ouli",
+        "page": 6,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM004002|MAKARI",
+    "councilName": "MAKARI",
+    "arrondissement": "Makary",
+    "pcode": "CM004002008",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1317 Makary",
+        "page": 32,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      },
+      {
+        "url": "https://mairies.cm/commune/makary-ou-makari",
+        "quote": "Commune de Makary (ou Makari )",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM004003|GUEME-VELE",
+    "councilName": "GUEME-VELE",
+    "arrondissement": "Vele",
+    "pcode": "CM004003009",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://fr.wikipedia.org/wiki/Gu%C3%A9m%C3%A9",
+        "quote": "Elle recouvre le territoire de l'arrondissement de Vélé.",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM004004|DZIGUILAO",
+    "councilName": "DZIGUILAO",
+    "arrondissement": "Taibong",
+    "pcode": "CM004004007",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://fr.wikipedia.org/wiki/Dziguilao",
+        "quote": "La commune recouvre le territoire de l'arrondissement de Taibong [ 2 ] .",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM004004|TOULOUM",
+    "councilName": "TOULOUM",
+    "arrondissement": "Porhi",
+    "pcode": "CM004004006",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://fr.wikipedia.org/wiki/Touloum",
+        "quote": "Elle recouvre le territoire de l'arrondissement de Porhi.",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM004006|BOURHA",
+    "councilName": "BOURHA",
+    "arrondissement": "Bourrha",
+    "pcode": "CM004006001",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://fr.wikipedia.org/wiki/Bourha",
+        "quote": "Bourha (anciennement Bourrha)",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM004006|MOZOGO",
+    "councilName": "MOZOGO",
+    "arrondissement": "Mayo-Moskota",
+    "pcode": "CM004006004",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://mozogo.cm/histoire/",
+        "quote": "La commune de Mozogo est le Chef-lieu de l’Arrondissement de Mayo Moskota",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM005001|BONALEA",
+    "councilName": "BONALEA",
+    "arrondissement": "Fiko",
+    "pcode": "CM005001003",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de FIKO, chef-lieu : Bonaléa",
+        "page": 8,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "2010 decree uses Fiko; 1995 commune decree refers to district Abo. No separate renaming decree found.",
+    "level": 3
+  },
+  {
+    "key": "3|CM005001|EBONE",
+    "councilName": "EBONE",
+    "arrondissement": "Nlonako",
+    "pcode": "CM005001013",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://fr.wikipedia.org/wiki/Ebone_(commune)",
+        "quote": "Son ressort territorial est celui de l'arrondissement de Nlonako",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM005002|NDOBIAN",
+    "councilName": "NDOBIAN",
+    "arrondissement": "Nord-Makombe",
+    "pcode": "CM005002002",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement du NORD-MAKOMBE, chef-lieu : Ndobiang",
+        "page": 8,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "2010 decree prints Ndobiang. Ndobian is the commune spelling in later sources; administrative pairing is confirmed.",
+    "level": 3
+  },
+  {
+    "key": "3|CM005003|MASSOK-SONGLOULOU",
+    "councilName": "MASSOK-SONGLOULOU",
+    "arrondissement": "Massock-Songloulou",
+    "pcode": "CM005003005",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de MASSOCK-SONGLOULOU, chef-lieu : Massock",
+        "page": 8,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM006001|GASCHIGA",
+    "councilName": "GASCHIGA",
+    "arrondissement": "Demsa",
+    "pcode": "CM006001004",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de DEMSA, chef-lieu : Gashiga",
+        "page": 9,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "2010 decree prints Gashiga. Retain Gaschiga as ELECAM spelling; do not conflate Demsa arrondissement with the historic lamidat only.",
+    "level": 3
+  },
+  {
+    "key": "3|CM006001|NGONG",
+    "councilName": "NGONG",
+    "arrondissement": "Tcheboa",
+    "pcode": "CM006001011",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://fr.wikipedia.org/wiki/Ngong",
+        "quote": "Son ressort territorial est celui de l'arrondissement de Tcheboa .",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM007001|FONFUKA",
+    "councilName": "FONFUKA",
+    "arrondissement": "Bum",
+    "pcode": "CM007001002",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Bum (Fonfuka)",
+        "page": 391,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "INS 2024, table 21-1, printed page 381 / PDF page 391: distance to arrondissement capitals; source MINTP North-West. Complete PDF downloaded.",
+    "level": 3
+  },
+  {
+    "key": "3|CM007002|ELAK",
+    "councilName": "ELAK",
+    "arrondissement": "Oku",
+    "pcode": "CM007002006",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Oku (Elak)",
+        "page": 391,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "INS 2024, table 21-1, printed page 381 / PDF page 391: distance to arrondissement capitals; source MINTP North-West. Complete PDF downloaded.",
+    "level": 3
+  },
+  {
+    "key": "3|CM007002|MBIAME",
+    "councilName": "MBIAME",
+    "arrondissement": "Mbven",
+    "pcode": "CM007002003",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Mbven (Mbiame)",
+        "page": 391,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "INS 2024, table 21-1, printed page 381 / PDF page 391: distance to arrondissement capitals; source MINTP North-West. Complete PDF downloaded.",
+    "level": 3
+  },
+  {
+    "key": "3|CM007002|NKOR",
+    "councilName": "NKOR",
+    "arrondissement": "Noni",
+    "pcode": "CM007002005",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Noni (Nkor)",
+        "page": 391,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "INS 2024, table 21-1, printed page 381 / PDF page 391: distance to arrondissement capitals; source MINTP North-West. Complete PDF downloaded.",
+    "level": 3
+  },
+  {
+    "key": "3|CM007004|BENAKUMA",
+    "councilName": "BENAKUMA",
+    "arrondissement": "Menchum-Valley",
+    "pcode": "CM007004003",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Menchum Valley (Benakuma)",
+        "page": 391,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "INS 2024, table 21-1, printed page 381 / PDF page 391: distance to arrondissement capitals; source MINTP North-West. Complete PDF downloaded.",
+    "level": 3
+  },
+  {
+    "key": "3|CM007004|ZHOA",
+    "councilName": "ZHOA",
+    "arrondissement": "Fungom",
+    "pcode": "CM007004001",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Fungom (Zhoa)",
+        "page": 391,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "INS 2024, table 21-1, printed page 381 / PDF page 391: distance to arrondissement capitals; source MINTP North-West. Complete PDF downloaded.",
+    "level": 3
+  },
+  {
+    "key": "3|CM007006|ANDEK",
+    "councilName": "ANDEK",
+    "arrondissement": "Ngie",
+    "pcode": "CM007006003",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Ngie (Andek)",
+        "page": 391,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "INS 2024, table 21-1, printed page 381 / PDF page 391: distance to arrondissement capitals; source MINTP North-West. Complete PDF downloaded.",
+    "level": 3
+  },
+  {
+    "key": "3|CM007006|WIDIKUM-BOFFE",
+    "councilName": "WIDIKUM-BOFFE",
+    "arrondissement": "Widikum",
+    "pcode": "CM007006005",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://fr.wikipedia.org/wiki/Widikum-Boffe",
+        "quote": "Son ressort territorial est celui de l'arrondissement de Widikum-Menka.",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM008004|DEMDING",
+    "councilName": "DEMDING",
+    "arrondissement": "Djebem",
+    "pcode": "CM008004002",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de DJEMBEM, chef-lieu : Demdeng",
+        "page": 10,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Pairing confirmed: decree spells DJEMBEM and chef-lieu Demdeng. Current OCHA Djebem and ELECAM Demding are retained aliases.",
+    "level": 3
+  },
+  {
+    "key": "3|CM008004|PETE-BANDJOUN",
+    "councilName": "PETE-BANDJOUN",
+    "arrondissement": "Poumougne",
+    "pcode": "CM008004003",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://www.osidimbea.cm/collectivites/ouest/pete-bandjoun-arr/",
+        "quote": "Arrondissement de POUMOUGNE; Chef-lieu : Pète-Bandjoun",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      },
+      {
+        "url": "https://www.armp.cm/details?id_publication=2340&type_publication=ADDITIF",
+        "quote": "Commune de Pété-Bandjoun, Arrondissement de Poumougne",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Two labelled fields quoted, joined with a semicolon. Commune mapping also supported by ARMP tender notice.",
+    "level": 3
+  },
+  {
+    "key": "3|CM009002|MVANGAN",
+    "councilName": "MVANGAN",
+    "arrondissement": "Mvangane",
+    "pcode": "CM009002007",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://de.wikipedia.org/wiki/Mvangane",
+        "quote": "Mvangane (oder: Mvangan)",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM010001|IDENAU",
+    "councilName": "IDENAU",
+    "arrondissement": "West-Coast",
+    "pcode": "CM010001007",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de WEST COAST, chef-lieu : Idenau",
+        "page": 10,
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM010003|MENJI",
+    "councilName": "MENJI",
+    "arrondissement": "Fontem",
+    "pcode": "CM010003002",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://fr.wikipedia.org/wiki/Fontem",
+        "quote": "Son chef-lieu est Menji.",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  },
+  {
+    "key": "3|CM010004|EYUMOJOCK",
+    "councilName": "EYUMOJOCK",
+    "arrondissement": "Eyumodjock",
+    "pcode": "CM010004002",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Eyumodjock",
+        "quote": "Eyumojock is a town and commune in Cameroon, and the sub-divisional headquarters of the Eyumojock sub-division in the Manyu division.",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      },
+      {
+        "url": "https://mintp.cm/ngoho-ferry-construction-project-in-eyumojock-subdivision-manyu-division-south-west-region-works-contract-signed/",
+        "quote": "Eyumodjock Subdivision",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Official Ministry of Public Works page uses Eyumojock in its title and Eyumodjock in its body.",
+    "level": 3
+  },
+  {
+    "key": "3|CM010004|TINTO",
+    "councilName": "TINTO",
+    "arrondissement": "Upper Bayang",
+    "pcode": "CM010004004",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Upper_Bayang",
+        "quote": "The district seat is located at Tinto (Tinto Council).",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      },
+      {
+        "url": "https://armp.cm/details?id_publication=62852&type_publication=AO",
+        "quote": "UPPER BANYANG SUB DIVISION, MANYU DIVISION, SOUTH WEST REGION",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "ARMP notice issued by Tinto Council; Upper Bayang/Upper Banyang are both used in official administrative sources.",
+    "level": 3
+  },
+  {
+    "key": "3|CM010006|ISANGUELE",
+    "councilName": "ISANGUELE",
+    "arrondissement": "Isangele",
+    "pcode": "CM010006005",
+    "verdict": "confirmed",
+    "evidence": [
+      {
+        "url": "https://fr.wikipedia.org/wiki/Isanguele",
+        "quote": "Isanguele (ou Isangele)",
+        "quoteNote": "Short excerpt; whitespace, HTML link spacing and citation markers may be normalized. No substantive wording is intentionally changed."
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapping confirmed; spelling recommendation is separate from identity verification.",
+    "level": 3
+  }
+]

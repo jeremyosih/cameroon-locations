@@ -1,0 +1,1150 @@
+[
+  {
+    "pcode": "CM002005002",
+    "current": "Assamba",
+    "recommendedOfficialName": "Assamba",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1141 Assamba",
+        "page": 29,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement d’ASSAMBA, chef-lieu : Olanguina",
+        "page": 3
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM005001001",
+    "current": "Bare-Bakem",
+    "recommendedOfficialName": "Bare-Bakem",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1400 Bare-Bakem",
+        "page": 33,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM002002001",
+    "current": "Batchenga",
+    "recommendedOfficialName": "Batchenga",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "BATCHENGA",
+        "page": 2,
+        "kind": "signed decree 2010/198"
+      },
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1110 Batschenga",
+        "page": 28,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep Batchenga from the signed 2010 decree despite Batschenga in the later budget table."
+  },
+  {
+    "pcode": "CM003002002",
+    "current": "Bebend",
+    "recommendedOfficialName": null,
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1211 Bebend",
+        "page": 30,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de BEDEND, chef-lieu : Atok",
+        "page": 5
+      }
+    ],
+    "confidence": "low",
+    "legalStatus": "conflicting sources; not found conclusively",
+    "recommendedAction": "keep pending legal clarification",
+    "notes": "Unresolved legal spelling: the signed 2010 decree prints BEDEND; MINFI 2019 prints Bebend. Keep Bebend pending a corrigendum or original district-creation text; do not conceal the discrepancy."
+  },
+  {
+    "pcode": "CM003003002",
+    "current": "Bombe",
+    "recommendedOfficialName": "Bombe",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1221 Bombe",
+        "page": 31,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de BOMBE, chef-lieu : Kentzou",
+        "page": 6
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM004006001",
+    "current": "Bourrha",
+    "recommendedOfficialName": "Bourrha",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1350 Bourrha",
+        "page": 33,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Bourha",
+        "quote": "Bourha (anciennement Bourrha)"
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep Bourrha as the ministry arrondissement spelling. Bourha is common commune usage; the primary act establishing a spelling change was not found."
+  },
+  {
+    "pcode": "CM007001002",
+    "current": "Bum",
+    "recommendedOfficialName": "Bum",
+    "evidence": [
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Bum (Fonfuka)",
+        "page": 391,
+        "kind": "official administrative usage; table 21-1"
+      },
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Bum (Fonfuka)",
+        "page": 391
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM006001004",
+    "current": "Demsa",
+    "recommendedOfficialName": "Demsa",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1503 Demsa",
+        "page": 34,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de DEMSA, chef-lieu : Gashiga",
+        "page": 9
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM010006002",
+    "current": "Dikome Balue",
+    "recommendedOfficialName": "Dikome-Balue",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "DIKOME-BALUE",
+        "page": 11,
+        "kind": "signed decree 2010/198"
+      },
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1951 Dikome-Balue",
+        "page": 39,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "change display name; preserve aliases",
+    "notes": "Use Dikome-Balue from the signed decree and ministry table; preserve Dikomba Balue as the BUCREP spelling."
+  },
+  {
+    "pcode": "CM003002004",
+    "current": "Dja",
+    "recommendedOfficialName": "Dja",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1213 Dja",
+        "page": 30,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de DJA, chef-lieu : Mindourou",
+        "page": 5
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM008004002",
+    "current": "Djebem",
+    "recommendedOfficialName": "Djembem",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1731 Djembem",
+        "page": 36,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de DJEMBEM, chef-lieu : Demdeng",
+        "page": 10
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "change display name; preserve aliases",
+    "notes": "Recommend Djembem: both the signed 2010 decree (DJEMBEM, chef-lieu Demdeng) and MINFI 2019 support it. Preserve Djebem and Demding as source aliases."
+  },
+  {
+    "pcode": "CM002005004",
+    "current": "Edzendouan",
+    "recommendedOfficialName": "Edzendouan",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "EDZENDOUAN",
+        "page": 3,
+        "kind": "signed decree 2010/198"
+      },
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1143 Edzendouan",
+        "page": 29,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep Edzendouan: signed decree and ministry table agree; retain Ezendouan only as source spelling."
+  },
+  {
+    "pcode": "CM005001003",
+    "current": "Fiko",
+    "recommendedOfficialName": "Fiko",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1402 Fiko",
+        "page": 33,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de FIKO, chef-lieu : Bonaléa",
+        "page": 8
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1583652904/module/12263713557/name/D%C3%A9cret%20no%2095_082%20du%2024%20avril%201995%20portant%20cr%C3%A9ation%20de%20communes%20rurales.pdf",
+        "quote": "Abo",
+        "kind": "1995 decree commune territorial reference"
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Use Fiko for the arrondissement and Bonaléa for the commune/chef-lieu. The 1995 commune text names Abo; no separate Abo-to-Fiko renaming decree was found."
+  },
+  {
+    "pcode": "CM010003002",
+    "current": "Fontem",
+    "recommendedOfficialName": "Fontem",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1921 Fontem",
+        "page": 38,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Fontem",
+        "quote": "Son chef-lieu est Menji."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM007004001",
+    "current": "Fungom",
+    "recommendedOfficialName": "Fungom",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1630 Fungom",
+        "page": 35,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Fungom (Zhoa)",
+        "page": 391
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM010006005",
+    "current": "Isangele",
+    "recommendedOfficialName": "Isangele",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1954 Isangele",
+        "page": 39,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Isanguele",
+        "quote": "Isanguele (ou Isangele)"
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM004002008",
+    "current": "Makary",
+    "recommendedOfficialName": "Makary",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1317 Makary",
+        "page": 32,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1317 Makary",
+        "page": 32
+      },
+      {
+        "url": "https://mairies.cm/commune/makary-ou-makari",
+        "quote": "Commune de Makary (ou Makari )"
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Recommended display spelling is supported by the official administrative table. Keep source variants as aliases; an exclusive statutory spelling has not been established."
+  },
+  {
+    "pcode": "CM008008007",
+    "current": "Malantouen",
+    "recommendedOfficialName": null,
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1776 Malentouen",
+        "page": 37,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Malentouen",
+        "quote": "Malentouen (ou Malantouen)",
+        "kind": "secondary spelling variants"
+      }
+    ],
+    "confidence": "low",
+    "legalStatus": "conflicting sources; not found conclusively",
+    "recommendedAction": "keep pending legal clarification",
+    "notes": "No exclusive legal spelling established. MINFI gives Malentouen; Wikipedia explicitly recognizes both. Keep current Malantouen until the creation/renaming act is recovered."
+  },
+  {
+    "pcode": "CM010004003",
+    "current": "Mamfe",
+    "recommendedOfficialName": "Mamfe",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1932 Mamfe",
+        "page": 38,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM008008008",
+    "current": "Massangam",
+    "recommendedOfficialName": "Massangam",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1777 Massangam",
+        "page": 37,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Recommended display spelling is supported by the official administrative table. Keep source variants as aliases; an exclusive statutory spelling has not been established."
+  },
+  {
+    "pcode": "CM005003005",
+    "current": "Massock-Songloulou",
+    "recommendedOfficialName": "Massock-Songloulou",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1424 Massock-Songloulou",
+        "page": 34,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de MASSOCK-SONGLOULOU, chef-lieu : Massock",
+        "page": 8
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM004006004",
+    "current": "Mayo-Moskota",
+    "recommendedOfficialName": "Mayo-Moskota",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1353 Mayo-Moskota",
+        "page": 33,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://mozogo.cm/histoire/",
+        "quote": "La commune de Mozogo est le Chef-lieu de l’Arrondissement de Mayo Moskota"
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM003002008",
+    "current": "Mboanz",
+    "recommendedOfficialName": "Mboanz",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1217 Mboanz",
+        "page": 30,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de MBOANZ, chef-lieu : Angossas",
+        "page": 6
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM003003005",
+    "current": "Mbotoro",
+    "recommendedOfficialName": "Mbotoro",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1224 Mbotoro",
+        "page": 31,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de MBOTORO, chef-lieu : Ouli",
+        "page": 6
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM007002003",
+    "current": "Mbven",
+    "recommendedOfficialName": "Mbven",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1612 Mbven",
+        "page": 35,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Mbven (Mbiame)",
+        "page": 391
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM007004003",
+    "current": "Menchum-Valley",
+    "recommendedOfficialName": "Menchum-Valley",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1632 Menchum-Valley",
+        "page": 35,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Menchum Valley (Benakuma)",
+        "page": 391
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM003002011",
+    "current": "Messok",
+    "recommendedOfficialName": "Messok",
+    "evidence": [
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "MESSOK",
+        "page": 6,
+        "kind": "signed decree 2010/198"
+      },
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "121A Messok",
+        "page": 31,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM003001002",
+    "current": "Moloundou",
+    "recommendedOfficialName": "Moloundou",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1201 Moloundou",
+        "page": 30,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Recommended display spelling is supported by the official administrative table. Keep source variants as aliases; an exclusive statutory spelling has not been established."
+  },
+  {
+    "pcode": "CM010006008",
+    "current": "Mundemba",
+    "recommendedOfficialName": "Mundemba",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1957 Mundemba",
+        "page": 39,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Recommended display spelling is supported by the official administrative table. Keep source variants as aliases; an exclusive statutory spelling has not been established."
+  },
+  {
+    "pcode": "CM010001005",
+    "current": "Muyuka",
+    "recommendedOfficialName": "Muyuka",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1904 Muyuka",
+        "page": 38,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Recommended display spelling is supported by the official administrative table. Keep source variants as aliases; an exclusive statutory spelling has not been established."
+  },
+  {
+    "pcode": "CM009002007",
+    "current": "Mvangane",
+    "recommendedOfficialName": null,
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1816 Mvangane",
+        "page": 37,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://de.wikipedia.org/wiki/Mvangane",
+        "quote": "Mvangane (oder: Mvangan)"
+      }
+    ],
+    "confidence": "low",
+    "legalStatus": "conflicting sources; not found conclusively",
+    "recommendedAction": "keep pending legal clarification",
+    "notes": "No exclusive legal spelling established. MINFI uses Mvangane; commune/Wikipedia usage also has Mvangan. Keep current name and both aliases."
+  },
+  {
+    "pcode": "CM003003007",
+    "current": "Ndem Nam",
+    "recommendedOfficialName": "Ndem-Nam",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1226 Ndem – Nam",
+        "page": 31,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de NDEM-NAM, chef-lieu : Nguelebok",
+        "page": 7
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "change display name; preserve aliases",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM007006003",
+    "current": "Ngie",
+    "recommendedOfficialName": "Ngie",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1652 Ngie",
+        "page": 36,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Ngie (Andek)",
+        "page": 391
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM007006004",
+    "current": "Njikwa",
+    "recommendedOfficialName": "Njikwa",
+    "evidence": [
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Njikwa",
+        "page": 391,
+        "kind": "official administrative usage; table 21-1"
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM005001009",
+    "current": "Njombe-Penja",
+    "recommendedOfficialName": "Njombe-Penja",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1408 Njombe-Penja",
+        "page": 33,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM008005004",
+    "current": "Nkong-Ni",
+    "recommendedOfficialName": "Nkong-Ni",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1743 Nkong-Ni",
+        "page": 36,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM005001013",
+    "current": "Nlonako",
+    "recommendedOfficialName": "Nlonako",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "140C Nlonako",
+        "page": 33,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Ebone_(commune)",
+        "quote": "Son ressort territorial est celui de l'arrondissement de Nlonako"
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM007002005",
+    "current": "Noni",
+    "recommendedOfficialName": "Noni",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1614 Noni",
+        "page": 35,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Noni (Nkor)",
+        "page": 391
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM005002002",
+    "current": "Nord-Makombe",
+    "recommendedOfficialName": "Nord-Makombe",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1411 Nord-Makombe",
+        "page": 33,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement du NORD-MAKOMBE, chef-lieu : Ndobiang",
+        "page": 8
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM002009005",
+    "current": "Nyakokombo",
+    "recommendedOfficialName": "Nyakokombo",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1184 Nyakokombo",
+        "page": 30,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de NYAKOKOMBO, chef-lieu : Kobdombo",
+        "page": 5
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM002002008",
+    "current": "Okola",
+    "recommendedOfficialName": "Okola",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1117 Okola",
+        "page": 28,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Recommended display spelling is supported by the official administrative table. Keep source variants as aliases; an exclusive statutory spelling has not been established."
+  },
+  {
+    "pcode": "CM007002006",
+    "current": "Oku",
+    "recommendedOfficialName": "Oku",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1615 Oku",
+        "page": 35,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Oku (Elak)",
+        "page": 391
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM004004006",
+    "current": "Porhi",
+    "recommendedOfficialName": "Porhi",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1335 Porhi",
+        "page": 32,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Touloum",
+        "quote": "Elle recouvre le territoire de l'arrondissement de Porhi."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM008004003",
+    "current": "Poumougne",
+    "recommendedOfficialName": "Poumougne",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1732 Poumougne",
+        "page": 36,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://www.osidimbea.cm/collectivites/ouest/pete-bandjoun-arr/",
+        "quote": "Arrondissement de POUMOUGNE; Chef-lieu : Pète-Bandjoun"
+      },
+      {
+        "url": "https://www.armp.cm/details?id_publication=2340&type_publication=ADDITIF",
+        "quote": "Commune de Pété-Bandjoun, Arrondissement de Poumougne"
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM008005006",
+    "current": "Santchou",
+    "recommendedOfficialName": "Santchou",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1745 Santchou",
+        "page": 36,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Recommended display spelling is supported by the official administrative table. Keep source variants as aliases; an exclusive statutory spelling has not been established."
+  },
+  {
+    "pcode": "CM004004007",
+    "current": "Taibong",
+    "recommendedOfficialName": "Taibong",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1336 Taïbong",
+        "page": 32,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Dziguilao",
+        "quote": "La commune recouvre le territoire de l'arrondissement de Taibong [ 2 ] ."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM006001011",
+    "current": "Tcheboa",
+    "recommendedOfficialName": "Tcheboa",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "150A Tcheboa",
+        "page": 34,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Ngong",
+        "quote": "Son ressort territorial est celui de l'arrondissement de Tcheboa ."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM001001002",
+    "current": "Tibati",
+    "recommendedOfficialName": "Tibati",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1001 Tibati",
+        "page": 27,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Recommended display spelling is supported by the official administrative table. Keep source variants as aliases; an exclusive statutory spelling has not been established."
+  },
+  {
+    "pcode": "CM010004004",
+    "current": "Upper Bayang",
+    "recommendedOfficialName": null,
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1933 Upper-Bayang",
+        "page": 38,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Upper_Bayang",
+        "quote": "The district seat is located at Tinto (Tinto Council)."
+      },
+      {
+        "url": "https://armp.cm/details?id_publication=62852&type_publication=AO",
+        "quote": "UPPER BANYANG SUB DIVISION, MANYU DIVISION, SOUTH WEST REGION"
+      }
+    ],
+    "confidence": "low",
+    "legalStatus": "conflicting sources; not found conclusively",
+    "recommendedAction": "keep pending legal clarification",
+    "notes": "No exclusive legal spelling established. MINFI uses Upper-Bayang; the ARMP/Tinto Council notice uses UPPER BANYANG. Keep both and retain the current display name."
+  },
+  {
+    "pcode": "CM004003009",
+    "current": "Vele",
+    "recommendedOfficialName": "Vele",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1328 Vele",
+        "page": 32,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Gu%C3%A9m%C3%A9",
+        "quote": "Elle recouvre le territoire de l'arrondissement de Vélé."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM010001007",
+    "current": "West-Coast",
+    "recommendedOfficialName": "West-Coast",
+    "evidence": [
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1906 West-Coast",
+        "page": 38,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+        "quote": "Arrondissement de WEST COAST, chef-lieu : Idenau",
+        "page": 10
+      }
+    ],
+    "confidence": "high",
+    "legalStatus": "decree wording recovered",
+    "recommendedAction": "keep; preserve source variants",
+    "notes": "Keep the arrondissement name; a commune or chef-lieu label is stored separately. Legal creation text not recovered for this row unless a decree is cited."
+  },
+  {
+    "pcode": "CM007006005",
+    "current": "Widikum",
+    "recommendedOfficialName": "Widikum-Menka",
+    "evidence": [
+      {
+        "url": "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf",
+        "quote": "Widikum-Menka",
+        "page": 391,
+        "kind": "official administrative usage; table 21-1"
+      },
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1654 Widikum",
+        "page": 36,
+        "kind": "official administrative usage",
+        "quoteNote": "Code and label cells joined; whitespace and line wraps normalized."
+      },
+      {
+        "url": "https://fr.wikipedia.org/wiki/Widikum-Boffe",
+        "quote": "Son ressort territorial est celui de l'arrondissement de Widikum-Menka."
+      }
+    ],
+    "confidence": "medium",
+    "legalStatus": "official usage confirmed; exclusive legal spelling not found",
+    "recommendedAction": "change display name; preserve aliases",
+    "notes": "Recommend Widikum-Menka as the fuller administrative name used by INS 2024; retain Widikum as the official abbreviated table form and Widikum-Boffe as commune name. Original creation act not found."
+  }
+]

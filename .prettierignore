@@ -45,3 +45,5 @@ coverage/
 .Trashes
 ehthumbs.db
 Thumbs.db 
+# Data pool: raw sources must never be reformatted
+data/

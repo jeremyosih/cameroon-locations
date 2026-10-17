@@ -1,0 +1,3731 @@
+[
+ {
+  "pcode": "CM001001",
+  "parentPcode": "CM001",
+  "level": 2,
+  "name": {
+   "fr": "Djérem"
+  },
+  "refName": "Djerem",
+  "areaSqKm": 13311.843,
+  "centroid": [
+   12.739648,
+   6.529002
+  ],
+  "aliases": [
+   {
+    "name": "Djérem",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Djerem",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "DJEREM",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "DJEREM",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Djerem",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "DJEREM",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 124948,
+   "male": 61677,
+   "female": 63271,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.AD.DJ",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q1232309",
+   "label": "Djérem",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM001002",
+  "parentPcode": "CM001",
+  "level": 2,
+  "name": {
+   "fr": "Faro-et-Déo"
+  },
+  "refName": "Faro-et-Deo",
+  "areaSqKm": 10652.006,
+  "centroid": [
+   12.597918,
+   7.533038
+  ],
+  "aliases": [
+   {
+    "name": "Faro-et-Déo",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Faro-et-Deo",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "FARO ET DEO",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "FARO ET DEO",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Faro-Deo",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "FARO-ET-DEO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 82717,
+   "male": 40601,
+   "female": 42116,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.AD.FD",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2583647",
+   "label": "Faro-et-Déo",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM001003",
+  "parentPcode": "CM001",
+  "level": 2,
+  "name": {
+   "fr": "Mayo-Banyo"
+  },
+  "refName": "Mayo-Banyo",
+  "areaSqKm": 8474.882,
+  "centroid": [
+   11.783191,
+   6.614035
+  ],
+  "aliases": [
+   {
+    "name": "Mayo-Banyo",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MAYO BANYO",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MAYO-BANYO",
+    "source": "bucrep-rgph2005-repertoire-villages",
+    "kind": "population-table"
+   },
+   {
+    "name": "MAYO-BANYO",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mayo-Banyo",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MAYO-BANYO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 187066,
+   "male": 91274,
+   "female": 95792,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.AD.MB",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443291",
+   "label": "Mayo-Banyo",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM001004",
+  "parentPcode": "CM001",
+  "level": 2,
+  "name": {
+   "fr": "Mbéré"
+  },
+  "refName": "Mbere",
+  "areaSqKm": 14409.887,
+  "centroid": [
+   14.381613,
+   6.612059
+  ],
+  "aliases": [
+   {
+    "name": "Mbéré",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Mbere",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "MBERE",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MBERE",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mbéré",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MBERE",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 171670,
+   "male": 83944,
+   "female": 87726,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.AD.MR",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q937235",
+   "label": "Mbéré",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM001005",
+  "parentPcode": "CM001",
+  "level": 2,
+  "name": {
+   "fr": "Vina"
+  },
+  "refName": "Vina",
+  "areaSqKm": 17146.05,
+  "centroid": [
+   13.645753,
+   7.246028
+  ],
+  "aliases": [
+   {
+    "name": "Vina",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "VINA",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "VINA",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Vina",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "VINA",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 317888,
+   "male": 161417,
+   "female": 156471,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.AD.VI",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q667019",
+   "label": "Vina",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002001",
+  "parentPcode": "CM002",
+  "level": 2,
+  "name": {
+   "fr": "Haute-Sanaga"
+  },
+  "refName": "Haute-Sanaga",
+  "areaSqKm": 11734.187,
+  "centroid": [
+   12.581,
+   4.655177
+  ],
+  "aliases": [
+   {
+    "name": "Haute-Sanaga",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "HAUTE-SANAGA",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "HAUTE SANAGA",
+    "source": "bucrep-rgph2005-repertoire-villages",
+    "kind": "population-table"
+   },
+   {
+    "name": "HAUTE-SANAGA",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Haute-Sanaga",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "HAUTE-SANAGA",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 100352,
+   "male": 50501,
+   "female": 49851,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE.HS",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443161",
+   "label": "Haute-Sanaga",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002002",
+  "parentPcode": "CM002",
+  "level": 2,
+  "name": {
+   "fr": "Lekié"
+  },
+  "refName": "Lekie",
+  "areaSqKm": 3036.433,
+  "centroid": [
+   11.364456,
+   4.148755
+  ],
+  "aliases": [
+   {
+    "name": "Lekié",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Lekie",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "LEKIE",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "LEKIE",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Lekié",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "LEKIE",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 286050,
+   "male": 139611,
+   "female": 146439,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE.LE",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q607493",
+   "label": "Lekié",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002003",
+  "parentPcode": "CM002",
+  "level": 2,
+  "name": {
+   "fr": "Mbam-et-Inoubou"
+  },
+  "refName": "Mbam-et-Inoubou",
+  "areaSqKm": 6831.498,
+  "centroid": [
+   10.941866,
+   4.724469
+  ],
+  "aliases": [
+   {
+    "name": "Mbam-et-Inoubou",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MBAM ET INOUBOU",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MBAM-ET-INOUBOU",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mbam-et-Inoubou",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MBAM-ET-INOUBOU",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 188927,
+   "male": 94163,
+   "female": 94764,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE.MI",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445034",
+   "label": "Mbam-et-Inoubou",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002004",
+  "parentPcode": "CM002",
+  "level": 2,
+  "name": {
+   "fr": "Mbam-et-Kim"
+  },
+  "refName": "Mbam-et-Kim",
+  "areaSqKm": 26060.133,
+  "centroid": [
+   11.959027,
+   5.304706
+  ],
+  "aliases": [
+   {
+    "name": "Mbam-et-Kim",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MBAM ET KIM",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MBAM-ET-KIM",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mbam-et-Kim",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MBAM-ET-KIM",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 105511,
+   "male": 53845,
+   "female": 51666,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE.MK",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445194",
+   "label": "Mbam-et-Kim",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002005",
+  "parentPcode": "CM002",
+  "level": 2,
+  "name": {
+   "fr": "Mefou-et-Afamba"
+  },
+  "refName": "Mefou-et-Afamba",
+  "areaSqKm": 3359.22,
+  "centroid": [
+   11.791175,
+   3.934128
+  ],
+  "aliases": [
+   {
+    "name": "Mefou-et-Afamba",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MEFOU ET AFAMBA",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MEFOU-ET-AFAMBA",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mefou-et-Afamba",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MEFOU-ET-AFAMBA",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 126025,
+   "male": 62938,
+   "female": 63087,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE.MM",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445054",
+   "label": "Méfou-et-Afamba",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002006",
+  "parentPcode": "CM002",
+  "level": 2,
+  "name": {
+   "fr": "Mefou-et-Akono"
+  },
+  "refName": "Mefou-et-Akono",
+  "areaSqKm": 1336.255,
+  "centroid": [
+   11.367255,
+   3.612123
+  ],
+  "aliases": [
+   {
+    "name": "Mefou-et-Akono",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MEFOU ET AKONO",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MEFOU-ET-AKONO",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mefou-et-Akono",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MEFOU-ET-AKONO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 59017,
+   "male": 29784,
+   "female": 29233,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE.MN",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2444484",
+   "label": "Méfou-et-Akono",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002007",
+  "parentPcode": "CM002",
+  "level": 2,
+  "name": {
+   "fr": "Mfoundi"
+  },
+  "refName": "Mfoundi",
+  "areaSqKm": 289.408,
+  "centroid": [
+   11.508358,
+   3.841966
+  ],
+  "aliases": [
+   {
+    "name": "Mfoundi",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MFOUNDI",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MFOUNDI",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mfoundi",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MFOUNDI",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 1881876,
+   "male": 945745,
+   "female": 936131,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE.MF",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445046",
+   "label": "Mfoundi",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002008",
+  "parentPcode": "CM002",
+  "level": 2,
+  "name": {
+   "fr": "Nyong-et-Kellé"
+  },
+  "refName": "Nyong-et-Kelle",
+  "areaSqKm": 6353.429,
+  "centroid": [
+   10.924761,
+   3.77252
+  ],
+  "aliases": [
+   {
+    "name": "Nyong-et-Kellé",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Nyong-et-Kelle",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "NYONG ET KELLE",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "NYONG-ET-KELLE",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Nyong et Kéllé",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "NYONG-ET-KELLE",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 129819,
+   "male": 66802,
+   "female": 63017,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE.NK",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q729464",
+   "label": "Nyong-et-Kéllé",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002009",
+  "parentPcode": "CM002",
+  "level": 2,
+  "name": {
+   "fr": "Nyong-et-Mfoumou"
+  },
+  "refName": "Nyong-et-Mfoumou",
+  "areaSqKm": 6131.647,
+  "centroid": [
+   12.265391,
+   3.839098
+  ],
+  "aliases": [
+   {
+    "name": "Nyong-et-Mfoumou",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "NYONG ET MFOUMOU",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "NYONG-ET-MFOUMOU",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Nyong-et-Mfoumou",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "NYONG-ET-MFOUMOU",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 104507,
+   "male": 51536,
+   "female": 52971,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE.NM",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q587099",
+   "label": "Nyong-et-Mfoumou",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002010",
+  "parentPcode": "CM002",
+  "level": 2,
+  "name": {
+   "fr": "Nyong-et-So'o"
+  },
+  "refName": "Nyong-et-Soo",
+  "areaSqKm": 3589.546,
+  "centroid": [
+   11.672226,
+   3.46661
+  ],
+  "aliases": [
+   {
+    "name": "Nyong-et-So'o",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Nyong-et-Soo",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "NYONG ET SO’O",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "NYONG ET SO'O",
+    "source": "bucrep-rgph2005-repertoire-villages",
+    "kind": "population-table"
+   },
+   {
+    "name": "NYONG-ET-SO'O",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Nyong-et-Soo",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "NYONG-ET-SOO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 115960,
+   "male": 57437,
+   "female": 58523,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE.NS",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445625",
+   "label": "Nyong-et-So'o",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM003001",
+  "parentPcode": "CM003",
+  "level": 2,
+  "name": {
+   "fr": "Boumba-et-Ngoko"
+  },
+  "refName": "Boumba-et-Ngoko",
+  "areaSqKm": 31753.233,
+  "centroid": [
+   15.199602,
+   2.836623
+  ],
+  "aliases": [
+   {
+    "name": "Boumba-et-Ngoko",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "BOUMBA ET NGOKO",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "BOUMBA-ET-NGOKO",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Boumba-et-Ngoko",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "BOUMBA-ET-NGOKO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 115354,
+   "male": 57736,
+   "female": 57618,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.ES.BN",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443133",
+   "label": "Boumba-et-Ngoko",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM003002",
+  "parentPcode": "CM003",
+  "level": 2,
+  "name": {
+   "fr": "Haut-Nyong"
+  },
+  "refName": "Haut-Nyong",
+  "areaSqKm": 36051.35,
+  "centroid": [
+   13.537707,
+   3.366442
+  ],
+  "aliases": [
+   {
+    "name": "Haut-Nyong",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "HAUT NYONG",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "HAUT-NYONG",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Haut-Nyong",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "HAUT-NYONG",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 196519,
+   "male": 98119,
+   "female": 98400,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.ES.HN",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2442655",
+   "label": "Haut-Nyong",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM003003",
+  "parentPcode": "CM003",
+  "level": 2,
+  "name": {
+   "fr": "Kadey"
+  },
+  "refName": "Kadey",
+  "areaSqKm": 16123.172,
+  "centroid": [
+   14.415808,
+   4.478007
+  ],
+  "aliases": [
+   {
+    "name": "Kadey",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "KADEY",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "KADEY",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Kadey",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "KADEY",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 184098,
+   "male": 90681,
+   "female": 93417,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.ES.KA",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2444345",
+   "label": "Kadey",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM003004",
+  "parentPcode": "CM003",
+  "level": 2,
+  "name": {
+   "fr": "Lom-et-Djérem"
+  },
+  "refName": "Lom-et-Djerem",
+  "areaSqKm": 26063.693,
+  "centroid": [
+   13.669981,
+   5.234478
+  ],
+  "aliases": [
+   {
+    "name": "Lom-et-Djérem",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Lom-et-Djerem",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "LOM ET DJEREM",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "LOM-ET-DJEREM",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Lom-et-Djerem",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "LOM-ET-DJEREM",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 275784,
+   "male": 138609,
+   "female": 137175,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.ES.LD",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443276",
+   "label": "Lom-et-Djérem",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM004001",
+  "parentPcode": "CM004",
+  "level": 2,
+  "name": {
+   "fr": "Diamaré"
+  },
+  "refName": "Diamare",
+  "areaSqKm": 4761.142,
+  "centroid": [
+   14.416183,
+   10.662866
+  ],
+  "aliases": [
+   {
+    "name": "Diamaré",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Diamare",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "DIAMARE",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "DIAMARE",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Diamaré",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "DIAMARE",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 642227,
+   "male": 320550,
+   "female": 321677,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.EN.DI",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2583656",
+   "label": "Diamaré",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM004002",
+  "parentPcode": "CM004",
+  "level": 2,
+  "name": {
+   "fr": "Logone-et-Chari"
+  },
+  "refName": "Logone-et-Chari",
+  "areaSqKm": 12081.734,
+  "centroid": [
+   14.839749,
+   12.040739
+  ],
+  "aliases": [
+   {
+    "name": "Logone-et-Chari",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "LOGONE ET CHARI",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "LOGONE-ET-CHARI",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Logone-et-Chari",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "LOGONE-ET-CHARI",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 486997,
+   "male": 251349,
+   "female": 235648,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.EN.LC",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q576311",
+   "label": "Logone-et-Chari",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM004003",
+  "parentPcode": "CM004",
+  "level": 2,
+  "name": {
+   "fr": "Mayo-Danay"
+  },
+  "refName": "Mayo-Danay",
+  "areaSqKm": 5311.239,
+  "centroid": [
+   15.040802,
+   10.511027
+  ],
+  "aliases": [
+   {
+    "name": "Mayo-Danay",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MAYO DANAY",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MAYO-DANAY",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mayo-Danay",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MAYO-DANAY",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 529061,
+   "male": 253676,
+   "female": 275385,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.EN.MD",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2444290",
+   "label": "Mayo-Danay",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM004004",
+  "parentPcode": "CM004",
+  "level": 2,
+  "name": {
+   "fr": "Mayo-Kani"
+  },
+  "refName": "Mayo-Kani",
+  "areaSqKm": 4997.362,
+  "centroid": [
+   14.459288,
+   10.290654
+  ],
+  "aliases": [
+   {
+    "name": "Mayo-Kani",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MAYO KANI",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MAYO-KANI",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mayo-Kani",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MAYO-KANI",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 404646,
+   "male": 196731,
+   "female": 207915,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.EN.KA",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2444363",
+   "label": "Mayo-Kani",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM004005",
+  "parentPcode": "CM004",
+  "level": 2,
+  "name": {
+   "fr": "Mayo-Sava"
+  },
+  "refName": "Mayo-Sava",
+  "areaSqKm": 2630.937,
+  "centroid": [
+   14.214545,
+   11.104614
+  ],
+  "aliases": [
+   {
+    "name": "Mayo-Sava",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MAYO SAVA",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MAYO-SAVA",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mayo-Sava",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MAYO-SAVA",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 348890,
+   "male": 171005,
+   "female": 177885,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.EN.MS",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q613340",
+   "label": "Mayo-Sava",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM004006",
+  "parentPcode": "CM004",
+  "level": 2,
+  "name": {
+   "fr": "Mayo-Tsanaga"
+  },
+  "refName": "Mayo-Tsanaga",
+  "areaSqKm": 4378.399,
+  "centroid": [
+   13.80339,
+   10.606906
+  ],
+  "aliases": [
+   {
+    "name": "Mayo-Tsanaga",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MAYO TSANAGA",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MAYO-TSANAGA",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mayo-Tsanaga",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MAYO-TSANAGA",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 699971,
+   "male": 341936,
+   "female": 358035,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.EN.MT",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443777",
+   "label": "Mayo-Tsanaga",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM005001",
+  "parentPcode": "CM005",
+  "level": 2,
+  "name": {
+   "fr": "Moungo"
+  },
+  "refName": "Moungo",
+  "areaSqKm": 3882.676,
+  "centroid": [
+   9.773562,
+   4.700147
+  ],
+  "aliases": [
+   {
+    "name": "Moungo",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MOUNGO",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MOUNGO",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Moungo",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MOUNGO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 379241,
+   "male": 186110,
+   "female": 193131,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.LT.MU",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445609",
+   "label": "Moungo",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM005002",
+  "parentPcode": "CM005",
+  "level": 2,
+  "name": {
+   "fr": "Nkam"
+  },
+  "refName": "Nkam",
+  "areaSqKm": 6161.561,
+  "centroid": [
+   10.084835,
+   4.586863
+  ],
+  "aliases": [
+   {
+    "name": "Nkam",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "NKAM",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "NKAM",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Nkam",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "NKAM",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 36730,
+   "male": 18861,
+   "female": 17869,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.LT.NK",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445718",
+   "label": "Nkam",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM005003",
+  "parentPcode": "CM005",
+  "level": 2,
+  "name": {
+   "fr": "Sanaga-Maritime"
+  },
+  "refName": "Sanaga-Maritime",
+  "areaSqKm": 9190.244,
+  "centroid": [
+   10.182442,
+   3.934707
+  ],
+  "aliases": [
+   {
+    "name": "Sanaga-Maritime",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "SANAGA MARITIME",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "SANAGA-MARITIME",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Sanaga-Maritime",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "SANAGA-MARITIME",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 162315,
+   "male": 83497,
+   "female": 78818,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.LT.SM",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445164",
+   "label": "Sanaga-Maritime",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM005004",
+  "parentPcode": "CM005",
+  "level": 2,
+  "name": {
+   "fr": "Wouri"
+  },
+  "refName": "Wouri",
+  "areaSqKm": 975.567,
+  "centroid": [
+   9.664437,
+   4.053739
+  ],
+  "aliases": [
+   {
+    "name": "Wouri",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "WOURI",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "WOURI",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Wouri",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "WOURI",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 1931977,
+   "male": 972469,
+   "female": 959508,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.LT.WO",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q769841",
+   "label": "Wouri",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM006001",
+  "parentPcode": "CM006",
+  "level": 2,
+  "name": {
+   "fr": "Bénoué"
+  },
+  "refName": "Benoue",
+  "areaSqKm": 13668.223,
+  "centroid": [
+   13.438456,
+   9.177869
+  ],
+  "aliases": [
+   {
+    "name": "Bénoué",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Benoue",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "BENOUE",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "BENOUE",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Bénoué",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "BENOUE",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 851955,
+   "male": 428660,
+   "female": 423295,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NO.BE",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2442627",
+   "label": "Bénoué",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM006002",
+  "parentPcode": "CM006",
+  "level": 2,
+  "name": {
+   "fr": "Faro"
+  },
+  "refName": "Faro",
+  "areaSqKm": 11703.969,
+  "centroid": [
+   12.850692,
+   8.422166
+  ],
+  "aliases": [
+   {
+    "name": "Faro",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "FARO",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "FARO",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Faro",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "FARO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 69477,
+   "male": 34380,
+   "female": 35097,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NO.FA",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443138",
+   "label": "Faro",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM006003",
+  "parentPcode": "CM006",
+  "level": 2,
+  "name": {
+   "fr": "Mayo-Louti"
+  },
+  "refName": "Mayo-Louti",
+  "areaSqKm": 4207.363,
+  "centroid": [
+   13.881469,
+   9.912835
+  ],
+  "aliases": [
+   {
+    "name": "Mayo-Louti",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MAYO LOUTI",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MAYO LOUTI",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mayo-Louti",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MAYO-LOUTI",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 391326,
+   "male": 186940,
+   "female": 204386,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NO.ML",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443752",
+   "label": "Mayo-Louti",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM006004",
+  "parentPcode": "CM006",
+  "level": 2,
+  "name": {
+   "fr": "Mayo-Rey"
+  },
+  "refName": "Mayo-Rey",
+  "areaSqKm": 36576.261,
+  "centroid": [
+   14.341185,
+   8.195243
+  ],
+  "aliases": [
+   {
+    "name": "Mayo-Rey",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MAYO REY",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MAYO-REY",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mayo-Rey",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MAYO-REY",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 375201,
+   "male": 186947,
+   "female": 188254,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NO.MA",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443767",
+   "label": "Mayo-Rey",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM007001",
+  "parentPcode": "CM007",
+  "level": 2,
+  "name": {
+   "fr": "Boyo"
+  },
+  "refName": "Boyo",
+  "areaSqKm": 1651.033,
+  "centroid": [
+   10.423244,
+   6.407576
+  ],
+  "aliases": [
+   {
+    "name": "Boyo",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "BOYO",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "BOYO",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Boyo",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "BOYO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 124887,
+   "male": 56512,
+   "female": 68375,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NW.BO",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2442750",
+   "label": "Boyo",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM007002",
+  "parentPcode": "CM007",
+  "level": 2,
+  "name": {
+   "fr": "Bui"
+  },
+  "refName": "Bui",
+  "areaSqKm": 2211.378,
+  "centroid": [
+   10.715305,
+   6.228028
+  ],
+  "aliases": [
+   {
+    "name": "Bui",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "BUI",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "BUI",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Bui",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "BUI",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 321969,
+   "male": 155677,
+   "female": 166292,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NW.BU",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q702284",
+   "label": "Bui",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM007003",
+  "parentPcode": "CM007",
+  "level": 2,
+  "name": {
+   "fr": "Donga-Mantung"
+  },
+  "refName": "Donga-Mantung",
+  "areaSqKm": 4309.94,
+  "centroid": [
+   10.772084,
+   6.684846
+  ],
+  "aliases": [
+   {
+    "name": "Donga-Mantung",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "DONGA MANTUNG",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "DONGA-MANTUNG",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Donga-Mantung",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "DONGA-MANTUNG",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 269931,
+   "male": 128238,
+   "female": 141693,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NW.DM",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2442736",
+   "label": "Donga-Mantung",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM007004",
+  "parentPcode": "CM007",
+  "level": 2,
+  "name": {
+   "fr": "Menchum"
+  },
+  "refName": "Menchum",
+  "areaSqKm": 4541.82,
+  "centroid": [
+   10.043329,
+   6.623452
+  ],
+  "aliases": [
+   {
+    "name": "Menchum",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MENCHUM",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MENCHUM",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Menchum",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MENCHUM",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 161998,
+   "male": 77448,
+   "female": 84550,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NW.MC",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q685677",
+   "label": "Menchum",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM007005",
+  "parentPcode": "CM007",
+  "level": 2,
+  "name": {
+   "fr": "Mezam"
+  },
+  "refName": "Mezam",
+  "areaSqKm": 1848.946,
+  "centroid": [
+   10.213897,
+   6.004674
+  ],
+  "aliases": [
+   {
+    "name": "Mezam",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MEZAM",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MEZAM",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mezam",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MEZAM",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 524127,
+   "male": 254620,
+   "female": 269507,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NW.ME",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q966674",
+   "label": "Mezam",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM007006",
+  "parentPcode": "CM007",
+  "level": 2,
+  "name": {
+   "fr": "Momo"
+  },
+  "refName": "Momo",
+  "areaSqKm": 1792.14,
+  "centroid": [
+   9.833134,
+   5.999764
+  ],
+  "aliases": [
+   {
+    "name": "Momo",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MOMO",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MOMO",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Momo",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MOMO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 138693,
+   "male": 66822,
+   "female": 71871,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NW.MO",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2538015",
+   "label": "Momo",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM007007",
+  "parentPcode": "CM007",
+  "level": 2,
+  "name": {
+   "fr": "Ngo-Ketunjia"
+  },
+  "refName": "Ngo-Ketunjia",
+  "areaSqKm": 1062.336,
+  "centroid": [
+   10.51836,
+   5.965602
+  ],
+  "aliases": [
+   {
+    "name": "Ngo-Ketunjia",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "NGO KETUNJIA",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "NGO-KETUNJIA",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Ngo-Ketunjia",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "NGO-KETUNJIA",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 187348,
+   "male": 89545,
+   "female": 97803,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NW.NK",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445374",
+   "label": "Ngo-Ketunjia",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM008001",
+  "parentPcode": "CM008",
+  "level": 2,
+  "name": {
+   "fr": "Bamboutos"
+  },
+  "refName": "Bamboutos",
+  "areaSqKm": 1172.596,
+  "centroid": [
+   10.292618,
+   5.667776
+  ],
+  "aliases": [
+   {
+    "name": "Bamboutos",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "BAMBOUTOS",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "BAMBOUTOS",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Bamboutos",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "BAMBOUTOS",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 292410,
+   "male": 131902,
+   "female": 160508,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.OU.BA",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2442690",
+   "label": "Bamboutos",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM008002",
+  "parentPcode": "CM008",
+  "level": 2,
+  "name": {
+   "fr": "Haut-Nkam"
+  },
+  "refName": "Haut-Nkam",
+  "areaSqKm": 968.989,
+  "centroid": [
+   10.176259,
+   5.146733
+  ],
+  "aliases": [
+   {
+    "name": "Haut-Nkam",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "HAUT-NKAM",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "HAUT-NKAM",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Haut-Nkam",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "HAUT-NKAM",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 144786,
+   "male": 68730,
+   "female": 76056,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.OU.HN",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2442640",
+   "label": "Haut-Nkam",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM008003",
+  "parentPcode": "CM008",
+  "level": 2,
+  "name": {
+   "fr": "Hauts-Plateaux"
+  },
+  "refName": "Hauts-Plateaux",
+  "areaSqKm": 433.685,
+  "centroid": [
+   10.342366,
+   5.301518
+  ],
+  "aliases": [
+   {
+    "name": "Hauts-Plateaux",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "HAUTS-PLATEAUX",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "HAUTS-PLATEAUX",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Hauts-Plateaux",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "HAUTS-PLATEAUX",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 80678,
+   "male": 35648,
+   "female": 45030,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.OU.HP",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443778",
+   "label": "Hauts-Plateaux",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM008004",
+  "parentPcode": "CM008",
+  "level": 2,
+  "name": {
+   "fr": "Koung-Khi"
+  },
+  "refName": "Koung-Khi",
+  "areaSqKm": 344.008,
+  "centroid": [
+   10.492457,
+   5.331211
+  ],
+  "aliases": [
+   {
+    "name": "Koung-Khi",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "KOUNG-KHI",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "KOUNG-KHI",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Koung-Khi",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "KOUNG-KHI",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 65021,
+   "male": 30128,
+   "female": 34893,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.OU.KK",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443749",
+   "label": "Koung-Khi",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM008005",
+  "parentPcode": "CM008",
+  "level": 2,
+  "name": {
+   "fr": "Menoua"
+  },
+  "refName": "Menoua",
+  "areaSqKm": 1384.944,
+  "centroid": [
+   10.114359,
+   5.406546
+  ],
+  "aliases": [
+   {
+    "name": "Menoua",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MENOUA",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MENOUA",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Menoua",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MENOUA",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 285764,
+   "male": 128919,
+   "female": 156845,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.OU.ME",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q921417",
+   "label": "Menoua",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM008006",
+  "parentPcode": "CM008",
+  "level": 2,
+  "name": {
+   "fr": "Mifi"
+  },
+  "refName": "Mifi",
+  "areaSqKm": 409.981,
+  "centroid": [
+   10.453912,
+   5.51206
+  ],
+  "aliases": [
+   {
+    "name": "Mifi",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MIFI",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MIFI",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mifi",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MIFI",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 301456,
+   "male": 144488,
+   "female": 156968,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.OU.MF",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445728",
+   "label": "Mifi",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM008007",
+  "parentPcode": "CM008",
+  "level": 2,
+  "name": {
+   "fr": "Ndé"
+  },
+  "refName": "Nde",
+  "areaSqKm": 1594.436,
+  "centroid": [
+   10.597992,
+   5.040159
+  ],
+  "aliases": [
+   {
+    "name": "Ndé",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Nde",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "NDE",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "NDE",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Ndé",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "NDE",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 94849,
+   "male": 46088,
+   "female": 48761,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.OU.ND",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445638",
+   "label": "Ndé",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM008008",
+  "parentPcode": "CM008",
+  "level": 2,
+  "name": {
+   "fr": "Noun"
+  },
+  "refName": "Noun",
+  "areaSqKm": 7645.735,
+  "centroid": [
+   10.856872,
+   5.59418
+  ],
+  "aliases": [
+   {
+    "name": "Noun",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "NOUN",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "NOUN",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Noun",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "NOUN",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 455083,
+   "male": 219575,
+   "female": 235508,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.OU.NO",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445359",
+   "label": "Noun",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM009001",
+  "parentPcode": "CM009",
+  "level": 2,
+  "name": {
+   "fr": "Dja-et-Lobo"
+  },
+  "refName": "Dja-et-Lobo",
+  "areaSqKm": 19922.313,
+  "centroid": [
+   12.241981,
+   2.924504
+  ],
+  "aliases": [
+   {
+    "name": "Dja-et-Lobo",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "DJA ET LOBO",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "DJA-ET-LOBO",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Dja-et-Lobo",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "DJA-ET-LOBO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 196951,
+   "male": 99510,
+   "female": 97441,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SU.DL",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q784802",
+   "label": "Dja-et-Lobo",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM009002",
+  "parentPcode": "CM009",
+  "level": 2,
+  "name": {
+   "fr": "Mvila"
+  },
+  "refName": "Mvila",
+  "areaSqKm": 8677.844,
+  "centroid": [
+   11.436763,
+   2.73197
+  ],
+  "aliases": [
+   {
+    "name": "Mvila",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MVILA",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MVILA",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Mvila",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MVILA",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 179429,
+   "male": 90871,
+   "female": 88558,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SU.MV",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445743",
+   "label": "Mvila",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM009003",
+  "parentPcode": "CM009",
+  "level": 2,
+  "name": {
+   "fr": "Océan"
+  },
+  "refName": "Ocean",
+  "areaSqKm": 11388.12,
+  "centroid": [
+   10.284444,
+   2.875236
+  ],
+  "aliases": [
+   {
+    "name": "Océan",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Ocean",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "OCEAN",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "OCEAN",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Océan",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "OCEAN",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 179093,
+   "male": 90198,
+   "female": 88895,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SU.OC",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445229",
+   "label": "Océan",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM009004",
+  "parentPcode": "CM009",
+  "level": 2,
+  "name": {
+   "fr": "Vallée-du-Ntem"
+  },
+  "refName": "Vallee-du-Ntem",
+  "areaSqKm": 7184.889,
+  "centroid": [
+   10.970299,
+   2.482482
+  ],
+  "aliases": [
+   {
+    "name": "Vallée-du-Ntem",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Vallee-du-Ntem",
+    "source": "ocha-cod-ab-cmr",
+    "kind": "ascii-reference"
+   },
+   {
+    "name": "VALLEE DU NTEM",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "VALLE DU NTEM",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Vallée-du-Ntem",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "VALLEE-DU-NTEM",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 79182,
+   "male": 40764,
+   "female": 38418,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SU.VN",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445579",
+   "label": "Vallée-du-Ntem",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM010001",
+  "parentPcode": "CM010",
+  "level": 2,
+  "name": {
+   "fr": "Fako"
+  },
+  "refName": "Fako",
+  "areaSqKm": 2036.287,
+  "centroid": [
+   9.26107,
+   4.18414
+  ],
+  "aliases": [
+   {
+    "name": "Fako",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "FAKO",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "FAKO",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Fako",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "FAKO",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 466412,
+   "male": 234145,
+   "female": 232267,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SW.FA",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q955885",
+   "label": "Fako",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM010002",
+  "parentPcode": "CM010",
+  "level": 2,
+  "name": {
+   "fr": "Kupe-Manenguba"
+  },
+  "refName": "Kupe-Manenguba",
+  "areaSqKm": 3452.366,
+  "centroid": [
+   9.640482,
+   5.04794
+  ],
+  "aliases": [
+   {
+    "name": "Kupe-Manenguba",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "KUPE ET MANENGUBA",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "KOUPE-MANENGOUBA",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Koupé-Manengouba",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "KUPE-ET-MANENGUBA",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 105579,
+   "male": 53509,
+   "female": 52070,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SW.KM",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2444337",
+   "label": "Koupé-Manengouba",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM010003",
+  "parentPcode": "CM010",
+  "level": 2,
+  "name": {
+   "fr": "Lebialem"
+  },
+  "refName": "Lebialem",
+  "areaSqKm": 641.736,
+  "centroid": [
+   9.913085,
+   5.559051
+  ],
+  "aliases": [
+   {
+    "name": "Lebialem",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "LEBIALEM",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "LEBIALEM",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Lebialem",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "LEBIALEM",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 113736,
+   "male": 56021,
+   "female": 57715,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SW.LE",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2443757",
+   "label": "Lebialem",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM010004",
+  "parentPcode": "CM010",
+  "level": 2,
+  "name": {
+   "fr": "Manyu"
+  },
+  "refName": "Manyu",
+  "areaSqKm": 9470.919,
+  "centroid": [
+   9.262181,
+   5.9082
+  ],
+  "aliases": [
+   {
+    "name": "Manyu",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MANYU",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MANYU",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Manyu",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MANYU",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 181039,
+   "male": 91135,
+   "female": 89904,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SW.MN",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q636257",
+   "label": "Manyu",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM010005",
+  "parentPcode": "CM010",
+  "level": 2,
+  "name": {
+   "fr": "Meme"
+  },
+  "refName": "Meme",
+  "areaSqKm": 2849.064,
+  "centroid": [
+   9.393556,
+   4.661642
+  ],
+  "aliases": [
+   {
+    "name": "Meme",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "MEME",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "MEME",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Meme",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "MEME",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 326734,
+   "male": 167554,
+   "female": 159180,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SW.MM",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2582684",
+   "label": "Meme",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM010006",
+  "parentPcode": "CM010",
+  "level": 2,
+  "name": {
+   "fr": "Ndian"
+  },
+  "refName": "Ndian",
+  "areaSqKm": 6313.905,
+  "centroid": [
+   8.948054,
+   4.844952
+  ],
+  "aliases": [
+   {
+    "name": "Ndian",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "NDIAN",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "NDIAN",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "Ndian",
+    "source": "location-script-reference-tables",
+    "kind": "hasc-table"
+   },
+   {
+    "name": "NDIAN",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 122579,
+   "male": 64458,
+   "female": 58121,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SW.ND",
+   "source": "location-script-reference-tables"
+  },
+  "wikidata": {
+   "qid": "Q2445180",
+   "label": "Ndian",
+   "entityScope": "department",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked; P131 parent matched",
+   "source": "research-2026-10-17"
+  }
+ }
+]

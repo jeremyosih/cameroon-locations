@@ -1,0 +1,162 @@
+{
+ "description": "Manual ELECAM (region|division|council) → COD-AB P-code decisions. Key = level|parentPcode|ELECAM name. ELECAM names many communes after their chef-lieu.",
+ "decidedOn": "2026-10-17",
+ "manual": {
+  "2|CM009|VALLE DU NTEM": {
+   "pcode": "CM009004",
+   "reason": "Spelling: Vallée-du-Ntem"
+  },
+  "2|CM010|KOUPE-MANENGOUBA": {
+   "pcode": "CM010002",
+   "reason": "Spelling: Kupe-Manenguba"
+  },
+  "1|null|CMR A L'ETRANGER": {
+   "pcode": null,
+   "reason": "Diaspora (Cameroonians abroad): no territorial unit; kept with pcode null"
+  },
+  "3|CM002005|OLANGUINA": {
+   "pcode": "CM002005002",
+   "reason": "Commune named after chef-lieu. OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists village OLANGUINA in this arrondissement"
+  },
+  "3|CM002009|KOBDOMBO": {
+   "pcode": "CM002009005",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists village KOBDOMBO in this arrondissement"
+  },
+  "3|CM003002|ANGOSSAS": {
+   "pcode": "CM003002008",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists villages ANGOSSAS I/II in this arrondissement"
+  },
+  "3|CM003002|ATOK": {
+   "pcode": "CM003002002",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists village ATOK in this arrondissement"
+  },
+  "3|CM003002|MINDOUROU": {
+   "pcode": "CM003002004",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton MINDOUROU VILLE in this arrondissement"
+  },
+  "3|CM003003|KENTZOU": {
+   "pcode": "CM003003002",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts). Note: BUCREP lists a village KENTZOU II under Ndélélé — open question"
+  },
+  "3|CM003003|NGUELEBOK": {
+   "pcode": "CM003003007",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); last unclaimed arrondissement in Kadey"
+  },
+  "3|CM003003|OULI": {
+   "pcode": "CM003003005",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists village OULI in this arrondissement"
+  },
+  "3|CM004002|MAKARI": {
+   "pcode": "CM004002008",
+   "reason": "Spelling: Makary; BUCREP cantons MAKARI VILLE/RURAL"
+  },
+  "3|CM004003|GUEME-VELE": {
+   "pcode": "CM004003009",
+   "reason": "OSM shape Guémé lies in COD-AB Vele; commune Guémé-Vélé"
+  },
+  "3|CM004004|DZIGUILAO": {
+   "pcode": "CM004004007",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton DZIGUILAO VILLE in this arrondissement"
+  },
+  "3|CM004004|TOULOUM": {
+   "pcode": "CM004004006",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists cantons TOULOUM VILLE/RURAL in this arrondissement"
+  },
+  "3|CM004006|BOURHA": {
+   "pcode": "CM004006001",
+   "reason": "Spelling: Bourrha; OSM shape Bourha matches spatially"
+  },
+  "3|CM004006|MOZOGO": {
+   "pcode": "CM004006004",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton MOZOGO in this arrondissement"
+  },
+  "3|CM005001|BONALEA": {
+   "pcode": "CM005001003",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); Abo arrondissement (OCHA Fiko)"
+  },
+  "3|CM005001|EBONE": {
+   "pcode": "CM005001013",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton EBONE in this arrondissement"
+  },
+  "3|CM005002|NDOBIAN": {
+   "pcode": "CM005002002",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton NDOBIAN in this arrondissement"
+  },
+  "3|CM005003|MASSOK-SONGLOULOU": {
+   "pcode": "CM005003005",
+   "reason": "Spelling: Massock-Songloulou"
+  },
+  "3|CM006001|GASCHIGA": {
+   "pcode": "CM006001004",
+   "reason": "OSM shape Gachiga lies 100% in COD-AB Demsa"
+  },
+  "3|CM006001|NGONG": {
+   "pcode": "CM006001011",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists villages NGONG … in this arrondissement"
+  },
+  "3|CM007001|FONFUKA": {
+   "pcode": "CM007001002",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton FONFUKA TOWN in this arrondissement"
+  },
+  "3|CM007002|ELAK": {
+   "pcode": "CM007002006",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists village ELAK, canton ELAK-OKU in this arrondissement"
+  },
+  "3|CM007002|MBIAME": {
+   "pcode": "CM007002003",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton MBIAME in this arrondissement"
+  },
+  "3|CM007002|NKOR": {
+   "pcode": "CM007002005",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton NKOR VILLE in this arrondissement"
+  },
+  "3|CM007004|BENAKUMA": {
+   "pcode": "CM007004003",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts)"
+  },
+  "3|CM007004|ZHOA": {
+   "pcode": "CM007004001",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton ZHOA in this arrondissement"
+  },
+  "3|CM007006|ANDEK": {
+   "pcode": "CM007006003",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists village ANDEK in this arrondissement"
+  },
+  "3|CM007006|WIDIKUM-BOFFE": {
+   "pcode": "CM007006005",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts)"
+  },
+  "3|CM008004|DEMDING": {
+   "pcode": "CM008004002",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts)"
+  },
+  "3|CM008004|PETE-BANDJOUN": {
+   "pcode": "CM008004003",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts)"
+  },
+  "3|CM009002|MVANGAN": {
+   "pcode": "CM009002007",
+   "reason": "Spelling: Mvangane"
+  },
+  "3|CM010001|IDENAU": {
+   "pcode": "CM010001007",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton IDENAU TOWN in this arrondissement"
+  },
+  "3|CM010003|MENJI": {
+   "pcode": "CM010003002",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton MENJI TOWN in this arrondissement"
+  },
+  "3|CM010004|EYUMOJOCK": {
+   "pcode": "CM010004002",
+   "reason": "Spelling: Eyumodjock"
+  },
+  "3|CM010004|TINTO": {
+   "pcode": "CM010004004",
+   "reason": "OSM/geoBoundaries shape of this name lies 100% inside this COD-AB polygon (tools/spatial-match-geoboundaries.ts); BUCREP 2005 lists canton TINTO TOWN in this arrondissement"
+  },
+  "3|CM010006|ISANGUELE": {
+   "pcode": "CM010006005",
+   "reason": "Spelling: Isangele"
+  }
+ }
+}

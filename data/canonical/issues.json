@@ -1,0 +1,1967 @@
+[
+ {
+  "kind": "parent-conflict",
+  "pcode": "CM002010001",
+  "name": "Akoeman",
+  "detail": "PARENT CONFLICT: BUCREP 2005 lists Akoeman under Nyong-et-Mfoumou (CM002009); OCHA COD-AB and ELECAM 2025 place it in Nyong-et-So'o (CM002010). Official P-code used; conflict recorded in issues.",
+  "bucrepDivision": "NYONG ET MFOUMOU",
+  "sources": [
+   "bucrep-rgph2005-repertoire-villages",
+   "ocha-cod-ab-cmr",
+   "elecam-polling-stations-2025"
+  ],
+  "status": "resolved",
+  "resolution": "Decree 2010/198 (16 June 2010), p.4: 'DEPARTEMENT DU NYONG-ET-SO'O – Arrondissement d'AKOEMAN, chef-lieu : Akoeman' (ex-District d'Akoeman, carved from Mbalmayo). BUCREP's placement under Nyong-et-Mfoumou is an error in the directory. Verified visually 2026-10-17.",
+  "evidence": [
+   "research/downloads/decree-2010-198/source.pdf"
+  ]
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "BANYO",
+  "canton": "LAMIDAT DE BANYO",
+  "line": 439,
+  "printed": 63091,
+  "sum": 63092,
+  "diff": 1,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "DJOHONG",
+  "canton": "DJOHONG VILLE",
+  "line": 621,
+  "printed": 4145,
+  "sum": 4144,
+  "diff": -1,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "DJOHONG",
+  "canton": "DJOHONG RURAL",
+  "line": 628,
+  "printed": 20300,
+  "sum": 20299,
+  "diff": -1,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "NGAOUNDERE II",
+  "canton": "NGAOUNDERE-VILLE",
+  "line": 973,
+  "printed": 78406,
+  "sum": 78407,
+  "diff": 1,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "NKOTENG",
+  "canton": "OUASSA- BABOUTE",
+  "line": 1565,
+  "printed": 1099,
+  "sum": 823,
+  "diff": -276,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "LOBO",
+  "canton": "GROUPEMENT MVOG NAMA I",
+  "line": 1800,
+  "printed": 9066,
+  "sum": 8575,
+  "diff": -491,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "BIYOUHA",
+  "canton": "BIYOUHA RURAL",
+  "line": 4011,
+  "printed": 1735,
+  "sum": 1597,
+  "diff": -138,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "AKONOLINGA",
+  "canton": "AKONOLINGA VILLE",
+  "line": 4475,
+  "printed": 19282,
+  "sum": 18430,
+  "diff": -852,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "AKONOLINGA",
+  "canton": "YEBEKOLO NORD",
+  "line": 4571,
+  "printed": 4977,
+  "sum": 4697,
+  "diff": -280,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "GAZAWA",
+  "canton": "GAZAWA RURAL",
+  "line": 7354,
+  "printed": 16389,
+  "sum": 16388,
+  "diff": -1,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "HILE-ALIFA",
+  "canton": "HILÉ-ALIFA RURAL",
+  "line": 9169,
+  "printed": 14778,
+  "sum": 14820,
+  "diff": 42,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "GUERE",
+  "canton": "SAAVOUSSOU",
+  "line": 10019,
+  "printed": 14915,
+  "sum": 14914,
+  "diff": -1,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "GUIDIGUIS",
+  "canton": "GUIDIGUIS VILLE",
+  "line": 10473,
+  "printed": 15741,
+  "sum": 15743,
+  "diff": 2,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "BATCHAM",
+  "canton": "BANGANG",
+  "line": 18379,
+  "printed": 33213,
+  "sum": 33217,
+  "diff": 4,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "GALIM",
+  "canton": "BAGAM",
+  "line": 18557,
+  "printed": 25875,
+  "sum": 25877,
+  "diff": 2,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "DJEBEM",
+  "canton": "BANDJOUN",
+  "line": 19399,
+  "printed": 7547,
+  "sum": 7545,
+  "diff": -2,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "arr-total≠Σcantons",
+  "arr": "MEYOMESSI",
+  "line": 21379,
+  "printed": 9227,
+  "sum": 9228,
+  "diff": 1,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "MEYOMESSI",
+  "canton": "NDONG",
+  "line": 21382,
+  "printed": 4395,
+  "sum": 4394,
+  "diff": -1,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "MVENGUE",
+  "canton": "MVOG TSOUNG MBALLA",
+  "line": 22394,
+  "printed": 5709,
+  "sum": 5331,
+  "diff": -378,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "arr-total≠Σcantons",
+  "arr": "KYE OSSI",
+  "line": 22666,
+  "printed": 17120,
+  "sum": 16887,
+  "diff": -233,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "KYE OSSI",
+  "canton": "NTOUMOU SUD",
+  "line": 22669,
+  "printed": 12249,
+  "sum": 12479,
+  "diff": 230,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "TIKO",
+  "canton": "MUTENGENE TOWN",
+  "line": 22929,
+  "printed": 43048,
+  "sum": 43069,
+  "diff": 21,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "AKWAYA",
+  "canton": "ASSUMBO",
+  "line": 23370,
+  "printed": 18671,
+  "sum": 18703,
+  "diff": 32,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "AKWAYA",
+  "canton": "MESSAGA EKOL",
+  "line": 23461,
+  "printed": 18446,
+  "sum": 18445,
+  "diff": -1,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "AKWAYA",
+  "canton": "TAKAMANDA",
+  "line": 23469,
+  "printed": 17898,
+  "sum": 17757,
+  "diff": -141,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "BAMUSSO",
+  "canton": "BALONDO",
+  "line": 23956,
+  "printed": 5717,
+  "sum": 5716,
+  "diff": -1,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "canton-total≠Σvillages",
+  "arr": "KOMBO ITINDI",
+  "canton": "KOMBO ITINDI RURAL",
+  "line": 24135,
+  "printed": 2958,
+  "sum": 2952,
+  "diff": -6,
+  "note": "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "BARZA FOULBÉ",
+  "line": 7355,
+  "total": 336,
+  "male": 159,
+  "female": 176,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "IBBAO GUIZIGA",
+  "line": 7368,
+  "total": 267,
+  "male": 123,
+  "female": 143,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "IBBAO MOUFOU",
+  "line": 7369,
+  "total": 250,
+  "male": 111,
+  "female": 140,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MAKOUMBA II",
+  "line": 7374,
+  "total": 195,
+  "male": 88,
+  "female": 108,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MASSAKAL KOULEK",
+  "line": 7379,
+  "total": 649,
+  "male": 313,
+  "female": 337,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MBANKARA MAZAO",
+  "line": 7387,
+  "total": 72,
+  "male": 35,
+  "female": 38,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MBANKARA NASSARAO",
+  "line": 7388,
+  "total": 400,
+  "male": 230,
+  "female": 171,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MBANKARA SALI MAMA",
+  "line": 7389,
+  "total": 72,
+  "male": 35,
+  "female": 38,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MINAWA GUIZIGA",
+  "line": 7393,
+  "total": 206,
+  "male": 107,
+  "female": 98,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MINGUILIAO",
+  "line": 7403,
+  "total": 195,
+  "male": 103,
+  "female": 93,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MIZILING GUIZIGA",
+  "line": 7405,
+  "total": 390,
+  "male": 189,
+  "female": 200,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MOUSSIRAK FOULBÉ",
+  "line": 7406,
+  "total": 144,
+  "male": 62,
+  "female": 81,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "POURTAMAI GUIZIGA",
+  "line": 7417,
+  "total": 424,
+  "male": 214,
+  "female": 211,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "WAWALA GUIZIGA",
+  "line": 7418,
+  "total": 232,
+  "male": 125,
+  "female": 108,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "WOURO MATAL",
+  "line": 7419,
+  "total": 120,
+  "male": 54,
+  "female": 65,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "WOURO NGOBA",
+  "line": 7420,
+  "total": 314,
+  "male": 153,
+  "female": 160,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "YOLA MALIKI FOULBÉ",
+  "line": 7423,
+  "total": 466,
+  "male": 233,
+  "female": 232,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "YOLA MALIKI MOUFOU",
+  "line": 7424,
+  "total": 618,
+  "male": 290,
+  "female": 329,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "ZOUMBA GUIZIGA",
+  "line": 7426,
+  "total": 377,
+  "male": 192,
+  "female": 186,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "DANIGUE",
+  "line": 10022,
+  "total": 1900,
+  "male": 861,
+  "female": 1038,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "GAOYANGA",
+  "line": 10025,
+  "total": 1583,
+  "male": 759,
+  "female": 825,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "GROUM",
+  "line": 10027,
+  "total": 1558,
+  "male": 724,
+  "female": 835,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "BAGA",
+  "line": 10104,
+  "total": 1571,
+  "male": 762,
+  "female": 808,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "DJABÉWAL",
+  "line": 10109,
+  "total": 998,
+  "male": 458,
+  "female": 541,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "GOLONG BESOUWÉ",
+  "line": 10112,
+  "total": 110,
+  "male": 49,
+  "female": 60,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "GOLOPO",
+  "line": 10113,
+  "total": 487,
+  "male": 259,
+  "female": 229,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MESKINE",
+  "line": 10121,
+  "total": 929,
+  "male": 431,
+  "female": 499,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "NEGEM",
+  "line": 10123,
+  "total": 25,
+  "male": 13,
+  "female": 11,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "WOURO MAL SAMBO",
+  "line": 10125,
+  "total": 1028,
+  "male": 498,
+  "female": 529,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "DAMTIKORÉ MANA",
+  "line": 10477,
+  "total": 127,
+  "male": 72,
+  "female": 54,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "DANDÉO SALI",
+  "line": 10479,
+  "total": 115,
+  "male": 57,
+  "female": 59,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "DANDÉO SALI FALAMA",
+  "line": 10480,
+  "total": 103,
+  "male": 64,
+  "female": 38,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "DANDÉO SAMSI",
+  "line": 10481,
+  "total": 276,
+  "male": 133,
+  "female": 142,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "DINAO",
+  "line": 10482,
+  "total": 402,
+  "male": 221,
+  "female": 180,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "DJABIRÉ",
+  "line": 10483,
+  "total": 171,
+  "male": 92,
+  "female": 78,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "GASSEL",
+  "line": 10485,
+  "total": 547,
+  "male": 243,
+  "female": 303,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "HARDÉ LAWAL",
+  "line": 10489,
+  "total": 87,
+  "male": 44,
+  "female": 42,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "HARDÉO",
+  "line": 10491,
+  "total": 702,
+  "male": 395,
+  "female": 308,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "KODOGUI",
+  "line": 10493,
+  "total": 81,
+  "male": 47,
+  "female": 35,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "KRO",
+  "line": 10494,
+  "total": 581,
+  "male": 287,
+  "female": 295,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "LARAO",
+  "line": 10496,
+  "total": 1006,
+  "male": 475,
+  "female": 532,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "LITARÉ",
+  "line": 10497,
+  "total": 30,
+  "male": 11,
+  "female": 18,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "TCHAKAO",
+  "line": 10505,
+  "total": 347,
+  "male": 154,
+  "female": 192,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "TERSING",
+  "line": 10507,
+  "total": 487,
+  "male": 256,
+  "female": 232,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "YOLDÉO",
+  "line": 10521,
+  "total": 128,
+  "male": 72,
+  "female": 55,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "ZANINI BOUBA",
+  "line": 10522,
+  "total": 164,
+  "male": 84,
+  "female": 79,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MESSANG",
+  "line": 18452,
+  "total": 194,
+  "male": 97,
+  "female": 98,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "BETSOUO",
+  "line": 18560,
+  "total": 504,
+  "male": 233,
+  "female": 272,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MBEFO",
+  "line": 18578,
+  "total": 535,
+  "male": 247,
+  "female": 287,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MBEPEH",
+  "line": 18582,
+  "total": 692,
+  "male": 322,
+  "female": 369,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MBEVE II",
+  "line": 18585,
+  "total": 944,
+  "male": 427,
+  "female": 516,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MEBONG-SESSÉ, MEVOBO",
+  "line": 18586,
+  "total": 1157,
+  "male": 559,
+  "female": 597,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MEGOH",
+  "line": 18587,
+  "total": 545,
+  "male": 258,
+  "female": 286,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MONBAP",
+  "line": 18593,
+  "total": 553,
+  "male": 265,
+  "female": 287,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "VILLAGE PILOTE",
+  "line": 18600,
+  "total": 314,
+  "male": 154,
+  "female": 159,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "FAMGWOUO",
+  "line": 19402,
+  "total": 1002,
+  "male": 439,
+  "female": 562,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "KRIBI I",
+  "line": 22173,
+  "total": 29886,
+  "male": 15504,
+  "female": 14832,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "KYE OSSI",
+  "line": 22666,
+  "total": 17120,
+  "male": 8889,
+  "female": 8228,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "NTOUMOU SUD",
+  "line": 22669,
+  "total": 12249,
+  "male": 6433,
+  "female": 6046,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "OLD GOVERNMENT STATION",
+  "line": 22714,
+  "total": 4068,
+  "male": 2184,
+  "female": 2116,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "WOLIKAWO",
+  "line": 22723,
+  "total": 899,
+  "male": 448,
+  "female": 450,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "SMALL SOPPO-WOTEKE",
+  "line": 22727,
+  "total": 816,
+  "male": 401,
+  "female": 815,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "G.S GROUP 1,2,3",
+  "line": 22935,
+  "total": 923,
+  "male": 476,
+  "female": 477,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "HEALTH CARE EDUC.COM.CENT",
+  "line": 22937,
+  "total": 1058,
+  "male": 525,
+  "female": 528,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MUTENGENE Q 7",
+  "line": 22957,
+  "total": 1520,
+  "male": 737,
+  "female": 765,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "BACHAM",
+  "line": 23376,
+  "total": 1213,
+  "male": 619,
+  "female": 593,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "KATELI",
+  "line": 23389,
+  "total": 1989,
+  "male": 919,
+  "female": 538,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MOTOM",
+  "line": 23393,
+  "total": 99,
+  "male": 42,
+  "female": 47,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "BACHE",
+  "line": 23474,
+  "total": 970,
+  "male": 479,
+  "female": 471,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "BIG NYANG",
+  "line": 23478,
+  "total": 70,
+  "male": 36,
+  "female": 32,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "TAVAGEM",
+  "line": 23495,
+  "total": 320,
+  "male": 152,
+  "female": 346,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "ISU",
+  "line": 24159,
+  "total": 775,
+  "male": 504,
+  "female": 73,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "printed-sex-sum-inconsistency",
+  "name": "MACULAY CREEK",
+  "line": 24163,
+  "total": 41,
+  "male": 28,
+  "female": 14,
+  "note": "total ≠ male + female as printed in the PDF; kept as printed.",
+  "source": "bucrep-rgph2005-repertoire-villages"
+ },
+ {
+  "kind": "population-table≠Σchildren",
+  "pcode": "CM009004",
+  "name": "Vallée-du-Ntem",
+  "table": 79182,
+  "sumOfChildren": 79185,
+  "diff": 3
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM002005002",
+  "codab": "Assamba",
+  "variants": [
+   "ASSAMBA (cameroon-locations-0.1.0-july-2025)",
+   "Olanguina (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM005001001",
+  "codab": "Bare-Bakem",
+  "variants": [
+   "BARÉ-BAKEM (cameroon-locations-0.1.0-july-2025)",
+   "Baré (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM002002001",
+  "codab": "Batchenga",
+  "variants": [
+   "Batchenga (geoboundaries-cmr-gbopen)",
+   "BATSCHENGA (cameroon-locations-0.1.0-july-2025)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM003002002",
+  "codab": "Bebend",
+  "variants": [
+   "BEBEND (cameroon-locations-0.1.0-july-2025)",
+   "Atok (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM003003002",
+  "codab": "Bombe",
+  "variants": [
+   "BOMBE (cameroon-locations-0.1.0-july-2025)",
+   "Kentzou (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM004006001",
+  "codab": "Bourrha",
+  "variants": [
+   "BOURRHA (cameroon-locations-0.1.0-july-2025)",
+   "Bourha (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM007001002",
+  "codab": "Bum",
+  "variants": [
+   "BUM (cameroon-locations-0.1.0-july-2025)",
+   "Fonfuka (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM006001004",
+  "codab": "Demsa",
+  "variants": [
+   "DEMSA (cameroon-locations-0.1.0-july-2025)",
+   "Gachiga (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM010006002",
+  "codab": "Dikome Balue",
+  "variants": [
+   "DIKOME-BALUE (cameroon-locations-0.1.0-july-2025)",
+   "DIKOMBA BALUE (bucrep-rgph2005-repertoire-villages)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM003002004",
+  "codab": "Dja",
+  "variants": [
+   "DJA (cameroon-locations-0.1.0-july-2025)",
+   "Mindourou (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM008004002",
+  "codab": "Djebem",
+  "variants": [
+   "DJEBEM (cameroon-locations-0.1.0-july-2025)",
+   "Demding (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM002005004",
+  "codab": "Edzendouan",
+  "variants": [
+   "Edzendouan (geoboundaries-cmr-gbopen)",
+   "EZENDOUAN (cameroon-locations-0.1.0-july-2025)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM005001003",
+  "codab": "Fiko",
+  "variants": [
+   "Fiko (ocha-cod-ab-cmr)",
+   "ABO-FIKO (cameroon-locations-0.1.0-july-2025)",
+   "Bonaléa (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM010003002",
+  "codab": "Fontem",
+  "variants": [
+   "FONTEM (cameroon-locations-0.1.0-july-2025)",
+   "Menji (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM007004001",
+  "codab": "Fungom",
+  "variants": [
+   "FUNGOM (cameroon-locations-0.1.0-july-2025)",
+   "Zhoa (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM010006005",
+  "codab": "Isangele",
+  "variants": [
+   "ISANGELE (cameroon-locations-0.1.0-july-2025)",
+   "Isanguele (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM004002008",
+  "codab": "Makary",
+  "variants": [
+   "Makary (geoboundaries-cmr-gbopen)",
+   "MAKARI (cameroon-locations-0.1.0-july-2025)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM008008007",
+  "codab": "Malantouen",
+  "variants": [
+   "Malantouen (ocha-cod-ab-cmr)",
+   "MALENTOUEN (cameroon-locations-0.1.0-july-2025)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM010004003",
+  "codab": "Mamfe",
+  "variants": [
+   "MAMFE (cameroon-locations-0.1.0-july-2025)",
+   "MANFE CENTRAL (bucrep-rgph2005-repertoire-villages)",
+   "MAMFE CENTRAL (bucrep-rgph2005-repertoire-villages)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM008008008",
+  "codab": "Massangam",
+  "variants": [
+   "Massangam (geoboundaries-cmr-gbopen)",
+   "MASSANGAN (cameroon-locations-0.1.0-july-2025)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM005003005",
+  "codab": "Massock-Songloulou",
+  "variants": [
+   "Massock-Songloulou (ocha-cod-ab-cmr)",
+   "MASSOK-SONGLOULOU (cameroon-locations-0.1.0-july-2025)",
+   "Massok (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM004006004",
+  "codab": "Mayo-Moskota",
+  "variants": [
+   "MAYO-MOSKOTA (cameroon-locations-0.1.0-july-2025)",
+   "Mozogo (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM003002008",
+  "codab": "Mboanz",
+  "variants": [
+   "MBOANZ (cameroon-locations-0.1.0-july-2025)",
+   "Angossas (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM003003005",
+  "codab": "Mbotoro",
+  "variants": [
+   "MBOTORO (cameroon-locations-0.1.0-july-2025)",
+   "Ouli (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM007002003",
+  "codab": "Mbven",
+  "variants": [
+   "MBVEN (cameroon-locations-0.1.0-july-2025)",
+   "Mbiame (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM007004003",
+  "codab": "Menchum-Valley",
+  "variants": [
+   "MENCHUM-VALLEY (cameroon-locations-0.1.0-july-2025)",
+   "Benakuma (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM003002011",
+  "codab": "Messok",
+  "variants": [
+   "MESSOK (cameroon-locations-0.1.0-july-2025)",
+   "Messock (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM003001002",
+  "codab": "Moloundou",
+  "variants": [
+   "MOLOUNDOU (cameroon-locations-0.1.0-july-2025)",
+   "Mouloundou (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM010006008",
+  "codab": "Mundemba",
+  "variants": [
+   "MUNDEMBA (cameroon-locations-0.1.0-july-2025)",
+   "Mudemba (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM010001005",
+  "codab": "Muyuka",
+  "variants": [
+   "Muyuka (geoboundaries-cmr-gbopen)",
+   "MUYAKA (cameroon-locations-0.1.0-july-2025)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM009002007",
+  "codab": "Mvangane",
+  "variants": [
+   "Mvangane (ocha-cod-ab-cmr)",
+   "MVANGAN (cameroon-locations-0.1.0-july-2025)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM003003007",
+  "codab": "Ndem Nam",
+  "variants": [
+   "NDEM-NAM (cameroon-locations-0.1.0-july-2025)",
+   "Nguélébok (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM007006003",
+  "codab": "Ngie",
+  "variants": [
+   "NGIE (cameroon-locations-0.1.0-july-2025)",
+   "Andek (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM007006004",
+  "codab": "Njikwa",
+  "variants": [
+   "NJIKWA (cameroon-locations-0.1.0-july-2025)",
+   "Nijkwa (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM005001009",
+  "codab": "Njombe-Penja",
+  "variants": [
+   "NJOMBÉ-PENJA (cameroon-locations-0.1.0-july-2025)",
+   "Penja (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM008005004",
+  "codab": "Nkong-Ni",
+  "variants": [
+   "NKONG-NI (cameroon-locations-0.1.0-july-2025)",
+   "Nkong-Zem (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM005001013",
+  "codab": "Nlonako",
+  "variants": [
+   "NLONAKO (cameroon-locations-0.1.0-july-2025)",
+   "Ebone (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM007002005",
+  "codab": "Noni",
+  "variants": [
+   "NONI (cameroon-locations-0.1.0-july-2025)",
+   "Nkor (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM005002002",
+  "codab": "Nord-Makombe",
+  "variants": [
+   "NORD-MAKOMBÉ (cameroon-locations-0.1.0-july-2025)",
+   "Ndobian (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM002009005",
+  "codab": "Nyakokombo",
+  "variants": [
+   "NYAKOKOMBO (cameroon-locations-0.1.0-july-2025)",
+   "Kobdombo (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM002002008",
+  "codab": "Okola",
+  "variants": [
+   "OKOLA (cameroon-locations-0.1.0-july-2025)",
+   "Okala (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM007002006",
+  "codab": "Oku",
+  "variants": [
+   "OKU (cameroon-locations-0.1.0-july-2025)",
+   "Elak (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM004004006",
+  "codab": "Porhi",
+  "variants": [
+   "PORHI (cameroon-locations-0.1.0-july-2025)",
+   "Touloum (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM008004003",
+  "codab": "Poumougne",
+  "variants": [
+   "POUMOUGNE (cameroon-locations-0.1.0-july-2025)",
+   "Pete-Bandjoun (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM008005006",
+  "codab": "Santchou",
+  "variants": [
+   "Santchou (geoboundaries-cmr-gbopen)",
+   "SANCHOU (cameroon-locations-0.1.0-july-2025)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM004004007",
+  "codab": "Taibong",
+  "variants": [
+   "TAIBONG (cameroon-locations-0.1.0-july-2025)",
+   "Dziguilao (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM006001011",
+  "codab": "Tcheboa",
+  "variants": [
+   "TCHEBOA (cameroon-locations-0.1.0-july-2025)",
+   "Ngong (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM001001002",
+  "codab": "Tibati",
+  "variants": [
+   "TIBATI (cameroon-locations-0.1.0-july-2025)",
+   "Tabati (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM010004004",
+  "codab": "Upper Bayang",
+  "variants": [
+   "Upper Bayang (ocha-cod-ab-cmr)",
+   "UPPER-BANYANG (cameroon-locations-0.1.0-july-2025)",
+   "Tinto (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM004003009",
+  "codab": "Vele",
+  "variants": [
+   "VELE (cameroon-locations-0.1.0-july-2025)",
+   "Guémé (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM010001007",
+  "codab": "West-Coast",
+  "variants": [
+   "WEST-COAST (cameroon-locations-0.1.0-july-2025)",
+   "Idenau (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "name-variants",
+  "pcode": "CM007006005",
+  "codab": "Widikum",
+  "variants": [
+   "Widikum (ocha-cod-ab-cmr)",
+   "WIDIKUM-MENKA (cameroon-locations-0.1.0-july-2025)",
+   "Widikum-Boffé (geoboundaries-cmr-gbopen)"
+  ]
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "2|CM009|VALLE DU NTEM",
+  "pcode": "CM009004",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "2|CM010|KOUPE-MANENGOUBA",
+  "pcode": "CM010002",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://droitcamerounais.info/en/files/128.11.08-Decret-du-12-novembre-2008-portant-organisation-administrative-de-la-republique-du-Cameroun.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "1|null|CMR A L'ETRANGER",
+  "pcode": null,
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://portail.elecam.cm/download/k-liste-bv-diaspora-presidentielle-2025/"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM002005|OLANGUINA",
+  "pcode": "CM002005002",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM002009|KOBDOMBO",
+  "pcode": "CM002009005",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM003002|ANGOSSAS",
+  "pcode": "CM003002008",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM003002|ATOK",
+  "pcode": "CM003002002",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM003002|MINDOUROU",
+  "pcode": "CM003002004",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM003003|KENTZOU",
+  "pcode": "CM003003002",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM003003|NGUELEBOK",
+  "pcode": "CM003003007",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM003003|OULI",
+  "pcode": "CM003003005",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM004002|MAKARI",
+  "pcode": "CM004002008",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+   "https://mairies.cm/commune/makary-ou-makari"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM004003|GUEME-VELE",
+  "pcode": "CM004003009",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://fr.wikipedia.org/wiki/Gu%C3%A9m%C3%A9"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM004004|DZIGUILAO",
+  "pcode": "CM004004007",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://fr.wikipedia.org/wiki/Dziguilao"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM004004|TOULOUM",
+  "pcode": "CM004004006",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://fr.wikipedia.org/wiki/Touloum"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM004006|BOURHA",
+  "pcode": "CM004006001",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://fr.wikipedia.org/wiki/Bourha"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM004006|MOZOGO",
+  "pcode": "CM004006004",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://mozogo.cm/histoire/"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM005001|BONALEA",
+  "pcode": "CM005001003",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM005001|EBONE",
+  "pcode": "CM005001013",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://fr.wikipedia.org/wiki/Ebone_(commune)"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM005002|NDOBIAN",
+  "pcode": "CM005002002",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM005003|MASSOK-SONGLOULOU",
+  "pcode": "CM005003005",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM006001|GASCHIGA",
+  "pcode": "CM006001004",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM006001|NGONG",
+  "pcode": "CM006001011",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://fr.wikipedia.org/wiki/Ngong"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM007001|FONFUKA",
+  "pcode": "CM007001002",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM007002|ELAK",
+  "pcode": "CM007002006",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM007002|MBIAME",
+  "pcode": "CM007002003",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM007002|NKOR",
+  "pcode": "CM007002005",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM007004|BENAKUMA",
+  "pcode": "CM007004003",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM007004|ZHOA",
+  "pcode": "CM007004001",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM007006|ANDEK",
+  "pcode": "CM007006003",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://ins-cameroun.cm/wp-content/uploads/2025/09/Annuaire-statistique-du-Nord-Ouest-ed-2024.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM007006|WIDIKUM-BOFFE",
+  "pcode": "CM007006005",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://fr.wikipedia.org/wiki/Widikum-Boffe"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM008004|DEMDING",
+  "pcode": "CM008004002",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM008004|PETE-BANDJOUN",
+  "pcode": "CM008004003",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://www.osidimbea.cm/collectivites/ouest/pete-bandjoun-arr/",
+   "https://www.armp.cm/details?id_publication=2340&type_publication=ADDITIF"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM009002|MVANGAN",
+  "pcode": "CM009002007",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://de.wikipedia.org/wiki/Mvangane"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM010001|IDENAU",
+  "pcode": "CM010001007",
+  "verdict": "confirmed",
+  "confidence": "high",
+  "evidence": [
+   "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM010003|MENJI",
+  "pcode": "CM010003002",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://fr.wikipedia.org/wiki/Fontem"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM010004|EYUMOJOCK",
+  "pcode": "CM010004002",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://en.wikipedia.org/wiki/Eyumodjock",
+   "https://mintp.cm/ngoho-ferry-construction-project-in-eyumojock-subdivision-manyu-division-south-west-region-works-contract-signed/"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM010004|TINTO",
+  "pcode": "CM010004004",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://en.wikipedia.org/wiki/Upper_Bayang",
+   "https://armp.cm/details?id_publication=62852&type_publication=AO"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "crosswalk-verified",
+  "key": "3|CM010006|ISANGUELE",
+  "pcode": "CM010006005",
+  "verdict": "confirmed",
+  "confidence": "medium",
+  "evidence": [
+   "https://fr.wikipedia.org/wiki/Isanguele"
+  ],
+  "source": "research-2026-10-17"
+ },
+ {
+  "kind": "open-question",
+  "status": "resolved",
+  "resolution": "DECISIONS.md D2: treated as a distinct village with a similar name; no change",
+  "pcode": "CM003003006",
+  "name": "Ndelele",
+  "detail": "BUCREP lists a village KENTZOU II under Ndélélé (also in the 2023 Ndélélé forest-management plan), while Kentzou (chef-lieu of Bombé, decree 2010/198) is in CM003003002. Exact location of Kentzou II unknown.",
+  "source": "research-2026-10-17"
+ }
+]

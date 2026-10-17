@@ -1,0 +1,4179 @@
+[
+  {
+    "pcode": "CM001001001",
+    "name": "Ngaoundal",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001001002",
+    "name": "Tibati",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001002001",
+    "name": "Galim-Tignere",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001002002",
+    "name": "Kontcha",
+    "post2005Event": {
+      "pcode": "CM001002002",
+      "canonicalName": "Kontcha",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "KONTCHA",
+      "chefLieuInSource": "Kontcha",
+      "predecessor": "KONTCHA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de KONTCHA, chef-lieu : Kontcha",
+          "page": 1,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM001002003",
+    "name": "Mayo-Baleo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001002004",
+    "name": "Tignere",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001003001",
+    "name": "Bankim",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001003002",
+    "name": "Banyo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001003003",
+    "name": "Mayo-Darle",
+    "post2005Event": {
+      "pcode": "CM001003003",
+      "canonicalName": "Mayo-Darle",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "MAYO-DARLE",
+      "chefLieuInSource": "Mayo-Darlé",
+      "predecessor": "MAYO-DARLE district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de MAYO-DARLE, chef-lieu : Mayo-Darlé",
+          "page": 1,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM001004001",
+    "name": "Dir",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001004002",
+    "name": "Djohong",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001004003",
+    "name": "Meiganga",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001004004",
+    "name": "Ngaoui",
+    "post2005Event": {
+      "pcode": "CM001004004",
+      "canonicalName": "Ngaoui",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NGAOUI",
+      "chefLieuInSource": "Ngaoui",
+      "predecessor": "NGAOUI district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NGAOUI, chef-lieu : Ngaoui",
+          "page": 2,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM001005001",
+    "name": "Belel",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001005002",
+    "name": "Martap",
+    "post2005Event": {
+      "pcode": "CM001005002",
+      "canonicalName": "Martap",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Martap",
+      "chefLieuInSource": "Martap",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Martap                Chef-lieu : Martap",
+          "page": 2,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM001005003",
+    "name": "Mbe",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM001005004",
+    "name": "Nganha",
+    "post2005Event": {
+      "pcode": "CM001005004",
+      "canonicalName": "Nganha",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Nganha",
+      "chefLieuInSource": "Nganha",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Nganha               Chef-lieu : Nganha",
+          "page": 1,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM001005005",
+    "name": "Ngaoundere 1er",
+    "post2005Event": {
+      "pcode": "CM001005005",
+      "canonicalName": "Ngaoundere 1er",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Ngaoundéré 1er",
+      "chefLieuInSource": "Mbideng",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Ngaoundéré 1er       Chef-lieu : Mbideng",
+          "page": 1,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM001005006",
+    "name": "Ngaoundere 2e",
+    "post2005Event": {
+      "pcode": "CM001005006",
+      "canonicalName": "Ngaoundere 2e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Ngaoundéré Ile",
+      "chefLieuInSource": "Mabanga",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Ngaoundéré Ile       Chef-lieu: Mabanga",
+          "page": 1,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM001005007",
+    "name": "Ngaoundere 3e",
+    "post2005Event": {
+      "pcode": "CM001005007",
+      "canonicalName": "Ngaoundere 3e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Ngaoundéré  IIIe",
+      "chefLieuInSource": "Dang",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Ngaoundéré  IIIe      Chef-Lieu : Dang",
+          "page": 1,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM001005008",
+    "name": "Nyambaka",
+    "post2005Event": {
+      "pcode": "CM001005008",
+      "canonicalName": "Nyambaka",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Nyambaka",
+      "chefLieuInSource": "Nyambaka",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Nyambaka             Chef-lieu: Nyambaka",
+          "page": 2,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002001001",
+    "name": "Bibey",
+    "post2005Event": {
+      "pcode": "CM002001001",
+      "canonicalName": "Bibey",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "BIBEY",
+      "chefLieuInSource": "Bibey",
+      "predecessor": "BIBEY district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de BIBEY, chef-lieu : Bibey",
+          "page": 2,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002001002",
+    "name": "Lembe Yezoum",
+    "post2005Event": {
+      "pcode": "CM002001002",
+      "canonicalName": "Lembe Yezoum",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "LEMBE-YEZOUM",
+      "chefLieuInSource": "Lembé",
+      "predecessor": "LEMBE-YEZOUM district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de LEMBE-YEZOUM, chef-lieu : Lembé",
+          "page": 2,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002001003",
+    "name": "Mbandjock",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002001004",
+    "name": "Minta",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002001005",
+    "name": "Nanga-Eboko",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002001006",
+    "name": "Nkoteng",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002001007",
+    "name": "Nsem",
+    "post2005Event": {
+      "pcode": "CM002001007",
+      "canonicalName": "Nsem",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NSEM",
+      "chefLieuInSource": "Nsem",
+      "predecessor": "NSEM district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NSEM, chef-lieu : Nsem",
+          "page": 2,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002002001",
+    "name": "Batchenga",
+    "post2005Event": {
+      "pcode": "CM002002001",
+      "canonicalName": "Batchenga",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "BATCHENGA",
+      "chefLieuInSource": "Batchenga",
+      "predecessor": "BATCHENGA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de BATCHENGA, chef-lieu : Batchenga",
+          "page": 2,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002002002",
+    "name": "Ebebda",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002002003",
+    "name": "Elig-Mfomo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002002004",
+    "name": "Evodoula",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002002005",
+    "name": "Lobo",
+    "post2005Event": {
+      "pcode": "CM002002005",
+      "canonicalName": "Lobo",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "LOBO",
+      "chefLieuInSource": "Lobo",
+      "predecessor": "LOBO district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de LOBO, chef-lieu : Lobo",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002002006",
+    "name": "Monatele",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002002007",
+    "name": "Obala",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002002008",
+    "name": "Okola",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002002009",
+    "name": "Saa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002003001",
+    "name": "Bafia",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002003002",
+    "name": "Bokito",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002003003",
+    "name": "Deuk",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002003004",
+    "name": "Kiiki",
+    "post2005Event": {
+      "pcode": "CM002003004",
+      "canonicalName": "Kiiki",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Kiiki",
+      "chefLieuInSource": "Kiiki",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Kiiki            Chef-lieu-Kiiki",
+          "page": 2,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002003005",
+    "name": "Kon Yambetta",
+    "post2005Event": {
+      "pcode": "CM002003005",
+      "canonicalName": "Kon Yambetta",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Kon- Yambetta",
+      "chefLieuInSource": "Kon- Yambetta",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Kon- Yambetta Chef-lieu: Kon- Yambetta",
+          "page": 2,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002003006",
+    "name": "Makenene",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002003007",
+    "name": "Ndikinimeki",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002003008",
+    "name": "Nitoukou",
+    "post2005Event": {
+      "pcode": "CM002003008",
+      "canonicalName": "Nitoukou",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NITOUKOU",
+      "chefLieuInSource": "Nitoukou",
+      "predecessor": "NITOUKOU district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NITOUKOU, chef-lieu : Nitoukou",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002003009",
+    "name": "Ombessa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002004001",
+    "name": "Mbangassina",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002004002",
+    "name": "Ngambe-Tikar",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002004003",
+    "name": "Ngoro",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002004004",
+    "name": "Ntui",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002004005",
+    "name": "Yoko",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002005001",
+    "name": "Afanloum",
+    "post2005Event": {
+      "pcode": "CM002005001",
+      "canonicalName": "Afanloum",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "AFANLOUM",
+      "chefLieuInSource": "Afanioum",
+      "predecessor": "AFANLOUM district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement d’AFANLOUM, chef-lieu : Afanioum",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002005002",
+    "name": "Assamba",
+    "post2005Event": {
+      "pcode": "CM002005002",
+      "canonicalName": "Assamba",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "ASSAMBA",
+      "chefLieuInSource": "Olanguina",
+      "predecessor": "ASSAMBA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement d’ASSAMBA, chef-lieu : Olanguina",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002005003",
+    "name": "Awae",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002005004",
+    "name": "Edzendouan",
+    "post2005Event": {
+      "pcode": "CM002005004",
+      "canonicalName": "Edzendouan",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "EDZENDOUAN",
+      "chefLieuInSource": "Edzendouan",
+      "predecessor": "EDZENDOUAN district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement d’EDZENDOUAN, chef-lieu : Edzendouan",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002005005",
+    "name": "Esse",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002005006",
+    "name": "Mfou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002005007",
+    "name": "Nkolafamba",
+    "post2005Event": {
+      "pcode": "CM002005007",
+      "canonicalName": "Nkolafamba",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NKOLAFAMBA",
+      "chefLieuInSource": "Nkolafamba",
+      "predecessor": "NKOLAFAMBA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NKOLAFAMBA, chef-lieu : Nkolafamba",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002005008",
+    "name": "Soa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002006001",
+    "name": "Akono",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002006002",
+    "name": "Bikok",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002006003",
+    "name": "Mbankomo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002006004",
+    "name": "Ngoumou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002007001",
+    "name": "Yaounde 1er",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002007002",
+    "name": "Yaounde 2e",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002007003",
+    "name": "Yaounde 3e",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002007004",
+    "name": "Yaounde 4e",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002007005",
+    "name": "Yaounde 5e",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002007006",
+    "name": "Yaounde 6e",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002007007",
+    "name": "Yaounde 7e",
+    "post2005Event": {
+      "pcode": "CM002007007",
+      "canonicalName": "Yaounde 7e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Yaoundé VIle",
+      "chefLieuInSource": "Nkolbisson",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Yaoundé VIle         Chef-lieu : Nkolbisson",
+          "page": 2,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002008001",
+    "name": "Biyouha",
+    "post2005Event": {
+      "pcode": "CM002008001",
+      "canonicalName": "Biyouha",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "BIYOUHA",
+      "chefLieuInSource": "Biyouha",
+      "predecessor": "BIYOUHA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de BIYOUHA, chef-lieu : Biyouha",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002008002",
+    "name": "Bondjock",
+    "post2005Event": {
+      "pcode": "CM002008002",
+      "canonicalName": "Bondjock",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "BONDJOCK",
+      "chefLieuInSource": "Bondjock",
+      "predecessor": "BONDJOCK district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de BONDJOCK, chef-lieu : Bondjock",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002008003",
+    "name": "Bot-Makak",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002008004",
+    "name": "Dibang",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002008005",
+    "name": "Eseka",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002008006",
+    "name": "Makak",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002008007",
+    "name": "Matomb",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002008008",
+    "name": "Messondo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002008009",
+    "name": "Ngog-Mapubi",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002008010",
+    "name": "Nguibassal",
+    "post2005Event": {
+      "pcode": "CM002008010",
+      "canonicalName": "Nguibassal",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NGUIBASSAL",
+      "chefLieuInSource": "Nguibassal",
+      "predecessor": "NGUIBASSAL district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NGUIBASSAL, chef-lieu : Nguibassal",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002009001",
+    "name": "Akonolinga",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002009002",
+    "name": "Ayos",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002009003",
+    "name": "Endom",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002009004",
+    "name": "Mengang",
+    "post2005Event": {
+      "pcode": "CM002009004",
+      "canonicalName": "Mengang",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "MENGANG",
+      "chefLieuInSource": "Mengang",
+      "predecessor": "MENGANG district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de MENGANG, chef-lieu : Mengang",
+          "page": 5,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002009005",
+    "name": "Nyakokombo",
+    "post2005Event": {
+      "pcode": "CM002009005",
+      "canonicalName": "Nyakokombo",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NYAKOKOMBO",
+      "chefLieuInSource": "Kobdombo",
+      "predecessor": "NYAKOKOMBO district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NYAKOKOMBO, chef-lieu : Kobdombo",
+          "page": 5,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002010001",
+    "name": "Akoeman",
+    "post2005Event": {
+      "pcode": "CM002010001",
+      "canonicalName": "Akoeman",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "AKOEMAN",
+      "chefLieuInSource": "Akoeman",
+      "predecessor": "AKOEMAN district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement d’AKOEMAN, chef-lieu : Akoeman",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002010002",
+    "name": "Dzeng",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002010003",
+    "name": "Mbalmayo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002010004",
+    "name": "Mengueme",
+    "post2005Event": {
+      "pcode": "CM002010004",
+      "canonicalName": "Mengueme",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "MENGUEME",
+      "chefLieuInSource": "Mengueme",
+      "predecessor": "MENGUEME district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de MENGUEME, chef-lieu : Mengueme",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM002010005",
+    "name": "Ngomedzap",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM002010006",
+    "name": "Nkolmetet",
+    "post2005Event": {
+      "pcode": "CM002010006",
+      "canonicalName": "Nkolmetet",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NKOL-METET",
+      "chefLieuInSource": "Nkol-Metet",
+      "predecessor": "NKOL-METET district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NKOL-METET, chef-lieu : Nkol-Metet",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003001001",
+    "name": "Gari Gombo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003001002",
+    "name": "Moloundou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003001003",
+    "name": "Salapoumbe",
+    "post2005Event": {
+      "pcode": "CM003001003",
+      "canonicalName": "Salapoumbe",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "SALAPOUMBE",
+      "chefLieuInSource": "Salapoumbé",
+      "predecessor": "SALAPOUMBE district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de SALAPOUMBE, chef-lieu : Salapoumbé",
+          "page": 5,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003001004",
+    "name": "Yokadouma",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003002001",
+    "name": "Abong-Mbang",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003002002",
+    "name": "Bebend",
+    "post2005Event": {
+      "pcode": "CM003002002",
+      "canonicalName": "Bebend",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "BEDEND",
+      "chefLieuInSource": "Atok",
+      "predecessor": "BEDEND district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de BEDEND, chef-lieu : Atok",
+          "page": 5,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003002003",
+    "name": "Dimako",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003002004",
+    "name": "Dja",
+    "post2005Event": {
+      "pcode": "CM003002004",
+      "canonicalName": "Dja",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "DJA",
+      "chefLieuInSource": "Mindourou",
+      "predecessor": "DJA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de DJA, chef-lieu : Mindourou",
+          "page": 5,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003002005",
+    "name": "Doumaintang",
+    "post2005Event": {
+      "pcode": "CM003002005",
+      "canonicalName": "Doumaintang",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "DOUMAINTANG",
+      "chefLieuInSource": "Doumaintang",
+      "predecessor": "DOUMAINTANG district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de DOUMAINTANG, chef-lieu : Doumaintang",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003002006",
+    "name": "Doume",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003002007",
+    "name": "Lomie",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003002008",
+    "name": "Mboanz",
+    "post2005Event": {
+      "pcode": "CM003002008",
+      "canonicalName": "Mboanz",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "MBOANZ",
+      "chefLieuInSource": "Angossas",
+      "predecessor": "MBOANZ district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de MBOANZ, chef-lieu : Angossas",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003002009",
+    "name": "Mboma",
+    "post2005Event": {
+      "pcode": "CM003002009",
+      "canonicalName": "Mboma",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "MBOMA",
+      "chefLieuInSource": "Mboma",
+      "predecessor": "MBOMA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de MBOMA, chef-lieu : Mboma",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003002010",
+    "name": "Messamena",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003002011",
+    "name": "Messok",
+    "post2005Event": {
+      "pcode": "CM003002011",
+      "canonicalName": "Messok",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "MESSOK",
+      "chefLieuInSource": "Messok",
+      "predecessor": "MESSOK district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de MESSOK, chef-lieu : Messok",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003002012",
+    "name": "Ngoyla",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003002013",
+    "name": "Nguelemendouka",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003002014",
+    "name": "Somalomo",
+    "post2005Event": {
+      "pcode": "CM003002014",
+      "canonicalName": "Somalomo",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "SOMALOMO",
+      "chefLieuInSource": "Somalomo",
+      "predecessor": "SOMALOMO district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de SOMALOMO, chef-lieu : Somalomo",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003003001",
+    "name": "Batouri",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003003002",
+    "name": "Bombe",
+    "post2005Event": {
+      "pcode": "CM003003002",
+      "canonicalName": "Bombe",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "BOMBE",
+      "chefLieuInSource": "Kentzou",
+      "predecessor": "BOMBE district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de BOMBE, chef-lieu : Kentzou",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003003003",
+    "name": "Kette",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003003004",
+    "name": "Mbang",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003003005",
+    "name": "Mbotoro",
+    "post2005Event": {
+      "pcode": "CM003003005",
+      "canonicalName": "Mbotoro",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "MBOTORO",
+      "chefLieuInSource": "Ouli",
+      "predecessor": "MBOTORO district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de MBOTORO, chef-lieu : Ouli",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003003006",
+    "name": "Ndelele",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003003007",
+    "name": "Ndem Nam",
+    "post2005Event": {
+      "pcode": "CM003003007",
+      "canonicalName": "Ndem Nam",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NDEM-NAM",
+      "chefLieuInSource": "Nguelebok",
+      "predecessor": "NDEM-NAM district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NDEM-NAM, chef-lieu : Nguelebok",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003004001",
+    "name": "Belabo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003004002",
+    "name": "Bertoua 1er",
+    "post2005Event": {
+      "pcode": "CM003004002",
+      "canonicalName": "Bertoua 1er",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Bertoua 1er",
+      "chefLieuInSource": "Nkolbisson",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Bertoua 1er    Chef-lieu: Nkolbisson",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003004003",
+    "name": "Bertoua 2e",
+    "post2005Event": {
+      "pcode": "CM003004003",
+      "canonicalName": "Bertoua 2e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Bertoua Ile",
+      "chefLieuInSource": "Yadémé",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Bertoua Ile    Chef-lieu: Yadémé",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003004004",
+    "name": "Betare-Oya",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003004005",
+    "name": "Diang",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003004006",
+    "name": "Garoua-Boulai",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM003004007",
+    "name": "Mandjou",
+    "post2005Event": {
+      "pcode": "CM003004007",
+      "canonicalName": "Mandjou",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Mandjou",
+      "chefLieuInSource": "Mandjou",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Mandjou      Chef-lieu: Mandjou",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM003004008",
+    "name": "Ngoura",
+    "post2005Event": {
+      "pcode": "CM003004008",
+      "canonicalName": "Ngoura",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NGOURA",
+      "chefLieuInSource": "Ngoura",
+      "predecessor": "NGOURA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NGOURA, chef-lieu : Ngoura",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM004001001",
+    "name": "Bogo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004001002",
+    "name": "Dargala",
+    "post2005Event": {
+      "pcode": "CM004001002",
+      "canonicalName": "Dargala",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "DARGALA",
+      "chefLieuInSource": "Dargala",
+      "predecessor": "DARGALA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de DARGALA, chef-lieu : Dargala",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM004001003",
+    "name": "Gazawa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004001004",
+    "name": "Maroua 1er",
+    "post2005Event": {
+      "pcode": "CM004001004",
+      "canonicalName": "Maroua 1er",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Maroua 1er",
+      "chefLieuInSource": "Domayo",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Maroua 1er     Chef-lieu: Domayo",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM004001005",
+    "name": "Maroua 2e",
+    "post2005Event": {
+      "pcode": "CM004001005",
+      "canonicalName": "Maroua 2e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Maroua Ile",
+      "chefLieuInSource": "Doualaré",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Maroua Ile     Chef-lieu: Doualaré",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM004001006",
+    "name": "Maroua 3e",
+    "post2005Event": {
+      "pcode": "CM004001006",
+      "canonicalName": "Maroua 3e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Maroua Ille",
+      "chefLieuInSource": "Douggoi",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Maroua Ille   Chef-lieu : Douggoi",
+          "page": 3,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM004001007",
+    "name": "Meri",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004001008",
+    "name": "Ndoukoula",
+    "post2005Event": {
+      "pcode": "CM004001008",
+      "canonicalName": "Ndoukoula",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NDOUKOULA",
+      "chefLieuInSource": "Ndoukoula",
+      "predecessor": "NDOUKOULA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NDOUKOULA, chef-lieu : Ndoukoula",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM004001009",
+    "name": "Pette",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004002001",
+    "name": "Blangoua",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004002002",
+    "name": "Darak",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004002003",
+    "name": "Fotokol",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004002004",
+    "name": "Goulfey",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004002005",
+    "name": "Hile-Alifa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004002006",
+    "name": "Kousseri",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004002007",
+    "name": "Logone-Birni",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004002008",
+    "name": "Makary",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004002009",
+    "name": "Waza",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004002010",
+    "name": "Zina",
+    "post2005Event": {
+      "pcode": "CM004002010",
+      "canonicalName": "Zina",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "ZINA",
+      "chefLieuInSource": "Zina",
+      "predecessor": "ZINA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de ZINA, chef-lieu : Zina",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM004003001",
+    "name": "Datcheka",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004003002",
+    "name": "Gobo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004003003",
+    "name": "Guere",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004003004",
+    "name": "Kai-Kai",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004003005",
+    "name": "Kalfou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004003006",
+    "name": "Kar-Hay",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004003007",
+    "name": "Maga",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004003008",
+    "name": "Tchatibali",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004003009",
+    "name": "Vele",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004003010",
+    "name": "Wina",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004003011",
+    "name": "Yagoua",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004004001",
+    "name": "Guidiguis",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004004002",
+    "name": "Kaele",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004004003",
+    "name": "Mindif",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004004004",
+    "name": "Moulvoudaye",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004004005",
+    "name": "Moutourwa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004004006",
+    "name": "Porhi",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004004007",
+    "name": "Taibong",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004005001",
+    "name": "Kolofata",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004005002",
+    "name": "Mora",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004005003",
+    "name": "Tokombere",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004006001",
+    "name": "Bourrha",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004006002",
+    "name": "Hina",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004006003",
+    "name": "Koza",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004006004",
+    "name": "Mayo-Moskota",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004006005",
+    "name": "Mogode",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004006006",
+    "name": "Mokolo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM004006007",
+    "name": "Soulede-Roua",
+    "post2005Event": {
+      "pcode": "CM004006007",
+      "canonicalName": "Soulede-Roua",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "SOULEDE-ROUA",
+      "chefLieuInSource": "Soulédé-Roua",
+      "predecessor": "SOULEDE-ROUA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de SOULEDE-ROUA, chef-lieu : Soulédé-Roua",
+          "page": 8,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005001001",
+    "name": "Bare-Bakem",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005001002",
+    "name": "Dibombari",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005001003",
+    "name": "Fiko",
+    "post2005Event": {
+      "pcode": "CM005001003",
+      "canonicalName": "Fiko",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "FIKO",
+      "chefLieuInSource": "Bonaléa",
+      "predecessor": "FIKO district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de FIKO, chef-lieu : Bonaléa",
+          "page": 8,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005001004",
+    "name": "Loum",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005001005",
+    "name": "Manjo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005001006",
+    "name": "Mbanga",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005001007",
+    "name": "Melong",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005001008",
+    "name": "Mombo",
+    "post2005Event": {
+      "pcode": "CM005001008",
+      "canonicalName": "Mombo",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "MOMBO",
+      "chefLieuInSource": "Mombo",
+      "predecessor": "MOMBO district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de MOMBO, chef-lieu : Mombo",
+          "page": 8,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005001009",
+    "name": "Njombe-Penja",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005001010",
+    "name": "Nkongsamba 1er",
+    "post2005Event": {
+      "pcode": "CM005001010",
+      "canonicalName": "Nkongsamba 1er",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Nkongsamba 1er",
+      "chefLieuInSource": "Eboum 1",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Nkongsamba 1er      Chef-lieu: Eboum 1",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005001011",
+    "name": "Nkongsamba 2e",
+    "post2005Event": {
+      "pcode": "CM005001011",
+      "canonicalName": "Nkongsamba 2e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Nkongsamba Ile",
+      "chefLieuInSource": "Ekangte-Mbeng",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Nkongsamba Ile       Chef-lieu: Ekangte-Mbeng",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005001012",
+    "name": "Nkongsamba 3e",
+    "post2005Event": {
+      "pcode": "CM005001012",
+      "canonicalName": "Nkongsamba 3e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Nkongsamba Ille",
+      "chefLieuInSource": "Mbaressoumtou",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Nkongsamba Ille      Chef-lieu: Mbaressoumtou",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005001013",
+    "name": "Nlonako",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005002001",
+    "name": "Nkondjock",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005002002",
+    "name": "Nord-Makombe",
+    "post2005Event": {
+      "pcode": "CM005002002",
+      "canonicalName": "Nord-Makombe",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NORD-MAKOMBE",
+      "chefLieuInSource": "Ndobiang",
+      "predecessor": "NORD-MAKOMBE district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement du NORD-MAKOMBE, chef-lieu : Ndobiang",
+          "page": 8,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005002003",
+    "name": "Yabassi",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005002004",
+    "name": "Yingui",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005003001",
+    "name": "Dibamba",
+    "post2005Event": {
+      "pcode": "CM005003001",
+      "canonicalName": "Dibamba",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Dibamba",
+      "chefLieuInSource": "Logbadjeck",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Dibamba       Chef-lieu: Logbadjeck",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005003002",
+    "name": "Dizangue",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005003003",
+    "name": "Edea 1er",
+    "post2005Event": {
+      "pcode": "CM005003003",
+      "canonicalName": "Edea 1er",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Edéa 1er",
+      "chefLieuInSource": "Pongo",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement d'Edéa 1er Chef-lieu : Pongo",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005003004",
+    "name": "Edea 2e",
+    "post2005Event": {
+      "pcode": "CM005003004",
+      "canonicalName": "Edea 2e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Edéa Ile",
+      "chefLieuInSource": "Ekité",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement d'Edéa Ile       Chef lieu : Ekité",
+          "page": 4,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005003005",
+    "name": "Massock-Songloulou",
+    "post2005Event": {
+      "pcode": "CM005003005",
+      "canonicalName": "Massock-Songloulou",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "MASSOCK-SONGLOULOU",
+      "chefLieuInSource": "Massock",
+      "predecessor": "MASSOCK-SONGLOULOU district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de MASSOCK-SONGLOULOU,  chef-lieu :\nMassock",
+          "page": 8,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005003006",
+    "name": "Mouanko",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005003007",
+    "name": "Ndom",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005003008",
+    "name": "Ngambe",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005003009",
+    "name": "Ngwei",
+    "post2005Event": {
+      "pcode": "CM005003009",
+      "canonicalName": "Ngwei",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Ngwei",
+      "chefLieuInSource": "Makondo",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Ngwei Chef-lieu: Makondo",
+          "page": 5,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005003010",
+    "name": "Nyanon",
+    "post2005Event": {
+      "pcode": "CM005003010",
+      "canonicalName": "Nyanon",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NYANON",
+      "chefLieuInSource": "Nyanon",
+      "predecessor": "NYANON district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NYANON, chef-lieu : Nyanon",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM005003011",
+    "name": "Pouma",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005004001",
+    "name": "Douala 1er",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005004002",
+    "name": "Douala 2e",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005004003",
+    "name": "Douala 3e",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005004004",
+    "name": "Douala 4e",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005004005",
+    "name": "Douala 5e",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM005004006",
+    "name": "Douala 6e",
+    "post2005Event": {
+      "pcode": "CM005004006",
+      "canonicalName": "Douala 6e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "replacement designation covering former arrondissement",
+      "nameInSource": "Douala VIe",
+      "chefLieuInSource": "Manoka",
+      "predecessor": "Manoka",
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Douala VIe       Chef-lieu: Manoka",
+          "page": 5,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM006001001",
+    "name": "Bascheo",
+    "post2005Event": {
+      "pcode": "CM006001001",
+      "canonicalName": "Bascheo",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "BASCHEO",
+      "chefLieuInSource": "Baschéo",
+      "predecessor": "BASCHEO district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de BASCHEO, chef-lieu : Baschéo",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM006001002",
+    "name": "Bibemi",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006001003",
+    "name": "Dembo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006001004",
+    "name": "Demsa",
+    "post2005Event": {
+      "pcode": "CM006001004",
+      "canonicalName": "Demsa",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "DEMSA",
+      "chefLieuInSource": "Gashiga",
+      "predecessor": "DEMSA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de DEMSA, chef-lieu : Gashiga",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM006001005",
+    "name": "Garoua 1er",
+    "post2005Event": {
+      "pcode": "CM006001005",
+      "canonicalName": "Garoua 1er",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Garoua 1er",
+      "chefLieuInSource": "Plateau",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Garoua 1er           Chef-lieu : Plateau",
+          "page": 5,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM006001006",
+    "name": "Garoua 2e",
+    "post2005Event": {
+      "pcode": "CM006001006",
+      "canonicalName": "Garoua 2e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Garoua II",
+      "chefLieuInSource": "Poumpoumré",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Garoua II     Chef-Lieu: Poumpoumré",
+          "page": 5,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM006001007",
+    "name": "Garoua 3e",
+    "post2005Event": {
+      "pcode": "CM006001007",
+      "canonicalName": "Garoua 3e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Garoua III",
+      "chefLieuInSource": "Bocklé",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Garoua III     Chef-lieu: Bocklé",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM006001008",
+    "name": "Lagdo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006001009",
+    "name": "Mayo-Hourna",
+    "post2005Event": {
+      "pcode": "CM006001009",
+      "canonicalName": "Mayo-Hourna",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Mayo Hourna",
+      "chefLieuInSource": "Bardanké",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Mayo Hourna Chef-lieu : Bardanké",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM006001010",
+    "name": "Pitoa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006001011",
+    "name": "Tcheboa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006001012",
+    "name": "Touroua",
+    "post2005Event": {
+      "pcode": "CM006001012",
+      "canonicalName": "Touroua",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "TOUROUA",
+      "chefLieuInSource": "Touroua",
+      "predecessor": "TOUROUA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de TOUROUA, chef-lieu : Touroua",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM006002001",
+    "name": "Beka",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006002002",
+    "name": "Poli",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006003001",
+    "name": "Figuil",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006003002",
+    "name": "Guider",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006003003",
+    "name": "Mayo-Oulo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006004001",
+    "name": "Madingring",
+    "post2005Event": {
+      "pcode": "CM006004001",
+      "canonicalName": "Madingring",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "MADINGRING",
+      "chefLieuInSource": "Madingring",
+      "predecessor": "MADINGRING district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de MADINGRING, chef-lieu : Madingring",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM006004002",
+    "name": "Rey-Bouba",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006004003",
+    "name": "Tchollire",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM006004004",
+    "name": "Touboro",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007001001",
+    "name": "Belo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007001002",
+    "name": "Bum",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007001003",
+    "name": "Fundong",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007001004",
+    "name": "Njinikom",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007002001",
+    "name": "Jakiri",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007002002",
+    "name": "Kumbo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007002003",
+    "name": "Mbven",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007002004",
+    "name": "Nkum",
+    "post2005Event": {
+      "pcode": "CM007002004",
+      "canonicalName": "Nkum",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Nkum",
+      "chefLieuInSource": "Tatoum",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Nkum          Chef lieu : Tatoum",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM007002005",
+    "name": "Noni",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007002006",
+    "name": "Oku",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007003001",
+    "name": "Ako",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007003002",
+    "name": "Misaje",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007003003",
+    "name": "Ndu",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007003004",
+    "name": "Nkambe",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007003005",
+    "name": "Nwa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007004001",
+    "name": "Fungom",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007004002",
+    "name": "Furu-Awa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007004003",
+    "name": "Menchum-Valley",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007004004",
+    "name": "Wum",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007005001",
+    "name": "Bafut",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007005002",
+    "name": "Bali",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007005003",
+    "name": "Bamenda 1st",
+    "post2005Event": {
+      "pcode": "CM007005003",
+      "canonicalName": "Bamenda 1st",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Bamenda 1er",
+      "chefLieuInSource": "Bamendankwe",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Bamenda 1er  Chef-lieu : Bamendankwe",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM007005004",
+    "name": "Bamenda 2nd",
+    "post2005Event": {
+      "pcode": "CM007005004",
+      "canonicalName": "Bamenda 2nd",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Bamenda Ile",
+      "chefLieuInSource": "Mankon",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Bamenda Ile  Chef-lieu : Mankon",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM007005005",
+    "name": "Bamenda 3rd",
+    "post2005Event": {
+      "pcode": "CM007005005",
+      "canonicalName": "Bamenda 3rd",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Bamenda Ille",
+      "chefLieuInSource": "Nkwen",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Bamenda Ille  Chef-lieu : Nkwen",
+          "page": 6,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM007005006",
+    "name": "Santa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007005007",
+    "name": "Tubah",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007006001",
+    "name": "Batibo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007006002",
+    "name": "Mbengwi",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007006003",
+    "name": "Ngie",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007006004",
+    "name": "Njikwa",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007006005",
+    "name": "Widikum",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007007001",
+    "name": "Babessi",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007007002",
+    "name": "Balikumbat",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM007007003",
+    "name": "Ndop",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008001001",
+    "name": "Babadjou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008001002",
+    "name": "Batcham",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008001003",
+    "name": "Galim",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008001004",
+    "name": "Mbouda",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008002001",
+    "name": "Bafang",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008002002",
+    "name": "Bakou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008002003",
+    "name": "Bana",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008002004",
+    "name": "Bandja",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008002005",
+    "name": "Banka",
+    "post2005Event": {
+      "pcode": "CM008002005",
+      "canonicalName": "Banka",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Banka",
+      "chefLieuInSource": "Banka",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Banka    Chef-lieu : Banka",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM008002006",
+    "name": "Banwa",
+    "post2005Event": {
+      "pcode": "CM008002006",
+      "canonicalName": "Banwa",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "BANWA",
+      "chefLieuInSource": "Banwa",
+      "predecessor": "BANWA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de BANWA, chef-lieu : Banwa",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM008002007",
+    "name": "Kekem",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008003001",
+    "name": "Baham",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008003002",
+    "name": "Bamendjou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008003003",
+    "name": "Bangou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008003004",
+    "name": "Batie",
+    "post2005Event": {
+      "pcode": "CM008003004",
+      "canonicalName": "Batie",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "BATIE",
+      "chefLieuInSource": "Batié",
+      "predecessor": "BATIE district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de BATIE, chef-lieu : Batié",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM008004001",
+    "name": "Bayangam",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008004002",
+    "name": "Djebem",
+    "post2005Event": {
+      "pcode": "CM008004002",
+      "canonicalName": "Djebem",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "DJEMBEM",
+      "chefLieuInSource": "Demdeng",
+      "predecessor": "DJEMBEM district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de DJEMBEM, chef-lieu : Demdeng",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM008004003",
+    "name": "Poumougne",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008005001",
+    "name": "Dschang",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008005002",
+    "name": "Fokoue",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008005003",
+    "name": "Fongo-Tongo",
+    "post2005Event": {
+      "pcode": "CM008005003",
+      "canonicalName": "Fongo-Tongo",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Fongo-Tongo",
+      "chefLieuInSource": "Fongo- Tongo",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Fongo-Tongo    Chef-lieu : Fongo- Tongo",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM008005004",
+    "name": "Nkong-Ni",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008005005",
+    "name": "Penka-Michel",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008005006",
+    "name": "Santchou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008006001",
+    "name": "Bafoussam 1er",
+    "post2005Event": {
+      "pcode": "CM008006001",
+      "canonicalName": "Bafoussam 1er",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "replacement designation covering former arrondissement",
+      "nameInSource": "Bafoussam 1er",
+      "chefLieuInSource": "Bafoussam",
+      "predecessor": "Bafoussam",
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Bafoussam 1er        Chef-lieu : Bafoussam",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM008006002",
+    "name": "Bafoussam 2e",
+    "post2005Event": {
+      "pcode": "CM008006002",
+      "canonicalName": "Bafoussam 2e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "replacement designation covering former arrondissement",
+      "nameInSource": "Bafoussam Ile",
+      "chefLieuInSource": "Baleng",
+      "predecessor": "Baleng",
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Bafoussam Ile        Chef-lieu: Baleng",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM008006003",
+    "name": "Bafoussam 3e",
+    "post2005Event": {
+      "pcode": "CM008006003",
+      "canonicalName": "Bafoussam 3e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "replacement designation covering former arrondissement",
+      "nameInSource": "Bafoussam IlIe",
+      "chefLieuInSource": "Bamougoum",
+      "predecessor": "Bamougoum",
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Bafoussam IlIe       Chef-lieu Bamougoum",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM008007001",
+    "name": "Bangangte",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008007002",
+    "name": "Bassamba",
+    "post2005Event": {
+      "pcode": "CM008007002",
+      "canonicalName": "Bassamba",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "BASSAMBA",
+      "chefLieuInSource": "Bassamba",
+      "predecessor": "BASSAMBA district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de BASSAMBA, chef-lieu : Bassamba",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM008007003",
+    "name": "Bazou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008007004",
+    "name": "Tonga",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008008001",
+    "name": "Bangourain",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008008002",
+    "name": "Foumban",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008008003",
+    "name": "Foumbot",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008008004",
+    "name": "Kouoptamo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008008005",
+    "name": "Koutaba",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008008006",
+    "name": "Magba",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008008007",
+    "name": "Malantouen",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008008008",
+    "name": "Massangam",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM008008009",
+    "name": "Njimom",
+    "post2005Event": {
+      "pcode": "CM008008009",
+      "canonicalName": "Njimom",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Njinom",
+      "chefLieuInSource": "Njimom",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Njinom   Chef-lieu : Njimom",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009001001",
+    "name": "Bengbis",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009001002",
+    "name": "Djoum",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009001003",
+    "name": "Meyomessala",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009001004",
+    "name": "Meyomessi",
+    "post2005Event": {
+      "pcode": "CM009001004",
+      "canonicalName": "Meyomessi",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Meyomessi",
+      "chefLieuInSource": "Meyomessi",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Meyomessi     Chef-lieu : Meyomessi",
+          "page": 7,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009001005",
+    "name": "Mintom",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009001006",
+    "name": "Oveng",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009001007",
+    "name": "Sangmelima",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009001008",
+    "name": "Zoetele",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009002001",
+    "name": "Biwong-Bane",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009002002",
+    "name": "Biwong-Bulu",
+    "post2005Event": {
+      "pcode": "CM009002002",
+      "canonicalName": "Biwong-Bulu",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Biwong-BuIu",
+      "chefLieuInSource": "Biwong-BuIu",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement Biwong-BuIu     Chef-Lieu: Biwong-BuIu",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009002003",
+    "name": "Ebolowa 1er",
+    "post2005Event": {
+      "pcode": "CM009002003",
+      "canonicalName": "Ebolowa 1er",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Ebolowa 1er",
+      "chefLieuInSource": "Ebolowa-Si",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement d'Ebolowa 1erChef-lieu: Ebolowa-Si",
+          "page": 8,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009002004",
+    "name": "Ebolowa 2e",
+    "post2005Event": {
+      "pcode": "CM009002004",
+      "canonicalName": "Ebolowa 2e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Ebolowa II",
+      "chefLieuInSource": "Angalé",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement d'Ebolowa II     Chef-lieu: Angalé",
+          "page": 8,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009002005",
+    "name": "Efoulan",
+    "post2005Event": {
+      "pcode": "CM009002005",
+      "canonicalName": "Efoulan",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Efoulan",
+      "chefLieuInSource": "Efoulan",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement d'Efoulan Chef-lieu : Efoulan",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009002006",
+    "name": "Mengong",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009002007",
+    "name": "Mvangane",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009002008",
+    "name": "Ngoulemakong",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009003001",
+    "name": "Akom 2",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009003002",
+    "name": "Bipindi",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009003003",
+    "name": "Campo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009003004",
+    "name": "Kribi 1er",
+    "post2005Event": {
+      "pcode": "CM009003004",
+      "canonicalName": "Kribi 1er",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Kribi 1er",
+      "chefLieuInSource": "Massaka",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Kribi 1er      Chef-lieu: Massaka",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009003005",
+    "name": "Kribi 2e",
+    "post2005Event": {
+      "pcode": "CM009003005",
+      "canonicalName": "Kribi 2e",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Kribi Ile",
+      "chefLieuInSource": "Dombe",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Kribi Ile        Chef-lieu: Dombe",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009003006",
+    "name": "Lokoundje",
+    "post2005Event": {
+      "pcode": "CM009003006",
+      "canonicalName": "Lokoundje",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Lokoundje",
+      "chefLieuInSource": "Fifinda",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Lokoundje    Chef-lieu: Fifinda",
+          "page": 9,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009003007",
+    "name": "Lolodorf",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009003008",
+    "name": "Mvengue",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009003009",
+    "name": "Niete",
+    "post2005Event": {
+      "pcode": "CM009003009",
+      "canonicalName": "Niete",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "NIETE",
+      "chefLieuInSource": "Adjap",
+      "predecessor": "NIETE district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de NIETE, chef-lieu : Adjap",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009004001",
+    "name": "Ambam",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009004002",
+    "name": "Kye-Ossi",
+    "post2005Event": {
+      "pcode": "CM009004002",
+      "canonicalName": "Kye-Ossi",
+      "eventDate": "2006-09-05",
+      "decree": "2006/272",
+      "eventType": "arrondissement created",
+      "nameInSource": "Kye-Ossi",
+      "chefLieuInSource": null,
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://istmat.org/files/uploads/63549/annuaire_statistique_du_cameroun_2011.pdf",
+          "quote": "Décret N°2006/272 du 05 Septembre 2006 portant création de l’arrondissement de Kye-Ossi.",
+          "quoteNote": "INS annuaire legal-text inventory, search-index excerpt; direct download timed out."
+        },
+        {
+          "url": "https://www.geoecotrop.be/uploads/publications/pub_464_07.pdf",
+          "quote": "décret présidentiel N° 2006/272 du 05 septembre 2006, érigeant Kyé-Ossi en arrondissement"
+        }
+      ],
+      "confidence": "medium",
+      "notes": "Decree number/date corroborated, but the decree itself was not found. Commune creation is a separate 2007 event."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM009004003",
+    "name": "Maan",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM009004004",
+    "name": "Olamze",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010001001",
+    "name": "Buea",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010001002",
+    "name": "Limbe 1st",
+    "post2005Event": {
+      "pcode": "CM010001002",
+      "canonicalName": "Limbe 1st",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Limbe 1er",
+      "chefLieuInSource": "Poh",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Limbe 1er     Chef-lieu: Poh",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM010001003",
+    "name": "Limbe 2nd",
+    "post2005Event": {
+      "pcode": "CM010001003",
+      "canonicalName": "Limbe 2nd",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Limbe Ile",
+      "chefLieuInSource": "Mukundange",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Limbe Ile      Chef-lieu: Mukundange",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM010001004",
+    "name": "Limbe 3rd",
+    "post2005Event": {
+      "pcode": "CM010001004",
+      "canonicalName": "Limbe 3rd",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Limbe Ille",
+      "chefLieuInSource": "Bimbia",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Limbe Ille     Chef-lieu: Bimbia",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM010001005",
+    "name": "Muyuka",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010001006",
+    "name": "Tiko",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010001007",
+    "name": "West-Coast",
+    "post2005Event": {
+      "pcode": "CM010001007",
+      "canonicalName": "West-Coast",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "WEST COAST",
+      "chefLieuInSource": "Idenau",
+      "predecessor": "WEST COAST district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de WEST COAST, chef-lieu : Idenau",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM010002001",
+    "name": "Bangem",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010002002",
+    "name": "Nguti",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010002003",
+    "name": "Tombel",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010003001",
+    "name": "Alou",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010003002",
+    "name": "Fontem",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010003003",
+    "name": "Wabane",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010004001",
+    "name": "Akwaya",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010004002",
+    "name": "Eyumodjock",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010004003",
+    "name": "Mamfe",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010004004",
+    "name": "Upper Bayang",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010005001",
+    "name": "Konye",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010005002",
+    "name": "Kumba 1st",
+    "post2005Event": {
+      "pcode": "CM010005002",
+      "canonicalName": "Kumba 1st",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Kumba 1er",
+      "chefLieuInSource": "Njuki",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Kumba 1er    Chef-lieu: Njuki",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM010005003",
+    "name": "Kumba 2nd",
+    "post2005Event": {
+      "pcode": "CM010005003",
+      "canonicalName": "Kumba 2nd",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Kumba IIe",
+      "chefLieuInSource": "Fiango",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Kumba IIe    Chef-lieu : Fiango",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM010005004",
+    "name": "Kumba 3rd",
+    "post2005Event": {
+      "pcode": "CM010005004",
+      "canonicalName": "Kumba 3rd",
+      "eventDate": "2007-04-23",
+      "decree": "2007/115",
+      "eventType": "arrondissement created / territorial reorganization",
+      "nameInSource": "Kumba Ille",
+      "chefLieuInSource": "Mambanda",
+      "predecessor": null,
+      "evidence": [
+        {
+          "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+          "quote": "Arrondissement de Kumba Ille    Chef·lieu : Mambanda",
+          "page": 10,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM010005005",
+    "name": "Mbonge",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010006001",
+    "name": "Bamusso",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010006002",
+    "name": "Dikome Balue",
+    "post2005Event": {
+      "pcode": "CM010006002",
+      "canonicalName": "Dikome Balue",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "DIKOME-BALUE",
+      "chefLieuInSource": "Dikome-Balue",
+      "predecessor": "DIKOME-BALUE district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de DIKOME-BALUE, chef-lieu : Dikome-Balue",
+          "page": 11,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  },
+  {
+    "pcode": "CM010006003",
+    "name": "Ekondo Titi",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010006004",
+    "name": "Idabato",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010006005",
+    "name": "Isangele",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010006006",
+    "name": "Kombo Abedimo",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010006007",
+    "name": "Kombo Itindi",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010006008",
+    "name": "Mundemba",
+    "post2005Event": null,
+    "status": "not-found in recovered post-2005 acts; not proof of earlier creation"
+  },
+  {
+    "pcode": "CM010006009",
+    "name": "Toko",
+    "post2005Event": {
+      "pcode": "CM010006009",
+      "canonicalName": "Toko",
+      "eventDate": "2010-06-16",
+      "decree": "2010/198",
+      "eventType": "district promoted to arrondissement",
+      "nameInSource": "TOKO",
+      "chefLieuInSource": "Toko",
+      "predecessor": "TOKO district",
+      "evidence": [
+        {
+          "url": "https://s1084e755aa436055.jimcontent.com/download/version/1592993857/module/10895481257/name/Decret_ErectionDistricts%20en%20Arrond_160610.pdf",
+          "quote": "Arrondissement de TOKO, chef-lieu : Toko",
+          "page": 11,
+          "quoteNote": "PDF text extraction; 2010 scan OCR. Apparent l/I substitutions are retained in quote and normalized only for matching."
+        }
+      ],
+      "confidence": "high",
+      "notes": "A legal status date; not the founding date of the settlement or necessarily of the commune. Not a net increment in the national count."
+    },
+    "status": "documented"
+  }
+]
