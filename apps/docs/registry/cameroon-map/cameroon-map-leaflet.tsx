@@ -237,20 +237,26 @@ function MapVectorLayer({
 // --- Layers -----------------------------------------------------------------
 
 interface MapTileLayerOption {
+  /** Identifies the layer; keep it stable. */
   name: string;
+  /** Shown in the layers menu. Defaults to `name`. */
+  label?: string;
 }
 
 interface MapLayerGroupOption {
+  /** Identifies the group; keep it stable. */
   name: string;
+  /** Shown in the layers menu. Defaults to `name`. */
+  label?: string;
   disabled?: boolean;
 }
 
 interface MapLayersContextType {
-  registerTileLayer: (layer: MapTileLayerOption) => void;
+  registerTileLayer: (layer: MapTileLayerOption) => () => void;
   tileLayers: MapTileLayerOption[];
   selectedTileLayer: string;
   setSelectedTileLayer: (name: string) => void;
-  registerLayerGroup: (layer: MapLayerGroupOption) => void;
+  registerLayerGroup: (layer: MapLayerGroupOption) => () => void;
   layerGroups: MapLayerGroupOption[];
   activeLayerGroups: string[];
   setActiveLayerGroups: (names: string[]) => void;
@@ -265,10 +271,11 @@ function useMapLayersContext() {
 /**
  * A base map. Vector tiles (OpenFreeMap) when WebGL is available, raster
  * tiles otherwise or when only `rasterUrl` is given. Inside `MapLayers`,
- * each `name` is an option of the layers menu.
+ * each one is an option of the layers menu.
  */
 function MapTileLayer({
   name = "Default",
+  label,
   vectorStyleUrl,
   darkVectorStyleUrl,
   rasterUrl,
@@ -279,6 +286,7 @@ function MapTileLayer({
 }: Omit<Partial<TileLayerProps>, "url" | "attribution"> &
   MapTileSourceProps & {
     name?: string;
+    label?: string;
     /** Only applies to raster tiles. */
     ref?: React.Ref<LeafletTileLayer>;
   }) {
@@ -292,9 +300,8 @@ function MapTileLayer({
   const webgl = useWebGLSupport();
   const [isVectorFailed, setIsVectorFailed] = React.useState(false);
 
-  React.useEffect(() => {
-    context?.registerTileLayer({ name });
-  }, [context, name]);
+  const register = context?.registerTileLayer;
+  React.useEffect(() => register?.({ name, label }), [register, name, label]);
 
   if (context && context.selectedTileLayer !== name) return null;
   if (webgl === null) return null;
@@ -327,15 +334,18 @@ function MapTileLayer({
 /** An overlay that the layers menu can switch on and off. */
 function MapLayerGroup({
   name,
+  label,
   disabled,
   ...props
 }: LayerGroupProps &
   MapLayerGroupOption & { ref?: React.Ref<LeafletLayerGroup> }) {
   const context = useMapLayersContext();
 
-  React.useEffect(() => {
-    context?.registerLayerGroup({ name, disabled });
-  }, [context, name, disabled]);
+  const register = context?.registerLayerGroup;
+  React.useEffect(
+    () => register?.({ name, label, disabled }),
+    [register, name, label, disabled],
+  );
 
   if (context && !context.activeLayerGroups.includes(name)) return null;
   return <LayerGroup {...props} />;
@@ -360,26 +370,31 @@ function MapLayers({
   const [activeLayerGroups, setActiveLayerGroups] =
     React.useState<string[]>(defaultLayerGroups);
 
+  // Registration returns its cleanup, so options follow mounts and label
+  // changes (e.g. a new language) instead of going stale. The menu keeps
+  // the order in which options first appeared.
+  const order = React.useRef(new Map<string, number>());
+  const rank = React.useCallback((name: string) => {
+    const known = order.current.get(name);
+    if (known !== undefined) return known;
+    order.current.set(name, order.current.size);
+    return order.current.size - 1;
+  }, []);
+
   const registerTileLayer = React.useCallback(
     (tileLayer: MapTileLayerOption) => {
-      setTileLayers((prev) =>
-        prev.some((layer) => layer.name === tileLayer.name)
-          ? prev
-          : [...prev, tileLayer],
-      );
+      setTileLayers((prev) => upsert(prev, tileLayer, rank));
+      return () => setTileLayers((prev) => remove(prev, tileLayer.name));
     },
-    [],
+    [rank],
   );
 
   const registerLayerGroup = React.useCallback(
     (layerGroup: MapLayerGroupOption) => {
-      setLayerGroups((prev) =>
-        prev.some((group) => group.name === layerGroup.name)
-          ? prev
-          : [...prev, layerGroup],
-      );
+      setLayerGroups((prev) => upsert(prev, layerGroup, rank));
+      return () => setLayerGroups((prev) => remove(prev, layerGroup.name));
     },
-    [],
+    [rank],
   );
 
   React.useEffect(() => {
@@ -393,8 +408,13 @@ function MapLayers({
       );
     }
 
+    // Select the default, or the first, when nothing (or a layer that is
+    // gone) is selected.
     const first = tileLayers[0];
-    if (first && !selectedTileLayer) {
+    if (
+      first &&
+      !tileLayers.some((layer) => layer.name === selectedTileLayer)
+    ) {
       setSelectedTileLayer(
         defaultTileLayer &&
           tileLayers.some((layer) => layer.name === defaultTileLayer)
@@ -444,6 +464,22 @@ function MapLayers({
   );
 
   return <MapLayersContext.Provider value={value} {...props} />;
+}
+
+/** Adds or replaces `item`, keeping options in first-registration order. */
+function upsert<T extends { name: string }>(
+  list: T[],
+  item: T,
+  rank: (name: string) => number,
+): T[] {
+  rank(item.name); // Ranks on arrival, not in whatever order sort compares.
+  return [...list.filter((entry) => entry.name !== item.name), item].sort(
+    (a, b) => rank(a.name) - rank(b.name),
+  );
+}
+
+function remove<T extends { name: string }>(list: T[], name: string): T[] {
+  return list.filter((entry) => entry.name !== name);
 }
 
 const MENU_ITEM =
@@ -614,7 +650,7 @@ function MapLayersControl({
                           <CircleIcon className="size-2 fill-current" />
                         ) : null}
                       </span>
-                      {layer.name}
+                      {layer.label ?? layer.name}
                     </button>
                   );
                 })}
@@ -654,7 +690,7 @@ function MapLayersControl({
                       <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
                         {checked ? <CheckIcon className="size-4" /> : null}
                       </span>
-                      {group.name}
+                      {group.label ?? group.name}
                     </button>
                   );
                 })}

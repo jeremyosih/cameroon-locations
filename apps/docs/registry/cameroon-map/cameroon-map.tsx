@@ -353,7 +353,7 @@ export function CameroonMap({
         className="absolute inset-0 z-0 min-h-0 rounded-none"
       >
         <MapLayers>
-          {tiles ? <MapTileLayer name={text.tiles} /> : null}
+          {tiles ? <MapTileLayer name="Default" label={text.tiles} /> : null}
           <Attribution html={credit} />
           <MapControlContainer className="top-2 left-2 flex flex-col items-start gap-2">
             <MapZoomControl position="relative" />
