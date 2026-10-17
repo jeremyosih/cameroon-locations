@@ -1,11 +1,16 @@
+import data from "../../generated/metadata.json";
 import { getSources, REPOSITORY_URL } from "../sources";
-import type { DatasetMetadata } from "../types";
+import type { DatasetMetadata, SourceId } from "../types";
 
-// Owner: data generation. Replaced by generated/metadata.json.
+/**
+ * Name, dataset version, date and sources of the published data. `version`
+ * is `<date>+<hash of data/canonical>`; `generated` is the latest retrieval
+ * date among the sources.
+ */
 export const metadata: DatasetMetadata = Object.freeze({
-  name: "cameroon-locations",
-  version: "0.0.0",
-  generated: "",
+  name: data.name,
+  version: data.version,
+  generated: data.generated,
   repository: REPOSITORY_URL,
-  sources: getSources(["ocha-cod-ab-cmr"]),
+  sources: Object.freeze(getSources(data.sources as SourceId[])),
 });
