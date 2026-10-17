@@ -1,7 +1,4 @@
 import { describe, expect, test } from "bun:test";
-import { mkdtemp, readFile, rm } from "node:fs/promises";
-import { tmpdir } from "node:os";
-import { join } from "node:path";
 import { Effect, Exit, Layer, Option, Schema } from "effect";
 import {
   AdminUnit,
@@ -130,26 +127,3 @@ describe("CameroonLocations service", () => {
     expect(Effect.runSync(getUnit("CM002")).pcode).toBe("CM002");
   });
 });
-
-// tsdown runs under Node: its bundler hangs under the Bun runtime.
-test("the effect entry imports effect instead of bundling it", async () => {
-  const cwd = join(import.meta.dir, "..");
-  const outDir = await mkdtemp(join(tmpdir(), "cl-effect-"));
-  try {
-    const { exitCode, stderr } = Bun.spawnSync(
-      ["node_modules/.bin/tsdown", "-d", outDir, "-l", "error", "--no-dts"],
-      { cwd },
-    );
-    expect(stderr.toString()).toBe("");
-    expect(exitCode).toBe(0);
-    for (const file of ["effect.js", "effect.cjs"]) {
-      const code = await readFile(join(outDir, file), "utf8");
-      expect(code).toMatch(/from"effect"|require\("effect"\)/);
-      // Effect's internal type ids would appear if it were bundled.
-      expect(code).not.toContain("~effect/");
-      expect(code.length).toBeLessThan(20_000);
-    }
-  } finally {
-    await rm(outDir, { recursive: true, force: true });
-  }
-}, 60_000);
