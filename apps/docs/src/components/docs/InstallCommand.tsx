@@ -90,7 +90,7 @@ export function InstallCommand(props: InstallCommandProps) {
     <div className="not-prose bg-code my-6 overflow-hidden rounded-lg border">
       <Tabs value={manager} onValueChange={select} className="gap-0">
         <div className="flex items-center justify-between border-b px-2 py-1.5">
-          <TabsList aria-label="Package manager">
+          <TabsList variant="line" aria-label="Package manager">
             {MANAGERS.map((m) => (
               <TabsTrigger key={m} value={m} className="font-mono text-xs">
                 {m}

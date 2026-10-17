@@ -15,15 +15,14 @@ import {
   useRef,
   useState,
 } from "react";
-import { GeoJSON, useMap, useMapEvents } from "react-leaflet";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { CircleMarker, GeoJSON, useMap, useMapEvents } from "react-leaflet";
 import {
-  MapMarker,
-  Map as MapRoot,
+  MapRoot,
   MapTileLayer,
   MapZoomControl,
-} from "@/components/ui/map";
+} from "@/components/cameroon-map-leaflet";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
 
 // Both are large, so they load after the page, as separate chunks:
@@ -339,14 +338,12 @@ export default function LocateDemo() {
               }
             />
           ) : null}
-          <MapMarker
-            position={[y, x]}
+          <CircleMarker
+            center={[y, x]}
+            radius={7}
             interactive={false}
-            keyboard={false}
-            iconAnchor={[8, 8]}
-            icon={
-              <span className="bg-foreground ring-background block size-4 rounded-full shadow-md ring-[3px]" />
-            }
+            className="fill-foreground stroke-background"
+            pathOptions={{ weight: 3, fillOpacity: 1 }}
           />
           {target ? <FlyTo bounds={target} /> : null}
         </MapRoot>
