@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "cameroon-locations",
+  "homepage": "{{SITE_URL}}",
+  "items": [
+    {
+      "name": "cameroon-locations-core",
+      "type": "registry:lib",
+      "title": "Cameroon locations core",
+      "description": "Copy-paste version of the cameroon-locations core: types, sources and attribution, name normalisation, lookups and search over the 10 regions, 58 divisions and 360 arrondissements, with the data inlined. No npm dependency.",
+      "meta": {
+        "vendor": "../../packages/cameroon-locations/src",
+        "target": "lib/cameroon-locations"
+      },
+      "files": [
+        { "path": "types.ts", "type": "registry:lib" },
+        { "path": "sources.ts", "type": "registry:lib" },
+        { "path": "normalize.ts", "type": "registry:lib" },
+        { "path": "lookup.ts", "type": "registry:lib" },
+        { "path": "search.ts", "type": "registry:lib" },
+        { "path": "data/admin.ts", "type": "registry:lib" }
+      ]
+    }
+  ]
+}

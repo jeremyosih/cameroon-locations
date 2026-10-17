@@ -1,0 +1,105 @@
+---
+title: Migration from 0.1
+description: 0.2 replaces the wrapper classes with plain functions over records keyed by P-code. Here is how each 0.1 call maps to the new API.
+---
+
+0.2 is a rewrite. The data now comes from OCHA, BUCREP and ELECAM with full
+provenance, every unit is keyed by its OCHA P-code, and the API is a set of
+plain functions over frozen records. Most code changes are mechanical.
+
+## What changed
+
+- **Plain functions, no wrappers.** `RegionWrapper`, `DivisionWrapper` and
+  friends, the `CameroonLocations` class and the chaining API are gone.
+  Lookups return the record itself, or `undefined`.
+- **P-codes are the keys.** Numeric `code` fields and `get*ByCode(2)` are
+  gone. Use the P-code (`"CM002"`), the HASC code or a name.
+- **`subdivision` is now `arrondissement`.** That is the official name of the
+  level, in both languages.
+- **`blocks` are removed.** No public source covers them.
+- **Names are the official ones**, e.g. "Yaoundé I" rather than "Yaounde 1er".
+  Old spellings still resolve: they are kept as aliases, and lookups compare
+  names with `normalizeName`.
+- **Bilingual names are an object**: `name.fr` and `name.en` instead of
+  `nameFr`, `nameEn`, `name` and `getName(lang)`.
+- **No exceptions.** `NotFoundError` and `CameroonLocationsError` are gone;
+  check for `undefined`. The [Effect adapter](/docs/effect) has tagged errors
+  if you want them.
+- **Heavy data has its own entry point**: cantons, villages, search, geo and
+  ELECAM.
+
+## Function map
+
+| 0.1                                                  | 0.2                                                       |
+| :--------------------------------------------------- | :-------------------------------------------------------- |
+| `getRegions()`                                       | `regions`                                                 |
+| `getDivisions()`                                     | `divisions` or `getDivisions()`                           |
+| `getSubdivisions()`                                  | `arrondissements` or `getArrondissements()`               |
+| `region(x)`, `getRegionByCode(x)`                    | `getRegion(x)`                                            |
+| `division(x)`, `getDivisionByCode(x)`                | `getDivision(x)`                                          |
+| `subdivision(x)`, `getSubdivisionByCode(x)`          | `getArrondissement(x)`                                    |
+| `getDivisionsInRegion(r)`                            | `getDivisions(r)`                                         |
+| `getSubdivisionsInDivision(d)`                       | `getArrondissements(d)`                                   |
+| `getSubdivisionsInRegion(r)`                         | `getArrondissements(r)`                                   |
+| `getRegionOfDivision(d)`, `getDivisionOfSubdivision(s)` | `getParent(pcode)`, `getAncestors(pcode)`              |
+| `canton(x)`, `getCantonByCode(x)`                    | `getCanton(id)`, `findCantons(name)` from `/cantons`      |
+| `getCantonsInSubdivision(s)`, `getCantonsInDivision(d)`, `getCantonsInRegion(r)` | `getCantons(pcode)` from `/cantons` |
+| `neighborhoodOrVillage(x)`                           | `getVillage(id)`, `findVillages(name)` from `/villages`   |
+| `getNeighborhoodOrVillagesInCanton(c)`               | `getVillages(cantonId)` from `/villages`                  |
+| `getNeighborhoodOrVillagesWithPopulation()`          | `villages.filter((v) => v.population2005)`                |
+| `getSubdivisionOfCanton(c)`, `getCantonOfNeighborhoodOrVillage(v)` | `canton.arrondissementPcode`, `village.cantonId` |
+| `getCantonsByType()`, `getCityCantons()`, `getRuralCantons()`, `getTraditionalCantons()` | removed; the census source has no canton types |
+| `block(x)`, `getBlocks()`, `getBlocksInNeighborhoodOrVillage()` | removed                                        |
+| `search(q, { types })`, `searchByType(q, type)`      | `search(q, { levels })` from `/search`                    |
+| `cameroon-locations/geojson`: `getGeoJson(pcode)`    | `cameroon-locations/geojson/*.geojson` files, `locate()` from `/geo` |
+| `cameroon-locations/elecam`: `getElectoralData(code)` | `getCouncilSummary(pcode)`, `getPollingStations(pcode)`  |
+
+## Fields
+
+| 0.1                          | 0.2                                   |
+| :--------------------------- | :------------------------------------ |
+| `nameFr`, `nameEn`           | `name.fr`, `name.en`                  |
+| `name`, `getName("en")`      | `name.fr`, `name.en`                  |
+| `code` (numeric)             | removed; use `pcode`                  |
+| `pcode`, `hasc`              | `pcode`, `hasc`                       |
+| `getAllCodes()`              | `pcode`, `hasc`, `wikidata`           |
+| `region`, `regionCode`       | `regionPcode`                         |
+| `division`, `divisionCode`   | `parentPcode` / `divisionPcode`       |
+| `population`                 | `population2005`                      |
+
+## Before and after
+
+```ts
+// 0.1
+import { region, getDivisionsInRegion, search } from "cameroon-locations";
+
+const yaounde1 = region("Centre")
+  ?.division("Mfoundi")
+  ?.subdivision("Yaoundé I");
+console.log(yaounde1?.nameEn, yaounde1?.getAllCodes());
+const divisions = getDivisionsInRegion("Centre");
+const results = search("Yaoundé", { types: ["subdivision"] });
+```
+
+```ts
+// 0.2
+import { getArrondissement, getDivisions } from "cameroon-locations";
+import { search } from "cameroon-locations/search";
+
+const yaounde1 = getArrondissement("Yaoundé I", { within: "CM002007" });
+console.log(yaounde1?.name.en, yaounde1?.pcode); // "Yaoundé I" "CM002007001"
+const divisions = getDivisions("Centre");
+const results = search("Yaoundé", { levels: ["arrondissement"] });
+```
+
+## Storing references
+
+If you stored 0.1 names or numeric codes in a database, migrate them to
+P-codes once and store those: they are stable and shared with OCHA, HDX and
+most GIS data for Cameroon.
+
+```ts
+import { getArrondissement } from "cameroon-locations";
+
+const pcode = getArrondissement(row.subdivisionName)?.pcode;
+```

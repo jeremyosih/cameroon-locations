@@ -1,0 +1,95 @@
+---
+title: Metadata & attribution
+description: Dataset version and provenance, the source registry, and the credit line to display when you use the data.
+eyebrow: import … from "cameroon-locations"
+---
+
+## attribution
+
+```ts
+function attribution(ids?: readonly SourceId[]): string;
+```
+
+One paragraph suitable for a map footer or an "about" page. It defaults to
+the OCHA boundaries credit; pass the sources you actually display.
+
+```ts
+import { attribution } from "cameroon-locations";
+
+attribution();
+attribution(["ocha-cod-ab-cmr", "bucrep-rgph2005-repertoire-villages"]);
+```
+
+The output below is produced by the package while this page is built:
+
+<AttributionExample />
+<AttributionExample ids={["ocha-cod-ab-cmr", "bucrep-rgph2005-repertoire-villages"]} />
+
+Every record carries `sources`, so you can build the credit from what you
+show:
+
+```ts
+import { attribution, getArrondissements } from "cameroon-locations";
+
+const shown = getArrondissements("Mfoundi");
+const credit = attribution(shown.flatMap((a) => a.sources));
+```
+
+## sources
+
+```ts
+const sources: Readonly<Record<SourceId, SourceInfo>>;
+function getSources(ids: readonly SourceId[]): SourceInfo[];
+```
+
+The source registry: title, publisher, licence, where it is published online
+and the archived copy in this repository. `getSources` returns records for the
+given ids, in order, without duplicates.
+
+```ts
+import { getSources, sources } from "cameroon-locations";
+
+sources["ocha-cod-ab-cmr"].license; // "CC BY-IGO 3.0"
+getSources(["wikidata"])[0]?.url; // "https://www.wikidata.org"
+```
+
+<PropsTable
+  label="Field"
+  rows={[
+    { name: "id", type: "SourceId", description: "Stable identifier, referenced by every record." },
+    { name: "title", type: "string", description: "Dataset title." },
+    { name: "publisher", type: "string", description: "Who publishes it." },
+    { name: "license", type: "string", description: "Licence or terms, as stated." },
+    { name: "licenseUrl", type: "string?", description: "Licence text." },
+    { name: "url", type: "string", description: "Where the source is published online." },
+    { name: "repositoryUrl", type: "string", description: "Archived copy, checksums and SOURCE.md in this repository." },
+    { name: "retrieved", type: "string", description: "Retrieval date, YYYY-MM-DD." },
+    { name: "attribution", type: "string", description: "Credit line for this source." },
+  ]}
+/>
+
+The full list, rendered from this export, is on
+[Data & sources](/docs/data-sources).
+
+## metadata
+
+```ts
+const metadata: DatasetMetadata;
+
+interface DatasetMetadata {
+  name: string; // "cameroon-locations"
+  version: string; // data version, e.g. "2026.10.17+a9b6a49f"
+  generated: string; // date of the data build, e.g. "2026-10-17"
+  repository: string;
+  sources: readonly SourceInfo[];
+}
+```
+
+The same object is attached to every dataset export and every GeoJSON file
+(in its `metadata` member), so provenance travels with the data.
+
+## REPOSITORY_URL
+
+```ts
+const REPOSITORY_URL = "https://github.com/jeremyosih/cameroon-locations";
+```

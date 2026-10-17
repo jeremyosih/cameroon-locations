@@ -1,0 +1,104 @@
+---
+title: Data model
+description: Plain, frozen, JSON-serialisable records keyed by OCHA P-code. These types are the contract for every entry point.
+eyebrow: import type … from "cameroon-locations"
+---
+
+import typesSource from "../../../../../packages/cameroon-locations/src/types.ts?raw";
+
+## Administrative units
+
+Regions, divisions and arrondissements share one shape and differ by `level`
+and their parent links. `AdminUnit` is the union of the three; switch on
+`level` to narrow it.
+
+```ts
+type AdminLevel = "region" | "division" | "arrondissement";
+type AdminUnit = Region | Division | Arrondissement;
+```
+
+<PropsTable
+  label="Field"
+  rows={[
+    { name: "pcode", type: "Pcode", description: "OCHA P-code, e.g. CM002007001. The key." },
+    { name: "level", type: "AdminLevel", description: "\"region\", \"division\" or \"arrondissement\"." },
+    { name: "name", type: "{ fr: string; en: string }", description: "Display names in both official languages. Always both present." },
+    { name: "refName", type: "string", description: "OCHA ASCII reference name." },
+    { name: "aliases", type: "readonly Alias[]", description: "Every other spelling seen in a source, with the source ids. Spellings are never discarded." },
+    { name: "hasc", type: "string?", description: "HASC code, e.g. CM.CE." },
+    { name: "wikidata", type: "string?", description: "Wikidata QID." },
+    { name: "areaSqKm", type: "number", description: "Area from OCHA COD-AB." },
+    { name: "centroid", type: "LngLat", description: "[lng, lat] in WGS 84, GeoJSON order." },
+    { name: "bbox", type: "BBox", description: "[minLng, minLat, maxLng, maxLat]." },
+    { name: "population2005", type: "Population?", description: "{ total, male, female } from the 2005 census, as printed." },
+    { name: "sources", type: "readonly SourceId[]", description: "Sources this record is derived from. See Metadata & attribution." },
+  ]}
+/>
+
+Parent links by level:
+
+| Type             | `parentPcode` | Also                              |
+| :--------------- | :------------ | :-------------------------------- |
+| `Region`         | `null`        |                                   |
+| `Division`       | region        | `regionPcode`                     |
+| `Arrondissement` | division      | `regionPcode`, `divisionPcode`, `ordinal?` |
+
+`ordinal` is set on numbered arrondissements: `1` for "Yaoundé I", `3` for
+"Douala III".
+
+```ts
+import type { AdminUnit } from "cameroon-locations";
+
+function label(unit: AdminUnit): string {
+  switch (unit.level) {
+    case "region":
+      return unit.name.en;
+    case "division":
+      return `${unit.name.fr} (${unit.regionPcode})`;
+    case "arrondissement":
+      return `${unit.name.fr}, ${unit.divisionPcode}`;
+  }
+}
+```
+
+## Cantons and villages
+
+Cantons and villages come from the BUCREP census directory. Their `name` is
+kept exactly as printed (upper case); `label` is a friendlier casing for
+display.
+
+<PropsTable
+  label="Field"
+  rows={[
+    { name: "id", type: "string", description: "Canton: <arrondissement pcode>-Cnn. Village: <canton id>-Vnnn." },
+    { name: "arrondissementPcode", type: "Pcode", description: "Arrondissement the record belongs to." },
+    { name: "cantonId", type: "string", description: "Village only. Parent canton id." },
+    { name: "name", type: "string", description: "As printed in the source." },
+    { name: "label", type: "string", description: "Human-friendly casing of name." },
+    { name: "population2005", type: "Population?", description: "2005 census population, as printed." },
+    { name: "sources", type: "readonly SourceId[]", description: "Provenance." },
+  ]}
+/>
+
+## Electoral data
+
+`PollingStation` and `CouncilElectoralSummary` are documented on
+[ELECAM](/docs/elecam).
+
+## Conventions
+
+- **Frozen.** Records and arrays are deep-frozen. Copy before you change
+  anything: `{ ...unit }`.
+- **Serialisable.** No classes, dates or functions; `JSON.stringify` round-trips.
+- **Coordinates** are `[lng, lat]`, like GeoJSON. Leaflet wants `[lat, lng]`.
+- **Missing values** are omitted (`?`), never `null`, except
+  `Region.parentPcode` and diaspora polling stations.
+- **Population** figures are the 2005 census, as printed by BUCREP, even where
+  the source's own totals disagree. Known inconsistencies are listed in
+  `data/canonical/issues.json`.
+
+## Full source
+
+The complete `types.ts`, read from the package at build time:
+
+<CodeBlock code={typesSource} lang="ts" title="packages/cameroon-locations/src/types.ts" />

@@ -1,0 +1,120 @@
+---
+title: Cantons & villages
+description: 1,504 cantons and 17,070 villages and quartiers from the 2005 census directory, each linked to its arrondissement.
+eyebrow: import … from "cameroon-locations/cantons" · "/villages"
+---
+
+Cantons and villages come from BUCREP's *Répertoire actualisé des villages du
+Cameroun* (RGPH 2005). They have no official code, so each gets a stable id
+derived from its arrondissement's P-code. They live in their own entry points
+because the village list is large.
+
+## Cantons
+
+```ts
+import { cantons, findCantons, getCanton, getCantons } from "cameroon-locations/cantons";
+```
+
+A canton is whatever BUCREP prints at that level: a canton, lamidat,
+groupement, or an urban "ville" block.
+
+### getCanton
+
+```ts
+function getCanton(id: string): Canton | undefined;
+```
+
+```ts
+getCanton("CM002007001-C01")?.label; // "Yaounde Ville"
+```
+
+### getCantons
+
+```ts
+function getCantons(within: Pcode): readonly Canton[];
+```
+
+Cantons of an arrondissement, division or region.
+
+```ts
+getCantons("CM002007001").map((c) => c.label); // ["Yaounde Ville", "Yaounde 1 Rural"]
+getCantons("CM001").length; // 56, in Adamaoua
+```
+
+### findCantons
+
+```ts
+function findCantons(name: string, options?: { within?: Pcode }): readonly Canton[];
+```
+
+Cantons whose normalised name matches.
+
+```ts
+findCantons("Ngaoundal ville").map((c) => c.id); // ["CM001001001-C01"]
+```
+
+## Villages
+
+```ts
+import { findVillages, getVillage, getVillages, villages } from "cameroon-locations/villages";
+```
+
+### getVillage
+
+```ts
+function getVillage(id: string): Village | undefined;
+```
+
+```ts
+getVillage("CM001001001-C01-V001")?.name; // "BAYA HADJIDA"
+```
+
+### getVillages
+
+```ts
+function getVillages(within: string): readonly Village[];
+```
+
+Villages of a canton (by id) or of an arrondissement, division or region (by
+P-code).
+
+```ts
+getVillages("CM001001001-C01").length; // 16, one canton
+getVillages("CM002007").length; // 255, all of Mfoundi
+```
+
+### findVillages
+
+```ts
+function findVillages(name: string, options?: { within?: Pcode }): readonly Village[];
+```
+
+More than 2,000 village names repeat across the country, so this always
+returns every match. Narrow it with `within`.
+
+```ts
+findVillages("Nkolbisson").map((v) => v.id); // ["CM002007007-C01-V008"]
+findVillages("Mbanga", { within: "CM005" }).length; // 1
+```
+
+## Searching
+
+For type-ahead over villages or cantons, build a search with
+[`createSearch`](/docs/search#createsearch):
+
+```ts
+import { createSearch } from "cameroon-locations/search";
+import { villages } from "cameroon-locations/villages";
+
+const searchVillages = createSearch(villages, (v) => [v.label]);
+searchVillages("nkol", { limit: 3 }).map((r) => r.item.label); // ["Nkol", "Nkolo", "Nkolo"]
+```
+
+## Notes on the data
+
+- `name` is kept as printed (upper case, original spelling); `label` is for
+  display.
+- Population is the 2005 figure as printed. Where a canton's printed total
+  differs from the sum of its villages, both are kept and the difference is
+  listed in `data/canonical/issues.json`.
+- Villages created or renamed after 2005 are not in the source.

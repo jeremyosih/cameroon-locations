@@ -1,0 +1,19 @@
+---
+import type { SourceId } from "cameroon-locations";
+/** Shows the real output of `attribution(ids)` from the package. */
+import { attribution } from "cameroon-locations";
+
+interface Props {
+  ids?: SourceId[];
+}
+
+const { ids } = Astro.props;
+const text = attribution(ids);
+---
+
+<figure class="not-prose my-6 rounded-lg border">
+  <figcaption class="text-muted-foreground border-b px-4 py-2 font-mono text-xs">
+    attribution({ids ? JSON.stringify(ids).replaceAll(",", ", ") : ""})
+  </figcaption>
+  <blockquote class="px-4 py-3 text-sm leading-relaxed">{text}</blockquote>
+</figure>

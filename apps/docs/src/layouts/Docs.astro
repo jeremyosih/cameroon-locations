@@ -1,0 +1,76 @@
+---
+import type { MarkdownHeading } from "astro";
+import MobileHeader from "@/components/layout/MobileHeader.astro";
+import Pager from "@/components/layout/Pager.astro";
+import Sidebar from "@/components/layout/Sidebar.astro";
+import Toc from "@/components/layout/Toc.astro";
+import { GITHUB_URL } from "@/site";
+import Base from "./Base.astro";
+
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  eyebrow?: string;
+  headings: readonly MarkdownHeading[];
+  source?: string;
+  /** Hide the H1 block (pages with their own hero). */
+  hero?: boolean;
+}
+
+const { slug, title, description, eyebrow, headings, source, hero } =
+  Astro.props;
+---
+
+<Base title={slug === "introduction" ? undefined : title} description={description}>
+  <MobileHeader />
+  <Sidebar current={slug} />
+  <div class="md:pl-64">
+    <div class="mx-auto flex max-w-[1120px] gap-14 px-5 pt-10 pb-16 sm:px-8 md:pt-20">
+      <main class="min-w-0 flex-1" id="content">
+        <div class="mx-auto max-w-[720px]">
+          {
+            hero ? (
+              <slot name="hero" />
+            ) : (
+              <header class="mb-10">
+                {eyebrow && (
+                  <p class="text-muted-foreground mb-3 font-mono text-xs">{eyebrow}</p>
+                )}
+                <h1 class="text-[1.65rem] leading-tight font-semibold tracking-tight">
+                  {title}
+                </h1>
+                <p class="text-muted-foreground mt-3 text-[15px] leading-relaxed">
+                  {description}
+                </p>
+              </header>
+            )
+          }
+          <article class="docs-prose">
+            <slot />
+          </article>
+          <Pager current={slug} />
+          <footer class="text-muted-foreground mt-12 flex flex-wrap justify-between gap-2 text-xs">
+            <span>
+              Code MIT. Data from OCHA, BUCREP and ELECAM, see{" "}
+              <a href="/docs/data-sources" class="hover:text-foreground underline underline-offset-2">
+                Data &amp; sources
+              </a>.
+            </span>
+            <span>
+              Forked from{" "}
+              <a
+                href="https://github.com/DavidAmunga/kenya-locations"
+                class="hover:text-foreground underline underline-offset-2"
+              >
+                kenya-locations
+              </a>{" "}
+              · <a href={GITHUB_URL} class="hover:text-foreground underline underline-offset-2">GitHub</a>
+            </span>
+          </footer>
+        </div>
+      </main>
+      <Toc headings={headings} source={source} />
+    </div>
+  </div>
+</Base>

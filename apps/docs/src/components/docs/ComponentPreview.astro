@@ -1,0 +1,141 @@
+---
+/**
+ * Preview / Code tabs, after prompt-kit. The default slot is the live
+ * preview: put a React island in it (`<Demo client:load />`). The Code tab
+ * shows `code` (prefer `import src from "./demo.tsx?raw"`) or `file`
+ * (relative to `apps/docs`).
+ *
+ * ```mdx
+ * import Demo from "@/components/demos/location-picker-demo";
+ * import demoSrc from "@/components/demos/location-picker-demo.tsx?raw";
+ *
+ * <ComponentPreview code={demoSrc}>
+ *   <Demo client:load />
+ * </ComponentPreview>
+ * ```
+ */
+import CodeBlock from "./CodeBlock.astro";
+
+interface Props {
+  code?: string;
+  file?: string;
+  lang?: "tsx" | "ts" | "astro" | "html";
+  /** Classes for the preview canvas, e.g. `"min-h-[420px] p-0"`. */
+  class?: string;
+  /** Centre the preview (default) or let it fill the canvas. */
+  align?: "center" | "start" | "stretch";
+}
+
+const {
+  code,
+  file,
+  lang = "tsx",
+  class: className,
+  align = "center",
+} = Astro.props;
+const hasCode = Boolean(code || file);
+const id = `preview-${crypto.randomUUID().slice(0, 8)}`;
+const tabs = hasCode ? (["preview", "code"] as const) : (["preview"] as const);
+const label = { preview: "Preview", code: "Code" } as const;
+---
+
+<preview-tabs class="not-prose my-6 block">
+  <div class="mb-2 flex items-center gap-1" role="tablist" aria-label="Example">
+    {
+      tabs.map((tab, i) => (
+        <button
+          type="button"
+          role="tab"
+          id={`${id}-tab-${tab}`}
+          aria-controls={`${id}-panel-${tab}`}
+          aria-selected={i === 0 ? "true" : "false"}
+          tabindex={i === 0 ? 0 : -1}
+          data-tab={tab}
+          class="text-muted-foreground hover:text-foreground aria-selected:bg-accent aria-selected:text-foreground focus-visible:ring-ring/50 inline-flex h-7 items-center rounded-md px-2.5 text-[13px] font-medium transition-colors outline-none focus-visible:ring-[3px]"
+        >
+          {label[tab]}
+        </button>
+      ))
+    }
+  </div>
+  <div
+    id={`${id}-panel-preview`}
+    role="tabpanel"
+    aria-labelledby={`${id}-tab-preview`}
+    data-panel="preview"
+  >
+    <div
+      class:list={[
+        "bg-background relative flex min-h-[320px] w-full rounded-lg border p-8",
+        "bg-[radial-gradient(var(--border)_1px,transparent_1px)] [background-size:16px_16px]",
+        align === "center" && "items-center justify-center",
+        align === "start" && "items-start justify-start",
+        align === "stretch" && "items-stretch",
+        className,
+      ]}
+    >
+      <slot />
+    </div>
+  </div>
+  {
+    hasCode && (
+      <div
+        id={`${id}-panel-code`}
+        role="tabpanel"
+        aria-labelledby={`${id}-tab-code`}
+        data-panel="code"
+        tabindex="0"
+        class="focus-visible:ring-ring/50 rounded-lg outline-none focus-visible:ring-[3px]"
+        hidden
+      >
+        <CodeBlock code={code} file={file} lang={lang} class="my-0" />
+      </div>
+    )
+  }
+</preview-tabs>
+
+<script>
+  // WAI-ARIA tabs with automatic activation: one tab stop, arrows move and
+  // select, Home/End jump to the first/last tab.
+  class PreviewTabs extends HTMLElement {
+    connectedCallback() {
+      const tabs = [
+        ...this.querySelectorAll<HTMLButtonElement>('[role="tab"]'),
+      ];
+      const select = (tab: HTMLButtonElement, focus: boolean) => {
+        for (const t of tabs) {
+          const selected = t === tab;
+          t.setAttribute("aria-selected", String(selected));
+          t.tabIndex = selected ? 0 : -1;
+          const panel = document.getElementById(
+            t.getAttribute("aria-controls") ?? "",
+          );
+          if (panel) panel.hidden = !selected;
+        }
+        if (focus) tab.focus();
+      };
+      for (const [i, tab] of tabs.entries()) {
+        tab.addEventListener("click", () => select(tab, false));
+        tab.addEventListener("keydown", (e) => {
+          const last = tabs.length - 1;
+          const target =
+            e.key === "ArrowRight"
+              ? tabs[i === last ? 0 : i + 1]
+              : e.key === "ArrowLeft"
+                ? tabs[i === 0 ? last : i - 1]
+                : e.key === "Home"
+                  ? tabs[0]
+                  : e.key === "End"
+                    ? tabs[last]
+                    : undefined;
+          if (!target) return;
+          e.preventDefault();
+          select(target, true);
+        });
+      }
+    }
+  }
+  if (!customElements.get("preview-tabs")) {
+    customElements.define("preview-tabs", PreviewTabs);
+  }
+</script>

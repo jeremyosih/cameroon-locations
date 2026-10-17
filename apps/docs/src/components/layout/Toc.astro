@@ -1,0 +1,67 @@
+---
+import type { MarkdownHeading } from "astro";
+import { GITHUB_URL } from "@/site";
+
+interface Props {
+  headings: readonly MarkdownHeading[];
+  /** Path of the MDX source, for the "Edit this page" link. */
+  source?: string;
+}
+
+const { headings, source } = Astro.props;
+const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+<aside class="sticky top-24 hidden max-h-[calc(100vh-8rem)] w-52 shrink-0 overflow-y-auto text-[13px] xl:block">
+  {
+    items.length > 0 && (
+      <>
+        <p class="mb-3 text-xs font-medium">On this page</p>
+        <ul class="space-y-2">
+          {items.map((h) => (
+            <li class:list={[h.depth === 3 && "pl-3"]}>
+              <a
+                href={`#${h.slug}`}
+                data-toc-link={h.slug}
+                class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground block leading-snug transition-colors"
+              >
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+  {
+    source && (
+      <a
+        href={`${GITHUB_URL}/edit/main/${source}`}
+        class="text-muted-foreground hover:text-foreground mt-8 block text-xs transition-colors"
+      >
+        Edit this page
+      </a>
+    )
+  }
+</aside>
+
+<script>
+  const links = new Map<string, HTMLElement>();
+  for (const a of document.querySelectorAll<HTMLElement>("[data-toc-link]")) {
+    links.set(a.dataset.tocLink ?? "", a);
+  }
+  const headings = [...links.keys()]
+    .map((id) => document.getElementById(id))
+    .filter((el): el is HTMLElement => el !== null);
+  const update = () => {
+    let current = headings[0]?.id;
+    for (const h of headings) {
+      if (h.getBoundingClientRect().top < 120) current = h.id;
+    }
+    for (const [id, a] of links) a.dataset.active = String(id === current);
+  };
+  if (headings.length > 0) {
+    addEventListener("scroll", update, { passive: true });
+    update();
+  }
+</script>

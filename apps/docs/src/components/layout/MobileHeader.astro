@@ -1,0 +1,70 @@
+---
+import Logo from "./Logo.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header class="bg-background/90 sticky top-0 z-20 flex h-14 items-center justify-between border-b border-dashed px-4 backdrop-blur md:hidden">
+  <a href="/" class="flex items-center gap-2">
+    <Logo class="size-4" />
+    <span class="text-sm font-medium tracking-tight">cameroon-locations</span>
+  </a>
+  <div class="flex items-center gap-1">
+    <ThemeToggle />
+    <button
+      type="button"
+      id="sidebar-trigger"
+      aria-controls="sidebar"
+      aria-expanded="false"
+      aria-label="Open navigation"
+      class="text-muted-foreground hover:text-foreground hover:bg-accent inline-flex size-8 items-center justify-center rounded-md"
+    >
+      <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
+  </div>
+</header>
+
+<script>
+  const sidebar = document.getElementById("sidebar");
+  const backdrop = document.getElementById("sidebar-backdrop");
+  const trigger = document.getElementById("sidebar-trigger");
+  // Below `md` the sidebar is an off-canvas drawer: when closed it must be
+  // out of the tab order and the accessibility tree, not just off-screen.
+  const mobile = matchMedia("(max-width: 767.98px)");
+  const isOpen = () => sidebar?.getAttribute("data-open") === "true";
+
+  const sync = () => {
+    if (!sidebar) return;
+    sidebar.inert = mobile.matches && !isOpen();
+  };
+
+  const setOpen = (open: boolean) => {
+    if (!sidebar || open === isOpen()) return;
+    sidebar.setAttribute("data-open", String(open));
+    backdrop?.classList.toggle("hidden", !open);
+    trigger?.setAttribute("aria-expanded", String(open));
+    trigger?.setAttribute(
+      "aria-label",
+      open ? "Close navigation" : "Open navigation",
+    );
+    sync();
+    if (open) {
+      (
+        sidebar.querySelector<HTMLElement>('[aria-current="page"]') ??
+        sidebar.querySelector<HTMLElement>("a[href]")
+      )?.focus();
+    } else {
+      trigger?.focus();
+    }
+  };
+
+  sync();
+  mobile.addEventListener("change", () => {
+    if (!mobile.matches && isOpen()) setOpen(false);
+    sync();
+  });
+  trigger?.addEventListener("click", () => setOpen(!isOpen()));
+  backdrop?.addEventListener("click", () => setOpen(false));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen()) setOpen(false);
+  });
+</script>

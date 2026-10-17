@@ -1,0 +1,19 @@
+---
+/** Quiet note box. `tone="brand"` adds the green rule for key notes. */
+interface Props {
+  title?: string;
+  tone?: "default" | "brand";
+}
+const { title, tone = "default" } = Astro.props;
+---
+
+<aside
+  class:list={[
+    "callout my-6 rounded-lg border px-4 py-3 text-sm leading-relaxed [&>p]:my-0 [&>p+p]:mt-2",
+    tone === "brand" && "border-l-brand bg-brand-soft border-l-2",
+    tone === "default" && "bg-muted/40",
+  ]}
+>
+  {title && <p class="text-foreground !mb-1 font-medium">{title}</p>}
+  <slot />
+</aside>

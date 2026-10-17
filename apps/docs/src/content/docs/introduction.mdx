@@ -1,0 +1,83 @@
+---
+title: Introduction
+description: Every region, division, arrondissement, canton and village of Cameroon, keyed by official OCHA P-codes, with French and English names, 2005 census population, GeoJSON boundaries and 2025 polling stations.
+---
+
+<Stats />
+
+`cameroon-locations` is a typed, zero-dependency TypeScript package. Records are
+plain, deep-frozen, JSON-serialisable objects, so they work the same in Node,
+Bun, Deno, the browser and React Server Components. Lookups are plain functions
+that return `T | undefined` or a readonly array. Nothing throws.
+
+```ts
+import { getArrondissement, getRegion, getAncestors } from "cameroon-locations";
+
+const centre = getRegion("Centre");
+centre?.pcode; // "CM002"
+centre?.name; // { fr: "Centre", en: "Centre" }
+
+getArrondissement("Yaounde 1er")?.name.fr; // "Yaoundé I", any spelling works
+getAncestors("CM002007001").map((u) => u.name.fr); // ["Centre", "Mfoundi"]
+```
+
+## What is in the box
+
+- **Administrative units.** 10 regions, 58 divisions (départements) and 360
+  arrondissements, each with area, centroid, bounding box, HASC code, Wikidata
+  id and 2005 population.
+- **Cantons and villages.** 1,504 cantons and 17,070 villages and quartiers
+  from the BUCREP 2005 census directory, each linked to its arrondissement.
+- **Search.** Typo-tolerant, accent-insensitive search across both languages
+  and every known spelling.
+- **Geo.** Simplified OCHA boundaries as GeoJSON, point-in-polygon `locate()`
+  and `nearest()`.
+- **ELECAM.** Polling stations and registered voters from the July 2025
+  electoral roll.
+- **Provenance.** Every record lists its sources, and `attribution()` returns
+  the credit line to display.
+
+Heavy data lives behind its own entry point, so `import "cameroon-locations"`
+stays small. See [Installation](/docs/installation) for the full list.
+
+## P-codes
+
+Every administrative unit is keyed by its OCHA P-code, the identifier used by
+the UN, humanitarian agencies and most GIS datasets for Cameroon. The code
+encodes the hierarchy, so a division's code starts with its region's.
+
+| Level          | French         | Count | Example       | Name       |
+| :------------- | :------------- | ----: | :------------ | :--------- |
+| Region         | Région         |    10 | `CM002`       | Centre     |
+| Division       | Département    |    58 | `CM002007`    | Mfoundi    |
+| Arrondissement | Arrondissement |   360 | `CM002007001` | Yaoundé I  |
+
+Cantons and villages have no official code. They get stable ids derived from
+their arrondissement: `CM002007001-C01` and `CM002007001-C01-V001`.
+
+## Bilingual names
+
+Cameroon has two official languages. Every unit has `name.fr` and `name.en`,
+always both present (they are often the same). Lookups accept either, plus
+every spelling found in any source (`aliases`), compared with
+[`normalizeName`](/docs/lookups#normalizename): case, accents, hyphens and
+numbering style don't matter, so "Yaoundé I", "Yaounde 1er" and "YAOUNDE-1"
+all find the same arrondissement.
+
+## Sources and licence
+
+The code is MIT. The data is derived from public sources that keep their own
+terms:
+
+- **Boundaries, P-codes, names**: OCHA COD-AB Cameroon (INC / OCHA), CC BY-IGO 3.0.
+- **Cantons, villages, 2005 population**: BUCREP, 3rd General Census (RGPH 2005).
+- **Polling stations**: ELECAM, 2025 electoral roll.
+
+If you display or redistribute the data, credit the sources you use.
+`attribution()` returns the right text. Full details, archived copies and
+checksums are on [Data & sources](/docs/data-sources).
+
+## Credits
+
+Forked from [kenya-locations](https://github.com/DavidAmunga/kenya-locations)
+by [David Amunga](https://github.com/DavidAmunga).

@@ -32,3 +32,7 @@ data/**/.venv/
 packages/cameroon-locations/NOTICE.md
 *.tgz
 data/build/
+
+# Docs site (apps/docs): build output and generated registry
+apps/docs/public/r/
+apps/docs/registry/generated/

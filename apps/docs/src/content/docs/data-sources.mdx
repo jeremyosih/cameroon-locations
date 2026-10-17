@@ -1,0 +1,77 @@
+---
+title: Data & sources
+description: Where every value comes from, under which terms, how it becomes the package, and how to report an error.
+---
+
+The code is MIT. The data is derived from the public sources below, which
+keep their own terms. If you display or redistribute the data, credit the
+sources you use: [`attribution()`](/docs/metadata#attribution) returns the
+text, and every GeoJSON file carries it in its `metadata` member.
+
+## Sources
+
+This list is rendered from the package's `sources` export, so it is exactly
+what the code ships. Each entry links to the source online and to the
+archived copy (untouched download, `SHA256SUMS` and `SOURCE.md`) in the
+repository.
+
+<SourcesTable />
+
+### Suggested credit for maps
+
+> Boundaries: OCHA COD-AB Cameroon (INC / OCHA), CC BY-IGO. Villages and
+> population: BUCREP RGPH 2005. Via cameroon-locations.
+
+## Pipeline
+
+Data flows one way. Nothing downstream is edited by hand.
+
+<PipelineDiagram />
+
+1. **Sources.** Every download is kept untouched in `data/sources/<id>/raw`
+   with checksums and a `SOURCE.md` (origin URL, licence, retrieval date, known
+   limits). The pool is stored in Git LFS and never published to npm.
+2. **Canonical.** `data/tools/build-all.sh` builds one JSON file per level,
+   keyed by P-code, where every value carries its source id. Text-extraction
+   fixes live in `data/patches/`, name-to-P-code decisions in
+   `data/crosswalks/`, judgement calls in `data/decisions/` (logged in
+   `data/DECISIONS.md`). Each has a reason and evidence. The build must end
+   with `errors: 0`.
+3. **Package.** `bun run data:generate` turns the canonical files into the
+   frozen records you import; `bun run data:geo` simplifies the OCHA
+   boundaries into `geojson/`.
+
+### How the links were made
+
+- **BUCREP text to records.** Two independent extractions of the census PDF
+  (text indentation and PDF typography) agree on all 18,934 names and
+  populations; the build fails on any new disagreement.
+- **BUCREP and ELECAM names to P-codes.** Exact normalised name within the
+  matched parent, plus a small number of manual decisions, each with
+  evidence.
+- **geoBoundaries to P-codes.** Spatial: every shape falls entirely inside
+  one OCHA polygon.
+
+### What is kept as printed
+
+Spellings are never discarded: every variant becomes an `alias` with its
+source. Values printed in a source are kept even when the source contradicts
+itself; the inconsistencies (for example a canton total that differs from the
+sum of its villages) are listed in `data/canonical/issues.json`, not
+"fixed".
+
+## Report a data error
+
+Open an issue on
+[GitHub](https://github.com/jeremyosih/cameroon-locations/issues/new) with:
+
+- the P-code or id of the record (`CM002007001`, `CM002007001-C01-V003`);
+- what is wrong and what it should be;
+- your evidence: a decree, an official publication, the page of the BUCREP
+  directory, or an ELECAM notice, with a link.
+
+Check `data/canonical/issues.json` and `data/DECISIONS.md` first: the
+difference may be a known inconsistency in the source, or a decision already
+taken. Fixes go through `data/patches/`, `data/crosswalks/` or
+`data/decisions/` so the evidence stays next to the change; see
+[CONTRIBUTING.md](https://github.com/jeremyosih/cameroon-locations/blob/main/CONTRIBUTING.md).

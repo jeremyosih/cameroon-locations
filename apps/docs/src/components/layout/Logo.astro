@@ -1,0 +1,18 @@
+---
+/** Five-pointed star from the flag, in the brand green. */
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 24 24"
+  class:list={["text-brand", className]}
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    d="M12 2.5l2.47 6.6 7.03.3-5.5 4.38 1.88 6.78L12 16.68l-5.88 3.88L8 13.78 2.5 9.4l7.03-.3L12 2.5z"
+  ></path>
+</svg>

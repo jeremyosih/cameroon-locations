@@ -1,0 +1,94 @@
+---
+title: Search
+description: Typo-tolerant, accent-insensitive search over every name and alias in French and English, with no dependencies.
+eyebrow: import … from "cameroon-locations/search"
+---
+
+import SearchDemo from "@/components/demos/search-demo";
+import searchDemoSource from "@/components/demos/search-demo.tsx?raw";
+
+<ComponentPreview code={searchDemoSource}>
+  <SearchDemo client:visible />
+</ComponentPreview>
+
+## search
+
+```ts
+function search(query: string, options?: SearchOptions): readonly SearchResult[];
+```
+
+Ranks regions, divisions and arrondissements against the query. Every name
+and alias counts, in both languages, so "far north", "extreme nord" and
+"Extrême-Nord" find the same region, and "yaounde 1er" finds "Yaoundé I".
+
+```ts
+import { search } from "cameroon-locations/search";
+
+const [best] = search("bamenda");
+best?.item.name.fr; // "Bamenda I"
+best?.score; // 0.92 (0 to 1)
+best?.matched; // "Bamenda I", the name or alias that matched
+
+search("douala", { levels: ["arrondissement"], limit: 3 }).map((r) => r.item.name.fr);
+// ["Douala I", "Douala II", "Douala III"]
+search("extreme nord", { limit: 1 })[0]?.item.name.en; // "Far-North"
+search("mbalmayo", { within: "CM002" }).map((r) => r.item.pcode); // ["CM002010003"]
+```
+
+<PropsTable
+  label="Option"
+  rows={[
+    { name: "levels", type: "readonly AdminLevel[]", default: "all", description: "Restrict to some levels." },
+    { name: "within", type: "Pcode", description: "Only descendants of this region or division." },
+    { name: "limit", type: "number", default: "10", description: "Maximum number of results." },
+  ]}
+/>
+
+Each result is:
+
+```ts
+interface SearchResult<T = AdminUnit> {
+  item: T;
+  score: number; // 0 (worst) to 1 (exact)
+  matched: string; // the name or alias that matched
+}
+```
+
+Results are sorted by score. Exact matches (after
+[`normalizeName`](/docs/lookups#normalizename)) score 1.
+
+## createSearch
+
+```ts
+function createSearch<T>(
+  items: readonly T[],
+  names: (item: T) => readonly string[],
+): (query: string, options?: { limit?: number }) => readonly SearchResult<T>[];
+```
+
+Builds the same search over any records. The index is built once, when you
+call `createSearch`; keep the returned function around.
+
+```ts
+import { createSearch } from "cameroon-locations/search";
+import { cantons } from "cameroon-locations/cantons";
+
+const searchCantons = createSearch(cantons, (c) => [c.label, c.name]);
+searchCantons("lamidat", { limit: 2 }).map((r) => r.item.label);
+// ["Lamidat de Be", "Lamidat Demsa"]
+```
+
+It works on your own data too:
+
+```ts
+const searchShops = createSearch(shops, (s) => [s.name, s.neighbourhood]);
+```
+
+## Tips
+
+- For exact matching of known names (imports, CSV joins), prefer
+  [`find`](/docs/lookups#find) or the `get*` lookups. `search` is for people
+  typing.
+- To build a picker that drills down region → division → arrondissement,
+  combine `search` with `within`, or use the
+  [Location picker](/docs/location-picker) component.
