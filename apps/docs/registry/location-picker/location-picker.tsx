@@ -2,7 +2,7 @@
 
 import { CheckIcon, ChevronsUpDownIcon } from "lucide-react";
 import * as React from "react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -241,7 +241,7 @@ interface LevelComboboxProps {
   readonly placeholder: string;
   readonly searchPlaceholder: string;
   readonly emptyMessage: string;
-  readonly triggerRef: (el: HTMLButtonElement | null) => void;
+  readonly triggerRef: (el: HTMLElement | null) => void;
   readonly onSelect: (pcode: Pcode | undefined) => void;
   /** Element to focus once a choice closes the popover. */
   readonly focusAfterSelect: () => HTMLElement | undefined;
@@ -327,42 +327,42 @@ function LevelCombobox({
         onOpenChange={(next) => {
           // Reset on open, so the list stays put while it animates out.
           if (next) {
+            chose.current = false;
             setQuery("");
             setHighlighted("");
           }
           setOpen(next);
         }}
       >
-        <PopoverTrigger asChild>
-          <Button
-            ref={triggerRef}
-            id={id}
-            type="button"
-            variant="outline"
-            role="combobox"
-            aria-expanded={open}
-            aria-controls={open ? listId : undefined}
-            disabled={disabled}
-            className="w-full justify-between px-3 font-normal"
-          >
-            <span className={cn("truncate", !unit && "text-muted-foreground")}>
-              {unit ? unit.name[lang] : placeholder}
-            </span>
-            <ChevronsUpDownIcon className="text-muted-foreground size-4 shrink-0" />
-          </Button>
+        <PopoverTrigger
+          ref={triggerRef}
+          id={id}
+          type="button"
+          role="combobox"
+          aria-expanded={open}
+          aria-controls={open ? listId : undefined}
+          disabled={disabled}
+          className={cn(
+            buttonVariants({ variant: "outline" }),
+            "w-full justify-between px-3 font-normal",
+          )}
+          onFocus={() => {
+            // The popover hands focus back to this trigger once it closes
+            // (Radix and Base UI alike); after a choice, pass it on.
+            if (!chose.current) return;
+            chose.current = false;
+            focusAfterSelect()?.focus();
+          }}
+        >
+          <span className={cn("truncate", !unit && "text-muted-foreground")}>
+            {unit ? unit.name[lang] : placeholder}
+          </span>
+          <ChevronsUpDownIcon className="text-muted-foreground size-4 shrink-0" />
         </PopoverTrigger>
         <PopoverContent
           align="start"
-          className="w-(--radix-popover-trigger-width) min-w-56 p-0"
-          onCloseAutoFocus={(event) => {
-            if (!chose.current) return;
-            chose.current = false;
-            const target = focusAfterSelect();
-            if (target) {
-              event.preventDefault();
-              target.focus();
-            }
-          }}
+          // Trigger width: Radix sets the first variable, Base UI the second.
+          className="w-[var(--radix-popover-trigger-width,var(--anchor-width))] min-w-56 p-0"
         >
           <Command
             shouldFilter={false}

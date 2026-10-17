@@ -34,8 +34,12 @@ and five `--choropleth-*` colours to your CSS.
   get a type error in `components/ui/map.tsx`, and the menu renders in
   `document.body`. This is an upstream shadcn-map issue; the registry item
   can't ship the fix without overwriting your `dropdown-menu`. Patch
-  `components/ui/dropdown-menu.tsx` once, as below.
+  `components/ui/dropdown-menu.tsx` once, as below. The patch depends on
+  your project's flavour of shadcn/ui; otherwise the map installs and works
+  the same with Radix and Base UI.
 </Callout>
+
+With Radix (`shadcn init -b radix`):
 
 ```diff title="components/ui/dropdown-menu.tsx"
  function DropdownMenuContent({
@@ -50,6 +54,30 @@ and five `--choropleth-*` colours to your CSS.
    return (
 -    <DropdownMenuPrimitive.Portal>
 +    <DropdownMenuPrimitive.Portal container={container}>
+```
+
+With Base UI (`shadcn init -b base`):
+
+```diff title="components/ui/dropdown-menu.tsx"
+ function DropdownMenuContent({
+   align = "start",
+   alignOffset = 0,
+   side = "bottom",
+   sideOffset = 4,
+   className,
++  container,
+   ...props
+ }: MenuPrimitive.Popup.Props &
+   Pick<
+     MenuPrimitive.Positioner.Props,
+     "align" | "alignOffset" | "side" | "sideOffset"
+-  >) {
++  > & {
++    container?: MenuPrimitive.Portal.Props["container"];
++  }) {
+   return (
+-    <MenuPrimitive.Portal>
++    <MenuPrimitive.Portal container={container}>
 ```
 
 <CodeBlock code={mapSource} lang="tsx" title="components/cameroon-map.tsx" />
