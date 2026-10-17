@@ -57,7 +57,7 @@
     },
     "packages/cameroon-locations": {
       "name": "cameroon-locations",
-      "version": "0.2.0",
+      "version": "0.1.0",
       "devDependencies": {
         "@arethetypeswrong/cli": "^0.18.5",
         "@types/bun": "latest",

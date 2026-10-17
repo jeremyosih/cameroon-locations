@@ -462,8 +462,9 @@ ${rows.join("\n")}
 - Each file has a top-level \`metadata\` member of its own shape: \`name\`,
   \`version\` and \`generated\` (the dataset version and date the files
   were built from, as in the package's \`metadata\` export), \`repository\`, \`license\`, \`attribution\`,
-  \`notice\`, \`sources\` (the OCHA record only: online URL and archived copy
-  in this repository), and the file's \`level\` (or \`levels\`), \`detail\`
+  \`notice\`, \`sources\` (OCHA for the geometry; the research notes and
+  geoBoundaries for the display-name spellings; each with its online URL and
+  archived copy in this repository), and the file's \`level\` (or \`levels\`), \`detail\`
   and \`simplification\`.
 - Files use the \`.geo.json\` / \`.topo.json\` extensions so that Node,
   bundlers and TypeScript (\`resolveJsonModule\`) import them as JSON with
