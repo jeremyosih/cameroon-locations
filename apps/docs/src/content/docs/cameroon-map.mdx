@@ -165,6 +165,33 @@ moves the map the same way, so here a
   <MapPreview demo="drilldown" client:only="react" />
 </ComponentPreview>
 
+### Click to locate
+
+Shapes report the unit you click. To get the arrondissement under any
+point, whatever level is shown, pass a react-leaflet click handler as a
+child and call [`locate`](/docs/geo#locate) (see the
+[Locate a point](/docs/geo#locate-a-point) demo):
+
+```tsx
+import type { Pcode } from "cameroon-locations";
+import { locate } from "cameroon-locations/geo";
+import { useMapEvents } from "react-leaflet";
+
+function ClickToLocate({ onLocate }: { onLocate: (pcode: Pcode | null) => void }) {
+  useMapEvents({
+    click: ({ latlng }) => onLocate(locate([latlng.lng, latlng.lat])?.pcode ?? null),
+  });
+  return null;
+}
+
+<CameroonMap level="region" selected={pcode}>
+  <ClickToLocate onLocate={setPcode} />
+</CameroonMap>;
+```
+
+`selected` can be an arrondissement while regions are shown: the region
+containing it is outlined and the map zooms to the arrondissement.
+
 ## API
 
 <PropsTable

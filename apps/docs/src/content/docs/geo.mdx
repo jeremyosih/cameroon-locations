@@ -5,6 +5,8 @@ eyebrow: import … from "cameroon-locations/geo"
 ---
 
 import GeoJsonFiles from "@/components/docs/GeoJsonFiles.astro";
+import MapPreview from "@/components/demos/map-preview";
+import locateSource from "@/components/demos/locate-demo.tsx?raw";
 
 ## locate
 
@@ -30,6 +32,46 @@ navigator.geolocation.getCurrentPosition(({ coords }) => {
 It returns `undefined` outside Cameroon, and also within about 100 m of a
 border, the simplification error, where the answer could be wrong. Fall back
 to [`nearest`](#nearest) if you always need an answer.
+
+### Locate a point
+
+Click the map, type or paste coordinates, or use your own location. The
+demo calls `locate`, walks up to the division and region with `getUnit`,
+and falls back to `nearest` when the point is outside Cameroon or on a
+border.
+
+<ComponentPreview code={locateSource} align="stretch" class="p-4 sm:p-6">
+  <MapPreview demo="locate" client:only="react" />
+</ComponentPreview>
+
+The same lookup in a script, for example to tag the rows of a CSV with
+their arrondissement. Coordinates are usually written latitude first, so
+swap them for `locate`:
+
+```ts title="where-is.ts"
+import { getUnit } from "cameroon-locations";
+import { locate, nearest } from "cameroon-locations/geo";
+
+function whereIs(lat: number, lng: number): string {
+  const a = locate([lng, lat]);
+  if (!a) {
+    const near = nearest([lng, lat], { limit: 1 })[0];
+    return near
+      ? `outside Cameroon or on a border, nearest: ${near.unit.name.fr} (${near.distanceKm.toFixed(1)} km)`
+      : "unknown";
+  }
+  const division = getUnit(a.divisionPcode);
+  const region = getUnit(a.regionPcode);
+  return `${a.name.fr} › ${division?.name.fr} › ${region?.name.en} (${a.pcode})`;
+}
+
+whereIs(3.8667, 11.5167); // "Yaoundé I › Mfoundi › Centre (CM002007001)"
+whereIs(12.1348, 15.0444); // "outside Cameroon or on a border, nearest: Kousséri (9.8 km)"
+```
+
+`locate` needs no network or DOM, so it runs the same in Node, Bun, Deno,
+workers and edge functions. The polygons are decoded once, on the first
+call.
 
 ## nearest
 
