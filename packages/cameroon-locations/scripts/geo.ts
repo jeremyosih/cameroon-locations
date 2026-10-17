@@ -4,20 +4,21 @@
  *
  * Inputs (Git LFS, run `git lfs pull` first):
  *   data/sources/ocha-cod-ab-cmr/extracted/geojson/cmr_admin3.geojson
- *   data/canonical/adm{1,2,3}-*.json, or generated/*.json for display names
+ *   data/canonical/adm{1,2,3}-*.json; display names from generated/admin.json
  *
  * Outputs:
- *   geojson/{country,regions,divisions,arrondissements}{.low,,.high}.geojson
- *   geojson/cameroon.topojson, geojson/README.md
+ *   geojson/{country,regions,divisions,arrondissements}{.low,,.high}.geo.json
+ *   geojson/cameroon.topo.json, geojson/README.md
  *   generated/geo-arrondissements.json
  *
  * Every level is dissolved from the simplified arrondissements, so the
  * levels nest exactly and share their borders. The output is deterministic:
  * same inputs, same bytes.
  */
-import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { join } from "node:path";
+import { arrondissements, divisions, regions } from "../src/data/admin";
 import { attribution, getSources, REPOSITORY_URL } from "../src/sources";
 
 interface Mapshaper {
@@ -103,40 +104,18 @@ const canonical = [
 const units = new Map(canonical.map((u) => [u.pcode, u]));
 
 /**
- * Display names from the package's generated records when they exist (they
- * apply the naming conventions of D8), otherwise from the canonical data.
+ * Display names from the package records (generated/admin.json, D8
+ * conventions), so the map files never drift from `getUnit()`. Falls back to
+ * the canonical data for units the records do not have yet.
  */
 function displayNames(): Map<string, { fr: string; en: string }> {
   const names = new Map<string, { fr: string; en: string }>();
   for (const u of canonical) {
     names.set(u.pcode, { fr: u.name.fr, en: u.name.en ?? u.name.fr });
   }
-  if (!existsSync(generatedDir)) return names;
-  const visit = (value: unknown): void => {
-    if (Array.isArray(value)) {
-      for (const v of value) visit(v);
-      return;
-    }
-    if (value === null || typeof value !== "object") return;
-    const o = value as Record<string, unknown>;
-    const name = o.name as { fr?: unknown; en?: unknown } | undefined;
-    if (
-      typeof o.pcode === "string" &&
-      units.has(o.pcode) &&
-      typeof name?.fr === "string"
-    ) {
-      names.set(o.pcode, {
-        fr: name.fr,
-        en: typeof name.en === "string" ? name.en : name.fr,
-      });
-      return;
-    }
-    for (const v of Object.values(o)) visit(v);
-  };
-  const files = readdirSync(generatedDir)
-    .filter((f) => f.endsWith(".json") && !f.startsWith("geo-"))
-    .sort();
-  for (const f of files) visit(readJson(join(generatedDir, f)));
+  for (const u of [...regions, ...divisions, ...arrondissements]) {
+    names.set(u.pcode, { fr: u.name.fr, en: u.name.en });
+  }
   return names;
 }
 const names = displayNames();
@@ -236,7 +215,7 @@ for (const detail of details) {
       dissolve,
       `-o format=geojson precision=${10 ** -detail.decimals} target=*`,
       ...(detail.name === "default"
-        ? ["-o cameroon.topojson format=topojson id-field=pcode target=*"]
+        ? ["-o cameroon.topo.json format=topojson id-field=pcode target=*"]
         : []),
     ].join(" "),
     { "adm3.json": sourceText },
@@ -258,7 +237,7 @@ for (const detail of details) {
       })
       .sort((a, b) => (a.id ?? "").localeCompare(b.id ?? ""));
     counts[level] = features.length;
-    const name = `${file}${detail.suffix}.geojson`;
+    const name = `${file}${detail.suffix}.geo.json`;
     const body = featureCollection(
       metadata({
         level,
@@ -271,7 +250,7 @@ for (const detail of details) {
     sizes.push({ file: name, level, detail: detail.name, bytes: body.length });
   }
 
-  const topoText = outputs["cameroon.topojson"];
+  const topoText = outputs["cameroon.topo.json"];
   if (topoText !== undefined) {
     const topo = JSON.parse(topoText.toString()) as {
       type: "Topology";
@@ -301,9 +280,9 @@ for (const detail of details) {
       ...rest,
       objects,
     })}\n`;
-    writeFileSync(join(outDir, "cameroon.topojson"), body);
+    writeFileSync(join(outDir, "cameroon.topo.json"), body);
     sizes.push({
-      file: "cameroon.topojson",
+      file: "cameroon.topo.json",
       level: "all four, shared arcs",
       detail: detail.name,
       bytes: body.length,
@@ -463,8 +442,8 @@ ${rows.join("\n")}
   when zoomed in to a city.
 - GeoJSON follows RFC 7946: WGS 84 longitude/latitude, counter-clockwise
   outer rings, coordinates rounded to 5 decimals (4 in \`low\` files, about
-  11 m). d3-geo expects the opposite winding; d3 users should prefer \`cameroon.topojson\` (objects
-  \`country\`, \`regions\`, \`divisions\`, \`arrondissements\`; use
+  11 m). d3-geo expects the opposite winding; d3 users should prefer
+  \`cameroon.topo.json\` (objects \`country\`, \`regions\`, \`divisions\`, \`arrondissements\`; use
   \`topojson-client\`'s \`feature()\` / \`mesh()\`).
 - Feature \`id\` is the OCHA P-code, so features join to the package's
   records with \`getUnit(feature.id)\`. \`properties\`: \`pcode\`, \`level\`,
@@ -472,10 +451,13 @@ ${rows.join("\n")}
   \`divisionPcode\` where they apply.
 - Each file has a top-level \`metadata\` member with the version, licence
   and sources (online URL and archived copy in this repository).
+- Files use the \`.geo.json\` / \`.topo.json\` extensions so that Node,
+  bundlers and TypeScript (\`resolveJsonModule\`) import them as JSON with
+  no loader.
 
 \`\`\`js
-import regions from "cameroon-locations/geojson/regions.geojson" with { type: "json" };
-// or fetch("https://unpkg.com/cameroon-locations/geojson/regions.geojson")
+import regions from "cameroon-locations/geojson/regions.geo.json" with { type: "json" };
+// or fetch("https://unpkg.com/cameroon-locations/geojson/regions.geo.json")
 \`\`\`
 
 ## Attribution

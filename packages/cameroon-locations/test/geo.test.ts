@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 import { readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { distanceKm, locate, nearest } from "../src/geo";
+import { getUnit } from "../src/lookup";
 import { sources } from "../src/sources";
 import type { LngLat } from "../src/types";
 
@@ -67,7 +68,7 @@ const signedArea = (ring: Ring) => {
 describe("GeoJSON files", () => {
   for (const { file, level, depth, count } of files) {
     for (const detail of details) {
-      const name = `${file}${detail}.geojson`;
+      const name = `${file}${detail}.geo.json`;
       test(`${name}: ${count} ${level} features joined by P-code`, () => {
         const fc = read<Collection>(join(geojsonDir, name));
         expect(fc.type).toBe("FeatureCollection");
@@ -122,18 +123,55 @@ describe("GeoJSON files", () => {
 
     test(`${file}: low < default < high in size`, () => {
       const size = (d: string) =>
-        statSync(join(geojsonDir, `${file}${d}.geojson`)).size;
+        statSync(join(geojsonDir, `${file}${d}.geo.json`)).size;
       expect(size(".low")).toBeLessThan(size(""));
       expect(size("")).toBeLessThan(size(".high"));
     });
   }
 
-  test("cameroon.topojson has every level, with P-code ids", () => {
+  test("feature names match the package records (re-run data:geo if not)", () => {
+    const mismatches: string[] = [];
+    for (const { file, depth } of files) {
+      if (depth === 0) continue;
+      for (const detail of details) {
+        const fc = read<Collection>(
+          join(geojsonDir, `${file}${detail}.geo.json`),
+        );
+        for (const f of fc.features) {
+          const unit = getUnit(f.id);
+          const { name_fr, name_en } = f.properties;
+          if (unit?.name.fr !== name_fr || unit?.name.en !== name_en) {
+            mismatches.push(
+              `${file}${detail} ${f.id}: ${name_fr} / ${name_en}`,
+            );
+          }
+        }
+      }
+      const topo = read<{
+        objects: Record<
+          string,
+          { geometries: { id: string; properties: Record<string, unknown> }[] }
+        >;
+      }>(join(geojsonDir, "cameroon.topo.json"));
+      for (const g of topo.objects[file]?.geometries ?? []) {
+        const unit = getUnit(g.id);
+        if (
+          unit?.name.fr !== g.properties.name_fr ||
+          unit?.name.en !== g.properties.name_en
+        ) {
+          mismatches.push(`topojson ${g.id}`);
+        }
+      }
+    }
+    expect(mismatches).toEqual([]);
+  });
+
+  test("cameroon.topo.json has every level, with P-code ids", () => {
     const topo = read<{
       type: string;
       metadata: Collection["metadata"];
       objects: Record<string, { geometries: { id: string }[] }>;
-    }>(join(geojsonDir, "cameroon.topojson"));
+    }>(join(geojsonDir, "cameroon.topo.json"));
     expect(topo.type).toBe("Topology");
     expect(topo.metadata.sources[0]?.id).toBe("ocha-cod-ab-cmr");
     for (const { file, depth, count } of files) {
@@ -172,7 +210,7 @@ describe("locate", () => {
   test("points on a shared border return undefined", () => {
     // A vertex shared by two neighbouring arrondissements.
     const fc = read<Collection>(
-      join(geojsonDir, "arrondissements.high.geojson"),
+      join(geojsonDir, "arrondissements.high.geo.json"),
     );
     const owners = new Map<string, Set<string>>();
     for (const f of fc.features) {
@@ -199,7 +237,7 @@ describe("locate", () => {
 
   test("agrees with the high-detail polygons away from borders", () => {
     const fc = read<Collection>(
-      join(geojsonDir, "arrondissements.high.geojson"),
+      join(geojsonDir, "arrondissements.high.geo.json"),
     );
     const contains = (f: Feature, x: number, y: number) => {
       const rings =
