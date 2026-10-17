@@ -292,7 +292,17 @@ type StationGroup = [
   centres: [centre: string, stations: [string, number][]][],
 ];
 const stationGroups: StationGroup[] = [];
+const votersByPcode = new Map<string, number>();
 for (const s of stations) {
+  if (!Number.isInteger(s.registeredVoters) || s.registeredVoters <= 0)
+    fail(
+      `station ${s.council} / ${s.centre} / ${s.station}: registeredVoters is ${s.registeredVoters}`,
+    );
+  if (s.adm3Pcode !== null)
+    votersByPcode.set(
+      s.adm3Pcode,
+      (votersByPcode.get(s.adm3Pcode) ?? 0) + s.registeredVoters,
+    );
   let group = stationGroups.at(-1);
   if (!group || group[0] !== s.adm3Pcode || group[1] !== s.council) {
     group = [s.adm3Pcode, s.council, []];
@@ -320,6 +330,13 @@ const councilSummaries = [...adm3]
         ]
       : [],
   );
+for (const u of adm3) {
+  const voters = u.elecam2025?.registeredVoters;
+  if (voters !== (votersByPcode.get(u.pcode) ?? 0))
+    fail(
+      `${u.pcode}: council summary has ${voters} voters, its stations sum to ${votersByPcode.get(u.pcode) ?? 0}`,
+    );
+}
 
 // ---------------------------------------------------------------------------
 // Metadata

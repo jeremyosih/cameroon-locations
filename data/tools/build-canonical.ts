@@ -2,6 +2,7 @@
 // Keys: OCHA COD-AB P-codes (ADM1-3); cantons and villages get stable derived ids under their arrondissement.
 // Nothing is invented: every value carries the id of the source it came from; conflicts go to issues.json.
 // Usage: bun tools/build-canonical.ts   (run from data-pool/)
+import { parseCsvStrict } from "./csv";
 import { matchKey } from "./names";
 
 const P = {
@@ -127,9 +128,11 @@ for (const n of [1, 2]) for (const u of adm[n].values()) {
 // --- ELECAM ---------------------------------------------------------------
 const em: any[] = await json(P.elecamMatch);
 const emKey = new Map(em.map(e => [`${e.region}|${e.division}|${e.council}`, e]));
-const [, ...rows] = (await Bun.file(P.elecamCsv).text()).replace(/^﻿/, "").trim().split(/\r?\n/).map(l => l.split(","));
+const [, ...rows] = parseCsvStrict(await Bun.file(P.elecamCsv).text(), P.elecamCsv);
 const stations = rows.map(([region, division, council, centre, station, total]) => {
   const e = emKey.get(`${region}|${division}|${council}`);
+  if (!e) throw new Error(`ELECAM row not in match table: ${region}|${division}|${council}`);
+  if (!/^\d+$/.test(total)) throw new Error(`ELECAM TOTAL is not an integer: ${JSON.stringify([region, division, council, centre, station, total])}`);
   return { adm3Pcode: e.adm3, region, division, council, centre, station, registeredVoters: +total };
 });
 for (const e of em) {

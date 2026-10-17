@@ -667,7 +667,7 @@
   },
   "elecam2025": {
    "council": "BANYO",
-   "registeredVoters": null,
+   "registeredVoters": 39946,
    "pollingCentres": 102,
    "pollingStations": 158,
    "source": "elecam-polling-stations-2025"
@@ -7181,7 +7181,7 @@
   },
   "elecam2025": {
    "council": "AKONOLINGA",
-   "registeredVoters": null,
+   "registeredVoters": 19602,
    "pollingCentres": 153,
    "pollingStations": 161,
    "source": "elecam-polling-stations-2025"
@@ -8984,7 +8984,7 @@
   },
   "elecam2025": {
    "council": "DOUMAINTANG",
-   "registeredVoters": null,
+   "registeredVoters": 4274,
    "pollingCentres": 35,
    "pollingStations": 35,
    "source": "elecam-polling-stations-2025"
@@ -9168,7 +9168,7 @@
   },
   "elecam2025": {
    "council": "LOMIE",
-   "registeredVoters": null,
+   "registeredVoters": 8669,
    "pollingCentres": 40,
    "pollingStations": 44,
    "source": "elecam-polling-stations-2025"
@@ -15566,7 +15566,7 @@
   },
   "elecam2025": {
    "council": "DIBOMBARI",
-   "registeredVoters": null,
+   "registeredVoters": 18391,
    "pollingCentres": 52,
    "pollingStations": 83,
    "source": "elecam-polling-stations-2025"
@@ -21273,7 +21273,7 @@
   },
   "elecam2025": {
    "council": "NKOR",
-   "registeredVoters": null,
+   "registeredVoters": 8913,
    "pollingCentres": 41,
    "pollingStations": 46,
    "source": "elecam-polling-stations-2025"
@@ -21716,7 +21716,7 @@
   },
   "elecam2025": {
    "council": "NKAMBE",
-   "registeredVoters": null,
+   "registeredVoters": 26664,
    "pollingCentres": 88,
    "pollingStations": 110,
    "source": "elecam-polling-stations-2025"
@@ -25726,7 +25726,7 @@
   },
   "elecam2025": {
    "council": "BAFOUSSAM I",
-   "registeredVoters": null,
+   "registeredVoters": 66643,
    "pollingCentres": 64,
    "pollingStations": 209,
    "source": "elecam-polling-stations-2025"
@@ -28670,7 +28670,7 @@
   },
   "elecam2025": {
    "council": "BIPINDI",
-   "registeredVoters": null,
+   "registeredVoters": 5044,
    "pollingCentres": 42,
    "pollingStations": 42,
    "source": "elecam-polling-stations-2025"
@@ -29843,7 +29843,7 @@
   },
   "elecam2025": {
    "council": "LIMBE I",
-   "registeredVoters": null,
+   "registeredVoters": 31319,
    "pollingCentres": 42,
    "pollingStations": 102,
    "source": "elecam-polling-stations-2025"
