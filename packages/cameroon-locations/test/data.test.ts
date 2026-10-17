@@ -288,9 +288,15 @@ describe("codes and ids ignore case and whitespace; `within` must be a P-code", 
     expect(findCantons("Ngaoundal ville", { within: undefined })).toHaveLength(
       1,
     );
+    expect(findCantons("Ngaoundal ville", { within: " " })).toHaveLength(1);
+    expect(findVillages("baya hadjida", { within: "" })).toEqual(
+      findVillages("baya hadjida"),
+    );
     for (const within of ["CM00", "CM0010", "Adamaoua", "CM", ""]) {
+      // getCantons and getVillages take a required scope: blank is no scope.
       expect(getCantons(within)).toEqual([]);
       expect(getVillages(within)).toEqual([]);
+      if (within === "") continue;
       expect(findCantons("Ngaoundal ville", { within })).toEqual([]);
       expect(findVillages("baya hadjida", { within })).toEqual([]);
     }

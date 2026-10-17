@@ -47,8 +47,9 @@ export function getCantons(within: Pcode): readonly Canton[] {
 }
 
 /**
- * Cantons whose normalised name matches, optionally `within` a P-code. An
- * invalid `within` (see {@link getCantons}) matches nothing.
+ * Cantons whose normalised name matches, optionally `within` a P-code.
+ * `within: ""` (or whitespace) means no restriction, like `undefined`; any
+ * other value that is not a P-code (see {@link getCantons}) matches nothing.
  */
 export function findCantons(
   name: string,

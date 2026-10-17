@@ -53,8 +53,9 @@ export function getVillages(within: string): readonly Village[] {
 
 /**
  * Villages whose normalised name matches, optionally `within` a P-code. Many
- * names are shared (see the docs), so this returns every match. An invalid
- * `within` matches nothing.
+ * names are shared (see the docs), so this returns every match.
+ * `within: ""` (or whitespace) means no restriction, like `undefined`; any
+ * other value that is not a P-code matches nothing.
  */
 export function findVillages(
   name: string,

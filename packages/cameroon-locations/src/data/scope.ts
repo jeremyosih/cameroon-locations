@@ -25,6 +25,18 @@ export const normalizeCode = (value: string): string =>
   value.trim().toUpperCase();
 
 /**
+ * Normalised `within` option: `undefined`, `""` and whitespace mean no
+ * restriction (`undefined`); anything else is trimmed and upper-cased, and
+ * then only matches if it is a P-code (see {@link isWithin}).
+ */
+export function normalizeWithin(
+  within: string | undefined,
+): string | undefined {
+  const scope = within === undefined ? "" : normalizeCode(within);
+  return scope === "" ? undefined : scope;
+}
+
+/**
  * True when `code` (a P-code, or a canton or village id) lies in `within`,
  * itself included. `within` must already be normalised: anything that is not
  * a P-code, such as a name or a partial code like `"CM00"`, matches nothing.

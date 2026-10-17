@@ -156,7 +156,8 @@ export interface SourceInfo {
 
 /**
  * Name, version and sources of the bundled dataset, exported as `metadata`.
- * GeoJSON files carry their own `metadata` member, with the same `version`.
+ * GeoJSON files carry their own `metadata` member, stamped with the dataset
+ * `version` they were built from.
  */
 export interface DatasetMetadata {
   readonly name: string;

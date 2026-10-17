@@ -39,7 +39,7 @@ search("mbalmayo", { within: "CM002" }).map((r) => r.item.pcode); // ["CM0020100
   label="Option"
   rows={[
     { name: "levels", type: "readonly AdminLevel[]", default: "all", description: "Restrict to some levels." },
-    { name: "within", type: "Pcode", description: "Only descendants of this region or division. A value that is not a P-code (a name, or a partial code like CM00) matches nothing." },
+    { name: "within", type: "Pcode", description: "Only descendants of this region or division. Blank means no restriction; any other value that is not a P-code (a name, or a partial code like CM00) matches nothing." },
     { name: "limit", type: "number", default: "10", description: "Maximum number of results. Zero or less returns nothing." },
   ]}
 />

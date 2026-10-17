@@ -84,9 +84,11 @@ getArrondissement("Buea")?.name; // { fr: "Buéa", en: "Buea" }
 ```
 
 `within` takes a region or division P-code (case and surrounding whitespace
-ignored). Use it for names that exist in several places. A `within` that is
-not a P-code, such as a name or a partial code like `"CM00"`, matches
-nothing, so a typo never silently widens the search.
+ignored). Use it for names that exist in several places. `""` or
+whitespace means no restriction, like leaving it out, which suits form
+fields. Any other value that is not a P-code, such as a name or a partial
+code like `"CM00"`, matches nothing, so a typo never silently widens the
+search.
 
 ### getUnit
 
@@ -108,7 +110,7 @@ function find(query: LocationQuery, options?: FindOptions): readonly AdminUnit[]
 
 interface FindOptions {
   level?: "region" | "division" | "arrondissement" | undefined;
-  within?: Pcode | undefined; // descendants only; not a P-code = no match
+  within?: Pcode | undefined; // descendants only; blank = none; not a P-code = no match
 }
 ```
 

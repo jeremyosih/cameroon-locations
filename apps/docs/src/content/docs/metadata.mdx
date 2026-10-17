@@ -90,8 +90,9 @@ interface DatasetMetadata {
 each record lists its own `sources` instead.
 
 The GeoJSON files have their own top-level `metadata` member, with a
-different shape: `name`, `version` and `generated` (the same values as
-`metadata` above), `repository`, a `license` note, the boundary
+different shape: `name`, `version` and `generated` (the dataset version
+and date the files were built from, in the same format as `metadata` above;
+they are regenerated separately, so they can lag behind it), `repository`, a `license` note, the boundary
 `attribution`, a `notice` link to NOTICE.md, `sources` (the OCHA record
 only), and the file's `level` (`levels` in `cameroon.topo.json`),
 `detail` and `simplification`.

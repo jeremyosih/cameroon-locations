@@ -75,10 +75,14 @@ describe("lookups by code, name and alias", () => {
     }
   });
 
-  test("`within` must be a P-code: names and partial codes match nothing", () => {
+  test("`within` must be a P-code (names and partial codes match nothing); blank means none", () => {
     expect(find("Yaoundé I", { within: " cm002 " })).toHaveLength(1);
     expect(getArrondissement("Yaoundé I", { within: undefined })).toBeDefined();
-    for (const within of ["CM00", "CM0020", "Centre", "CM", ""]) {
+    for (const within of ["", "  "]) {
+      expect(find("Yaoundé I", { within })).toHaveLength(1);
+      expect(getArrondissement("Yaoundé I", { within })).toBeDefined();
+    }
+    for (const within of ["CM00", "CM0020", "Centre", "CM"]) {
       expect(find("Yaoundé I", { within })).toEqual([]);
       expect(getArrondissement("Yaoundé I", { within })).toBeUndefined();
     }

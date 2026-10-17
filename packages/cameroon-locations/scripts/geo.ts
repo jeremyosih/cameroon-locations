@@ -37,9 +37,10 @@ const sourceFile = join(
 );
 const outDir = join(pkgDir, "geojson");
 const generatedDir = join(pkgDir, "generated");
-// Stamp the files with the dataset version (generated/metadata.json), the
-// same `version` as the package's `metadata` export. The npm version is
-// left out: a release bumps it without regenerating these files.
+// Stamp the files with the dataset version they are built from
+// (generated/metadata.json, as in the package's `metadata` export). Not
+// checked by tests: canonical-only changes must not require LFS. The npm
+// version is left out: a release bumps it without regenerating these files.
 const dataset = JSON.parse(
   readFileSync(join(pkgDir, "generated/metadata.json"), "utf8"),
 ) as { name: string; version: string; generated: string };
@@ -453,8 +454,8 @@ ${rows.join("\n")}
   \`name_fr\`, \`name_en\`, \`parentPcode\`, plus \`regionPcode\` and
   \`divisionPcode\` where they apply.
 - Each file has a top-level \`metadata\` member of its own shape: \`name\`,
-  \`version\` and \`generated\` (the same dataset version and date as the
-  package's \`metadata\` export), \`repository\`, \`license\`, \`attribution\`,
+  \`version\` and \`generated\` (the dataset version and date the files
+  were built from, as in the package's \`metadata\` export), \`repository\`, \`license\`, \`attribution\`,
   \`notice\`, \`sources\` (the OCHA record only: online URL and archived copy
   in this repository), and the file's \`level\` (or \`levels\`), \`detail\`
   and \`simplification\`.

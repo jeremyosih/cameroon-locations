@@ -1,5 +1,5 @@
 import { arrondissements, divisions, regions } from "./data/admin";
-import { isWithin, normalizeCode } from "./data/scope";
+import { isWithin, normalizeCode, normalizeWithin } from "./data/scope";
 import { getByCode } from "./lookup";
 import { normalizeName } from "./normalize";
 import type { AdminLevel, AdminUnit, Pcode } from "./types";
@@ -9,8 +9,9 @@ export interface SearchOptions {
   readonly levels?: readonly AdminLevel[] | undefined;
   /**
    * Restrict to descendants of this P-code (case and surrounding whitespace
-   * ignored). A value that is not a P-code, such as a name or a partial code
-   * like `"CM00"`, matches nothing.
+   * ignored). `""` or whitespace means no restriction, like `undefined`. Any
+   * other value that is not a P-code, such as a name or a partial code like
+   * `"CM00"`, matches nothing.
    */
   readonly within?: Pcode | undefined;
   /** Default 10. Zero or less returns nothing. */
@@ -238,8 +239,7 @@ export function search(
     (u) => LEVELS.indexOf(u.level),
   );
   const levels = options.levels?.length ? options.levels : undefined;
-  const within =
-    options.within === undefined ? undefined : normalizeCode(options.within);
+  const within = normalizeWithin(options.within);
   const filter =
     levels || within !== undefined
       ? (u: AdminUnit) =>

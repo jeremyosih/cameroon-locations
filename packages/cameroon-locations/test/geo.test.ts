@@ -1,7 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { metadata as datasetMetadata } from "../src/data/metadata";
 import { distanceKm, locate, nearest } from "../src/geo";
 import { getUnit } from "../src/lookup";
 import { sources } from "../src/sources";
@@ -113,8 +112,6 @@ describe("GeoJSON files", () => {
       test(`${name}: metadata with sources and attribution`, () => {
         const { metadata } = read<Collection>(join(geojsonDir, name));
         expect(metadata.name).toBe("cameroon-locations");
-        // Same dataset version as the package's `metadata` (re-run data:geo if not).
-        expect(metadata.version).toBe(datasetMetadata.version);
         expect(metadata.attribution).toContain("OCHA");
         const ocha = metadata.sources.find((s) => s.id === "ocha-cod-ab-cmr");
         expect(ocha?.url).toBe(sources["ocha-cod-ab-cmr"].url);
@@ -177,7 +174,6 @@ describe("GeoJSON files", () => {
     }>(join(geojsonDir, "cameroon.topo.json"));
     expect(topo.type).toBe("Topology");
     expect(topo.metadata.sources[0]?.id).toBe("ocha-cod-ab-cmr");
-    expect(topo.metadata.version).toBe(datasetMetadata.version);
     for (const { file, depth, count } of files) {
       const geoms = topo.objects[file]?.geometries ?? [];
       expect(geoms).toHaveLength(count);

@@ -1,5 +1,5 @@
 import { normalizeName } from "../normalize";
-import { EMPTY, isWithin, normalizeCode } from "./scope";
+import { EMPTY, isWithin, normalizeCode, normalizeWithin } from "./scope";
 
 interface PlaceRecord {
   readonly id: string;
@@ -11,7 +11,10 @@ interface PlaceRecord {
 export interface RecordIndex<T> {
   /** The record with this id, compared trimmed and upper case. */
   get(id: string): T | undefined;
-  /** Records whose normalised name matches, optionally within a P-code. */
+  /**
+   * Records whose normalised name matches, optionally within a P-code. A
+   * blank `within` means no restriction.
+   */
   find(name: string, within: string | undefined): readonly T[];
   /**
    * Records selected by `test`, cached under `key` (already normalised).
@@ -44,8 +47,8 @@ export function recordIndex<T extends PlaceRecord>(
         byName = groups;
       }
       const matches = byName.get(normalizeName(name)) ?? EMPTY;
-      if (within === undefined) return matches;
-      const scope = normalizeCode(within);
+      const scope = normalizeWithin(within);
+      if (scope === undefined) return matches;
       const scoped = matches.filter((r) =>
         isWithin(r.arrondissementPcode, scope),
       );

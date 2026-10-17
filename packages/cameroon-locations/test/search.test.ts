@@ -87,7 +87,9 @@ test("`within` must be a P-code: names and partial codes match nothing", () => {
   expect(pcodes("yaounde", { within: " cm002007 ", limit: 1 })).toEqual([
     "CM002007001",
   ]);
-  for (const within of ["CM00", "Centre", "CM", ""])
+  for (const within of ["", " "])
+    expect(pcodes("yaounde", { within })).toEqual(pcodes("yaounde"));
+  for (const within of ["CM00", "Centre", "CM"])
     expect(search("yaounde", { within })).toEqual([]);
   expect(pcodes("yaounde", { within: undefined, limit: undefined })).toEqual(
     pcodes("yaounde"),

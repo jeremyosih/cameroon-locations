@@ -52,8 +52,10 @@ getCantons("CM001").length; // 56, in Adamaoua
 function findCantons(name: string, options?: { within?: Pcode | undefined }): readonly Canton[];
 ```
 
-Cantons whose normalised name matches, optionally `within` a P-code. As with
-`getCantons`, a `within` that is not a P-code matches nothing.
+Cantons whose normalised name matches, optionally `within` a P-code. A
+blank `within` (`""` or whitespace) means no restriction; as with
+`getCantons`, any other value that is not a P-code matches nothing. The same
+holds for `findVillages`.
 
 ```ts
 findCantons("Ngaoundal ville").map((c) => c.id); // ["CM001001001-C01"]
