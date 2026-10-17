@@ -13,13 +13,16 @@
   "Σvillages": 17461371
  },
  "issues": {
-  "parent-conflict": 1,
   "canton-total≠Σvillages": 25,
   "arr-total≠Σcantons": 2,
   "printed-sex-sum-inconsistency": 73,
+  "printed-typography-inconsistency": 7,
   "population-table≠Σchildren": 1,
   "name-variants": 52,
-  "crosswalk-verified": 39,
+  "crosswalk-verified": 39
+ },
+ "resolvedIssues": {
+  "parent-conflict": 1,
   "open-question": 1
  }
 }

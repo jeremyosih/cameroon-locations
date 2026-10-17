@@ -8,6 +8,8 @@ const P = {
   codab: "sources/ocha-cod-ab-cmr/extracted/geojson",
   bucrepParsed: "build/bucrep-parsed.json",
   bucrepLayout: "build/bucrep-layout.json",
+  knownDiffs: "patches/known-extraction-differences.json",
+  issueResolutions: "decisions/issue-resolutions.json",
   bucrepMatch: "build/bucrep-codab-match.json",
   elecamCsv: "sources/elecam-polling-stations-2025/raw/elecam_data.csv",
   elecamMatch: "build/elecam-codab-match.json",
@@ -86,6 +88,13 @@ for (const r of parsed.regions) {
 if (li !== layout.length) throw new Error(`layout alignment broken: ${li} vs ${layout.length}`);
 for (const c of parsed.checks) issues.push({ kind: `printed-total-inconsistency:${c.kind}`, ...c, note: "Present in the BUCREP PDF itself (both independent extractions agree); values kept as printed.", source: SRC.bucrep });
 for (const s of parsed.sexMismatch) issues.push({ kind: "printed-sex-sum-inconsistency", ...s, note: "total ≠ male + female as printed in the PDF; kept as printed.", source: SRC.bucrep });
+// Rows whose typography (weight, shading, offset) contradicts their level; the level was confirmed against printed totals.
+for (const d of (await json(P.knownDiffs)).differences) {
+  if (d.status !== "confirmed") throw new Error(`known extraction difference at line ${d.line} is not confirmed (status: ${d.status})`);
+  const c = cantons.find(c => c.source.textLine === d.line);
+  if (!c) throw new Error(`known extraction difference at line ${d.line} is not a canton record`);
+  issues.push({ kind: "printed-typography-inconsistency", cantonId: c.id, adm3Pcode: c.adm3Pcode, name: c.name, docPage: d.docPage, textLine: d.line, levelInText: d.text, levelFromTypography: d.pdf, detail: d.evidence.typography, totals: d.evidence.totals, note: "Level taken from the text indentation and confirmed by the printed totals; the irregular typography is kept as printed. See patches/known-extraction-differences.json.", source: SRC.bucrep });
+}
 
 // --- BUCREP region/division table (pages 7-8) -----------------------------
 const popLines = (await Bun.file(P.popTable).text()).split("\n").map(l => l.match(/^( *)(.+?) +(\d+) +(\d+) +(\d+) *$/)).filter(Boolean) as RegExpMatchArray[];
@@ -172,9 +181,14 @@ if (await Bun.file(`${R}/wikidata-pcodes.json`).exists()) {
   }
   for (const v of await json(`${R}/elecam-crosswalk-verification.json`))
     issues.push({ kind: "crosswalk-verified", key: v.key, pcode: v.pcode, verdict: v.verdict, confidence: v.confidence, evidence: v.evidence.map((e: any) => e.url), source: RES });
-  for (const i of issues.filter(i => i.kind === "parent-conflict" && i.pcode === "CM002010001"))
-    Object.assign(i, { status: "resolved", resolution: "Decree 2010/198 (16 June 2010), p.4: 'DEPARTEMENT DU NYONG-ET-SO'O – Arrondissement d'AKOEMAN, chef-lieu : Akoeman' (ex-District d'Akoeman, carved from Mbalmayo). BUCREP's placement under Nyong-et-Mfoumou is an error in the directory. Verified visually 2026-10-17.", evidence: ["research/downloads/decree-2010-198/source.pdf"] });
-  issues.push({ kind: "open-question", status: "resolved", resolution: "DECISIONS.md D2: treated as a distinct village with a similar name; no change", pcode: "CM003003006", name: "Ndelele", detail: "BUCREP lists a village KENTZOU II under Ndélélé (also in the 2023 Ndélélé forest-management plan), while Kentzou (chef-lieu of Bombé, decree 2010/198) is in CM003003002. Exact location of Kentzou II unknown.", source: RES });
+  issues.push({ kind: "open-question", pcode: "CM003003006", name: "Ndelele", detail: "BUCREP lists a village KENTZOU II under Ndélélé (also in the 2023 Ndélélé forest-management plan), while Kentzou (chef-lieu of Bombé, decree 2010/198) is in CM003003002. Exact location of Kentzou II unknown.", source: RES });
+}
+
+// --- Issues closed by DECISIONS.md (decisions/issue-resolutions.json) ------
+for (const r of (await json(P.issueResolutions)).resolutions) {
+  const hit = issues.filter(i => Object.entries(r.match).every(([k, v]) => i[k] === v));
+  if (!hit.length) throw new Error(`issue resolution ${r.decision} matches no issue: ${JSON.stringify(r.match)}`);
+  for (const i of hit) Object.assign(i, { status: r.status, decision: r.decision, resolution: r.resolution, evidence: r.evidence });
 }
 
 // --- Write ----------------------------------------------------------------
@@ -187,11 +201,13 @@ await w("cantons.json", cantons);
 await w("villages.json", villages);
 await w("elecam-polling-stations.json", stations);
 await w("issues.json", issues);
+const countByKind = (xs: any[]) => xs.reduce((m: any, i) => ((m[i.kind] = (m[i.kind] || 0) + 1), m), {});
 const summary = {
   adm1: adm[1].size, adm2: adm[2].size, adm3: adm[3].size, cantons: cantons.length, villages: villages.length, pollingStations: stations.length,
   diasporaStations: stations.filter(s => !s.adm3Pcode).length,
   pop2005: { national: 17463836, Σadm1Table: sorted(adm[1]).reduce((t, u) => t + u.population2005.total, 0), Σadm3: sorted(adm[3]).reduce((t, u) => t + u.population2005.total, 0), Σvillages: villages.reduce((t, v) => t + (v.population2005.total ?? 0), 0) },
-  issues: issues.reduce((m: any, i) => ((m[i.kind] = (m[i.kind] || 0) + 1), m), {}),
+  issues: countByKind(issues.filter(i => i.status !== "resolved")),
+  resolvedIssues: countByKind(issues.filter(i => i.status === "resolved")),
 };
 await w("summary.json", summary);
 console.log(JSON.stringify(summary, null, 1));

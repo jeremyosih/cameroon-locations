@@ -1,5 +1,5 @@
 {
- "description": "Known level disagreements between the loc.txt parse and the PDF layout extraction. compare-extractions.ts fails on any disagreement not listed here.",
+ "description": "Known level disagreements between the loc.txt parse and the PDF layout extraction. compare-extractions.ts fails on any disagreement not listed here, and on any listed entry that no longer disagrees. status \"confirmed\": the text level was checked against the rendered page and the printed totals; the PDF's typography is irregular, the values are kept as printed and each row is listed in canonical/issues.json (printed-typography-inconsistency).",
  "differences": [
   {
    "line": 12752,
@@ -8,8 +8,13 @@
    "text": "canton",
    "pdf": "village",
    "docPage": 228,
-   "status": "under review",
-   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+   "status": "confirmed",
+   "verdict": "text level is right; the typography heuristic is misled by an irregularly printed row",
+   "evidence": {
+    "typography": "PDF p228: printed at the canton indent (same as NKONDJOCK VILLE and MBANG) but in regular weight and without the canton shading.",
+    "totals": "Printed total 3581 = Σ of the 11 rows below it (ABINYAM … TOUMBASSALA); NKONDJOCK VILLE 4232 = Σ of its own 8 rows; NKONDJOCK 17428 = 4232 + 3581 + 9615 (MBANG)."
+   },
+   "checked": "2026-10-17"
   },
   {
    "line": 16889,
@@ -18,8 +23,13 @@
    "text": "canton",
    "pdf": "arr",
    "docPage": 298,
-   "status": "under review",
-   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+   "status": "confirmed",
+   "verdict": "text level is right; the typography heuristic is misled by an irregularly printed row",
+   "evidence": {
+    "typography": "PDF p298: bold and shaded like the cantons BELO TOWN and KOM, but set slightly left of them (x=102.7 vs 107.3), still well right of the arrondissement row (x=98.2). The layout heuristic's x<103 cut-off reads it as an arrondissement row.",
+    "totals": "Printed total 5621 = its single village MBESA (5621); BELO 40757 = 10130 (BELO TOWN) + 25006 (KOM) + 5621. BELO already has its arrondissement row on the same page."
+   },
+   "checked": "2026-10-17"
   },
   {
    "line": 16997,
@@ -28,8 +38,13 @@
    "text": "canton",
    "pdf": "village",
    "docPage": 300,
-   "status": "under review",
-   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+   "status": "confirmed",
+   "verdict": "text level is right; the typography heuristic is misled by an irregularly printed row",
+   "evidence": {
+    "typography": "PDF p300: printed at the canton indent with the canton shading, but in regular weight (DZEKWA and JAKIRI RURAL below are bold).",
+    "totals": "Printed total 9959 = Σ of the 10 rows below it (FIANGO … YER); JAKIRI 47022 = 9959 + 495 (DZEKWA) + 36568 (JAKIRI RURAL). As a village it would precede the first canton."
+   },
+   "checked": "2026-10-17"
   },
   {
    "line": 17130,
@@ -38,8 +53,13 @@
    "text": "canton",
    "pdf": "village",
    "docPage": 302,
-   "status": "under review",
-   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+   "status": "confirmed",
+   "verdict": "text level is right; the typography heuristic is misled by an irregularly printed row",
+   "evidence": {
+    "typography": "PDF p302: printed at the canton indent with the canton shading, but in regular weight.",
+    "totals": "Printed total 44059 = Σ of the 26 rows below it (BANTEN … NGONDZEN, pp. 302-303) = NKUM arrondissement total 44059. It is the arrondissement's only canton."
+   },
+   "checked": "2026-10-17"
   },
   {
    "line": 18116,
@@ -48,8 +68,13 @@
    "text": "canton",
    "pdf": "village",
    "docPage": 319,
-   "status": "under review",
-   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+   "status": "confirmed",
+   "verdict": "text level is right; the typography heuristic is misled by an irregularly printed row",
+   "evidence": {
+    "typography": "PDF p319: printed at the canton indent with the canton shading, but in regular weight.",
+    "totals": "Printed total 1983 = ANDEK 1908 + BONATU 75; NGIE 17697 = 1983 + 15714 (canton NGIE). As a village it would precede the first canton."
+   },
+   "checked": "2026-10-17"
   },
   {
    "line": 18119,
@@ -58,8 +83,13 @@
    "text": "canton",
    "pdf": "village",
    "docPage": 319,
-   "status": "under review",
-   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+   "status": "confirmed",
+   "verdict": "text level is right; the typography heuristic is misled by an irregularly printed row",
+   "evidence": {
+    "typography": "PDF p319: printed at the canton indent with the canton shading, but in regular weight.",
+    "totals": "Printed total 15714 = Σ of the 19 rows below it (ABEBUNG … TINECHUNG, pp. 319-320); NGIE 17697 = 1983 (NGIE TOWN) + 15714."
+   },
+   "checked": "2026-10-17"
   },
   {
    "line": 19543,
@@ -68,8 +98,13 @@
    "text": "canton",
    "pdf": "village",
    "docPage": 343,
-   "status": "under review",
-   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+   "status": "confirmed",
+   "verdict": "text level is right; the typography heuristic is misled by an irregularly printed row",
+   "evidence": {
+    "typography": "PDF p343: printed at the canton indent (same as FOKOUE RURAL above) but in regular weight and without the canton shading.",
+    "totals": "Printed total 1193 = its single village FOMOPEA (1193); FOKOUE RURAL 1722 = 189 + 761 + 772 without it; FOKOUE 9576 = 1127 + 1213 + 1722 + 1193 + 2178 + 2143."
+   },
+   "checked": "2026-10-17"
   }
  ]
 }

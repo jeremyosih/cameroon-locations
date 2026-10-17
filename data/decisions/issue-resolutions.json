@@ -1,0 +1,19 @@
+{
+ "description": "Issues in canonical/issues.json closed by a decision in DECISIONS.md. tools/build-canonical.ts sets status, decision, resolution and evidence on every issue matching `match`, and fails if an entry matches no issue. summary.json counts resolved issues separately from open ones.",
+ "resolutions": [
+  {
+   "decision": "D2",
+   "match": { "kind": "open-question", "pcode": "CM003003006" },
+   "status": "resolved",
+   "resolution": "DECISIONS.md D2: KENTZOU II (Ndélélé) is treated as a village distinct from Kentzou (chef-lieu of Bombé); no record is moved.",
+   "evidence": ["research/DECISIONS.md D14", "research/downloads/decree-2010-198/source.pdf"]
+  },
+  {
+   "decision": "D5",
+   "match": { "kind": "parent-conflict", "pcode": "CM002010001" },
+   "status": "resolved",
+   "resolution": "Decree 2010/198 (16 June 2010), p.4: 'DEPARTEMENT DU NYONG-ET-SO'O – Arrondissement d'AKOEMAN, chef-lieu : Akoeman' (ex-District d'Akoeman, carved from Mbalmayo). BUCREP's placement under Nyong-et-Mfoumou is an error in the directory. Verified visually 2026-10-17.",
+   "evidence": ["research/downloads/decree-2010-198/source.pdf"]
+  }
+ ]
+}
