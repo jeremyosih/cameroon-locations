@@ -2,7 +2,11 @@
   "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
   "root": false,
   "extends": "//",
-  "css": { "parser": { "tailwindDirectives": true } },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
   "overrides": [
     {
       "includes": ["**/*.astro"],
@@ -12,8 +16,16 @@
             "noUnusedVariables": "off",
             "noUnusedImports": "off"
           },
-          "style": { "useImportType": "off" }
+          "style": {
+            "useImportType": "off"
+          }
         }
+      }
+    },
+    {
+      "includes": ["src/components/ui/**"],
+      "linter": {
+        "enabled": false
       }
     }
   ]
