@@ -10,3 +10,4 @@ data/sources/**/raw/*.json filter=lfs diff=lfs merge=lfs -text
 data/derived/**/snapshot/**/*.json filter=lfs diff=lfs merge=lfs -text
 data/derived/**/snapshot/**/*.txt filter=lfs diff=lfs merge=lfs -text
 data/research/downloads/** filter=lfs diff=lfs merge=lfs -text
+data/derived/**/snapshot/elecam_data.csv filter=lfs diff=lfs merge=lfs -text

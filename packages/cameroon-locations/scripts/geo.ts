@@ -154,7 +154,13 @@ function properties(level: Level, pcode: string) {
 
 // --- Metadata ---------------------------------------------------------------
 
-const ochaSources = getSources(["ocha-cod-ab-cmr"]);
+// Geometry is OCHA's; name_fr/name_en are the D8 display names, whose
+// spellings rest on the research notes and geoBoundaries (OSM) names.
+const featureSources = getSources([
+  "ocha-cod-ab-cmr",
+  "research-2026-10-17",
+  "geoboundaries-cmr-gbopen",
+]);
 
 function metadata(extra: Record<string, unknown>) {
   return {
@@ -166,7 +172,7 @@ function metadata(extra: Record<string, unknown>) {
       "Boundaries derived from OCHA COD-AB Cameroon (INC / OCHA), CC BY-IGO 3.0: attribution required. Package code: MIT.",
     attribution: attribution(["ocha-cod-ab-cmr"]),
     notice: `${REPOSITORY_URL}/blob/main/NOTICE.md`,
-    sources: ochaSources,
+    sources: featureSources,
     ...extra,
   };
 }
@@ -470,8 +476,8 @@ import regions from "cameroon-locations/geojson/regions.geo.json" with { type: "
 
 ## Attribution
 
-${attribution(["ocha-cod-ab-cmr"])} Source: ${ochaSources[0]?.url}; archived
-copy: ${ochaSources[0]?.repositoryUrl}. Via cameroon-locations. See
+${attribution(["ocha-cod-ab-cmr"])} Source: ${featureSources[0]?.url}; archived
+copy: ${featureSources[0]?.repositoryUrl}. Via cameroon-locations. See
 [NOTICE.md](${REPOSITORY_URL}/blob/main/NOTICE.md).
 `,
 );

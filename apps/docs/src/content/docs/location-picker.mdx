@@ -26,6 +26,12 @@ This adds `components/location-picker.tsx`, the shadcn/ui `popover`,
 `lib/cameroon-locations/`: the types, lookups and search with the 428
 regions, divisions and arrondissements inlined. There is no npm dependency.
 
+<Callout title="Radix primitives">
+  The picker is written for the Radix flavour of shadcn/ui: it uses the
+  popover's `onCloseAutoFocus` and `--radix-popover-trigger-width`. Projects
+  created with a Base UI preset (`shadcn init -b base`) won't typecheck it.
+</Callout>
+
 <CodeBlock code={pickerSource} lang="tsx" title="components/location-picker.tsx" />
 
 ## Usage

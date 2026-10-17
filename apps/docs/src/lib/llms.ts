@@ -5,6 +5,7 @@
  */
 import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
+import { sources } from "cameroon-locations";
 import { SITE_URL } from "@/site";
 import type { DocEntry } from "./docs";
 
@@ -87,6 +88,19 @@ export function propsTable(tag: string): string[] {
   ];
 }
 
+/** `<SourcesTable />` as a Markdown table of the package's `sources`. */
+function sourcesTable(): string[] {
+  return [
+    "| Source | Publisher | Licence | Online | Archived copy |",
+    "| --- | --- | --- | --- | --- |",
+    ...Object.values(sources).map(
+      (s) =>
+        `| ${cell(s.title)} | ${cell(s.publisher)} | ${cell(s.license)} | ${s.url} | ${s.repositoryUrl} |`,
+    ),
+    "",
+  ];
+}
+
 export interface MarkdownOptions {
   /** Returns the contents of a `?raw` import specifier. */
   readonly readRaw?: (specifier: string) => string | undefined;
@@ -137,6 +151,7 @@ export function mdxToMarkdown(
         continue;
       }
       if (name === "PropsTable") out.push(...propsTable(tag));
+      if (name === "SourcesTable") out.push(...sourcesTable());
       if (name === "CodeBlock") {
         const ref = attrExpression(tag, "code");
         const spec = ref ? raw.get(ref.trim()) : undefined;

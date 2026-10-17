@@ -29,9 +29,7 @@ bun run --filter docs typecheck
 `cameroon-locations` is a workspace dependency, aliased to the package
 **source** (`astro.config.ts` and `tsconfig.json` paths), so the site builds
 without `bun run build` and renders counts, sources and attribution from the
-real exports. While generated data is not wired in yet, `src/lib/package-data.ts`
-falls back to the documented totals. Don't call lookups at build time until
-they are implemented; demos catch the "not implemented" error.
+real exports (`src/lib/package-data.ts`).
 
 ## Doc components
 

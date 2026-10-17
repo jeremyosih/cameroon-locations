@@ -1608,21 +1608,21 @@
         "CM001005001"
       ],
       "ocha": "Belel",
-      "reason": "Decree 2007/115 writes Belel; only OSM has Bélel."
+      "reason": "Only OSM (geoBoundaries) has Bélel; no official source checked prints the arrondissement name with an accent (MINFI prints it plain, and decree 2007/115 does not name it), so OCHA's spelling is kept."
     },
     {
       "pcodes": [
         "CM006002001"
       ],
       "ocha": "Beka",
-      "reason": "Decree 2007/115 writes Beka; only OSM has Béka."
+      "reason": "Only OSM (geoBoundaries) has Béka; no official source checked prints the arrondissement name with an accent (MINFI prints it plain, and decree 2007/115 does not name it), so OCHA's spelling is kept."
     },
     {
       "pcodes": [
         "CM009002008"
       ],
       "ocha": "Ngoulemakong",
-      "reason": "Decree 2007/115 writes Ngoulemakong; only OSM has Ngoulémakong."
+      "reason": "Only OSM (geoBoundaries) has Ngoulémakong; no official source checked prints the arrondissement name with an accent (MINFI prints it plain, and decree 2007/115 does not name it), so OCHA's spelling is kept."
     },
     {
       "pcodes": [

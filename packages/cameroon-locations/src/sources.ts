@@ -54,13 +54,13 @@ const sourceList: Record<SourceId, SourceInfo> = {
     title: "geoBoundaries gbOpen CMR (commit 9469f09)",
     publisher: "geoBoundaries, William & Mary geoLab",
     license:
-      "CC BY 3.0 (ADM1), CC BY 4.0 (ADM2), ODbL 1.0 (ADM3). Only shape IDs are republished.",
+      "CC BY 3.0 (ADM1), CC BY 4.0 (ADM2), ODbL 1.0 (ADM3). No geometry is republished; ADM3 names appear as aliases and as evidence for accented display names.",
     licenseUrl: "https://www.geoboundaries.org/",
     url: "https://github.com/wmgeolab/geoBoundaries/tree/9469f09/releaseData/gbOpen/CMR",
     repositoryUrl: repo("geoboundaries-cmr-gbopen"),
     retrieved: "2026-10-17",
     attribution:
-      "Cross-check shape IDs: geoBoundaries (Runfola et al. 2020), www.geoboundaries.org.",
+      "Alternative spellings (aliases): geoBoundaries (Runfola et al. 2020), www.geoboundaries.org; ADM3 from OpenStreetMap, ODbL.",
   },
   "location-script-reference-tables": {
     id: "location-script-reference-tables",

@@ -7,7 +7,7 @@
 | Release | Git commit `9469f09` of wmgeolab/geoBoundaries. The API metadata in `raw/geoboundaries-api-ADM*.json` shows a source update of 2023-01-19. |
 | Upstream sources | ADM1: "geoBoundaries, Wikimedia" (year 2016) · ADM2: "Open Africa" (2016) · ADM3: "OpenStreetMap, Wambacher" (2017) |
 | **Licences** | ADM1: CC BY 3.0 · ADM2: CC BY 4.0 · **ADM3: ODbL 1.0, which is share-alike.** A database derived from ADM3 has to stay under ODbL. That matters for an npm package; prefer `ocha-cod-ab-cmr` geometry for redistribution. |
-| Retrieved | Originally by Jeremy Osih on about 2025-07-15, no URL recorded. Pristine copies were re-downloaded on 2026-10-17 from `https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/CMR/ADMx/`. |
+| Retrieved | Originally by Jeremy Osih on about 2025-07-15, no URL recorded. Pristine copies were re-downloaded on 2026-10-17 from `https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/CMR/ADM1/` (and `ADM2/`, `ADM3/`). |
 
 ## Files (`raw/`)
 

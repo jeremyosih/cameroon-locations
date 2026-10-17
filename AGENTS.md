@@ -5,7 +5,7 @@
 ## Where the data comes from
 
 All location data originates in `data/`, the source pool. It is stored in Git LFS and **never
-shipped to npm** (`package.json` `files: ["dist"]`).
+shipped to npm** (`package.json` `files` lists only `dist`, `geojson`, `LICENSE` and `NOTICE.md`).
 
 - `data/README.md`: index of sources, their licences and trust levels. Start here.
 - `data/sources/<id>/`: one folder per source, holding `raw/` (untouched downloads plus
@@ -13,15 +13,18 @@ shipped to npm** (`package.json` `files: ["dist"]`).
   - `ocha-cod-ab-cmr`: authoritative P-codes, names, areas, centroids and boundaries (CC BY-IGO).
   - `bucrep-rgph2005-repertoire-villages`: the 2005 census directory. Cantons, villages and
     population.
-  - `elecam-polling-stations-2025`: polling stations and registered voters (July 2025 snapshot).
-  - `geoboundaries-cmr-gbopen`: OSM-derived boundaries, used for cross-checks only. ADM3 is ODbL.
+  - `elecam-polling-stations-2025`: polling stations and registered voters (probable July 2025 provisional roll; download origin not recorded).
+  - `geoboundaries-cmr-gbopen`: OSM-derived boundaries. Geometry is used for cross-checks only;
+    ADM3 names ship as aliases. ADM3 is ODbL.
 - `data/canonical/`: **the dataset the library must be built from**. JSON keyed by OCHA P-code
   (`CM001`, `CM001001`, `CM001001001`). Every value carries its source id. See
   `data/canonical/README.md` for the schema.
 - `data/DECISIONS.md`: judgement calls (naming, reassignments). `data/research/`: web research with
   URL citations (decrees, Wikidata, history).
 - `data/derived/location-script-2025-07/`: archive of the July 2025 extraction pipeline and its
-  known defects. It's for reference only, so don't build from it.
+  known defects. It's for reference only, so don't build from it. One exception:
+  `build-all.sh` reads the BUCREP text extraction `snapshot/loc.txt`, the only copy of that
+  text; its known defects are fixed by `data/patches/`.
 
 ### Rules for data changes
 
