@@ -256,7 +256,7 @@ describe("immutability", () => {
   });
 });
 
-describe("bundle size", () => {
+describe("entry isolation", () => {
   // Static import graph from src/index.ts: the core entry must not reach the
   // canton, village or ELECAM data.
   const reachable = (entry: string): Set<string> => {
@@ -292,14 +292,4 @@ describe("bundle size", () => {
     ])
       expect(files).not.toContain(heavy);
   });
-
-  test.skipIf(!existsSync(join(pkg, "dist/index.js")))(
-    "built core and village entries stay under budget",
-    () => {
-      expect(statSync(join(pkg, "dist/index.js")).size).toBeLessThan(250_000);
-      expect(statSync(join(pkg, "dist/villages.js")).size).toBeLessThan(
-        1_500_000,
-      );
-    },
-  );
 });

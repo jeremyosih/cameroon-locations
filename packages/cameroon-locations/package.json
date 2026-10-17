@@ -78,6 +78,7 @@
     "test": "bun test",
     "generate": "bun scripts/generate.ts",
     "geo": "bun scripts/geo.ts",
+    "check:bundle": "bun scripts/check-bundle.ts",
     "check:package": "publint --strict && attw --pack . --profile node16",
     "prepack": "cp ../../NOTICE.md NOTICE.md && bun run build"
   },

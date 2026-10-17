@@ -26,6 +26,7 @@ jobs:
         run: bun run data:generate && git diff --exit-code -- packages/cameroon-locations/generated
       - run: bun run test
       - run: bun run build
+      - run: bun run --filter cameroon-locations check:bundle
       - run: bun run --filter cameroon-locations check:package
       - name: Docs
         if: hashFiles('apps/docs/package.json') != ''
