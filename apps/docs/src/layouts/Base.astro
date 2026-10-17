@@ -1,0 +1,72 @@
+---
+import "@fontsource-variable/inter";
+import "@fontsource-variable/geist-mono";
+import "@/styles/global.css";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = SITE_DESCRIPTION } = Astro.props;
+const fullTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151515" media="(prefers-color-scheme: dark)" />
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const dark =
+          stored === "dark" ||
+          (stored !== "light" &&
+            matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script>
+      import { CHECK_ICON, COPY_ICON } from "@/lib/icons";
+
+      // Copy button on every highlighted block (MDX fences and <CodeBlock>).
+      for (const pre of document.querySelectorAll<HTMLPreElement>(
+        "pre.astro-code",
+      )) {
+        const host = pre.closest(".code-wrap") ?? pre;
+        host.classList.add("code-wrap");
+        if (host.querySelector(":scope > .copy-button")) continue;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "copy-button";
+        button.setAttribute("aria-label", "Copy code");
+        button.innerHTML = COPY_ICON;
+        button.addEventListener("click", async () => {
+          await navigator.clipboard.writeText(pre.innerText);
+          button.innerHTML = CHECK_ICON;
+          setTimeout(() => {
+            button.innerHTML = COPY_ICON;
+          }, 1500);
+        });
+        host.append(button);
+      }
+    </script>
+  </body>
+</html>

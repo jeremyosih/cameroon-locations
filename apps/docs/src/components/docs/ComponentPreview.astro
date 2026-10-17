@@ -1,0 +1,109 @@
+---
+/**
+ * Preview / Code tabs, after prompt-kit. The default slot is the live
+ * preview: put a React island in it (`<Demo client:load />`). The Code tab
+ * shows `code` (prefer `import src from "./demo.tsx?raw"`) or `file`
+ * (relative to `apps/docs`).
+ *
+ * ```mdx
+ * import Demo from "@/components/demos/location-picker-demo";
+ * import demoSrc from "@/components/demos/location-picker-demo.tsx?raw";
+ *
+ * <ComponentPreview code={demoSrc}>
+ *   <Demo client:load />
+ * </ComponentPreview>
+ * ```
+ */
+import CodeBlock from "./CodeBlock.astro";
+
+interface Props {
+  code?: string;
+  file?: string;
+  lang?: "tsx" | "ts" | "astro" | "html";
+  /** Classes for the preview canvas, e.g. `"min-h-[420px] p-0"`. */
+  class?: string;
+  /** Centre the preview (default) or let it fill the canvas. */
+  align?: "center" | "start" | "stretch";
+}
+
+const {
+  code,
+  file,
+  lang = "tsx",
+  class: className,
+  align = "center",
+} = Astro.props;
+const hasCode = Boolean(code || file);
+---
+
+<preview-tabs class="not-prose my-6 block">
+  <div class="mb-2 flex items-center gap-1" role="tablist">
+    <button
+      type="button"
+      role="tab"
+      data-tab="preview"
+      aria-selected="true"
+      class="tab-trigger text-muted-foreground hover:text-foreground aria-selected:bg-accent aria-selected:text-foreground inline-flex h-7 items-center rounded-md px-2.5 text-[13px] font-medium transition-colors"
+    >
+      Preview
+    </button>
+    {
+      hasCode && (
+        <button
+          type="button"
+          role="tab"
+          data-tab="code"
+          aria-selected="false"
+          class="tab-trigger text-muted-foreground hover:text-foreground aria-selected:bg-accent aria-selected:text-foreground inline-flex h-7 items-center rounded-md px-2.5 text-[13px] font-medium transition-colors"
+        >
+          Code
+        </button>
+      )
+    }
+  </div>
+  <div data-panel="preview" role="tabpanel">
+    <div
+      class:list={[
+        "bg-background relative flex min-h-[320px] w-full rounded-lg border p-8",
+        "bg-[radial-gradient(var(--border)_1px,transparent_1px)] [background-size:16px_16px]",
+        align === "center" && "items-center justify-center",
+        align === "start" && "items-start justify-start",
+        align === "stretch" && "items-stretch",
+        className,
+      ]}
+    >
+      <slot />
+    </div>
+  </div>
+  {
+    hasCode && (
+      <div data-panel="code" role="tabpanel" hidden>
+        <CodeBlock code={code} file={file} lang={lang} class="my-0" />
+      </div>
+    )
+  }
+</preview-tabs>
+
+<script>
+  class PreviewTabs extends HTMLElement {
+    connectedCallback() {
+      const triggers = this.querySelectorAll<HTMLButtonElement>("[data-tab]");
+      for (const trigger of triggers) {
+        trigger.addEventListener("click", () => {
+          const tab = trigger.dataset.tab;
+          for (const t of triggers) {
+            t.setAttribute("aria-selected", String(t === trigger));
+          }
+          for (const panel of this.querySelectorAll<HTMLElement>(
+            ":scope > [data-panel]",
+          )) {
+            panel.hidden = panel.dataset.panel !== tab;
+          }
+        });
+      }
+    }
+  }
+  if (!customElements.get("preview-tabs")) {
+    customElements.define("preview-tabs", PreviewTabs);
+  }
+</script>

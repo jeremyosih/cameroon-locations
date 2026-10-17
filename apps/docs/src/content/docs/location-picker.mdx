@@ -1,0 +1,43 @@
+---
+title: Location picker
+description: A cascading region, division and arrondissement picker with type-ahead search, built on shadcn/ui. Copy it into your project with the shadcn CLI.
+eyebrow: shadcn/ui component
+---
+
+{/*
+  Components agent: this page is a shell.
+  1. Add the component to registry.json (registryDependencies can point at
+     "{{SITE_URL}}/r/cameroon-locations-core.json"); `bun run registry`
+     writes public/r/location-picker.json.
+  2. Put a demo in src/components/demos/ and swap the placeholder below for
+     <Demo client:load /> with code={demoSource} (import "...demo.tsx?raw").
+  3. Replace the Installation callout with
+     <InstallCommand client:load shadcn={registryUrl("location-picker")} />
+     and fill the PropsTable rows.
+*/}
+
+<ComponentPreview>
+  <div class="text-muted-foreground flex flex-col items-center gap-2 text-center text-sm">
+    <span class="text-foreground font-medium">Preview coming soon</span>
+    <span class="max-w-xs text-xs leading-relaxed">
+      Region → division → arrondissement, with search across French and
+      English names.
+    </span>
+  </div>
+</ComponentPreview>
+
+## Installation
+
+<Callout title="Not published yet" tone="brand">
+  The component is being built. It will install with one `shadcn add`
+  command from this site's registry.
+</Callout>
+
+## Usage
+
+The picker will work with P-codes, so the value you store is the stable OCHA
+code (`"CM002007001"`) and labels come from the data in either language.
+
+## API
+
+The props table will be filled in when the component lands.

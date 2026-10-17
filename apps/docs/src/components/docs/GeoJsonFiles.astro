@@ -1,0 +1,100 @@
+---
+/**
+ * Lists the GeoJSON files shipped in `packages/cameroon-locations/geojson`,
+ * read at build time. Falls back to the planned file names while the
+ * geometry PR is in flight.
+ */
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
+import { join, resolve } from "node:path";
+
+const dir = resolve(process.cwd(), "../../packages/cameroon-locations/geojson");
+
+interface Row {
+  file: string;
+  level: string;
+  features?: number;
+  size?: string;
+}
+
+const PLANNED: Row[] = [
+  { file: "regions.geojson", level: "Regions (ADM1)" },
+  { file: "divisions.geojson", level: "Divisions (ADM2)" },
+  { file: "arrondissements.geojson", level: "Arrondissements (ADM3)" },
+];
+
+function levelOf(file: string): string {
+  if (/region|adm1/i.test(file)) return "Regions (ADM1)";
+  if (/division|adm2/i.test(file)) return "Divisions (ADM2)";
+  if (/arrondissement|adm3/i.test(file)) return "Arrondissements (ADM3)";
+  return "";
+}
+
+const files = existsSync(dir)
+  ? readdirSync(dir)
+      .filter((f) => /\.(geo)?json$/.test(f))
+      .sort()
+  : [];
+
+const rows: Row[] =
+  files.length === 0
+    ? PLANNED
+    : files.map((file) => {
+        const path = join(dir, file);
+        const bytes = statSync(path).size;
+        let features: number | undefined;
+        try {
+          const json = JSON.parse(readFileSync(path, "utf8")) as {
+            features?: unknown[];
+          };
+          features = json.features?.length;
+        } catch {
+          features = undefined;
+        }
+        return {
+          file,
+          level: levelOf(file),
+          features,
+          size: `${(bytes / 1024).toFixed(0)} KB`,
+        };
+      });
+const planned = files.length === 0;
+---
+
+<div class="not-prose my-6 overflow-x-auto rounded-lg border">
+  <table class="w-full text-left text-sm">
+    <thead class="bg-muted/50 text-muted-foreground border-b text-xs">
+      <tr>
+        <th class="px-4 py-2.5 font-medium">Import</th>
+        <th class="px-4 py-2.5 font-medium">Level</th>
+        <th class="px-4 py-2.5 text-right font-medium">Features</th>
+        <th class="px-4 py-2.5 text-right font-medium">Size</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y">
+      {
+        rows.map((r) => (
+          <tr>
+            <td class="px-4 py-2.5 font-mono text-[0.8125rem] whitespace-nowrap">
+              cameroon-locations/geojson/{r.file}
+            </td>
+            <td class="text-muted-foreground px-4 py-2.5">{r.level}</td>
+            <td class="text-muted-foreground px-4 py-2.5 text-right tabular-nums">
+              {r.features ?? "–"}
+            </td>
+            <td class="text-muted-foreground px-4 py-2.5 text-right tabular-nums">
+              {r.size ?? "–"}
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  {
+    planned && (
+      <p class="text-muted-foreground border-t px-4 py-2 text-xs">
+        Planned file names; the table fills itself from the package once the
+        boundaries are generated.
+      </p>
+    )
+  }
+</div>

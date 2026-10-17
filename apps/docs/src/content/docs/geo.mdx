@@ -1,0 +1,186 @@
+---
+title: Geo & GeoJSON
+description: Point-in-polygon lookup, nearest units and distances, plus simplified OCHA boundaries as GeoJSON files keyed by P-code.
+eyebrow: import … from "cameroon-locations/geo"
+---
+
+import GeoJsonFiles from "@/components/docs/GeoJsonFiles.astro";
+
+## locate
+
+```ts
+function locate(point: LngLat): Arrondissement | undefined;
+```
+
+The arrondissement containing a point, using the simplified OCHA polygons.
+Points are `[lng, lat]`, like GeoJSON. Returns `undefined` outside Cameroon.
+
+```ts
+import { locate } from "cameroon-locations/geo";
+
+locate([11.5167, 3.8667])?.name.fr; // an arrondissement of Yaoundé
+locate([2.35, 48.85]); // undefined
+
+// From the browser
+navigator.geolocation.getCurrentPosition(({ coords }) => {
+  const here = locate([coords.longitude, coords.latitude]);
+});
+```
+
+Simplified boundaries are accurate to a few hundred metres. Near a border,
+check with the full-resolution OCHA data if it matters.
+
+## nearest
+
+```ts
+function nearest(
+  point: LngLat,
+  options?: { level?: AdminLevel; limit?: number },
+): readonly { unit: AdminUnit; distanceKm: number }[];
+```
+
+Units sorted by the distance from the point to their centroid.
+
+```ts
+import { nearest } from "cameroon-locations/geo";
+
+nearest([9.7, 4.05], { level: "division", limit: 3 }).map(
+  ({ unit, distanceKm }) => `${unit.name.fr} ${distanceKm.toFixed(0)} km`,
+);
+```
+
+## distanceKm
+
+```ts
+function distanceKm(a: LngLat, b: LngLat): number;
+```
+
+Great-circle (haversine) distance in kilometres.
+
+```ts
+import { getArrondissement } from "cameroon-locations";
+import { distanceKm } from "cameroon-locations/geo";
+
+const yde = getArrondissement("Yaoundé I");
+const dla = getArrondissement("Douala I");
+if (yde && dla) distanceKm(yde.centroid, dla.centroid); // ≈ 200
+```
+
+## GeoJSON files
+
+Boundaries ship as plain GeoJSON `FeatureCollection`s, simplified from OCHA
+COD-AB. Each feature's `properties` carry the unit's `pcode` and names, and
+each file has a `metadata` member with the dataset version and attribution.
+
+<GeoJsonFiles />
+
+They are files, not modules: import them as JSON or as a URL, or load them
+from a CDN.
+
+```ts
+// Bundlers (Vite, webpack, Next.js)
+import regions from "cameroon-locations/geojson/regions.geojson?url";
+
+// Node / Bun, from disk
+import { createRequire } from "node:module";
+const file = createRequire(import.meta.url).resolve(
+  "cameroon-locations/geojson/regions.geojson",
+);
+
+// CDN
+const url = "https://cdn.jsdelivr.net/npm/cameroon-locations@0.2/geojson/regions.geojson";
+```
+
+### Joining by P-code
+
+The P-code is the join key between the GeoJSON and every record in the
+package, so styling a map by your own data is a lookup:
+
+```ts
+import { getUnit } from "cameroon-locations";
+
+const geojson = await fetch(url).then((r) => r.json());
+const voters = new Map([["CM002007001", 120_000]]); // your data, keyed by P-code
+
+for (const feature of geojson.features) {
+  const pcode = feature.properties.pcode;
+  feature.properties.value = voters.get(pcode) ?? 0;
+  feature.properties.label = getUnit(pcode)?.name.fr;
+}
+```
+
+### Leaflet
+
+```ts
+import L from "leaflet";
+import { attribution, getRegion } from "cameroon-locations";
+import url from "cameroon-locations/geojson/regions.geojson?url";
+
+const map = L.map("map").setView([7.37, 12.35], 6);
+const regions = await fetch(url).then((r) => r.json());
+
+L.geoJSON(regions, {
+  style: { color: "#007a5e", weight: 1, fillOpacity: 0.08 },
+  onEachFeature: (feature, layer) =>
+    layer.bindTooltip(getRegion(feature.properties.pcode)?.name.fr ?? ""),
+}).addTo(map);
+
+map.attributionControl.addAttribution(attribution());
+```
+
+### MapLibre
+
+```ts
+import maplibregl from "maplibre-gl";
+import { attribution } from "cameroon-locations";
+import url from "cameroon-locations/geojson/arrondissements.geojson?url";
+
+const map = new maplibregl.Map({
+  container: "map",
+  style: "https://demotiles.maplibre.org/style.json",
+  center: [12.35, 7.37],
+  zoom: 5,
+});
+
+map.on("load", () => {
+  map.addSource("arrondissements", {
+    type: "geojson",
+    data: url,
+    promoteId: "pcode",
+    attribution: attribution(),
+  });
+  map.addLayer({
+    id: "arrondissements",
+    type: "line",
+    source: "arrondissements",
+    paint: { "line-color": "#007a5e", "line-width": 0.6 },
+  });
+});
+```
+
+### d3
+
+```ts
+import * as d3 from "d3";
+import url from "cameroon-locations/geojson/regions.geojson?url";
+
+const regions = await d3.json(url);
+const projection = d3.geoMercator().fitSize([640, 640], regions);
+const path = d3.geoPath(projection);
+
+d3.select("svg")
+  .selectAll("path")
+  .data(regions.features)
+  .join("path")
+  .attr("d", path)
+  .attr("fill", "none")
+  .attr("stroke", "currentColor");
+```
+
+For a ready-made React map, see the [Cameroon map](/docs/cameroon-map)
+component.
+
+## Attribution
+
+The boundaries are OCHA COD-AB (CC BY-IGO 3.0). Show the credit on any map:
+`attribution()` returns it, and each file's `metadata` repeats it.

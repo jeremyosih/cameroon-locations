@@ -1,0 +1,50 @@
+---
+/**
+ * Every source from the package's `sources` export, so this page is the
+ * same text the code ships.
+ */
+import { sources } from "cameroon-locations";
+
+const list = Object.values(sources);
+---
+
+<div class="not-prose my-6 divide-y rounded-lg border">
+  {
+    list.map((s) => (
+      <section class="grid gap-3 px-5 py-4 sm:grid-cols-[1fr_auto]" id={`source-${s.id}`}>
+        <div class="min-w-0 space-y-1.5">
+          <h3 class="text-sm leading-snug font-medium">{s.title}</h3>
+          <p class="text-muted-foreground text-xs">{s.publisher}</p>
+          <p class="text-sm leading-relaxed">{s.attribution}</p>
+          <p class="text-muted-foreground flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs">
+            <code class="font-mono">{s.id}</code>
+            <span>Retrieved {s.retrieved}</span>
+          </p>
+        </div>
+        <div class="flex flex-row flex-wrap items-start gap-2 text-xs sm:flex-col sm:items-end">
+          {s.licenseUrl ? (
+            <a
+              href={s.licenseUrl}
+              class="bg-muted hover:text-foreground text-muted-foreground max-w-60 rounded-md px-2 py-1 sm:text-right"
+            >
+              {s.license}
+            </a>
+          ) : (
+            <span class="bg-muted text-muted-foreground max-w-60 rounded-md px-2 py-1 sm:text-right">
+              {s.license}
+            </span>
+          )}
+          <a href={s.url} class="hover:text-brand underline underline-offset-2">
+            Online source
+          </a>
+          <a
+            href={s.repositoryUrl}
+            class="hover:text-brand underline underline-offset-2"
+          >
+            Archived copy
+          </a>
+        </div>
+      </section>
+    ))
+  }
+</div>

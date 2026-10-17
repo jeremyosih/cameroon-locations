@@ -1,0 +1,218 @@
+---
+title: Regions & lookups
+description: The three administrative levels as arrays, and the functions that find units by P-code, HASC code or name and walk the hierarchy.
+eyebrow: import … from "cameroon-locations"
+---
+
+## Datasets
+
+```ts
+import { arrondissements, divisions, regions } from "cameroon-locations";
+
+regions; // readonly Region[], 10
+divisions; // readonly Division[], 58
+arrondissements; // readonly Arrondissement[], 360
+```
+
+The arrays are sorted by P-code and deep-frozen. Each record is a plain
+object you can serialise, cache or send to the client as is. See
+[Data model](/docs/data-model) for every field.
+
+```ts
+const mfoundi = divisions.find((d) => d.pcode === "CM002007");
+mfoundi?.name.fr; // "Mfoundi"
+mfoundi?.regionPcode; // "CM002"
+mfoundi?.population2005?.total;
+```
+
+## Queries
+
+Every lookup that takes a `LocationQuery` accepts any of:
+
+- a P-code: `"CM004"`, `"CM002007"`, `"CM002007001"`
+- a HASC code: `"CM.EN"`
+- any name or alias, in French or English: `"Extrême-Nord"`, `"Far North"`,
+  `"EXTREME NORD"`
+
+Names are compared with [`normalizeName`](#normalizename). A name that
+matches more than one unit returns `undefined` from the `get*` functions;
+use [`find`](#find) to see every match, or narrow it with `within`.
+
+## Lookups
+
+### getRegion
+
+```ts
+function getRegion(query: LocationQuery): Region | undefined;
+```
+
+```ts
+getRegion("CM004")?.name.en; // "Far-North"
+getRegion("Extreme-Nord")?.pcode; // "CM004"
+getRegion("CM.EN")?.name.fr; // "Extrême-Nord"
+```
+
+### getDivision
+
+```ts
+function getDivision(
+  query: LocationQuery,
+  options?: { within?: Pcode },
+): Division | undefined;
+```
+
+```ts
+getDivision("Mfoundi")?.pcode; // "CM002007"
+getDivision("Wouri", { within: "CM005" })?.name.fr; // "Wouri"
+```
+
+### getArrondissement
+
+```ts
+function getArrondissement(
+  query: LocationQuery,
+  options?: { within?: Pcode },
+): Arrondissement | undefined;
+```
+
+```ts
+getArrondissement("Yaoundé I")?.pcode; // "CM002007001"
+getArrondissement("Douala 3e")?.ordinal; // 3
+```
+
+`within` takes a region or division P-code. Use it for names that exist in
+several places.
+
+### getUnit
+
+```ts
+function getUnit(pcode: Pcode): AdminUnit | undefined;
+```
+
+Any level, by P-code only. Narrow the result with `unit.level`:
+
+```ts
+const unit = getUnit("CM002007001");
+if (unit?.level === "arrondissement") unit.divisionPcode; // "CM002007"
+```
+
+### find
+
+```ts
+function find(query: LocationQuery, options?: FindOptions): readonly AdminUnit[];
+
+interface FindOptions {
+  level?: "region" | "division" | "arrondissement";
+  within?: Pcode;
+}
+```
+
+Every unit whose code, name or alias matches exactly after normalisation.
+Today every normalised name in the dataset is unique, so this returns at most
+one unit per level; it is the safe choice when matching free text from other
+datasets, where a name could be an alias of more than one unit.
+
+```ts
+find("Mfoundi").map((u) => u.level); // ["division"]
+find("garoua 1", { level: "arrondissement" })[0]?.name.fr; // "Garoua I"
+find("Wouri", { within: "CM005" }).length; // 1
+```
+
+For partial or misspelled input, use [`search`](/docs/search).
+
+## Hierarchy
+
+### getParent
+
+```ts
+function getParent(pcode: Pcode): Region | Division | undefined;
+```
+
+```ts
+getParent("CM002007001")?.name.fr; // "Mfoundi"
+getParent("CM002"); // undefined, regions have no parent
+```
+
+### getAncestors
+
+```ts
+function getAncestors(pcode: Pcode): readonly (Region | Division)[];
+```
+
+From the region down, excluding the unit itself.
+
+```ts
+getAncestors("CM002007001").map((u) => u.pcode); // ["CM002", "CM002007"]
+```
+
+### getChildren
+
+```ts
+function getChildren(pcode: Pcode): readonly AdminUnit[];
+```
+
+Direct children. `"CM"` returns the regions.
+
+```ts
+getChildren("CM").length; // 10
+getChildren("CM002007").map((u) => u.name.fr); // ["Yaoundé I", …, "Yaoundé VII"]
+```
+
+### getDivisions
+
+```ts
+function getDivisions(region?: LocationQuery): readonly Division[];
+```
+
+All divisions, or those of one region.
+
+```ts
+getDivisions("Littoral").map((d) => d.name.fr);
+// ["Moungo", "Nkam", "Sanaga-Maritime", "Wouri"]
+```
+
+### getArrondissements
+
+```ts
+function getArrondissements(within?: LocationQuery): readonly Arrondissement[];
+```
+
+All arrondissements, or those of one region or division.
+
+```ts
+getArrondissements("Mfoundi").length; // 7
+getArrondissements("CM002").length; // every arrondissement in Centre
+```
+
+## Utilities
+
+### isPcode
+
+```ts
+function isPcode(value: string): value is Pcode;
+```
+
+`true` for well-formed region, division and arrondissement P-codes that exist
+in the dataset.
+
+```ts
+isPcode("CM002007001"); // true
+isPcode("CMR002"); // false
+```
+
+### normalizeName
+
+```ts
+function normalizeName(name: string): string;
+```
+
+Folds a name for comparison: lower case, accents removed, apostrophes and
+punctuation dropped, `-`, `_` and whitespace collapsed to one space, and a
+trailing ordinal unified. Every lookup uses it, and you can use it to match
+your own data against ours.
+
+```ts
+normalizeName("Yaoundé 1er"); // "yaounde 1"
+normalizeName("YAOUNDE-I"); // "yaounde 1"
+normalizeName("Nyong-et-So'o"); // "nyong et soo"
+```

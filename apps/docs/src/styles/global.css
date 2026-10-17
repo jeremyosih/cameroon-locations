@@ -1,0 +1,192 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-code: var(--code);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.205 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.205 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.52 0 0);
+  --accent: oklch(0.965 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  /* Cameroon green #007a5e. Used sparingly: active nav, links, focus. */
+  --brand: #007a5e;
+  --brand-soft: color-mix(in oklab, #007a5e 10%, transparent);
+  --code: oklch(0.985 0 0);
+}
+
+.dark {
+  --background: oklch(0.155 0 0);
+  --foreground: oklch(0.96 0 0);
+  --card: oklch(0.185 0 0);
+  --card-foreground: oklch(0.96 0 0);
+  --popover: oklch(0.185 0 0);
+  --popover-foreground: oklch(0.96 0 0);
+  --primary: oklch(0.96 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.24 0 0);
+  --secondary-foreground: oklch(0.96 0 0);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.68 0 0);
+  --accent: oklch(0.235 0 0);
+  --accent-foreground: oklch(0.96 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 13%);
+  --ring: oklch(0.556 0 0);
+  --brand: #3fbf98;
+  --brand-soft: color-mix(in oklab, #3fbf98 12%, transparent);
+  --code: oklch(0.18 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  ::selection {
+    background: var(--brand-soft);
+  }
+}
+
+/* Shiki dual themes (defaultColor: false) */
+.astro-code,
+.astro-code span {
+  color: var(--shiki-light);
+  background-color: transparent;
+}
+.dark .astro-code,
+.dark .astro-code span {
+  color: var(--shiki-dark);
+}
+
+/* Prose, tuned after prompt-kit: small headings, calm rhythm. */
+.docs-prose {
+  @apply prose prose-neutral dark:prose-invert max-w-none min-w-0;
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-links: var(--foreground);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-hr: var(--border);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+  --tw-prose-bullets: var(--muted-foreground);
+  --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-quotes: var(--muted-foreground);
+  --tw-prose-quote-borders: var(--border);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+.docs-prose :where(h2) {
+  @apply mt-14 mb-4 scroll-m-20 text-xl font-medium tracking-tight;
+}
+.docs-prose :where(h3) {
+  @apply mt-10 mb-3 scroll-m-20 text-base font-medium;
+}
+.docs-prose :where(h4) {
+  @apply mt-8 mb-2 scroll-m-20 text-sm font-medium;
+}
+.docs-prose :where(h2, h3, h4) > a.heading-anchor {
+  @apply no-underline;
+}
+.docs-prose :where(strong) {
+  @apply font-medium;
+}
+.docs-prose :where(a):not(:where(.not-prose, .not-prose *)) {
+  @apply font-normal underline decoration-1 underline-offset-[3px];
+  text-decoration-color: color-mix(in oklab, var(--brand) 55%, transparent);
+}
+.docs-prose :where(a):not(:where(.not-prose, .not-prose *)):hover {
+  text-decoration-color: var(--brand);
+}
+.docs-prose :where(:not(pre) > code):not(:where(.not-prose, .not-prose *)) {
+  @apply bg-muted rounded-[5px] px-[0.35em] py-[0.15em] font-mono text-[0.8125em] font-normal;
+}
+.docs-prose :where(:not(pre) > code)::before,
+.docs-prose :where(:not(pre) > code)::after {
+  content: none;
+}
+.docs-prose :where(pre):not(:where(.not-prose, .not-prose *)) {
+  @apply bg-code relative my-6 overflow-x-auto rounded-lg border px-4 py-3.5 font-mono text-[0.8125rem] leading-relaxed;
+}
+.docs-prose :where(table):not(:where(.not-prose, .not-prose *)) {
+  @apply my-6 block w-full overflow-x-auto text-sm;
+}
+.docs-prose :where(thead th):not(:where(.not-prose, .not-prose *)) {
+  @apply text-muted-foreground font-medium whitespace-nowrap;
+}
+.docs-prose :where(td, th):not(:where(.not-prose, .not-prose *)) {
+  @apply px-3 py-2.5 align-top first:pl-0;
+}
+.docs-prose :where(td):not(:where(.not-prose, .not-prose *)) code {
+  white-space: nowrap;
+}
+.docs-prose :where(blockquote) {
+  @apply not-italic font-normal;
+}
+.docs-prose :where(blockquote p)::before,
+.docs-prose :where(blockquote p)::after {
+  content: none;
+}
+
+/* Copy button injected on every code block. */
+.copy-button {
+  @apply text-muted-foreground hover:text-foreground hover:bg-accent absolute top-2.5 right-2.5 inline-flex size-7 items-center justify-center rounded-md opacity-0 transition focus-visible:opacity-100;
+}
+.code-wrap:hover .copy-button {
+  @apply opacity-100;
+}

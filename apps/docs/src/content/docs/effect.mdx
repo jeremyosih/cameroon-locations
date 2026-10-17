@@ -1,0 +1,25 @@
+---
+title: Effect
+description: Effect schemas, Option-returning lookups and tagged errors over the core API, for codebases built on Effect.
+eyebrow: import … from "cameroon-locations/effect"
+---
+
+import InstallCommand from "@/components/docs/InstallCommand";
+
+<Callout title="Coming soon" tone="brand">
+  The Effect adapter is being written. This page will document it when it
+  lands.
+</Callout>
+
+The adapter wraps the same data and lookups with:
+
+- **Schemas** for every record type (`Region`, `Division`, `Arrondissement`,
+  `Canton`, `Village`, …), to decode and validate P-codes and records at your
+  boundaries.
+- **`Option` lookups** instead of `T | undefined`.
+- **Tagged errors** for effectful variants that fail when nothing matches.
+
+`effect` is an optional peer dependency (version 4); the rest of the package
+never imports it.
+
+<InstallCommand client:load packages="cameroon-locations effect" />

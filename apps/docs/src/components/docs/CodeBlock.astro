@@ -1,0 +1,46 @@
+---
+import { Code } from "astro:components";
+/**
+ * Highlighted code block with a copy button and optional file title.
+ *
+ * Pass `code` (e.g. from `import src from "./file.tsx?raw"`) or `file`, a
+ * path relative to `apps/docs` read at build time.
+ */
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import type { ComponentProps } from "astro/types";
+
+type Lang = ComponentProps<typeof Code>["lang"];
+
+interface Props {
+  code?: string;
+  file?: string;
+  lang?: Lang;
+  title?: string;
+  class?: string;
+}
+
+const { file, lang = "ts", title, class: className } = Astro.props;
+const code = (
+  Astro.props.code ??
+  (file ? readFileSync(resolve(process.cwd(), file), "utf8") : "")
+).trimEnd();
+---
+
+<div class:list={["code-wrap not-prose bg-code relative my-6 overflow-hidden rounded-lg border", className]}>
+  {
+    title && (
+      <div class="text-muted-foreground border-b px-4 py-2 font-mono text-xs">
+        {title}
+      </div>
+    )
+  }
+  <div class="max-h-[640px] overflow-auto px-4 py-3.5 font-mono text-[0.8125rem] leading-relaxed">
+    <Code
+      code={code}
+      lang={lang}
+      themes={{ light: "github-light", dark: "github-dark" }}
+      defaultColor={false}
+    />
+  </div>
+</div>
