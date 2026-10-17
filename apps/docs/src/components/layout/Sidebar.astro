@@ -2,6 +2,7 @@
 import { GITHUB_URL, NAV, NPM_URL, pagePath } from "@/site";
 import pkg from "../../../../../packages/cameroon-locations/package.json";
 import Logo from "./Logo.astro";
+import Sponsor from "./Sponsor.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 
 interface Props {
@@ -24,7 +25,7 @@ const links = [
 >
   <div class="flex items-center justify-between gap-2 px-5 pt-7 pb-2">
     <a href="/" class="flex items-center gap-2">
-      <Logo class="size-[18px]" />
+      <Logo class="text-xl" />
       <span class="text-[14.5px] font-medium tracking-tight whitespace-nowrap">cameroon-locations</span>
     </a>
     <span class="text-muted-foreground font-mono text-[11px]">v{pkg.version}</span>
@@ -70,6 +71,10 @@ const links = [
       ))
     }
   </nav>
+
+  <div class="border-t border-dashed px-6 py-3">
+    <Sponsor />
+  </div>
 
   <div class="flex items-center justify-between border-t border-dashed px-6 py-3">
     <div class="text-muted-foreground flex gap-4 text-xs">
