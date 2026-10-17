@@ -6,6 +6,7 @@ const DEMOS = {
   basic: lazy(() => import("./cameroon-map-demo")),
   choropleth: lazy(() => import("./cameroon-map-choropleth-demo")),
   drilldown: lazy(() => import("./cameroon-map-drilldown-demo")),
+  locate: lazy(() => import("./locate-demo")),
 };
 
 const read = (): "light" | "dark" =>
