@@ -91,21 +91,33 @@ export default function LocateDemo() {
   const [inputError, setInputError] = useState<string>();
   const [locating, setLocating] = useState(false);
   const [deviceError, setDeviceError] = useState<string>();
-  const live = useRef(true);
+  const [loadError, setLoadError] = useState(false);
+  // Bumped by every new point and on unmount, so a pending geolocation
+  // request can't replace a newer choice.
+  const request = useRef(0);
   const id = useId();
 
   useEffect(() => {
-    live.current = true;
-    loadGeo().then((mod) => live.current && setGeo(mod));
+    let active = true;
+    const fail = () => active && setLoadError(true);
+    loadGeo().then((mod) => active && setGeo(mod), fail);
     loadShapes().then(
       (fc) =>
-        live.current &&
+        active &&
         setShapes(new Map(fc.features.map((f) => [f.properties.pcode, f]))),
+      fail,
     );
     return () => {
-      live.current = false;
+      active = false;
     };
   }, []);
+
+  useEffect(
+    () => () => {
+      request.current++;
+    },
+    [],
+  );
 
   const result = useMemo((): Result | undefined => {
     if (!geo) return undefined;
@@ -116,6 +128,8 @@ export default function LocateDemo() {
   }, [geo, query.point]);
 
   const go = (point: LngLat, fly: boolean) => {
+    request.current++;
+    setLocating(false);
     setQuery({ point, fly });
     setLat(fmt(point[1]));
     setLng(fmt(point[0]));
@@ -123,13 +137,10 @@ export default function LocateDemo() {
     setDeviceError(undefined);
   };
 
-  const submit = (event: { preventDefault: () => void }) => {
-    event.preventDefault();
-    const point = parsePair(lat) ?? [Number(lng), Number(lat)];
+  /** Locates typed or pasted coordinates, or explains what's wrong. */
+  const enter = (point: LngLat) => {
     const [x, y] = point;
     if (
-      !lat.trim() ||
-      !lng.trim() ||
       !Number.isFinite(x) ||
       !Number.isFinite(y) ||
       Math.abs(y) > 90 ||
@@ -143,12 +154,25 @@ export default function LocateDemo() {
     go(point, true);
   };
 
+  const submit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    const pair = parsePair(lat);
+    if (pair) return enter(pair);
+    enter(
+      lat.trim() && lng.trim()
+        ? [Number(lng), Number(lat)]
+        : [Number.NaN, Number.NaN],
+    );
+  };
+
   // Pasting "3.8667, 11.5167" in either field fills both and locates it.
   const paste = (event: ClipboardEvent<HTMLInputElement>) => {
     const point = parsePair(event.clipboardData.getData("text"));
     if (!point) return;
     event.preventDefault();
-    go(point, true);
+    setLat(String(point[1]));
+    setLng(String(point[0]));
+    enter(point);
   };
 
   const useMyLocation = () => {
@@ -156,16 +180,16 @@ export default function LocateDemo() {
       setDeviceError("This browser can’t share its location.");
       return;
     }
+    const ticket = ++request.current;
     setLocating(true);
     setDeviceError(undefined);
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
-        if (!live.current) return;
-        setLocating(false);
+        if (ticket !== request.current) return;
         go([coords.longitude, coords.latitude], true);
       },
       (error) => {
-        if (!live.current) return;
+        if (ticket !== request.current) return;
         setLocating(false);
         setDeviceError(
           error.code === error.PERMISSION_DENIED
@@ -280,13 +304,9 @@ export default function LocateDemo() {
         <MapRoot
           center={[7.37, 12.35]}
           zoom={5.5}
-          minZoom={4}
+          minZoom={2}
           maxZoom={14}
           zoomSnap={0.25}
-          maxBounds={[
-            [-6, 0],
-            [20, 25],
-          ]}
           attributionControl
           className="absolute inset-0 z-0 min-h-0 cursor-crosshair rounded-none"
         >
@@ -339,10 +359,29 @@ export default function LocateDemo() {
         <p className="text-muted-foreground mb-2 font-mono text-xs break-words">
           locate({call}){result && !result.found ? " → undefined" : ""}
         </p>
-        {!result ? (
-          <p className="text-muted-foreground flex items-center gap-2">
-            <Spinner aria-hidden="true" /> Loading boundaries…
+        {loadError ? (
+          <p role="alert" className="text-destructive mb-2 text-sm">
+            {geo
+              ? "Couldn’t load the boundary outlines."
+              : "Couldn’t load the boundaries."}{" "}
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              className="ml-1"
+              // Browsers cache a failed dynamic import until the page reloads.
+              onClick={() => window.location.reload()}
+            >
+              Reload
+            </Button>
           </p>
+        ) : null}
+        {!result ? (
+          loadError ? null : (
+            <p className="text-muted-foreground flex items-center gap-2">
+              <Spinner aria-hidden="true" /> Loading boundaries…
+            </p>
+          )
         ) : result.found ? (
           <Hierarchy unit={result.unit} />
         ) : (
