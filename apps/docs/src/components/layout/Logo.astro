@@ -1,18 +1,16 @@
 ---
-/** Five-pointed star from the flag, in the brand green. */
+/**
+ * The flag of Cameroon, as the 🇨🇲 emoji. Decorative: it always sits next to
+ * the site name, which carries the accessible label. Size it with a
+ * `text-*` class. Windows has no flag emoji and shows the letters "CM".
+ */
 interface Props {
   class?: string;
 }
 const { class: className } = Astro.props;
 ---
 
-<svg
-  viewBox="0 0 24 24"
-  class:list={["text-brand", className]}
-  fill="currentColor"
-  aria-hidden="true"
+<span
+  class:list={["inline-block leading-none select-none", className]}
+  aria-hidden="true">🇨🇲</span
 >
-  <path
-    d="M12 2.5l2.47 6.6 7.03.3-5.5 4.38 1.88 6.78L12 16.68l-5.88 3.88L8 13.78 2.5 9.4l7.03-.3L12 2.5z"
-  ></path>
-</svg>

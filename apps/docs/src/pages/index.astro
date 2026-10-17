@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
 import InstallCommand from "@/components/docs/InstallCommand";
+import Sponsor from "@/components/layout/Sponsor.astro";
 import Docs from "@/layouts/Docs.astro";
 import { getDocs, sourcePath } from "@/lib/docs";
 import { mdxComponents } from "@/lib/mdx-components";
@@ -47,6 +48,7 @@ const { Content, headings } = await render(entry);
         GitHub
       </a>
     </div>
+    <Sponsor class="mt-6" />
   </header>
   <Content components={mdxComponents} />
 </Docs>
