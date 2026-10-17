@@ -172,7 +172,7 @@ export function LocationPicker({
   const [internal, setInternal] = React.useState(() =>
     toPcodes(defaultValue, depth),
   );
-  const current = controlled ? toPcodes(value, depth) : internal;
+  const current = toPcodes(controlled ? value : internal, depth);
   const triggers = React.useRef<Partial<Record<AdminLevel, HTMLElement>>>({});
   const text = TEXT[lang];
   const levels = LEVELS.slice(0, LEVELS.indexOf(depth) + 1);

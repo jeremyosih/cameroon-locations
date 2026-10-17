@@ -278,18 +278,25 @@ export function CameroonMap({
     setDrill({ from: level, unit: shown });
   }, [current, drillDown, level]);
 
-  const activate = (unit: AdminUnit) => {
+  // Set when a keyboard action replaces the shapes, so focus moves to the
+  // first shape of the new view instead of being lost.
+  const refocus = React.useRef(false);
+
+  const activate = (unit: AdminUnit, keyboard: boolean) => {
     if (selected === undefined) setInternalSelected(unit.pcode);
     if (drillDown && CHILD[unit.level]) {
+      refocus.current = keyboard;
       setFocus(unit);
       setFitTarget(unit.pcode);
     }
     onSelect?.(unit);
   };
 
-  const back = () => {
+  const back = (event: React.MouseEvent) => {
     const parent = focus?.parentPcode ? getUnit(focus.parentPcode) : undefined;
     const up = parent && CHILD[parent.level] ? parent : undefined;
+    // `detail` is 0 for a click from Enter or Space.
+    refocus.current = event.detail === 0;
     setFocus(up);
     setFitTarget(up?.pcode);
   };
@@ -328,6 +335,7 @@ export function CameroonMap({
           <Boundaries
             key={`${viewLevel}:${detail}:${focus?.pcode ?? ""}`}
             data={features}
+            refocus={refocus}
             state={{
               lang,
               tooltip,
@@ -446,7 +454,7 @@ interface PaintState {
   readonly colorScale: ReturnType<typeof createColorScale> | undefined;
   readonly format: (value: number) => string;
   readonly noData: string;
-  readonly onActivate: (unit: AdminUnit) => void;
+  readonly onActivate: (unit: AdminUnit, keyboard: boolean) => void;
 }
 
 type Unit = Feature<Geometry, CameroonMapProperties>;
@@ -512,60 +520,96 @@ function tooltipContent(pcode: Pcode, name: string, s: PaintState) {
   return root;
 }
 
+interface Shape {
+  readonly layer: Polygon;
+  readonly properties: CameroonMapProperties;
+  /** The latest props, read when a tooltip opens. */
+  readonly latest: () => PaintState;
+}
+
+const nameOf = (p: CameroonMapProperties, lang: Language) =>
+  lang === "fr" ? p.name_fr : p.name_en;
+
+/** Applies the props that can change after a shape is created. */
+function sync({ layer, properties, latest }: Shape, s: PaintState) {
+  const { pcode } = properties;
+  paint(layer, pcode, s, false);
+  layer.getElement()?.setAttribute("aria-label", nameOf(properties, s.lang));
+  if (s.tooltip && !layer.getTooltip()) {
+    layer.bindTooltip(
+      () => tooltipContent(pcode, nameOf(properties, latest().lang), latest()),
+      { sticky: true, direction: "top", offset: [0, -12], opacity: 1 },
+    );
+  } else if (!s.tooltip && layer.getTooltip()) {
+    layer.unbindTooltip();
+  }
+}
+
 function Boundaries({
   data,
   state,
+  refocus,
 }: {
   readonly data: Boundaries;
   readonly state: PaintState;
+  readonly refocus: React.RefObject<boolean>;
 }) {
   const latest = React.useRef(state);
   latest.current = state;
-  const layers = React.useRef(new Map<Pcode, Polygon>());
+  const shapes = React.useRef(new Map<Pcode, Shape>());
 
   React.useEffect(() => {
-    for (const [pcode, layer] of layers.current) {
-      paint(layer, pcode, state, false);
-    }
+    for (const shape of shapes.current.values()) sync(shape, state);
     // Keep the selected outline above its neighbours.
-    for (const [pcode, layer] of layers.current) {
+    for (const [pcode, { layer }] of shapes.current) {
       if (isSelected(pcode, state.selected)) layer.bringToFront();
     }
   }, [state]);
 
+  // After a keyboard drill, focus the first shape of the new view.
+  const map = useMap();
+  React.useEffect(() => {
+    if (!refocus.current) return;
+    refocus.current = false;
+    const first = shapes.current.values().next().value as Shape | undefined;
+    const el = first?.layer.getElement() as SVGElement | undefined;
+    if (!el) return;
+    const focus = () => el.focus();
+    focus();
+    if (document.activeElement === el) return;
+    // Shapes are hidden, so not focusable, while the map zooms.
+    map.once("moveend", focus);
+    return () => {
+      map.off("moveend", focus);
+    };
+  }, [map, refocus]);
+
   const onEachFeature = React.useCallback((feature: Unit, layer: Layer) => {
     const path = layer as Polygon;
-    const { pcode } = feature.properties;
-    const name = () =>
-      latest.current.lang === "fr"
-        ? feature.properties.name_fr
-        : feature.properties.name_en;
-    layers.current.set(pcode, path);
-    const activate = () => {
-      const unit = getUnit(pcode);
-      if (unit) latest.current.onActivate(unit);
+    const { properties } = feature;
+    const { pcode } = properties;
+    const shape: Shape = {
+      layer: path,
+      properties,
+      latest: () => latest.current,
     };
-    if (latest.current.tooltip) {
-      path.bindTooltip(() => tooltipContent(pcode, name(), latest.current), {
-        sticky: true,
-        direction: "top",
-        offset: [0, -12],
-        opacity: 1,
-      });
-    }
+    shapes.current.set(pcode, shape);
+    const activate = (keyboard: boolean) => {
+      const unit = getUnit(pcode);
+      if (unit) latest.current.onActivate(unit, keyboard);
+    };
     path.on({
       add: () => {
-        paint(path, pcode, latest.current, false);
         const el = path.getElement();
         if (!el) return;
         el.setAttribute("tabindex", "0");
         el.setAttribute("role", "button");
-        el.setAttribute("aria-label", name());
+        sync(shape, latest.current);
         el.addEventListener("keydown", (event) => {
           const e = event as KeyboardEvent;
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
-            activate();
+            activate(true);
           }
         });
         el.addEventListener("focus", () => {
@@ -577,10 +621,10 @@ function Boundaries({
           path.closeTooltip();
         });
       },
-      remove: () => layers.current.delete(pcode),
+      remove: () => shapes.current.delete(pcode),
       mouseover: () => paint(path, pcode, latest.current, true),
       mouseout: () => paint(path, pcode, latest.current, false),
-      click: activate,
+      click: () => activate(false),
     });
   }, []);
 
