@@ -1,5 +1,6 @@
 import index from "../generated/geo-arrondissements.json";
 import { arrondissements, divisions, regions } from "./data/admin";
+import { EMPTY } from "./data/scope";
 import { getUnit } from "./lookup";
 import type { AdminLevel, AdminUnit, Arrondissement, LngLat } from "./types";
 
@@ -161,28 +162,52 @@ function segmentDistance2(
   return ex * ex + ey * ey;
 }
 
+/** Options of {@link nearest}. */
+export interface NearestOptions {
+  /** Level of the units returned. Default `"arrondissement"`. */
+  readonly level?: AdminLevel | undefined;
+  /** Default 5; `Infinity` returns every unit of the level. */
+  readonly limit?: number | undefined;
+}
+
+/** One result of {@link nearest}. */
+export interface NearestResult {
+  readonly unit: AdminUnit;
+  /** Great-circle distance from the point to the unit's centroid. */
+  readonly distanceKm: number;
+}
+
+const POOLS: Readonly<Record<AdminLevel, readonly AdminUnit[]>> = {
+  region: regions,
+  division: divisions,
+  arrondissement: arrondissements,
+};
+
 /**
- * Units sorted by centroid distance from a point.
+ * Units sorted by centroid distance from a point. Ties are ordered by
+ * P-code. The array and its entries are frozen.
  *
- * `level` defaults to `"arrondissement"`, `limit` to 5 (`Infinity` returns
- * every unit of the level). Ties are ordered by P-code.
+ * Never throws: a point with a non-finite coordinate, a `limit` below 1 (or
+ * `NaN`) and an unknown `level` all return an empty array. A fractional
+ * `limit` is rounded down.
  */
 export function nearest(
   point: LngLat,
-  options?: { readonly level?: AdminLevel; readonly limit?: number },
-): readonly { readonly unit: AdminUnit; readonly distanceKm: number }[] {
+  options?: NearestOptions,
+): readonly NearestResult[] {
   const level = options?.level ?? "arrondissement";
+  const pool = Object.hasOwn(POOLS, level) ? POOLS[level] : undefined;
   const limit = options?.limit ?? 5;
-  if (Number.isNaN(limit) || limit < 0) {
-    throw new RangeError(`nearest: invalid limit ${limit}`);
+  const [lng, lat] = point;
+  if (
+    !pool ||
+    !(limit >= 1) ||
+    !Number.isFinite(lng) ||
+    !Number.isFinite(lat)
+  ) {
+    return EMPTY;
   }
-  const pool: readonly AdminUnit[] =
-    level === "region"
-      ? regions
-      : level === "division"
-        ? divisions
-        : arrondissements;
-  return pool
+  const results = pool
     .map((unit) => ({ unit, distanceKm: distanceKm(point, unit.centroid) }))
     .sort(
       (a, b) =>
@@ -192,6 +217,8 @@ export function nearest(
       0,
       limit === Number.POSITIVE_INFINITY ? undefined : Math.floor(limit),
     );
+  for (const r of results) Object.freeze(r);
+  return Object.freeze(results);
 }
 
 /** Great-circle distance in kilometres (haversine, mean Earth radius). */

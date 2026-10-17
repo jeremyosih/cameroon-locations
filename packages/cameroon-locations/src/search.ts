@@ -1,14 +1,20 @@
 import { arrondissements, divisions, regions } from "./data/admin";
+import { isWithin, normalizeCode } from "./data/scope";
+import { getByCode } from "./lookup";
 import { normalizeName } from "./normalize";
 import type { AdminLevel, AdminUnit, Pcode } from "./types";
 
 export interface SearchOptions {
   /** Restrict to these levels. Omitted or empty means every level. */
-  readonly levels?: readonly AdminLevel[];
-  /** Restrict to descendants of this P-code. */
-  readonly within?: Pcode;
-  /** Default 10. */
-  readonly limit?: number;
+  readonly levels?: readonly AdminLevel[] | undefined;
+  /**
+   * Restrict to descendants of this P-code (case and surrounding whitespace
+   * ignored). A value that is not a P-code, such as a name or a partial code
+   * like `"CM00"`, matches nothing.
+   */
+  readonly within?: Pcode | undefined;
+  /** Default 10. Zero or less returns nothing. */
+  readonly limit?: number | undefined;
 }
 
 export interface SearchResult<T = AdminUnit> {
@@ -219,7 +225,8 @@ let adminEngine: Engine<AdminUnit> | undefined;
 
 /**
  * Typo-tolerant search over regions, divisions and arrondissements, across
- * French and English names and every alias. Dependency-free.
+ * French and English names and every alias. An exact P-code or HASC code
+ * (`CM002007`, `CM.CE`) is the first result, with score 1. Dependency-free.
  */
 export function search(
   query: string,
@@ -231,15 +238,32 @@ export function search(
     (u) => LEVELS.indexOf(u.level),
   );
   const levels = options.levels?.length ? options.levels : undefined;
-  const within = options.within?.trim().toUpperCase();
-  const accept =
-    levels || within
+  const within =
+    options.within === undefined ? undefined : normalizeCode(options.within);
+  const filter =
+    levels || within !== undefined
       ? (u: AdminUnit) =>
           (!levels || levels.includes(u.level)) &&
-          (!within ||
-            (u.pcode.length > within.length && u.pcode.startsWith(within)))
+          (within === undefined ||
+            (u.pcode !== within && isWithin(u.pcode, within)))
       : undefined;
-  return adminEngine(query, options.limit ?? 10, accept);
+  const limit = options.limit ?? 10;
+  const code = getByCode(query);
+  if (!code || !(limit >= 1) || (filter && !filter(code))) {
+    return adminEngine(query, limit, filter);
+  }
+  const exact = Object.freeze({
+    item: code,
+    score: 1,
+    matched:
+      code.pcode === normalizeCode(query) ? code.pcode : (code.hasc ?? ""),
+  });
+  const rest = adminEngine(
+    query,
+    limit - 1,
+    (u) => u !== code && (!filter || filter(u)),
+  );
+  return Object.freeze([exact, ...rest]);
 }
 
 /** Builds the same search over any records, e.g. villages or cantons. */
@@ -248,7 +272,7 @@ export function createSearch<T>(
   names: (item: T) => readonly string[],
 ): (
   query: string,
-  options?: { readonly limit?: number },
+  options?: { readonly limit?: number | undefined },
 ) => readonly SearchResult<T>[] {
   const engine = buildEngine(items, names);
   return (query, options) => engine(query, options?.limit ?? 10);

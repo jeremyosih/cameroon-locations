@@ -29,6 +29,7 @@ data/**/.venv/
 
 # Monorepo
 .astro
+packages/cameroon-locations/LICENSE
 packages/cameroon-locations/NOTICE.md
 *.tgz
 data/build/

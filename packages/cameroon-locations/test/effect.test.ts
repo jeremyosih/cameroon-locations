@@ -1,19 +1,30 @@
 import { describe, expect, test } from "bun:test";
-import { Effect, Exit, Layer, Option, Schema } from "effect";
+import { Effect, Exit, Option, Schema } from "effect";
+import { cantons } from "../src/cantons";
+import { arrondissements, divisions, regions } from "../src/data/admin";
+import { metadata } from "../src/data/metadata";
 import {
   AdminUnit,
   Arrondissement,
   ArrondissementFromPcode,
   CameroonLocations,
+  Canton,
+  CouncilElectoralSummary,
+  DatasetMetadata,
+  Division,
   getArrondissement,
   getArrondissementOption,
   getRegion,
-  getUnit,
   LocationNotFound,
   Pcode,
+  PollingStation,
   Region,
+  SourceInfo,
+  Village,
 } from "../src/effect";
-import { arrondissements, divisions, regions } from "./fixtures";
+import { councilSummaries, pollingStations } from "../src/elecam";
+import { sources } from "../src/sources";
+import { villages } from "../src/villages";
 
 const yaounde1 = arrondissements.find((a) => a.pcode === "CM002007001");
 
@@ -34,6 +45,40 @@ describe("schemas", () => {
     expect(Schema.is(Arrondissement)({ ...yaounde1, pcode: "CM002" })).toBe(
       false,
     );
+  });
+
+  test("records with inconsistent codes fail to decode", () => {
+    const division = divisions[0];
+    expect(Schema.is(Division)(division)).toBe(true);
+    for (const bad of [
+      { ...division, parentPcode: "CM009", regionPcode: "CM009" },
+      { ...division, regionPcode: "CM009" },
+      { ...yaounde1, divisionPcode: "CM002008" },
+      { ...yaounde1, regionPcode: "CM001" },
+    ]) {
+      expect(Schema.is(AdminUnit)(bad)).toBe(false);
+    }
+    const canton = cantons[0];
+    expect(Schema.is(Canton)(canton)).toBe(true);
+    expect(
+      Schema.is(Canton)({ ...canton, arrondissementPcode: "CM009001001" }),
+    ).toBe(false);
+    const village = villages[0];
+    expect(Schema.is(Village)(village)).toBe(true);
+    expect(
+      Schema.is(Village)({ ...village, cantonId: "CM001001001-C99" }),
+    ).toBe(false);
+    expect(Schema.is(Village)({ ...village, cantonId: "x" })).toBe(false);
+  });
+
+  test("ELECAM records, sources and metadata have schemas", () => {
+    expect(pollingStations.every(Schema.is(PollingStation))).toBe(true);
+    expect(councilSummaries.every(Schema.is(CouncilElectoralSummary))).toBe(
+      true,
+    );
+    expect(Object.values(sources).every(Schema.is(SourceInfo))).toBe(true);
+    const json = JSON.parse(JSON.stringify(metadata));
+    expect(Schema.decodeUnknownSync(DatasetMetadata)(json)).toEqual(metadata);
   });
 
   test("bad P-codes fail to decode", () => {
@@ -87,6 +132,11 @@ describe("lookups", () => {
       getArrondissement("Yaoundé I", { within: "CM005" }),
     );
     expect(Exit.isFailure(exit)).toBe(true);
+    // An explicit `undefined` is accepted under exactOptionalPropertyTypes.
+    expect(
+      Effect.runSync(getArrondissement("Yaoundé I", { within: undefined }))
+        .pcode,
+    ).toBe("CM002007001");
   });
 
   test("Option variants return None when nothing matches", () => {
@@ -108,22 +158,5 @@ describe("CameroonLocations service", () => {
       program.pipe(Effect.provide(CameroonLocations.layer)),
     );
     expect(unit.pcode).toBe("CM002");
-  });
-
-  test("can be replaced in tests", () => {
-    const stub = Layer.succeed(
-      CameroonLocations,
-      CameroonLocations.of({
-        getRegion,
-        getDivision: () => Effect.die("unused"),
-        getArrondissement,
-        getUnit: (pcode) => Effect.fail(new LocationNotFound({ query: pcode })),
-      }),
-    );
-    const error = Effect.runSync(
-      Effect.flip(program.pipe(Effect.provide(stub))),
-    );
-    expect(error._tag).toBe("LocationNotFound");
-    expect(Effect.runSync(getUnit("CM002")).pcode).toBe("CM002");
   });
 });

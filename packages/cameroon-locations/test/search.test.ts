@@ -64,6 +64,36 @@ test("one result per unit, with levels, within and limit", () => {
   expect(search("a")).toHaveLength(10);
 });
 
+test("an exact P-code or HASC code is the top hit, with score 1", () => {
+  for (const [code, pcode] of [
+    ["CM002007", "CM002007"],
+    [" cm002007001 ", "CM002007001"],
+    ["CM.CE", "CM002"],
+  ] as const) {
+    const results = search(code);
+    expect(results[0]?.item.pcode).toBe(pcode);
+    expect(results[0]?.score).toBe(1);
+    expect(results.filter((r) => r.item.pcode === pcode)).toHaveLength(1);
+    expect(results.length).toBeLessThanOrEqual(10);
+  }
+  expect(search("CM002007", { within: "CM001" })[0]?.item.pcode).not.toBe(
+    "CM002007",
+  );
+  expect(search("CM002007", { limit: 1 })).toHaveLength(1);
+  expect(search("CM002007", { limit: 0 })).toEqual([]);
+});
+
+test("`within` must be a P-code: names and partial codes match nothing", () => {
+  expect(pcodes("yaounde", { within: " cm002007 ", limit: 1 })).toEqual([
+    "CM002007001",
+  ]);
+  for (const within of ["CM00", "Centre", "CM", ""])
+    expect(search("yaounde", { within })).toEqual([]);
+  expect(pcodes("yaounde", { within: undefined, limit: undefined })).toEqual(
+    pcodes("yaounde"),
+  );
+});
+
 test("blank queries return nothing; results are frozen", () => {
   expect(search("")).toEqual([]);
   expect(search("  - ")).toEqual([]);

@@ -1,20 +1,12 @@
 import data from "../generated/villages.json";
-import {
-  arrondissementOf,
-  EMPTY,
-  isAdminPcode,
-  type PopulationRow,
-  population,
-} from "./data/hydrate";
+import { BUCREP_SOURCES, type PopulationRow, population } from "./data/hydrate";
 import { toLabel } from "./data/label";
-import { normalizeName } from "./normalize";
-import type { Pcode, SourceId, Village } from "./types";
+import { recordIndex } from "./data/records";
+import { arrondissementOf, isWithin, normalizeCode } from "./data/scope";
+import type { Pcode, Village } from "./types";
 
 export type { Village } from "./types";
 
-const SOURCES: readonly SourceId[] = Object.freeze([
-  "bucrep-rgph2005-repertoire-villages",
-]);
 const CANTON_ID = /^CM\d{9}-C\d{2}$/;
 
 type Row = readonly [name: string, ...population: number[]];
@@ -31,59 +23,42 @@ export const villages: readonly Village[] = Object.freeze(
         name,
         label: toLabel(name),
         population2005: population(pop as PopulationRow),
-        sources: SOURCES,
+        sources: BUCREP_SOURCES,
       }),
     ),
   ),
 );
 
-let byId: Map<string, Village> | undefined;
-let byName: Map<string, Village[]> | undefined;
-const byScope = new Map<string, readonly Village[]>();
+const index = recordIndex(villages);
 
-/** The village with this id (`<canton id>-Vnnn`), if any. */
+/**
+ * The village with this id (`<canton id>-Vnnn`), if any. Case and
+ * surrounding whitespace are ignored.
+ */
 export function getVillage(id: string): Village | undefined {
-  byId ??= new Map(villages.map((v) => [v.id, v]));
-  return byId.get(id);
+  return index.get(id);
 }
 
-/** Villages of a canton (by id) or of an arrondissement, division or region (by P-code). */
+/**
+ * Villages of a canton (by id) or of an arrondissement, division or region
+ * (by P-code). Case and surrounding whitespace are ignored; anything else,
+ * including a name or a partial code, returns an empty array.
+ */
 export function getVillages(within: string): readonly Village[] {
-  const isCanton = CANTON_ID.test(within);
-  if (!isCanton && !isAdminPcode(within)) return EMPTY;
-  let list = byScope.get(within);
-  if (!list) {
-    list = Object.freeze(
-      villages.filter((v) =>
-        isCanton
-          ? v.cantonId === within
-          : v.arrondissementPcode.startsWith(within),
-      ),
-    );
-    byScope.set(within, list);
-  }
-  return list;
+  const scope = normalizeCode(within);
+  return CANTON_ID.test(scope)
+    ? index.scope(scope, (v) => v.cantonId === scope)
+    : index.scope(scope, (v) => isWithin(v.arrondissementPcode, scope));
 }
 
-/** Villages whose normalised name matches. 2,000+ village names repeat, so this returns all. */
+/**
+ * Villages whose normalised name matches, optionally `within` a P-code. Many
+ * names are shared (see the docs), so this returns every match. An invalid
+ * `within` matches nothing.
+ */
 export function findVillages(
   name: string,
-  options?: { readonly within?: Pcode },
+  options?: { readonly within?: Pcode | undefined },
 ): readonly Village[] {
-  if (!byName) {
-    byName = new Map();
-    for (const v of villages) {
-      const key = normalizeName(v.name);
-      const list = byName.get(key);
-      if (list) list.push(v);
-      else byName.set(key, [v]);
-    }
-  }
-  const matches = byName.get(normalizeName(name)) ?? EMPTY;
-  const scope = options?.within;
-  if (scope === undefined) return Object.freeze([...matches]);
-  if (!isAdminPcode(scope)) return EMPTY;
-  return Object.freeze(
-    matches.filter((v) => v.arrondissementPcode.startsWith(scope)),
-  );
+  return index.find(name, options?.within);
 }

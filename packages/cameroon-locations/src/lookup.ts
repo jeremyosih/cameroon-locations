@@ -1,4 +1,5 @@
 import { arrondissements, divisions, regions } from "./data/admin";
+import { EMPTY, isWithin, normalizeCode } from "./data/scope";
 import { normalizeName } from "./normalize";
 import type {
   AdminLevel,
@@ -18,9 +19,19 @@ export type LocationQuery = string;
 
 export interface FindOptions {
   /** Restrict to one level. */
-  readonly level?: AdminLevel;
-  /** Restrict to descendants of this P-code. */
-  readonly within?: Pcode;
+  readonly level?: AdminLevel | undefined;
+  /**
+   * Restrict to descendants of this P-code (case and surrounding whitespace
+   * ignored). A value that is not a P-code, such as a name or a partial code
+   * like `"CM00"`, matches nothing.
+   */
+  readonly within?: Pcode | undefined;
+}
+
+/** Options of {@link getDivision} and {@link getArrondissement}. */
+export interface WithinOptions {
+  /** See {@link FindOptions.within}. */
+  readonly within?: Pcode | undefined;
 }
 
 interface Index {
@@ -34,9 +45,6 @@ interface Index {
   /** Region P-code to all its arrondissements. */
   readonly regionArrondissements: Map<Pcode, readonly Arrondissement[]>;
 }
-
-const EMPTY: readonly never[] = Object.freeze([]);
-const PCODE = /^CM\d{3}(?:\d{3}(?:\d{3})?)?$/;
 
 let index: Index | undefined;
 
@@ -83,33 +91,38 @@ function getIndex(): Index {
   return index;
 }
 
-function isWithin(unit: AdminUnit, within: Pcode): boolean {
-  return unit.pcode.length > within.length && unit.pcode.startsWith(within);
-}
-
 /** Every unit matching `query` by code, then by normalised name. */
 function resolve(
   query: LocationQuery,
   options: FindOptions = {},
 ): readonly AdminUnit[] {
-  const { codes, names } = getIndex();
-  const code = codes.get(query.trim().toUpperCase());
-  const matches = code ? [code] : (names.get(normalizeName(query)) ?? EMPTY);
+  const code = getByCode(query);
+  const matches = code
+    ? [code]
+    : (getIndex().names.get(normalizeName(query)) ?? EMPTY);
   const { level } = options;
-  const within = options.within?.trim().toUpperCase();
-  if (!level && !within) return matches;
+  const within =
+    options.within === undefined ? undefined : normalizeCode(options.within);
+  if (!level && within === undefined) return matches;
   return matches.filter(
     (unit) =>
-      (!level || unit.level === level) && (!within || isWithin(unit, within)),
+      (!level || unit.level === level) &&
+      (within === undefined ||
+        (unit.pcode !== within && isWithin(unit.pcode, within))),
   );
+}
+
+/** The unit with this P-code or HASC code (case and whitespace ignored). */
+export function getByCode(code: string): AdminUnit | undefined {
+  return getIndex().codes.get(normalizeCode(code));
 }
 
 function getOne<L extends AdminLevel>(
   query: LocationQuery,
   level: L,
-  within?: Pcode,
+  within: Pcode | undefined,
 ): Extract<AdminUnit, { level: L }> | undefined {
-  const matches = resolve(query, within ? { level, within } : { level });
+  const matches = resolve(query, { level, within });
   return matches.length === 1
     ? (matches[0] as Extract<AdminUnit, { level: L }>)
     : undefined;
@@ -117,23 +130,23 @@ function getOne<L extends AdminLevel>(
 
 /** Returns `undefined` when nothing matches or the name is ambiguous. */
 export function getRegion(query: LocationQuery): Region | undefined {
-  return getOne(query, "region");
+  return getOne(query, "region", undefined);
 }
 export function getDivision(
   query: LocationQuery,
-  options?: { readonly within?: Pcode },
+  options?: WithinOptions,
 ): Division | undefined {
   return getOne(query, "division", options?.within);
 }
 export function getArrondissement(
   query: LocationQuery,
-  options?: { readonly within?: Pcode },
+  options?: WithinOptions,
 ): Arrondissement | undefined {
   return getOne(query, "arrondissement", options?.within);
 }
 /** Any level, by P-code only. */
 export function getUnit(pcode: Pcode): AdminUnit | undefined {
-  return getIndex().pcodes.get(pcode.trim().toUpperCase());
+  return getIndex().pcodes.get(normalizeCode(pcode));
 }
 /** Every unit whose code, name or alias matches exactly (normalised). */
 export function find(
@@ -157,7 +170,7 @@ export function getAncestors(pcode: Pcode): readonly (Region | Division)[] {
 }
 /** Direct children. `"CM"` returns the regions. */
 export function getChildren(pcode: Pcode): readonly AdminUnit[] {
-  return getIndex().children.get(pcode.trim().toUpperCase()) ?? EMPTY;
+  return getIndex().children.get(normalizeCode(pcode)) ?? EMPTY;
 }
 /** All divisions, or those of one region. */
 export function getDivisions(region?: LocationQuery): readonly Division[] {
@@ -179,7 +192,4 @@ export function getArrondissements(
     return getChildren(unit.pcode) as readonly Arrondissement[];
   }
   return EMPTY;
-}
-export function isPcode(value: string): value is Pcode {
-  return PCODE.test(value);
 }

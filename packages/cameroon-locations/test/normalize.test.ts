@@ -13,6 +13,8 @@ test("numbering, accents, case and punctuation fold together", () => {
   }
   expect(normalizeName("Extrême-Nord")).toBe(normalizeName("extreme nord"));
   expect(normalizeName("Nyong-et-So'o")).toBe("nyong et soo");
+  // Compatibility forms (NFKD): the "Ⅱ" numeral sign and full-width letters.
+  expect(normalizeName("ＹＡＯＵＮＤＥ Ⅱ")).toBe("yaounde 2");
 });
 
 test("a lone or inner roman numeral is a word, not a number", () => {

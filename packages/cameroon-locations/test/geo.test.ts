@@ -1,10 +1,11 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { metadata as datasetMetadata } from "../src/data/metadata";
 import { distanceKm, locate, nearest } from "../src/geo";
 import { getUnit } from "../src/lookup";
 import { sources } from "../src/sources";
-import type { LngLat } from "../src/types";
+import type { AdminLevel, LngLat } from "../src/types";
 
 const pkgDir = join(import.meta.dir, "..");
 const geojsonDir = join(pkgDir, "geojson");
@@ -112,6 +113,8 @@ describe("GeoJSON files", () => {
       test(`${name}: metadata with sources and attribution`, () => {
         const { metadata } = read<Collection>(join(geojsonDir, name));
         expect(metadata.name).toBe("cameroon-locations");
+        // Same dataset version as the package's `metadata` (re-run data:geo if not).
+        expect(metadata.version).toBe(datasetMetadata.version);
         expect(metadata.attribution).toContain("OCHA");
         const ocha = metadata.sources.find((s) => s.id === "ocha-cod-ab-cmr");
         expect(ocha?.url).toBe(sources["ocha-cod-ab-cmr"].url);
@@ -174,6 +177,7 @@ describe("GeoJSON files", () => {
     }>(join(geojsonDir, "cameroon.topo.json"));
     expect(topo.type).toBe("Topology");
     expect(topo.metadata.sources[0]?.id).toBe("ocha-cod-ab-cmr");
+    expect(topo.metadata.version).toBe(datasetMetadata.version);
     for (const { file, depth, count } of files) {
       const geoms = topo.objects[file]?.geometries ?? [];
       expect(geoms).toHaveLength(count);
@@ -302,6 +306,24 @@ describe("nearest", () => {
     expect(nearest(yaounde, { limit: Number.POSITIVE_INFINITY })).toHaveLength(
       360,
     );
+  });
+
+  test("never throws: bad points, limits and levels return []", () => {
+    expect(nearest([Number.NaN, 3.8])).toEqual([]);
+    expect(nearest([11.5, Number.POSITIVE_INFINITY])).toEqual([]);
+    for (const limit of [0, -1, 0.5, Number.NaN, Number.NEGATIVE_INFINITY])
+      expect(nearest(yaounde, { limit })).toEqual([]);
+    expect(nearest(yaounde, { level: "toString" as AdminLevel })).toEqual([]);
+    expect(nearest(yaounde, { limit: 2.9 })).toHaveLength(2);
+    expect(
+      nearest(yaounde, { level: undefined, limit: undefined }),
+    ).toHaveLength(5);
+  });
+
+  test("results are frozen", () => {
+    const res = nearest(yaounde);
+    expect(Object.isFrozen(res)).toBe(true);
+    expect(res.every(Object.isFrozen)).toBe(true);
   });
 });
 

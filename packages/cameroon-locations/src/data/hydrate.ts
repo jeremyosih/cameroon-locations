@@ -1,4 +1,4 @@
-import type { Pcode, Population, SourceId } from "../types";
+import type { Population, SourceId } from "../types";
 
 /** Population as stored in generated/*.json: `[male, female, total?]`. */
 export type PopulationRow = readonly number[];
@@ -23,12 +23,12 @@ export function sourceLists(table: readonly string[]) {
   };
 }
 
-const PCODE = /^CM\d{3}(?:\d{3}){0,2}$/;
+/** `sources` of every canton and village, shared by all of them. */
+export const BUCREP_SOURCES: readonly SourceId[] = Object.freeze([
+  "bucrep-rgph2005-repertoire-villages",
+]);
 
-/** True for a region, division or arrondissement P-code. */
-export const isAdminPcode = (value: string): boolean => PCODE.test(value);
-
-/** Arrondissement P-code is the first 11 characters of canton and village ids. */
-export const arrondissementOf = (id: string): Pcode => id.slice(0, 11);
-
-export const EMPTY: readonly never[] = Object.freeze([]);
+/** `sources` of every polling station and council summary. */
+export const ELECAM_SOURCES: readonly SourceId[] = Object.freeze([
+  "elecam-polling-stations-2025",
+]);

@@ -3,7 +3,10 @@
  * object. Administrative units are keyed by their OCHA P-code.
  */
 
-/** OCHA P-code: `CM001` (region), `CM001001` (division), `CM001001001` (arrondissement). */
+/**
+ * OCHA P-code: `CM001` (region), `CM001001` (division), `CM001001001`
+ * (arrondissement). See `isPcode` for the format check.
+ */
 export type Pcode = string;
 
 export type AdminLevel = "region" | "division" | "arrondissement";
@@ -115,7 +118,7 @@ export interface Village {
   readonly sources: readonly SourceId[];
 }
 
-/** One ELECAM polling station (July 2025 roll snapshot). */
+/** One ELECAM polling station (2025 roll, probably the July 2025 provisional roll). */
 export interface PollingStation {
   /** `null` for diaspora stations. */
   readonly arrondissementPcode: Pcode | null;
@@ -123,6 +126,7 @@ export interface PollingStation {
   readonly centre: string;
   readonly station: string;
   readonly registeredVoters: number;
+  readonly sources: readonly SourceId[];
 }
 
 /** ELECAM totals for one arrondissement's council. */
@@ -132,6 +136,7 @@ export interface CouncilElectoralSummary {
   readonly registeredVoters: number;
   readonly pollingCentres: number;
   readonly pollingStations: number;
+  readonly sources: readonly SourceId[];
 }
 
 /** Provenance of a dataset. Shipped with every entry point. */
@@ -149,7 +154,10 @@ export interface SourceInfo {
   readonly attribution: string;
 }
 
-/** Metadata attached to every dataset export and GeoJSON file. */
+/**
+ * Name, version and sources of the bundled dataset, exported as `metadata`.
+ * GeoJSON files carry their own `metadata` member, with the same `version`.
+ */
 export interface DatasetMetadata {
   readonly name: string;
   readonly version: string;

@@ -111,9 +111,16 @@ export const sources: Readonly<Record<SourceId, SourceInfo>> = Object.freeze(
   ) as Record<SourceId, SourceInfo>,
 );
 
-/** Returns the source records for the given ids, in order, without duplicates. */
-export function getSources(ids: readonly SourceId[]): SourceInfo[] {
-  return [...new Set(ids)].map((id) => sources[id]);
+/**
+ * Returns the source records for the given ids, in order, without duplicates.
+ * Unknown ids are skipped. The array is frozen.
+ */
+export function getSources(ids: readonly SourceId[]): readonly SourceInfo[] {
+  return Object.freeze(
+    [...new Set(ids)].flatMap((id) =>
+      Object.hasOwn(sources, id) ? [sources[id]] : [],
+    ),
+  );
 }
 
 /** One-paragraph attribution suitable for a map footer or an "about" page. */
