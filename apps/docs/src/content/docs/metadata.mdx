@@ -78,8 +78,8 @@ const metadata: DatasetMetadata;
 
 interface DatasetMetadata {
   name: string; // "cameroon-locations"
-  version: string;
-  generated: string; // ISO date of the data build
+  version: string; // data version, e.g. "2026.10.17+a9b6a49f"
+  generated: string; // date of the data build, e.g. "2026-10-17"
   repository: string;
   sources: readonly SourceInfo[];
 }

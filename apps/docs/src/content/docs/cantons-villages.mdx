@@ -25,7 +25,7 @@ function getCanton(id: string): Canton | undefined;
 ```
 
 ```ts
-getCanton("CM002007001-C01")?.label;
+getCanton("CM002007001-C01")?.label; // "Yaounde Ville"
 ```
 
 ### getCantons
@@ -37,8 +37,8 @@ function getCantons(within: Pcode): readonly Canton[];
 Cantons of an arrondissement, division or region.
 
 ```ts
-getCantons("CM002007001"); // in Yaoundé I
-getCantons("CM001").length; // in Adamaoua
+getCantons("CM002007001").map((c) => c.label); // ["Yaounde Ville", "Yaounde 1 Rural"]
+getCantons("CM001").length; // 56, in Adamaoua
 ```
 
 ### findCantons
@@ -50,7 +50,7 @@ function findCantons(name: string, options?: { within?: Pcode }): readonly Canto
 Cantons whose normalised name matches.
 
 ```ts
-findCantons("Ngaoundal ville");
+findCantons("Ngaoundal ville").map((c) => c.id); // ["CM001001001-C01"]
 ```
 
 ## Villages
@@ -79,8 +79,8 @@ Villages of a canton (by id) or of an arrondissement, division or region (by
 P-code).
 
 ```ts
-getVillages("CM001001001-C01"); // one canton
-getVillages("CM002007"); // all of Mfoundi
+getVillages("CM001001001-C01").length; // 16, one canton
+getVillages("CM002007").length; // 255, all of Mfoundi
 ```
 
 ### findVillages
@@ -93,8 +93,8 @@ More than 2,000 village names repeat across the country, so this always
 returns every match. Narrow it with `within`.
 
 ```ts
-findVillages("Nkolbisson");
-findVillages("Mbanga", { within: "CM005" });
+findVillages("Nkolbisson").map((v) => v.id); // ["CM002007007-C01-V008"]
+findVillages("Mbanga", { within: "CM005" }).length; // 1
 ```
 
 ## Searching
@@ -107,7 +107,7 @@ import { createSearch } from "cameroon-locations/search";
 import { villages } from "cameroon-locations/villages";
 
 const searchVillages = createSearch(villages, (v) => [v.label]);
-searchVillages("nkol", { limit: 5 });
+searchVillages("nkol", { limit: 3 }).map((r) => r.item.label); // ["Nkol", "Nkolo", "Nkolo"]
 ```
 
 ## Notes on the data

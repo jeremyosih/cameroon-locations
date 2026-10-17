@@ -22,7 +22,7 @@ object you can serialise, cache or send to the client as is. See
 const mfoundi = divisions.find((d) => d.pcode === "CM002007");
 mfoundi?.name.fr; // "Mfoundi"
 mfoundi?.regionPcode; // "CM002"
-mfoundi?.population2005?.total;
+mfoundi?.population2005?.total; // 2005 census, as printed
 ```
 
 ## Queries
@@ -50,6 +50,7 @@ function getRegion(query: LocationQuery): Region | undefined;
 getRegion("CM004")?.name.en; // "Far-North"
 getRegion("Extreme-Nord")?.pcode; // "CM004"
 getRegion("CM.EN")?.name.fr; // "Extrême-Nord"
+getRegion("Far North")?.pcode; // "CM004", hyphens don't matter
 ```
 
 ### getDivision
@@ -78,6 +79,8 @@ function getArrondissement(
 ```ts
 getArrondissement("Yaoundé I")?.pcode; // "CM002007001"
 getArrondissement("Douala 3e")?.ordinal; // 3
+getArrondissement("Ngaoundere 2e")?.name.fr; // "Ngaoundéré II"
+getArrondissement("Buea")?.name; // { fr: "Buéa", en: "Buea" }
 ```
 
 `within` takes a region or division P-code. Use it for names that exist in
@@ -181,7 +184,7 @@ All arrondissements, or those of one region or division.
 
 ```ts
 getArrondissements("Mfoundi").length; // 7
-getArrondissements("CM002").length; // every arrondissement in Centre
+getArrondissements("CM002").length; // 70, every arrondissement in Centre
 ```
 
 ## Utilities

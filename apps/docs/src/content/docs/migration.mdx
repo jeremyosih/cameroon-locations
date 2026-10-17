@@ -87,7 +87,7 @@ import { getArrondissement, getDivisions } from "cameroon-locations";
 import { search } from "cameroon-locations/search";
 
 const yaounde1 = getArrondissement("Yaoundé I", { within: "CM002007" });
-console.log(yaounde1?.name.en, yaounde1?.pcode, yaounde1?.hasc);
+console.log(yaounde1?.name.en, yaounde1?.pcode); // "Yaoundé I" "CM002007001"
 const divisions = getDivisions("Centre");
 const results = search("Yaoundé", { levels: ["arrondissement"] });
 ```

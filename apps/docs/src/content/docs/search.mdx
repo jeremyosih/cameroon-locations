@@ -25,12 +25,14 @@ and alias counts, in both languages, so "far north", "extreme nord" and
 import { search } from "cameroon-locations/search";
 
 const [best] = search("bamenda");
-best?.item.name.fr; // "Bamenda I", …
-best?.score; // 0..1
-best?.matched; // the name or alias that matched
+best?.item.name.fr; // "Bamenda I"
+best?.score; // 0.92 (0 to 1)
+best?.matched; // "Bamenda I", the name or alias that matched
 
-search("douala", { levels: ["arrondissement"], limit: 3 });
-search("mbalmayo", { within: "CM002" }); // only in Centre
+search("douala", { levels: ["arrondissement"], limit: 3 }).map((r) => r.item.name.fr);
+// ["Douala I", "Douala II", "Douala III"]
+search("extreme nord", { limit: 1 })[0]?.item.name.en; // "Far-North"
+search("mbalmayo", { within: "CM002" }).map((r) => r.item.pcode); // ["CM002010003"]
 ```
 
 <PropsTable
@@ -72,7 +74,8 @@ import { createSearch } from "cameroon-locations/search";
 import { cantons } from "cameroon-locations/cantons";
 
 const searchCantons = createSearch(cantons, (c) => [c.label, c.name]);
-searchCantons("lamidat", { limit: 5 });
+searchCantons("lamidat", { limit: 2 }).map((r) => r.item.label);
+// ["Lamidat de Be", "Lamidat Demsa"]
 ```
 
 It works on your own data too:

@@ -33,10 +33,10 @@ Totals for one arrondissement's council.
 
 ```ts
 const s = getCouncilSummary("CM002007001");
-s?.council; // council name as printed by ELECAM
-s?.registeredVoters;
-s?.pollingCentres;
-s?.pollingStations;
+s?.council; // "YAOUNDE I", as printed by ELECAM
+s?.registeredVoters; // 117438
+s?.pollingCentres; // 76
+s?.pollingStations; // 368
 ```
 
 ## getPollingStations
@@ -49,20 +49,20 @@ Stations in an arrondissement, division or region. `null` returns the
 diaspora stations.
 
 ```ts
-getPollingStations("CM002007"); // every station in Mfoundi
-getPollingStations(null); // abroad
+getPollingStations("CM002007").length; // 2297, every station in Mfoundi
+getPollingStations(null).length; // 95, abroad
 
 const voters = getPollingStations("CM005").reduce(
   (sum, s) => sum + s.registeredVoters,
   0,
-);
+); // 1275406 in Littoral
 ```
 
 ## Datasets
 
 ```ts
-pollingStations; // readonly PollingStation[]
-councilSummaries; // readonly CouncilElectoralSummary[]
+pollingStations; // readonly PollingStation[], 30,353
+councilSummaries; // readonly CouncilElectoralSummary[], one per arrondissement
 ```
 
 ## Types

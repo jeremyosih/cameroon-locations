@@ -1,6 +1,6 @@
 ---
 title: Geo & GeoJSON
-description: Point-in-polygon lookup, nearest units and distances, plus simplified OCHA boundaries as GeoJSON files keyed by P-code.
+description: Point-in-polygon lookup, nearest units and distances, plus simplified OCHA boundaries as GeoJSON and TopoJSON files keyed by P-code.
 eyebrow: import … from "cameroon-locations/geo"
 ---
 
@@ -12,14 +12,14 @@ import GeoJsonFiles from "@/components/docs/GeoJsonFiles.astro";
 function locate(point: LngLat): Arrondissement | undefined;
 ```
 
-The arrondissement containing a point, using the simplified OCHA polygons.
-Points are `[lng, lat]`, like GeoJSON. Returns `undefined` outside Cameroon.
+The arrondissement containing a point, using the simplified OCHA polygons
+bundled with the entry point. Points are `[lng, lat]`, like GeoJSON.
 
 ```ts
 import { locate } from "cameroon-locations/geo";
 
-locate([11.5167, 3.8667])?.name.fr; // an arrondissement of Yaoundé
-locate([2.35, 48.85]); // undefined
+locate([11.5167, 3.8667])?.name.fr; // "Yaoundé I"
+locate([2.35, 48.85]); // undefined, that's Paris
 
 // From the browser
 navigator.geolocation.getCurrentPosition(({ coords }) => {
@@ -27,8 +27,9 @@ navigator.geolocation.getCurrentPosition(({ coords }) => {
 });
 ```
 
-Simplified boundaries are accurate to a few hundred metres. Near a border,
-check with the full-resolution OCHA data if it matters.
+It returns `undefined` outside Cameroon, and also within about 100 m of a
+border, the simplification error, where the answer could be wrong. Fall back
+to [`nearest`](#nearest) if you always need an answer.
 
 ## nearest
 
@@ -39,14 +40,20 @@ function nearest(
 ): readonly { unit: AdminUnit; distanceKm: number }[];
 ```
 
-Units sorted by the distance from the point to their centroid.
+Units sorted by the distance from the point to their centroid. `level`
+defaults to `"arrondissement"` and `limit` to 5; `Infinity` returns every
+unit of the level. Ties are ordered by P-code.
 
 ```ts
 import { nearest } from "cameroon-locations/geo";
 
+nearest([9.7, 4.05]).map(({ unit }) => unit.name.fr);
+// ["Douala I", "Douala II", "Douala IV", "Douala VI", "Douala III"]
+
 nearest([9.7, 4.05], { level: "division", limit: 3 }).map(
   ({ unit, distanceKm }) => `${unit.name.fr} ${distanceKm.toFixed(0)} km`,
 );
+// ["Wouri 4 km", "Fako 51 km", "Sanaga-Maritime 55 km"]
 ```
 
 ## distanceKm
@@ -63,66 +70,72 @@ import { distanceKm } from "cameroon-locations/geo";
 
 const yde = getArrondissement("Yaoundé I");
 const dla = getArrondissement("Douala I");
-if (yde && dla) distanceKm(yde.centroid, dla.centroid); // ≈ 200
+if (yde && dla) distanceKm(yde.centroid, dla.centroid); // 202.4
 ```
 
-## GeoJSON files
+## Boundary files
 
-Boundaries ship as plain GeoJSON `FeatureCollection`s, simplified from OCHA
-COD-AB. Each feature's `properties` carry the unit's `pcode` and names, and
-each file has a `metadata` member with the dataset version and attribution.
+Boundaries ship as GeoJSON `FeatureCollection`s (RFC 7946) simplified from
+OCHA COD-AB, at three levels of detail, plus one TopoJSON file with all four
+levels on shared arcs. Every level is dissolved from the same simplified
+arrondissements, so borders nest and match exactly. Use `low` for overview
+maps and small screens, the default up to about zoom 9, and `high` when
+zoomed in to a city.
 
 <GeoJsonFiles />
 
-They are files, not modules: import them as JSON or as a URL, or load them
-from a CDN.
+- Each feature's `id` is the OCHA P-code. `properties` are `pcode`, `level`,
+  `name_fr`, `name_en`, `parentPcode`, plus `regionPcode` and `divisionPcode`
+  where they apply.
+- Each file has a top-level `metadata` member with the version, licence and
+  sources, so the attribution travels with the data.
+- The `.geo.json` / `.topo.json` extensions make Node, bundlers and
+  TypeScript (`resolveJsonModule`) treat the files as JSON, with no loader.
 
 ```ts
-// Bundlers (Vite, webpack, Next.js)
-import regions from "cameroon-locations/geojson/regions.geojson?url";
+// Node, Bun, Deno, Vite, webpack
+import regions from "cameroon-locations/geojson/regions.geo.json" with { type: "json" };
 
-// Node / Bun, from disk
-import { createRequire } from "node:module";
-const file = createRequire(import.meta.url).resolve(
-  "cameroon-locations/geojson/regions.geojson",
-);
+regions.features.length; // 10
+regions.features[0]?.properties.name_en; // "Adamawa"
 
-// CDN
-const url = "https://cdn.jsdelivr.net/npm/cameroon-locations@0.2/geojson/regions.geojson";
+// Or fetch it from a CDN
+const url = "https://unpkg.com/cameroon-locations/geojson/regions.geo.json";
 ```
 
 ### Joining by P-code
 
-The P-code is the join key between the GeoJSON and every record in the
+The P-code is the join key between the boundaries and every record in the
 package, so styling a map by your own data is a lookup:
 
 ```ts
 import { getUnit } from "cameroon-locations";
+import arrondissements from "cameroon-locations/geojson/arrondissements.geo.json" with { type: "json" };
 
-const geojson = await fetch(url).then((r) => r.json());
-const voters = new Map([["CM002007001", 120_000]]); // your data, keyed by P-code
+const voters = new Map([["CM002007001", 117_438]]); // your data, keyed by P-code
 
-for (const feature of geojson.features) {
-  const pcode = feature.properties.pcode;
-  feature.properties.value = voters.get(pcode) ?? 0;
-  feature.properties.label = getUnit(pcode)?.name.fr;
-}
+const features = arrondissements.features.map((f) => ({
+  ...f,
+  properties: {
+    ...f.properties,
+    value: voters.get(f.properties.pcode) ?? 0,
+    population: getUnit(f.properties.pcode)?.population2005?.total,
+  },
+}));
 ```
 
 ### Leaflet
 
 ```ts
 import L from "leaflet";
-import { attribution, getRegion } from "cameroon-locations";
-import url from "cameroon-locations/geojson/regions.geojson?url";
+import { attribution } from "cameroon-locations";
+import regions from "cameroon-locations/geojson/regions.geo.json" with { type: "json" };
 
 const map = L.map("map").setView([7.37, 12.35], 6);
-const regions = await fetch(url).then((r) => r.json());
 
 L.geoJSON(regions, {
   style: { color: "#007a5e", weight: 1, fillOpacity: 0.08 },
-  onEachFeature: (feature, layer) =>
-    layer.bindTooltip(getRegion(feature.properties.pcode)?.name.fr ?? ""),
+  onEachFeature: (feature, layer) => layer.bindTooltip(feature.properties.name_fr),
 }).addTo(map);
 
 map.attributionControl.addAttribution(attribution());
@@ -133,7 +146,7 @@ map.attributionControl.addAttribution(attribution());
 ```ts
 import maplibregl from "maplibre-gl";
 import { attribution } from "cameroon-locations";
-import url from "cameroon-locations/geojson/arrondissements.geojson?url";
+import arrondissements from "cameroon-locations/geojson/arrondissements.geo.json" with { type: "json" };
 
 const map = new maplibregl.Map({
   container: "map",
@@ -145,7 +158,7 @@ const map = new maplibregl.Map({
 map.on("load", () => {
   map.addSource("arrondissements", {
     type: "geojson",
-    data: url,
+    data: arrondissements,
     promoteId: "pcode",
     attribution: attribution(),
   });
@@ -160,18 +173,30 @@ map.on("load", () => {
 
 ### d3
 
+d3-geo expects the opposite ring winding to RFC 7946 GeoJSON, so use the
+TopoJSON file with `topojson-client`. Its objects are `country`, `regions`,
+`divisions` and `arrondissements`.
+
 ```ts
 import * as d3 from "d3";
-import url from "cameroon-locations/geojson/regions.geojson?url";
+import { feature, mesh } from "topojson-client";
+import topology from "cameroon-locations/geojson/cameroon.topo.json" with { type: "json" };
 
-const regions = await d3.json(url);
+const regions = feature(topology, topology.objects.regions);
 const projection = d3.geoMercator().fitSize([640, 640], regions);
 const path = d3.geoPath(projection);
 
-d3.select("svg")
+const svg = d3.select("svg");
+svg
   .selectAll("path")
   .data(regions.features)
   .join("path")
+  .attr("d", path)
+  .attr("fill", "#007a5e")
+  .attr("fill-opacity", 0.08);
+svg
+  .append("path")
+  .datum(mesh(topology, topology.objects.regions, (a, b) => a !== b))
   .attr("d", path)
   .attr("fill", "none")
   .attr("stroke", "currentColor");
