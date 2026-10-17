@@ -93,6 +93,7 @@
     "@arethetypeswrong/cli": "^0.18.5",
     "@types/bun": "latest",
     "effect": "^4.0.5",
+    "mapshaper": "0.7.88",
     "publint": "^0.3.25",
     "tsdown": "^0.23.1"
   }
