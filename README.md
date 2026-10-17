@@ -1,5 +1,8 @@
 # 🇨🇲 Cameroon Locations
 
+Forked from: [kenya-locations](https://github.com/DavidAmunga/kenya-locations) from
+[David Amunga](https://github.com/DavidAmunga)
+
 A comprehensive and intuitive TypeScript package for working with Cameroonian administrative
 divisions including the complete 6-level hierarchy: **Regions → Divisions → Subdivisions → Cantons →
 NeighborhoodsOrVillages → Blocks**.
@@ -16,8 +19,8 @@ NeighborhoodsOrVillages → Blocks**.
 - 👥 **Population Data** - Optional population statistics for neighborhoods and villages
 - 🧩 **TypeScript support** with full type definitions
 - 🚀 **Lightning-fast performance** with optimized Maps and pre-computed relationships
-- 📊 **Complete data** for all 10 regions, 58 divisions, subdivisions, cantons,
-  neighborhoods/villages, and blocks
+- 📊 **Complete data** for all 10 regions, 58 divisions, 360 subdivisions and 17,035
+  neighbourhoods/villages with population
 - 📱 **Lightweight** with minimal dependencies
 - 📖 **Well-documented** API with examples
 - ✅ **Well-tested** with comprehensive unit tests
