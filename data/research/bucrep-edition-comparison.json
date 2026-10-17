@@ -1,0 +1,27 @@
+{
+  "retrieved": "2026-10-17",
+  "comparison": "PyMuPDF per-page text, all whitespace removed",
+  "pagesEach": 436,
+  "matchingPages": 436,
+  "sources": [
+    {
+      "url": "https://ins-cameroun.cm/wp-content/uploads/2025/06/Repertoire_actualise_villages_cameroun1-3.pdf",
+      "finalUrl": "https://ins-cameroun.cm/wp-content/uploads/2025/06/Repertoire_actualise_villages_cameroun1-3.pdf",
+      "retrieved": "2026-10-17",
+      "status": 200,
+      "contentType": "application/pdf",
+      "bytes": 8507610,
+      "sha256": "76501716bf7aca19d2e5f52b5c2560076eedfcb5eb8e99524ac0471f3b89d324"
+    },
+    {
+      "url": "https://ireda.ceped.org/inventaire/ressources/cmr-2005-rec_v4.7_repertoire_actualise_villages_cameroun.pdf",
+      "finalUrl": "https://ireda.ceped.org/inventaire/ressources/cmr-2005-rec_v4.7_repertoire_actualise_villages_cameroun.pdf",
+      "retrieved": "2026-10-17",
+      "status": 200,
+      "contentType": "application/pdf",
+      "bytes": 13245341,
+      "sha256": "dd7cbc382d21677ea4f2a8592940aa99145d7df865b7f2d2b15246d82b2d931a"
+    }
+  ],
+  "conclusion": "Different PDF byte streams; identical extracted text on every page; not evidence of an errata edition."
+}

@@ -1,0 +1,5 @@
+SELECT ?property ?propertyLabel WHERE {
+?property a wikibase:Property; rdfs:label ?label . FILTER(LANG(?label)="en")
+FILTER(REGEX(STR(?label),"OCHA|HASC|p-code|P code|humanitarian|Cameroun|GeoNames","i"))
+SERVICE wikibase:label {bd:serviceParam wikibase:language "en"}
+}

@@ -1,0 +1,700 @@
+[
+ {
+  "pcode": "CM001",
+  "parentPcode": "CM",
+  "level": 1,
+  "name": {
+   "fr": "Adamaoua",
+   "en": "Adamawa"
+  },
+  "refName": "Adamaoua",
+  "areaSqKm": 63994.668,
+  "centroid": [
+   13.218385,
+   7.082399
+  ],
+  "aliases": [
+   {
+    "name": "Adamaoua",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Adamawa",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "en"
+   },
+   {
+    "name": "ADAMAOUA",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "ADAMAOUA",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "ADAMAOUA",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   },
+   {
+    "name": "ADAMAWA",
+    "source": "cameroon-locations-0.1.0-july-2025",
+    "lang": "en"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 884289,
+   "male": 438913,
+   "female": 445376,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "docPage": 7,
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.AD",
+   "source": "location-script-reference-tables",
+   "derived": "common prefix of its divisions' HASC codes"
+  },
+  "wikidata": {
+   "qid": "Q351514",
+   "label": "Adamaoua",
+   "entityScope": "region",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM002",
+  "parentPcode": "CM",
+  "level": 1,
+  "name": {
+   "fr": "Centre"
+  },
+  "refName": "Centre",
+  "areaSqKm": 68721.754,
+  "centroid": [
+   11.852422,
+   4.684042
+  ],
+  "aliases": [
+   {
+    "name": "Centre",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "CENTRE",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "CENTRE",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "CENTRE",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 3098044,
+   "male": 1552362,
+   "female": 1545682,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "docPage": 7,
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.CE",
+   "source": "location-script-reference-tables",
+   "derived": "common prefix of its divisions' HASC codes"
+  },
+  "wikidata": {
+   "qid": "Q739951",
+   "label": "Centre",
+   "entityScope": "region",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM003",
+  "parentPcode": "CM",
+  "level": 1,
+  "name": {
+   "fr": "Est",
+   "en": "East"
+  },
+  "refName": "Est",
+  "areaSqKm": 109991.448,
+  "centroid": [
+   13.859964,
+   3.892441
+  ],
+  "aliases": [
+   {
+    "name": "Est",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "East",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "en"
+   },
+   {
+    "name": "EST",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "EST",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "EST",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   },
+   {
+    "name": "EAST",
+    "source": "cameroon-locations-0.1.0-july-2025",
+    "lang": "en"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 771755,
+   "male": 385145,
+   "female": 386610,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "docPage": 7,
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.ES",
+   "source": "location-script-reference-tables",
+   "derived": "common prefix of its divisions' HASC codes"
+  },
+  "wikidata": {
+   "qid": "Q845168",
+   "label": "Est",
+   "entityScope": "region",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM004",
+  "parentPcode": "CM",
+  "level": 1,
+  "name": {
+   "fr": "Extrême-Nord",
+   "en": "Far-North"
+  },
+  "refName": "Extrême-Nord",
+  "areaSqKm": 34160.812,
+  "centroid": [
+   14.867281,
+   11.508615
+  ],
+  "aliases": [
+   {
+    "name": "Extrême-Nord",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "Far-North",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "en"
+   },
+   {
+    "name": "EXTREME-NORD",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "EXTREME-NORD",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "EXTREME-NORD",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   },
+   {
+    "name": "FAR-NORTH",
+    "source": "cameroon-locations-0.1.0-july-2025",
+    "lang": "en"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 3111792,
+   "male": 1535247,
+   "female": 1576545,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "docPage": 7,
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.EN",
+   "source": "location-script-reference-tables",
+   "derived": "common prefix of its divisions' HASC codes"
+  },
+  "wikidata": {
+   "qid": "Q823976",
+   "label": "Extrême-Nord",
+   "entityScope": "region",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM005",
+  "parentPcode": "CM",
+  "level": 1,
+  "name": {
+   "fr": "Littoral"
+  },
+  "refName": "Littoral",
+  "areaSqKm": 20210.048,
+  "centroid": [
+   10.227446,
+   4.295493
+  ],
+  "aliases": [
+   {
+    "name": "Littoral",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "LITTORAL",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "LITTORAL",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "LITTORAL",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 2510263,
+   "male": 1260937,
+   "female": 1249326,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "docPage": 7,
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.LT",
+   "source": "location-script-reference-tables",
+   "derived": "common prefix of its divisions' HASC codes"
+  },
+  "wikidata": {
+   "qid": "Q845172",
+   "label": "Littoral",
+   "entityScope": "region",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM006",
+  "parentPcode": "CM",
+  "level": 1,
+  "name": {
+   "fr": "Nord",
+   "en": "North"
+  },
+  "refName": "Nord",
+  "areaSqKm": 66155.816,
+  "centroid": [
+   13.872688,
+   8.637079
+  ],
+  "aliases": [
+   {
+    "name": "Nord",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "North",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "en"
+   },
+   {
+    "name": "NORD",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "NORD",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "NORD",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   },
+   {
+    "name": "NORTH",
+    "source": "cameroon-locations-0.1.0-july-2025",
+    "lang": "en"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 1687959,
+   "male": 836927,
+   "female": 851032,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "docPage": 7,
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NO",
+   "source": "location-script-reference-tables",
+   "derived": "common prefix of its divisions' HASC codes"
+  },
+  "wikidata": {
+   "qid": "Q502341",
+   "label": "Nord",
+   "entityScope": "region",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM007",
+  "parentPcode": "CM",
+  "level": 1,
+  "name": {
+   "fr": "Nord-Ouest",
+   "en": "North-West"
+  },
+  "refName": "Nord-Ouest",
+  "areaSqKm": 17417.593,
+  "centroid": [
+   10.469591,
+   6.433347
+  ],
+  "aliases": [
+   {
+    "name": "Nord-Ouest",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "North-West",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "en"
+   },
+   {
+    "name": "NORD-OUEST",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "NORD OUEST",
+    "source": "bucrep-rgph2005-repertoire-villages",
+    "kind": "population-table"
+   },
+   {
+    "name": "NORD-OUEST",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "NORD-OUEST",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   },
+   {
+    "name": "NORTH-WEST",
+    "source": "cameroon-locations-0.1.0-july-2025",
+    "lang": "en"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 1728953,
+   "male": 828862,
+   "female": 900091,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "docPage": 7,
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.NW",
+   "source": "location-script-reference-tables",
+   "derived": "common prefix of its divisions' HASC codes"
+  },
+  "wikidata": {
+   "qid": "Q823946",
+   "label": "Nord-Ouest",
+   "entityScope": "region",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM008",
+  "parentPcode": "CM",
+  "level": 1,
+  "name": {
+   "fr": "Ouest",
+   "en": "West"
+  },
+  "refName": "Ouest",
+  "areaSqKm": 13954.375,
+  "centroid": [
+   10.582949,
+   5.535127
+  ],
+  "aliases": [
+   {
+    "name": "Ouest",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "West",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "en"
+   },
+   {
+    "name": "OUEST",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "OUEST",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "OUEST",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   },
+   {
+    "name": "WEST",
+    "source": "cameroon-locations-0.1.0-july-2025",
+    "lang": "en"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 1720047,
+   "male": 805478,
+   "female": 914569,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "docPage": 7,
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.OU",
+   "source": "location-script-reference-tables",
+   "derived": "common prefix of its divisions' HASC codes"
+  },
+  "wikidata": {
+   "qid": "Q165784",
+   "label": "Ouest",
+   "entityScope": "region",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM009",
+  "parentPcode": "CM",
+  "level": 1,
+  "name": {
+   "fr": "Sud",
+   "en": "South"
+  },
+  "refName": "Sud",
+  "areaSqKm": 47173.166,
+  "centroid": [
+   11.346973,
+   2.919787
+  ],
+  "aliases": [
+   {
+    "name": "Sud",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "South",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "en"
+   },
+   {
+    "name": "SUD",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "SUD",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "SUD",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   },
+   {
+    "name": "SOUTH",
+    "source": "cameroon-locations-0.1.0-july-2025",
+    "lang": "en"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 634655,
+   "male": 321343,
+   "female": 313312,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "docPage": 7,
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SU",
+   "source": "location-script-reference-tables",
+   "derived": "common prefix of its divisions' HASC codes"
+  },
+  "wikidata": {
+   "qid": "Q857122",
+   "label": "Sud",
+   "entityScope": "region",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked",
+   "source": "research-2026-10-17"
+  }
+ },
+ {
+  "pcode": "CM010",
+  "parentPcode": "CM",
+  "level": 1,
+  "name": {
+   "fr": "Sud-Ouest",
+   "en": "South-West"
+  },
+  "refName": "Sud-Ouest",
+  "areaSqKm": 24764.278,
+  "centroid": [
+   9.285851,
+   5.219874
+  ],
+  "aliases": [
+   {
+    "name": "Sud-Ouest",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "fr"
+   },
+   {
+    "name": "South-West",
+    "source": "ocha-cod-ab-cmr",
+    "lang": "en"
+   },
+   {
+    "name": "SUD-OUEST",
+    "source": "bucrep-rgph2005-repertoire-villages"
+   },
+   {
+    "name": "SUD OUEST",
+    "source": "bucrep-rgph2005-repertoire-villages",
+    "kind": "population-table"
+   },
+   {
+    "name": "SUD-OUEST",
+    "source": "elecam-polling-stations-2025"
+   },
+   {
+    "name": "SUD-OUEST",
+    "source": "cameroon-locations-0.1.0-july-2025"
+   },
+   {
+    "name": "SOUTH-WEST",
+    "source": "cameroon-locations-0.1.0-july-2025",
+    "lang": "en"
+   }
+  ],
+  "sources": {
+   "ocha-cod-ab-cmr": {
+    "version": "v01",
+    "validOn": "2019-01-04"
+   }
+  },
+  "population2005": {
+   "total": 1316079,
+   "male": 666822,
+   "female": 649257,
+   "source": "bucrep-rgph2005-repertoire-villages",
+   "docPage": 7,
+   "table": "Répartition de la population résidente par département selon le sexe (pp. 7-8)"
+  },
+  "hasc": {
+   "code": "CM.SW",
+   "source": "location-script-reference-tables",
+   "derived": "common prefix of its divisions' HASC codes"
+  },
+  "wikidata": {
+   "qid": "Q607499",
+   "label": "Sud-Ouest",
+   "entityScope": "region",
+   "confidence": "high",
+   "matchMethod": "normalized canonical/alias/council label; entity type checked",
+   "source": "research-2026-10-17"
+  }
+ }
+]

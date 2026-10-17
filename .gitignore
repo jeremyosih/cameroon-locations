@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Data pool: keep research logs (evidence); python venvs are rebuildable
+!data/**/*.log
+data/**/.venv/
+
+# Monorepo
+.astro
+packages/cameroon-locations/NOTICE.md
+*.tgz
+data/build/

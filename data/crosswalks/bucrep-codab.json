@@ -1,0 +1,21 @@
+{
+ "description": "Manual BUCREP header → OCHA COD-AB P-code decisions. Key = level|parentPcode (from the hierarchical match)|BUCREP header. Everything not listed here is matched by exact normalised name within its parent (tools/match-bucrep-codab.ts).",
+ "decidedOn": "2026-10-17",
+ "manual": {
+  "3|CM002002|BATSCHENGA": { "pcode": "CM002002001", "reason": "Spelling variant: BUCREP Batschenga, OCHA Batchenga" },
+  "3|CM002005|EZENDOUAN": { "pcode": "CM002005004", "reason": "Spelling variant: Ezendouan / Edzendouan" },
+  "3|CM002009|AKOEMAN": { "pcode": "CM002010001", "reason": "PARENT CONFLICT: BUCREP 2005 lists Akoeman under Nyong-et-Mfoumou (CM002009); OCHA COD-AB and ELECAM 2025 place it in Nyong-et-So'o (CM002010). Official P-code used; conflict recorded in issues." },
+  "3|CM004002|MAKARI": { "pcode": "CM004002008", "reason": "Spelling variant: Makari / Makary" },
+  "3|CM005001|ABO FIKO": { "pcode": "CM005001003", "reason": "Same arrondissement: Abo, chef-lieu Fiko; OCHA name Fiko" },
+  "3|CM005003|MASSOK-SONGLOULOU": { "pcode": "CM005003005", "reason": "Spelling variant: Massok / Massock" },
+  "3|CM007006|WIDIKUM-MENKA": { "pcode": "CM007006005", "reason": "Same arrondissement: Widikum-Menka; OCHA name Widikum" },
+  "3|CM008005|SANCHOU": { "pcode": "CM008005006", "reason": "Spelling variant: Sanchou / Santchou" },
+  "3|CM008008|MALENTOUEN": { "pcode": "CM008008007", "reason": "Spelling variant: Malentouen / Malantouen" },
+  "3|CM008008|MASSANGAN": { "pcode": "CM008008008", "reason": "Spelling variant: Massangan / Massangam" },
+  "3|CM009002|MVANGAN": { "pcode": "CM009002007", "reason": "Spelling variant: Mvangan / Mvangane" },
+  "3|CM010001|MUYAKA": { "pcode": "CM010001005", "reason": "Spelling variant: Muyaka / Muyuka" },
+  "3|CM010004|MANFE CENTRAL": { "pcode": "CM010004003", "reason": "Mamfe Central (BUCREP prints MANFE); OCHA name Mamfe" },
+  "3|CM010004|UPPER BANYANG": { "pcode": "CM010004004", "reason": "Spelling variant: Upper Banyang / Upper Bayang" },
+  "3|CM010006|DIKOMBA BALUE": { "pcode": "CM010006002", "reason": "Spelling variant: Dikomba / Dikome Balue" }
+ }
+}

@@ -1,0 +1,1793 @@
+{
+  "retrieved": "2026-10-17",
+  "status": "passed",
+  "checkCount": 355,
+  "summary": {
+    "manualDecisions": 39,
+    "nameIssues": 52,
+    "historyEvents": 106,
+    "historyCoverage": 360,
+    "wikidataCoverage": 428,
+    "populatedQids": 417,
+    "unresolvedQids": 11,
+    "publishedCouncilTotals": 326,
+    "rawElecamPdfs": 11
+  },
+  "checks": [
+    {
+      "check": "all 39 manual keys represented exactly once",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "manual P-codes unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "crosswalk verdicts and evidence valid",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all 52 name-variant P-codes covered",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all name recommendations have evidence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "428 P-codes covered exactly once",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no duplicate QIDs across P-codes",
+      "passed": true,
+      "detail": 417
+    },
+    {
+      "check": "11 unresolved QIDs explicitly not found",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "QID match scope recorded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "106 distinct documented event P-codes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "history decree counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "history covers 360 with explicit unresolved status",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "326 unique mapped published councils",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "ELECAM subtotal arithmetic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001001001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001001002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001002001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001002002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001002003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001002004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001003001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001003002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001003003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001004001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001004002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001004003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001004004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001005001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001005002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001005003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001005004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001005005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001005006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001005007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM001005008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004001001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004001002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004001003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004001004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004001005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004001006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004001007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004001008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004001009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004002001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004002002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004002003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004002004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004002005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004002006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004002007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004002008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004002009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004002010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004006001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004006002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004006003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004006005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004006006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004006004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004006007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004003011",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004004007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004004001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004004002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004004003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004004004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004004005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004004006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004005001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004005002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM004005003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002001001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002001002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002001003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002001004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002001005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002001006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002001007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002002001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002002002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002002003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002002004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002002005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002002006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002002007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002002008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002002009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002003001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002003002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002003003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002003004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002003005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002003006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002003007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002003008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002003009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002004001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002004002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002004003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002004004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002004005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002005001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002005003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002005004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002005005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002005006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002005007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002005002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002005008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002006001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002006002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002006003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002006004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002007001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002007002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002007003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002007004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002007005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002007006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002007007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002008001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002008002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002008003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002008004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002008005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002008006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002008007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002008008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002008009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002008010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002009001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002009002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002009003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002009005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002009004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002010001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002010002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002010003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002010004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002010005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM002010006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003001001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003001002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003001003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003001004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002011",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002012",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002013",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003002014",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003003001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003003002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003003003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003003004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003003006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003003007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003003005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003004001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003004002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003004003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003004004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003004005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003004006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003004007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM003004008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001013",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001012",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005001011",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005002002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005002001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005002003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005002004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005003011",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005004001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005004002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005004003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005004004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005004005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM005004006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001011",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006001012",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006002001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006002002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006003001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006003002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006003003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006004001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006004002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006004003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM006004004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008001001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008001002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008001003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008001004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008002001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008002002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008002003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008002004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008002005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008002006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008002007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008003001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008003002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008003003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008003004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008004001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008004002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008004003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008005001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008005002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008005003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008005004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008005005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008005006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008006001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008006002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008006003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008007001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008007002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008007003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008007004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008008001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008008002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008008003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008008004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008008005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008008006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008008007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008008008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM008008009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009001001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009001002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009001004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009001003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009001005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009001006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009001007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009001008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009002001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009002002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009002003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009002004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009002005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009002006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009002007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009002008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009003001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009003002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009003003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009003004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009003005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009003006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009003007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009003008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009003009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009004001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009004002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009004003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM009004004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010001001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010001007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010001002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010001003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010001004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010001005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010001006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010002001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010002002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010002003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010003001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010003002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010003003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010004001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010004002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010004003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010004004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010005001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010005002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010005003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010005004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010005005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010006001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010006002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010006003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010006004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010006005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010006006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010006007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010006008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source page exists for CM010006009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF a",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF b",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF c",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF d",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF e",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF f",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF g",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF h",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF i",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF j",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual ELECAM PDF k",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all 436 recovered BUCREP page texts match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "eight findings sections",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all top-level JSON parses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "only research is changed/untracked",
+      "passed": true,
+      "detail": "?? research/"
+    }
+  ]
+}

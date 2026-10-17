@@ -1,0 +1,7 @@
+SELECT ?item ?itemLabel ?enLabel ?alias ?type ?parent ?hasc ?cog WHERE {
+{ ?item wdt:P31/wdt:P279* wd:Q3076994 } UNION { ?item wdt:P31 wd:Q106698210 } UNION { ?item wdt:P10581 ?cog }
+OPTIONAL {?item wdt:P31 ?type} OPTIONAL {?item wdt:P131 ?parent} OPTIONAL {?item wdt:P10581 ?cog}
+OPTIONAL {?item rdfs:label ?enLabel FILTER(LANG(?enLabel)="en")}
+OPTIONAL {?item skos:altLabel ?alias FILTER(LANG(?alias)="en" || LANG(?alias)="fr")}
+SERVICE wikibase:label {bd:serviceParam wikibase:language "fr,en"}
+}

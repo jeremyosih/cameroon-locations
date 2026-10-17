@@ -1,0 +1,12 @@
+# Git LFS: binary and bulky source files in the data pool (data/). canonical/*.json stays in plain git for reviewable diffs.
+data/**/*.pdf filter=lfs diff=lfs merge=lfs -text
+data/**/*.zip filter=lfs diff=lfs merge=lfs -text
+data/**/*.xlsx filter=lfs diff=lfs merge=lfs -text
+data/**/*.bundle filter=lfs diff=lfs merge=lfs -text
+data/**/*.geojson filter=lfs diff=lfs merge=lfs -text
+data/**/*.lockb filter=lfs diff=lfs merge=lfs -text
+data/sources/**/raw/*.csv filter=lfs diff=lfs merge=lfs -text
+data/sources/**/raw/*.json filter=lfs diff=lfs merge=lfs -text
+data/derived/**/snapshot/**/*.json filter=lfs diff=lfs merge=lfs -text
+data/derived/**/snapshot/**/*.txt filter=lfs diff=lfs merge=lfs -text
+data/research/downloads/** filter=lfs diff=lfs merge=lfs -text

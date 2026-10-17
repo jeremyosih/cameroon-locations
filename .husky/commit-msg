@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
 # Check commit message format
-commit_regex='^(feat|fix|docs|style|refactor|test|chore|data)(\(.+\))?: .{1,50}'
+commit_regex='^(feat|fix|docs|style|refactor|test|chore|data|ci|perf|build)(\(.+\))?!?: .{1,72}'
 
 if ! grep -qE "$commit_regex" "$1"; then
     echo "❌ Invalid commit message format!"
@@ -22,7 +21,7 @@ if ! grep -qE "$commit_regex" "$1"; then
     echo ""
     echo "Examples:"
     echo "  feat(search): add type-specific filtering"
-    echo "  data(nairobi): add new localities and areas"
+    echo "  data(villages): fix canton links in Mfoundi"
     echo "  fix(validation): handle duplicate names correctly"
     echo "  docs: update contribution guidelines"
     echo ""

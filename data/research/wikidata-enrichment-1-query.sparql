@@ -1,0 +1,10 @@
+SELECT ?item ?country ?type ?typeLabel ?geonames ?hasc ?cog ?pcode ?coord ?capital ?capitalLabel ?website ?pop ?date ?referenceUrl ?statedIn WHERE {
+ VALUES ?item { wd:Q351514 wd:Q739951 wd:Q845168 wd:Q823976 wd:Q845172 wd:Q502341 wd:Q823946 wd:Q165784 wd:Q857122 wd:Q607499 wd:Q1232309 wd:Q2583647 wd:Q2443291 wd:Q937235 wd:Q667019 wd:Q2443161 wd:Q607493 wd:Q2445034 wd:Q2445194 wd:Q2445054 wd:Q2444484 wd:Q2445046 wd:Q729464 wd:Q587099 wd:Q2445625 wd:Q2443133 wd:Q2442655 wd:Q2444345 wd:Q2443276 wd:Q2583656 wd:Q576311 wd:Q2444290 wd:Q2444363 wd:Q613340 wd:Q2443777 wd:Q2445609 wd:Q2445718 wd:Q2445164 wd:Q769841 wd:Q2442627 wd:Q2443138 wd:Q2443752 wd:Q2443767 wd:Q2442750 wd:Q702284 wd:Q2442736 wd:Q685677 wd:Q966674 wd:Q2538015 wd:Q2445374 wd:Q2442690 wd:Q2442640 wd:Q2443778 wd:Q2443749 wd:Q921417 wd:Q2445728 wd:Q2445638 wd:Q2445359 wd:Q784802 wd:Q2445743 wd:Q2445229 wd:Q2445579 wd:Q955885 wd:Q2444337 wd:Q2443757 wd:Q636257 wd:Q2582684 wd:Q2445180 wd:Q7022029 wd:Q2005262 wd:Q5518638 wd:Q6430329 wd:Q12697488 wd:Q1987701 wd:Q4853505 wd:Q520600 wd:Q6797477 wd:Q23012983 wd:Q5285362 wd:Q2629052 wd:Q7022027 wd:Q4882158 wd:Q23013059 wd:Q6799654 wd:Q14944570 wd:Q134326881 wd:Q134463869 wd:Q7070841 wd:Q4903000 wd:Q6521064 }
+ OPTIONAL {?item wdt:P17 ?country} OPTIONAL {?item wdt:P31 ?type}
+ OPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P8119 ?hasc} OPTIONAL {?item wdt:P10581 ?cog}
+ OPTIONAL {?item wdt:P14503 ?pcode} OPTIONAL {?item wdt:P625 ?coord} OPTIONAL {?item wdt:P36 ?capital}
+ OPTIONAL {?item wdt:P856 ?website}
+ OPTIONAL {?item p:P1082 ?statement . ?statement ps:P1082 ?pop; pq:P585 ?date . FILTER(YEAR(?date)=2005)
+ OPTIONAL {?statement prov:wasDerivedFrom ?ref . OPTIONAL {?ref pr:P854 ?referenceUrl} OPTIONAL {?ref pr:P248 ?statedIn}} }
+ SERVICE wikibase:label {bd:serviceParam wikibase:language "fr,en"}
+ }

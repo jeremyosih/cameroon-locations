@@ -1,0 +1,10 @@
+SELECT ?item ?country ?type ?typeLabel ?geonames ?hasc ?cog ?pcode ?coord ?capital ?capitalLabel ?website ?pop ?date ?referenceUrl ?statedIn WHERE {
+ VALUES ?item { wd:Q1907422 wd:Q7042442 wd:Q4887722 wd:Q3033077 wd:Q6826540 wd:Q6826542 wd:Q6869679 wd:Q7113345 wd:Q2708780 wd:Q3576213 wd:Q4919276 wd:Q4919278 wd:Q5347560 wd:Q6817020 wd:Q12698639 wd:Q12698850 wd:Q2829114 wd:Q4915448 wd:Q1100812 wd:Q97621927 wd:Q97580944 wd:Q3258738 wd:Q324195 wd:Q6944577 wd:Q3341306 wd:Q2841553 wd:Q6459366 wd:Q3273390 wd:Q7083075 wd:Q312209 wd:Q109314817 wd:Q111210279 wd:Q111210280 wd:Q742871 wd:Q2228759 wd:Q25396900 wd:Q2446919 wd:Q10600392 wd:Q7818676 wd:Q4734651 wd:Q1988420 wd:Q7958609 wd:Q4702015 wd:Q5423051 wd:Q1888230 wd:Q25388976 wd:Q22680860 wd:Q6799744 wd:Q4853554 wd:Q1225319 wd:Q5350540 wd:Q5987223 wd:Q6078857 wd:Q6428261 wd:Q6428262 wd:Q677694 wd:Q7813646 }
+ OPTIONAL {?item wdt:P17 ?country} OPTIONAL {?item wdt:P31 ?type}
+ OPTIONAL {?item wdt:P1566 ?geonames} OPTIONAL {?item wdt:P8119 ?hasc} OPTIONAL {?item wdt:P10581 ?cog}
+ OPTIONAL {?item wdt:P14503 ?pcode} OPTIONAL {?item wdt:P625 ?coord} OPTIONAL {?item wdt:P36 ?capital}
+ OPTIONAL {?item wdt:P856 ?website}
+ OPTIONAL {?item p:P1082 ?statement . ?statement ps:P1082 ?pop; pq:P585 ?date . FILTER(YEAR(?date)=2005)
+ OPTIONAL {?statement prov:wasDerivedFrom ?ref . OPTIONAL {?ref pr:P854 ?referenceUrl} OPTIONAL {?ref pr:P248 ?statedIn}} }
+ SERVICE wikibase:label {bd:serviceParam wikibase:language "fr,en"}
+ }

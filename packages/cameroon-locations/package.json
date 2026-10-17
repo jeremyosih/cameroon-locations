@@ -1,0 +1,99 @@
+{
+  "name": "cameroon-locations",
+  "version": "0.2.0",
+  "description": "Cameroon's administrative divisions (10 regions, 58 divisions, 360 arrondissements, 1,504 cantons, 17,070 villages) with official P-codes, bilingual names, population, GeoJSON and polling stations. Zero dependencies.",
+  "keywords": [
+    "cameroon",
+    "cameroun",
+    "regions",
+    "divisions",
+    "arrondissements",
+    "subdivisions",
+    "villages",
+    "p-codes",
+    "geojson",
+    "administrative-boundaries"
+  ],
+  "license": "MIT",
+  "author": "Jeremy Osih",
+  "contributors": [
+    "David Amunga <https://davidamunga.com> (original kenya-locations)"
+  ],
+  "homepage": "https://github.com/jeremyosih/cameroon-locations#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremyosih/cameroon-locations.git",
+    "directory": "packages/cameroon-locations"
+  },
+  "bugs": "https://github.com/jeremyosih/cameroon-locations/issues",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "geojson",
+    "NOTICE.md"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./cantons": {
+      "import": "./dist/cantons.js",
+      "require": "./dist/cantons.cjs"
+    },
+    "./villages": {
+      "import": "./dist/villages.js",
+      "require": "./dist/villages.cjs"
+    },
+    "./search": {
+      "import": "./dist/search.js",
+      "require": "./dist/search.cjs"
+    },
+    "./geo": {
+      "import": "./dist/geo.js",
+      "require": "./dist/geo.cjs"
+    },
+    "./elecam": {
+      "import": "./dist/elecam.js",
+      "require": "./dist/elecam.cjs"
+    },
+    "./effect": {
+      "import": "./dist/effect.js",
+      "require": "./dist/effect.cjs"
+    },
+    "./geojson/*": "./geojson/*",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "generate": "bun scripts/generate.ts",
+    "geo": "bun scripts/geo.ts",
+    "check:package": "publint --strict && attw --pack . --profile node16",
+    "prepack": "cp ../../NOTICE.md NOTICE.md && bun run build"
+  },
+  "peerDependencies": {
+    "effect": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "effect": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@types/bun": "latest",
+    "effect": "^4.0.5",
+    "publint": "^0.3.25",
+    "tsdown": "^0.23.1"
+  }
+}

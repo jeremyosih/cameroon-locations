@@ -1,0 +1,43 @@
+[
+  {
+    "pcode": "CM010002",
+    "level": 2,
+    "current": "Kupe-Manenguba",
+    "recommendedOfficialName": null,
+    "confidence": "low",
+    "evidence": [
+      {
+        "url": "https://droitcamerounais.info/en/files/128.11.08-Decret-du-12-novembre-2008-portant-organisation-administrative-de-la-republique-du-Cameroun.pdf",
+        "quote": "département du Koupe Manengouba ;",
+        "page": 4
+      },
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "Kupe-Muanengouba",
+        "page": 38
+      }
+    ],
+    "recommendedAction": "Keep canonical form and French/English aliases. Exclusive legal orthography not found in an authenticated signed text.",
+    "notes": "The recovered 2008 decree is a third-party transcription; its typographical defects prevent treating it as an authoritative spelling master."
+  },
+  {
+    "pcode": null,
+    "scope": "numbered arrondissements",
+    "recommendedOfficialName": null,
+    "confidence": "high for observed mixed usage; no universal rule found",
+    "evidence": [
+      {
+        "url": "https://yaounde7.communes-du-cameroun.cm/wp-content/uploads/2023/06/Decret-N°-2007_115-du-23-avril-2007-Portant-creation-de-nouveaux-arrondissements-au-sein-de-certains-departements.pdf",
+        "quote": "Arrondissement de Ngaoundéré 1er",
+        "page": 1
+      },
+      {
+        "url": "https://minfi.gov.cm/wp-content/uploads/2023/06/INTEGRAL_Nomenclature_Budgetaire_de_l_Etat_ULTIMATE.pdf",
+        "quote": "1160 Yaoundé 1er",
+        "page": 29
+      }
+    ],
+    "recommendedAction": "Store ordinal as integer and preserve verbatim legal/source labels. Apply a documented French/English display convention, not a claimed universal legal mandate.",
+    "notes": "2007 text also uses Roman II/III/VII with e; MINFI mixes Arabic and Roman forms. Ier, 1er, I and English 1st must match the same numbered unit when parent and base name agree; do not merge a whole-city QID into each subdivision."
+  }
+]

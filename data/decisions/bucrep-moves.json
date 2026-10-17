@@ -1,0 +1,6 @@
+{
+ "description": "Judgement calls on BUCREP records (see DECISIONS.md). Each moves one village from its printed canton to another; the printed placement is kept on the record as source.decision.printedUnderCanton.",
+ "moves": [
+  { "id": "D3", "villageLine": 22282, "toCantonLine": 22283, "reason": "POUNGO (120 residents) is printed last under MABI SUD (PDF p.390), out of line with its siblings. MABI SUD's printed total is exactly 120 below its villages and SOCAPALM's exactly 120 above, so the machine-computed totals count POUNGO in SOCAPALM." }
+ ]
+}
