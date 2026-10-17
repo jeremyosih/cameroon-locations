@@ -1,7 +1,7 @@
 /**
  * Checks the built bundle in dist/ (run `bun run build` first):
  * - the effect entry imports `effect` and doesn't inline it;
- * - the core entry doesn't reach canton, village or ELECAM data;
+ * - the core and effect entries don't reach canton, village or ELECAM data;
  * - entries stay under their size budgets;
  * - every CJS entry loads with Node's `require` (`effect` is ESM-only);
  * - the npm tarball ships LICENSE and NOTICE.md (runs `prepack`).
@@ -69,14 +69,15 @@ for (const file of ["effect.js"]) {
   }
 }
 
-// 2. The core entry stays free of heavy data.
-for (const file of ["index.js", "index.cjs"]) {
+// 2. The core and effect entries stay free of heavy data.
+for (const file of ["index.js", "index.cjs", "effect.js"]) {
   for (const [chunk, text] of closure(file)) {
     if (HEAVY.some((name) => chunk.startsWith(name))) {
       fail(`dist/${file} imports dist/${chunk}`);
     }
-    // Canton and village data is keyed by canton id, e.g. CM001001001-C01.
-    if (/CM\d{9}-C\d{2}/.test(text)) {
+    // Canton and village data holds thousands of canton ids such as
+    // CM001001001-C01; the effect schemas name one in an error message.
+    if ((text.match(/CM\d{9}-C\d{2}/g)?.length ?? 0) > 3) {
       fail(`dist/${chunk}, reached from dist/${file}, holds canton data`);
     }
   }

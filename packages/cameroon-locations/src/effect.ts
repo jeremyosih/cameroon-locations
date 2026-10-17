@@ -1,38 +1,34 @@
 /**
- * `cameroon-locations/effect`: an Effect v4 adapter over the core API.
+ * `cameroon-locations/effect`: Effect v4 schemas that validate and decode
+ * untrusted input (form values, route params, API payloads, cached JSON)
+ * into the records the core API returns.
  *
- * - Schemas for every record, to validate and decode untrusted input.
- * - `*FromPcode` schemas that decode a P-code string into the record.
- * - Lookups returning `Effect<T, LocationNotFound | AmbiguousLocation>`, and
- *   `*Option` variants returning `Option<T>`.
- * - A {@link CameroonLocations} service with a default layer, for DI.
+ * - `*FromString` decode a P-code, HASC code or name, with the core's lookup
+ *   rules; `*FromPcode` accept P-codes only. Both decode to the bundled
+ *   record, encode it back to its P-code, and fail with a schema issue that
+ *   says what was not found, or which P-codes an ambiguous name matches.
+ * - Record schemas (`Region`, `Arrondissement`, `Village`, …) check the
+ *   shape of a record, e.g. JSON that left the process and came back.
  *
- * `effect` is an optional peer dependency: only this entry point imports it.
+ * Plain lookups stay in the core: `getRegion(q)` returns `Region | undefined`
+ * and `Option.fromUndefinedOr(getRegion(q))` makes it an `Option`. `effect`
+ * is an optional peer dependency: only this entry point imports it.
  *
  * @example
  * ```ts
- * import { Effect } from "effect";
- * import { getArrondissement } from "cameroon-locations/effect";
+ * import { Schema } from "effect";
+ * import { ArrondissementFromString } from "cameroon-locations/effect";
  *
- * const program = getArrondissement("Yaoundé I").pipe(
- *   Effect.map((a) => a.pcode),
- *   Effect.catchTag("LocationNotFound", () => Effect.succeed("unknown")),
- * );
- * Effect.runSync(program); // "CM002007001"
+ * const Signup = Schema.Struct({ commune: ArrondissementFromString });
+ * Schema.decodeUnknownSync(Signup)({ commune: "Yaoundé 1er" }).commune.pcode;
+ * // "CM002007001"
  * ```
  *
  * @module
  */
-import {
-  Context,
-  Effect,
-  Layer,
-  Option,
-  Schema,
-  SchemaGetter,
-  SchemaIssue,
-} from "effect";
+import { Schema } from "effect";
 import { isPcode, PCODE, PCODE_LENGTH } from "./data/scope";
+import { bundled, lookupSchema } from "./effect-lookup";
 import * as core from "./lookup";
 import type * as T from "./types";
 
@@ -199,7 +195,7 @@ export const SourceId = Schema.Literals([
   "wikidata",
   "research-2026-10-17",
   "cameroon-locations-0.1.0-july-2025",
-]) satisfies Schema.Codec<T.SourceId>;
+]);
 
 /**
  * Display names in French and English, both required.
@@ -212,7 +208,7 @@ export const SourceId = Schema.Literals([
 export const LocalizedName = Schema.Struct({
   fr: Schema.String,
   en: Schema.String,
-}) satisfies Schema.Codec<T.LocalizedName>;
+});
 
 /**
  * Another spelling of a name, with the sources it was seen in.
@@ -226,7 +222,7 @@ export const Alias = Schema.Struct({
   name: Schema.String,
   sources: Schema.Array(SourceId),
   lang: Schema.optionalKey(Language),
-}) satisfies Schema.Codec<T.Alias>;
+});
 
 const Count = Schema.Int.pipe(Schema.check(Schema.isGreaterThanOrEqualTo(0)));
 
@@ -243,7 +239,7 @@ export const Population = Schema.Struct({
   total: Count,
   male: Count,
   female: Count,
-}) satisfies Schema.Codec<T.Population>;
+});
 
 /**
  * `[longitude, latitude]` in WGS 84.
@@ -253,10 +249,7 @@ export const Population = Schema.Struct({
  * Schema.decodeUnknownSync(LngLat)([11.5, 3.87]);
  * ```
  */
-export const LngLat = Schema.Tuple([
-  Schema.Finite,
-  Schema.Finite,
-]) satisfies Schema.Codec<T.LngLat>;
+export const LngLat = Schema.Tuple([Schema.Finite, Schema.Finite]);
 
 /**
  * `[minLng, minLat, maxLng, maxLat]`.
@@ -271,7 +264,7 @@ export const BBox = Schema.Tuple([
   Schema.Finite,
   Schema.Finite,
   Schema.Finite,
-]) satisfies Schema.Codec<T.BBox>;
+]);
 
 const unitFields = {
   name: LocalizedName,
@@ -304,7 +297,7 @@ export const Region = Schema.Struct({
   level: Schema.Literal("region"),
   ...unitFields,
   parentPcode: Schema.Null,
-}) satisfies Schema.Codec<T.Region>;
+});
 
 /**
  * A division record (ADM2, département).
@@ -326,7 +319,7 @@ export const Division = Schema.Struct({
     ["parentPcode", "regionPcode"],
     ["regionPcode", "parentPcode"],
   ]),
-) satisfies Schema.Codec<T.Division>;
+);
 
 /**
  * An arrondissement record (ADM3, subdivision).
@@ -351,7 +344,7 @@ export const Arrondissement = Schema.Struct({
     ["divisionPcode", "parentPcode"],
     ["divisionPcode", "regionPcode"],
   ]),
-) satisfies Schema.Codec<T.Arrondissement>;
+);
 
 /**
  * Any administrative unit, discriminated by `level`. Comes with the tagged
@@ -369,7 +362,7 @@ export const Arrondissement = Schema.Struct({
  */
 export const AdminUnit = Schema.Union([Region, Division, Arrondissement]).pipe(
   Schema.toTaggedUnion("level"),
-) satisfies Schema.Codec<T.AdminUnit>;
+);
 
 /**
  * A canton as printed by BUCREP. `id` is `<arrondissement pcode>-Cnn`.
@@ -386,9 +379,7 @@ export const Canton = Schema.Struct({
   label: Schema.String,
   population2005: Schema.optionalKey(Population),
   sources: Schema.Array(SourceId),
-}).check(
-  nested([["id", "arrondissementPcode"]]),
-) satisfies Schema.Codec<T.Canton>;
+}).check(nested([["id", "arrondissementPcode"]]));
 
 /**
  * A quartier or village as printed by BUCREP. `id` is `<canton id>-Vnnn`.
@@ -411,7 +402,7 @@ export const Village = Schema.Struct({
     ["id", "cantonId"],
     ["cantonId", "arrondissementPcode"],
   ]),
-) satisfies Schema.Codec<T.Village>;
+);
 
 /**
  * One ELECAM polling station. `arrondissementPcode` is `null` abroad.
@@ -430,7 +421,7 @@ export const PollingStation = Schema.Struct({
   station: Schema.String,
   registeredVoters: Count,
   sources: Schema.Array(SourceId),
-}) satisfies Schema.Codec<T.PollingStation>;
+});
 
 /**
  * ELECAM totals for one arrondissement's council.
@@ -449,7 +440,7 @@ export const CouncilElectoralSummary = Schema.Struct({
   pollingCentres: Count,
   pollingStations: Count,
   sources: Schema.Array(SourceId),
-}) satisfies Schema.Codec<T.CouncilElectoralSummary>;
+});
 
 /**
  * A data source: licence, online URL, archived copy and attribution.
@@ -471,7 +462,7 @@ export const SourceInfo = Schema.Struct({
   repositoryUrl: Schema.String,
   retrieved: Schema.String,
   attribution: Schema.String,
-}) satisfies Schema.Codec<T.SourceInfo>;
+});
 
 /**
  * Name, version and sources of the bundled dataset (`metadata`).
@@ -489,62 +480,107 @@ export const DatasetMetadata = Schema.Struct({
   generated: Schema.String,
   repository: Schema.String,
   sources: Schema.Array(SourceInfo),
-}) satisfies Schema.Codec<T.DatasetMetadata>;
+});
 
 // ---------------------------------------------------------------------------
-// P-code → record
+// Input → bundled record
 // ---------------------------------------------------------------------------
 
-function fromPcode<From extends Schema.Codec<string>, To extends Schema.Top>(
-  from: From,
-  to: To,
-  level: T.AdminLevel | undefined,
-) {
-  const what = level ?? "unit";
-  return from.pipe(
-    Schema.decodeTo(to, {
-      decode: SchemaGetter.transformEffect((pcode: string) => {
-        const unit = core.getUnit(pcode);
-        return unit && (!level || unit.level === level)
-          ? Effect.succeed(unit as To["Encoded"])
-          : Effect.fail(
-              new SchemaIssue.InvalidValue(
-                { message: `Unknown ${what} P-code "${pcode}"` },
-                pcode,
-              ),
-            );
-      }),
-      encode: SchemaGetter.transform(
-        (unit: To["Encoded"]) => (unit as T.AdminUnit).pcode,
-      ),
-    }),
+type UnitAt<L extends T.AdminLevel> = Extract<T.AdminUnit, { level: L }>;
+
+const records: { readonly [L in T.AdminLevel]: Schema.declare<UnitAt<L>> } = {
+  region: bundled<T.Region>(Region, "Region"),
+  division: bundled<T.Division>(Division, "Division"),
+  arrondissement: bundled<T.Arrondissement>(Arrondissement, "Arrondissement"),
+};
+
+const fromPcode = <L extends T.AdminLevel>(
+  from: Schema.Codec<string>,
+  level: L,
+) =>
+  lookupSchema(
+    from,
+    records[level],
+    level,
+    (pcode) => {
+      const unit = core.getUnit(pcode);
+      return unit?.level === level ? [unit as UnitAt<L>] : [];
+    },
+    (pcode) => `Unknown ${level} P-code "${pcode}"`,
   );
-}
+
+const fromString = <L extends T.AdminLevel>(level: L) =>
+  lookupSchema(
+    Schema.String,
+    records[level],
+    level,
+    (query) => core.find(query, { level }) as readonly UnitAt<L>[],
+    (query) => `No ${level} matches "${query}"`,
+  );
 
 /**
- * Decodes a region P-code into the {@link Region} record and encodes it back
- * to its P-code. Fails on unknown P-codes.
+ * Decodes a region P-code, HASC code or name (French or English, any case
+ * or accents: the core's `LocationQuery`) into its {@link Region} record,
+ * and encodes the record back to its P-code.
+ *
+ * @example
+ * ```ts
+ * Schema.decodeUnknownSync(RegionFromString)("littoral").pcode; // "CM005"
+ * ```
+ */
+export const RegionFromString = fromString("region");
+
+/**
+ * Like {@link RegionFromString}, for divisions.
+ *
+ * @example
+ * ```ts
+ * Schema.decodeUnknownSync(DivisionFromString)("Mfoundi").pcode; // "CM002007"
+ * ```
+ */
+export const DivisionFromString = fromString("division");
+
+/**
+ * Like {@link RegionFromString}, for arrondissements: use it for free-text
+ * input. A name shared by several arrondissements fails and lists their
+ * P-codes (no name is shared in the current data, but aliases may collide
+ * as sources are added).
+ *
+ * @example
+ * ```ts
+ * Schema.decodeUnknownSync(ArrondissementFromString)("Yaoundé 1er").pcode;
+ * // "CM002007001"
+ * Schema.decodeUnknownSync(ArrondissementFromString)("nowhere");
+ * // throws: No arrondissement matches "nowhere"
+ * ```
+ */
+export const ArrondissementFromString = fromString("arrondissement");
+
+/**
+ * Decodes a region P-code into its {@link Region} record and encodes the
+ * record back to the P-code. Fails on malformed or unknown P-codes.
  *
  * @example
  * ```ts
  * Schema.decodeUnknownSync(RegionFromPcode)("CM002").name.en; // "Centre"
  * ```
  */
-export const RegionFromPcode = fromPcode(RegionPcode, Region, "region");
+export const RegionFromPcode = fromPcode(RegionPcode, "region");
 
 /**
- * Decodes a division P-code into the {@link Division} record.
+ * Decodes a division P-code into its {@link Division} record.
  *
  * @example
  * ```ts
  * Schema.decodeUnknownSync(DivisionFromPcode)("CM002007").name.fr; // "Mfoundi"
  * ```
  */
-export const DivisionFromPcode = fromPcode(DivisionPcode, Division, "division");
+export const DivisionFromPcode = fromPcode(DivisionPcode, "division");
 
 /**
- * Decodes an arrondissement P-code into the {@link Arrondissement} record.
- * Handy for form values and route params.
+ * Decodes an arrondissement P-code into its {@link Arrondissement} record:
+ * use it where the input must already be a code, such as a `<select>` value,
+ * a route param or a stored id.
  *
  * @example
  * ```ts
@@ -555,7 +591,6 @@ export const DivisionFromPcode = fromPcode(DivisionPcode, Division, "division");
  */
 export const ArrondissementFromPcode = fromPcode(
   ArrondissementPcode,
-  Arrondissement,
   "arrondissement",
 );
 
@@ -567,245 +602,13 @@ export const ArrondissementFromPcode = fromPcode(
  * Schema.decodeUnknownSync(AdminUnitFromPcode)("CM002007").level; // "division"
  * ```
  */
-export const AdminUnitFromPcode = fromPcode(Pcode, AdminUnit, undefined);
-
-// ---------------------------------------------------------------------------
-// Errors
-// ---------------------------------------------------------------------------
-
-/**
- * No unit matches `query` at `level`. `level` is absent for {@link getUnit},
- * which accepts every level.
- *
- * @example
- * ```ts
- * getRegion("Atlantis").pipe(
- *   Effect.catchTag("LocationNotFound", (e) => Effect.succeed(e.query)),
- * );
- * ```
- */
-export class LocationNotFound extends Schema.TaggedError<LocationNotFound>()(
-  "LocationNotFound",
-  {
-    query: Schema.String,
-    level: Schema.optionalKey(AdminLevel),
+export const AdminUnitFromPcode = lookupSchema(
+  Pcode,
+  bundled<T.AdminUnit>(AdminUnit, "AdminUnit"),
+  "unit",
+  (pcode) => {
+    const unit = core.getUnit(pcode);
+    return unit ? [unit] : [];
   },
-) {
-  override get message(): string {
-    return `No ${this.level ?? "unit"} matches "${this.query}"`;
-  }
-}
-
-/**
- * Several units at `level` carry the name `query`. `candidates` lists their
- * P-codes; retry with one of them, or narrow with `within`. No name in the
- * current dataset is shared within a level, but aliases may collide as
- * sources are added.
- *
- * @example
- * ```ts
- * getArrondissement(input, { within: divisionPcode }).pipe(
- *   Effect.catchTag("AmbiguousLocation", (e) =>
- *     Effect.logWarning(`pick one of ${e.candidates.join(", ")}`),
- *   ),
- * );
- * ```
- */
-export class AmbiguousLocation extends Schema.TaggedError<AmbiguousLocation>()(
-  "AmbiguousLocation",
-  {
-    query: Schema.String,
-    level: AdminLevel,
-    candidates: Schema.Array(Pcode),
-  },
-) {
-  override get message(): string {
-    return `"${this.query}" matches ${this.candidates.length} ${this.level}s: ${this.candidates.join(", ")}`;
-  }
-}
-
-/** Errors raised by the name-based lookups. */
-export type LookupError = LocationNotFound | AmbiguousLocation;
-
-// ---------------------------------------------------------------------------
-// Lookups
-// ---------------------------------------------------------------------------
-
-type Within = core.WithinOptions;
-
-function lookup<A extends T.AdminUnit>(
-  query: core.LocationQuery,
-  level: A["level"],
-  unit: A | undefined,
-  within: T.Pcode | undefined,
-): Effect.Effect<A, LookupError> {
-  if (unit) return Effect.succeed(unit);
-  const matches = core.find(query, { level, within });
-  return Effect.fail(
-    matches.length > 1
-      ? new AmbiguousLocation({
-          query,
-          level,
-          candidates: matches.map((m) => m.pcode),
-        })
-      : new LocationNotFound({ query, level }),
-  );
-}
-
-/**
- * Region by P-code, HASC code or name (French or English, any case or
- * accents). Fails with {@link LocationNotFound} or {@link AmbiguousLocation}.
- *
- * @example
- * ```ts
- * Effect.runSync(getRegion("Littoral")).pcode; // "CM005"
- * ```
- */
-export const getRegion = (
-  query: core.LocationQuery,
-): Effect.Effect<T.Region, LookupError> =>
-  lookup(query, "region", core.getRegion(query), undefined);
-
-/**
- * Division by P-code, HASC code or name, optionally `within` a region.
- *
- * @example
- * ```ts
- * Effect.runSync(getDivision("Mfoundi")).pcode; // "CM002007"
- * ```
- */
-export const getDivision = (
-  query: core.LocationQuery,
-  options?: Within,
-): Effect.Effect<T.Division, LookupError> =>
-  lookup(query, "division", core.getDivision(query, options), options?.within);
-
-/**
- * Arrondissement by P-code, HASC code or name, optionally `within` a region
- * or division. Names shared by several arrondissements fail with
- * {@link AmbiguousLocation}.
- *
- * @example
- * ```ts
- * Effect.runSync(getArrondissement("Yaoundé 1er")).pcode; // "CM002007001"
- * ```
- */
-export const getArrondissement = (
-  query: core.LocationQuery,
-  options?: Within,
-): Effect.Effect<T.Arrondissement, LookupError> =>
-  lookup(
-    query,
-    "arrondissement",
-    core.getArrondissement(query, options),
-    options?.within,
-  );
-
-/**
- * Unit of any level, by P-code only. Fails with {@link LocationNotFound}.
- *
- * @example
- * ```ts
- * Effect.runSync(getUnit("CM002007")).level; // "division"
- * ```
- */
-export const getUnit = (
-  pcode: T.Pcode,
-): Effect.Effect<T.AdminUnit, LocationNotFound> => {
-  const unit = core.getUnit(pcode);
-  return unit
-    ? Effect.succeed(unit)
-    : Effect.fail(new LocationNotFound({ query: pcode }));
-};
-
-/**
- * Like {@link getRegion}, as an `Option`: `None` when nothing matches or the
- * name is ambiguous. The `*Option` suffix follows Effect's own naming
- * (`Schema.decodeUnknownOption`, `Context.getOption`).
- *
- * @example
- * ```ts
- * Option.map(getRegionOption("Centre"), (r) => r.pcode); // Some("CM002")
- * ```
- */
-export const getRegionOption = (
-  query: core.LocationQuery,
-): Option.Option<T.Region> => Option.fromUndefinedOr(core.getRegion(query));
-
-/**
- * Like {@link getDivision}, as an `Option`.
- *
- * @example
- * ```ts
- * getDivisionOption("Mfoundi"); // Some(Division)
- * ```
- */
-export const getDivisionOption = (
-  query: core.LocationQuery,
-  options?: Within,
-): Option.Option<T.Division> =>
-  Option.fromUndefinedOr(core.getDivision(query, options));
-
-/**
- * Like {@link getArrondissement}, as an `Option`.
- *
- * @example
- * ```ts
- * getArrondissementOption("nowhere"); // None
- * ```
- */
-export const getArrondissementOption = (
-  query: core.LocationQuery,
-  options?: Within,
-): Option.Option<T.Arrondissement> =>
-  Option.fromUndefinedOr(core.getArrondissement(query, options));
-
-/**
- * Like {@link getUnit}, as an `Option`.
- *
- * @example
- * ```ts
- * getUnitOption("CM999"); // None
- * ```
- */
-export const getUnitOption = (pcode: T.Pcode): Option.Option<T.AdminUnit> =>
-  Option.fromUndefinedOr(core.getUnit(pcode));
-
-// ---------------------------------------------------------------------------
-// Service
-// ---------------------------------------------------------------------------
-
-/**
- * The lookups as a service, so code can depend on them through the context
- * and tests can swap in a stub. `CameroonLocations.layer` provides the
- * bundled dataset.
- *
- * @example
- * ```ts
- * const program = Effect.gen(function* () {
- *   const locations = yield* CameroonLocations;
- *   return yield* locations.getArrondissement("Yaoundé I");
- * });
- * Effect.runSync(program.pipe(Effect.provide(CameroonLocations.layer)));
- * ```
- */
-export class CameroonLocations extends Context.Service<
-  CameroonLocations,
-  {
-    readonly getRegion: typeof getRegion;
-    readonly getDivision: typeof getDivision;
-    readonly getArrondissement: typeof getArrondissement;
-    readonly getUnit: typeof getUnit;
-  }
->()("cameroon-locations/CameroonLocations") {
-  /** Layer backed by the dataset bundled with the package. */
-  static readonly layer: Layer.Layer<CameroonLocations> = Layer.succeed(
-    CameroonLocations,
-    CameroonLocations.of({
-      getRegion,
-      getDivision,
-      getArrondissement,
-      getUnit,
-    }),
-  );
-}
+  (pcode) => `Unknown P-code "${pcode}"`,
+);

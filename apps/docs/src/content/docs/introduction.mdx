@@ -10,8 +10,8 @@ plain, deep-frozen, JSON-serialisable objects, so they work the same in Node,
 Bun, Deno, the browser and React Server Components. Lookups are plain functions
 that return `T | undefined` or a readonly array. Nothing throws: unknown names,
 malformed codes and out-of-range inputs give `undefined` or an empty array.
-Only the optional [Effect adapter](/docs/effect) reports errors, as typed
-Effect errors.
+Only the optional [Effect schemas](/docs/effect) report errors, when they
+reject input.
 
 ```ts
 import { getArrondissement, getRegion, getAncestors } from "cameroon-locations";
