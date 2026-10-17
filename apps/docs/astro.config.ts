@@ -27,6 +27,18 @@ export default defineConfig({
       // Render docs from the package source, so the site builds without
       // `bun run build` first and can never drift from the code.
       alias: [
+        // Registry components, imported by the demos the way users will.
+        {
+          find: /^@\/components\/(location-picker|cameroon-map)$/,
+          replacement: fileURLToPath(
+            new URL("./registry/$1/$1.tsx", import.meta.url),
+          ),
+        },
+        // The `cameroon-locations-core` registry item, as installed.
+        {
+          find: /^@\/lib\/cameroon-locations\/(.+)$/,
+          replacement: `${pkg}src/$1`,
+        },
         {
           find: /^cameroon-locations$/,
           replacement: `${pkg}src/index.ts`,

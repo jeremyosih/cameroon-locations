@@ -61,8 +61,8 @@ export const NAV: readonly NavGroup[] = [
   {
     label: "Components",
     items: [
-      { slug: "location-picker", label: "Location picker", soon: true },
-      { slug: "cameroon-map", label: "Cameroon map", soon: true },
+      { slug: "location-picker", label: "Location picker" },
+      { slug: "cameroon-map", label: "Cameroon map" },
     ],
   },
   {

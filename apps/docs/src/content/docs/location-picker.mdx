@@ -1,43 +1,132 @@
 ---
 title: Location picker
-description: A cascading region, division and arrondissement picker with type-ahead search, built on shadcn/ui. Copy it into your project with the shadcn CLI.
+description: A cascading region, division and arrondissement picker with typo-tolerant search in French and English, built on shadcn/ui. Copy it into your project with the shadcn CLI.
 eyebrow: shadcn/ui component
 ---
 
-{/*
-  Components agent: this page is a shell.
-  1. Add the component to registry.json (registryDependencies can point at
-     "{{SITE_URL}}/r/cameroon-locations-core.json"); `bun run registry`
-     writes public/r/location-picker.json.
-  2. Put a demo in src/components/demos/ and swap the placeholder below for
-     <Demo client:load /> with code={demoSource} (import "...demo.tsx?raw").
-  3. Replace the Installation callout with
-     <InstallCommand client:load shadcn={registryUrl("location-picker")} />
-     and fill the PropsTable rows.
-*/}
+import InstallCommand from "@/components/docs/InstallCommand";
+import LocationPickerDemo from "@/components/demos/location-picker-demo";
+import locationPickerDemoSource from "@/components/demos/location-picker-demo.tsx?raw";
+import LocationPickerFormDemo from "@/components/demos/location-picker-form-demo";
+import locationPickerFormDemoSource from "@/components/demos/location-picker-form-demo.tsx?raw";
+import pickerSource from "../../../registry/location-picker/location-picker.tsx?raw";
+import { registryUrl } from "@/site";
 
-<ComponentPreview>
-  <div class="text-muted-foreground flex flex-col items-center gap-2 text-center text-sm">
-    <span class="text-foreground font-medium">Preview coming soon</span>
-    <span class="max-w-xs text-xs leading-relaxed">
-      Region → division → arrondissement, with search across French and
-      English names.
-    </span>
-  </div>
+<ComponentPreview code={locationPickerDemoSource}>
+  <LocationPickerDemo client:load />
 </ComponentPreview>
 
 ## Installation
 
-<Callout title="Not published yet" tone="brand">
-  The component is being built. It will install with one `shadcn add`
-  command from this site's registry.
-</Callout>
+<InstallCommand client:load shadcn={registryUrl("location-picker")} />
+
+This adds `components/location-picker.tsx`, the shadcn/ui `popover`,
+`command` and `button` primitives, and the
+[`cameroon-locations-core`](/docs/installation#copy-and-paste-with-shadcn) item in
+`lib/cameroon-locations/`: the types, lookups and search with the 428
+regions, divisions and arrondissements inlined. There is no npm dependency.
+
+<CodeBlock code={pickerSource} lang="tsx" title="components/location-picker.tsx" />
 
 ## Usage
 
-The picker will work with P-codes, so the value you store is the stable OCHA
-code (`"CM002007001"`) and labels come from the data in either language.
+```tsx
+import { LocationPicker } from "@/components/location-picker";
+
+<LocationPicker
+  defaultValue="CM002007001"
+  onValueChange={(selection) => console.log(selection.pcode)}
+/>;
+```
+
+Each level is a combobox. Open it and type: search is accent-insensitive
+and typo-tolerant, and matches French and English names and aliases, so
+"extreme nord", "far north" and "Extrême-Nord" all find the region. When the
+match is an alias or the other language, it is shown next to the name.
+
+Choosing a parent clears the levels below it, and the next combobox gets
+focus. Choosing the selected entry again clears it.
+
+### Values
+
+The value is a P-code, so what you store is the stable OCHA code and the
+names come from the data in either language. Pass the code of any level:
+parents are derived from it.
+
+```tsx
+<LocationPicker value="CM002007001" />  {/* Centre › Mfoundi › Yaoundé I */}
+<LocationPicker value="CM002" />        {/* Centre, nothing below */}
+<LocationPicker value={{ division: "CM002007" }} />
+```
+
+`onValueChange` receives the records, not only the codes:
+
+```ts
+interface LocationSelection {
+  region: Region | undefined;
+  division: Division | undefined;
+  arrondissement: Arrondissement | undefined;
+  unit: AdminUnit | undefined; // the deepest selected unit
+  pcode: Pcode | undefined; // its P-code
+}
+```
+
+It works uncontrolled (`defaultValue`) or controlled (`value` with
+`onValueChange`; `null` clears it).
+
+### Depth and language
+
+```tsx
+<LocationPicker depth="division" lang="fr" />
+```
+
+`depth` stops at the region or division. `lang` switches the names and the
+default labels ("Région", "Département", "Arrondissement"). Override any
+text with `labels`, `placeholders`, `searchPlaceholder` and `emptyMessage`.
+
+## Examples
+
+### In a form
+
+With `name`, the picker renders a hidden input holding the deepest selected
+P-code, so it submits with the form like any field. Here it is controlled,
+in French, and the submit button waits for an arrondissement.
+
+<ComponentPreview code={locationPickerFormDemoSource}>
+  <LocationPickerFormDemo client:visible />
+</ComponentPreview>
+
+### With a map
+
+The picker and the [Cameroon map](/docs/cameroon-map) share P-codes, so one
+state drives both. See the [drill-down example](/docs/cameroon-map#drill-down).
 
 ## API
 
-The props table will be filled in when the component lands.
+<PropsTable
+  rows={[
+    { name: "value", type: "Pcode | LocationPickerPcodes | null", description: "Controlled value: a P-code of any level, or { region, division, arrondissement }. null clears it." },
+    { name: "defaultValue", type: "Pcode | LocationPickerPcodes", description: "Initial value when uncontrolled." },
+    { name: "onValueChange", type: "(selection: LocationSelection) => void", description: "Called with the selected records whenever a level changes." },
+    { name: "lang", type: '"fr" | "en"', default: '"en"', description: "Language of names and default texts." },
+    { name: "depth", type: '"region" | "division" | "arrondissement"', default: '"arrondissement"', description: "Deepest level to pick." },
+    { name: "disabled", type: "boolean", default: "false", description: "Disables every level. Levels are also disabled until their parent is chosen." },
+    { name: "labels", type: "Partial<Record<AdminLevel, string>>", description: "Field labels per level." },
+    { name: "placeholders", type: "Partial<Record<AdminLevel, string>>", description: "Trigger text per level when nothing is selected." },
+    { name: "searchPlaceholder", type: "string", description: "Placeholder of the search input." },
+    { name: "emptyMessage", type: "string", description: "Shown when the search finds nothing." },
+    { name: "name", type: "string", description: "Renders a hidden input with the deepest selected P-code, for forms." },
+    { name: "id", type: "string", description: "Base id of the triggers: `${id}-region`, `${id}-division`, `${id}-arrondissement`." },
+    { name: "className", type: "string", description: "Classes for the wrapping grid, e.g. sm:grid-cols-3 to lay the levels out in a row." },
+  ]}
+/>
+
+## Accessibility
+
+- Every trigger has a visible `<label>` and is a `combobox` button with
+  `aria-expanded`; the popover list is a listbox from
+  [cmdk](https://cmdk.paco.me).
+- Keyboard: Tab to a level, Enter or Space opens it, type to search, arrow
+  keys move, Enter chooses, Escape closes. After a choice, focus moves to the
+  next level.
+- Names follow `lang`; the search accepts both languages either way.
