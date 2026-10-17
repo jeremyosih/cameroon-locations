@@ -1,6 +1,6 @@
 {
   "name": "cameroon-locations",
-  "version": "2026.10.17+5448fb56",
+  "version": "2026.10.17+a9b6a49f",
   "generated": "2026-10-17",
   "sources": [
     "ocha-cod-ab-cmr",
@@ -20,5 +20,5 @@
     "villages": 17070,
     "pollingStations": 30353
   },
-  "canonicalSha256": "5448fb564840382567477ea03684d986725749db4b1affa0b8f1d38221d6debe"
+  "canonicalSha256": "a9b6a49fcb7055ddc62d84a557bc87bef58a592c7dfbe3b0793ffc8c09c956e9"
 }

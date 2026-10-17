@@ -3,7 +3,7 @@
  *
  * Deterministic: the same canonical input always gives byte-identical output.
  * The only date written is derived from the sources (latest retrieval date).
- * Bounding boxes need the OCHA GeoJSON from Git LFS (`git lfs pull`).
+ * Reads only data/canonical and data/decisions (plain Git, no LFS).
  *
  * Output is compact; `src/data/admin.ts`, `src/cantons.ts`, `src/villages.ts`
  * and `src/elecam.ts` hydrate it into frozen records:
@@ -54,6 +54,7 @@ interface CanonicalUnit {
   refName: string;
   areaSqKm: number;
   centroid: [number, number];
+  bbox: [number, number, number, number];
   aliases: CanonicalAlias[];
   sources: Record<string, unknown>;
   population2005?: CanonicalPopulation & { source: SourceId };
@@ -113,44 +114,6 @@ const sourceIndex = (id: SourceId): number => {
 };
 const sortSources = (ids: Iterable<SourceId>): number[] =>
   [...new Set([...ids].map(sourceIndex))].sort((a, b) => a - b);
-
-// ---------------------------------------------------------------------------
-// Bounding boxes from the OCHA polygons
-
-type Position = [number, number];
-interface Feature {
-  properties: Record<string, unknown>;
-  geometry:
-    | { type: "Polygon"; coordinates: Position[][] }
-    | { type: "MultiPolygon"; coordinates: Position[][][] };
-}
-const geojsonDir = join(data, "sources/ocha-cod-ab-cmr/extracted/geojson");
-const floor6 = (n: number) => Math.floor(n * 1e6) / 1e6;
-const ceil6 = (n: number) => Math.ceil(n * 1e6) / 1e6;
-const bboxes = new Map<string, [number, number, number, number]>();
-for (const level of [1, 2, 3]) {
-  const file = join(geojsonDir, `cmr_admin${level}.geojson`);
-  const text = readFileSync(file, "utf8");
-  if (text.startsWith("version https://git-lfs"))
-    fail(`${file} is a Git LFS pointer; run \`git lfs pull\``);
-  const { features } = JSON.parse(text) as { features: Feature[] };
-  for (const f of features) {
-    const pcode = f.properties[`adm${level}_pcode`] as string;
-    const rings =
-      f.geometry.type === "Polygon"
-        ? f.geometry.coordinates
-        : f.geometry.coordinates.flat();
-    let [minX, minY, maxX, maxY] = [180, 90, -180, -90];
-    for (const ring of rings)
-      for (const [x, y] of ring) {
-        if (x < minX) minX = x;
-        if (y < minY) minY = y;
-        if (x > maxX) maxX = x;
-        if (y > maxY) maxY = y;
-      }
-    bboxes.set(pcode, [floor6(minX), floor6(minY), ceil6(maxX), ceil6(maxY)]);
-  }
-}
 
 // ---------------------------------------------------------------------------
 // Display names (decision D8)
@@ -260,7 +223,7 @@ function unitRow(unit: CanonicalUnit, level: 1 | 2 | 3) {
     used.push("research-2026-10-17");
   if (name.fr !== unit.name.fr)
     changedNames.push(`${unit.pcode} ${unit.name.fr} → ${name.fr}`);
-  const bbox = bboxes.get(unit.pcode) ?? fail(`no polygon for ${unit.pcode}`);
+  const bbox = unit.bbox ?? fail(`no bbox for ${unit.pcode}`);
   return {
     pcode: unit.pcode,
     name: name.en === name.fr ? [name.fr] : [name.fr, name.en],
