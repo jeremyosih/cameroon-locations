@@ -16,6 +16,7 @@ export type SourceId =
   | "bucrep-rgph2005-repertoire-villages"
   | "elecam-polling-stations-2025"
   | "geoboundaries-cmr-gbopen"
+  | "location-script-reference-tables"
   | "wikidata"
   | "research-2026-10-17"
   | "cameroon-locations-0.1.0-july-2025";

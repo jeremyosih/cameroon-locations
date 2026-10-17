@@ -35,7 +35,7 @@ Cantons and villages carry `population2005` plus `source { id, docPage, textLine
 
 | Link | Method | Evidence |
 |---|---|---|
-| BUCREP text → records | Two independent extractions: `loc.txt` indentation and PDF typography (PyMuPDF). They agree on all 18,934 names and populations. | `tools/compare-extractions.ts` |
+| BUCREP text → records | Two independent extractions: `loc.txt` indentation and PDF typography (PyMuPDF). They agree on all 18,934 names and populations. 7 rows disagree on level and are listed in `patches/known-extraction-differences.json`; the build fails on any new disagreement. | `tools/compare-extractions.ts` |
 | Record level (arrondissement, canton or village) | Indentation, checked against printed totals. 20 BELO rows patched, confirmed on PDF p. 298. | `patches/bucrep-loc-txt.json` |
 | BUCREP → P-code | Exact normalised name within the matched parent, plus 15 manual decisions | `crosswalks/bucrep-codab.json` |
 | ELECAM council → P-code | Same method, plus 39 manual decisions. Most of these are communes named after their chef-lieu, confirmed by OSM shape overlap and BUCREP village names. | `crosswalks/elecam-codab.json` |

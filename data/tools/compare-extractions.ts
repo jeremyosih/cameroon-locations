@@ -1,5 +1,6 @@
 // Row-by-row comparison of the text parse (parse-bucrep.ts) and the PDF layout extraction.
-const [parsedPath, layoutPath] = process.argv.slice(2);
+const [parsedPath, layoutPath, knownPath] = process.argv.slice(2);
+const known = new Set<number>(knownPath ? (await Bun.file(knownPath).json()).differences.map((d: any) => d.line) : []);
 const parsed = await Bun.file(parsedPath).json(), layout = await Bun.file(layoutPath).json();
 const t: any[] = [];
 for (const r of parsed.regions) for (const d of r.divisions) for (const a of d.arrondissements) {
@@ -16,6 +17,8 @@ for (let i = 0; i < Math.min(t.length, L.length); i++) {
   const a = t[i], b = L[i];
   if (a.pop.total !== b.total || a.pop.male !== b.male || a.pop.female !== b.female) diffs.pop.push(`#${i} line ${a.source.line} ${a.name} ${JSON.stringify(a.pop)} vs p${b.docPage} ${b.name} ${b.total}/${b.male}/${b.female}`);
   if (norm(a.nameAsPrinted) !== norm(b.name)) diffs.name.push(`#${i} line ${a.source.line} "${a.nameAsPrinted}" vs "${b.name}" (p${b.docPage})`);
-  if (a.level !== levelOf(b)) diffs.level.push(`#${i} line ${a.source.line} [${a.arr}] ${a.name}: text=${a.level}(indent ${a.source.indent}) pdf=${levelOf(b)}(x=${b.x},bold=${b.bold}) p${b.docPage}`);
+  if (a.level !== levelOf(b) && !known.has(a.source.line)) diffs.level.push(`#${i} line ${a.source.line} [${a.arr}] ${a.name}: text=${a.level}(indent ${a.source.indent}) pdf=${levelOf(b)}(x=${b.x},bold=${b.bold}) p${b.docPage}`);
 }
 for (const [k, v] of Object.entries(diffs)) { console.log(`\n${k} differences: ${v.length}`); v.slice(0, 40).forEach(s => console.log("  " + s)); }
+const total = Object.values(diffs).reduce((n, v) => n + v.length, 0);
+if (total > 0 || t.length !== L.length) { console.error(`extractions disagree: ${total} unlisted differences (see patches/known-extraction-differences.json), ${t.length} vs ${L.length} rows`); process.exit(1); }

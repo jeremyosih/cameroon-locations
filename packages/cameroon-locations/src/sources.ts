@@ -5,11 +5,7 @@ export const REPOSITORY_URL =
 
 const repo = (id: string) => `${REPOSITORY_URL}/tree/main/data/sources/${id}`;
 
-/**
- * Every source the published data is derived from, with its licence and the
- * attribution to display. Records reference these by {@link SourceId}.
- */
-export const sources: Readonly<Record<SourceId, SourceInfo>> = Object.freeze({
+const sourceList: Record<SourceId, SourceInfo> = {
   "ocha-cod-ab-cmr": {
     id: "ocha-cod-ab-cmr",
     title: "Cameroon - Subnational Administrative Boundaries (COD-AB), v01",
@@ -61,6 +57,16 @@ export const sources: Readonly<Record<SourceId, SourceInfo>> = Object.freeze({
     attribution:
       "Cross-check shape IDs: geoBoundaries (Runfola et al. 2020), www.geoboundaries.org.",
   },
+  "location-script-reference-tables": {
+    id: "location-script-reference-tables",
+    title: "Reference tables (HASC codes, older COD-AB export)",
+    publisher: "Statoids (HASC) and OCHA COD-AB, via location-script",
+    license: "Facts republished with attribution.",
+    url: "https://www.statoids.com/ucm.html",
+    repositoryUrl: repo("location-script-reference-tables"),
+    retrieved: "2025-07-15",
+    attribution: "HASC codes: Statoids (Gwillim Law), www.statoids.com.",
+  },
   wikidata: {
     id: "wikidata",
     title: "Wikidata",
@@ -93,7 +99,17 @@ export const sources: Readonly<Record<SourceId, SourceInfo>> = Object.freeze({
     retrieved: "2026-10-17",
     attribution: "Historic spellings: cameroon-locations 0.1.0.",
   },
-});
+};
+
+/**
+ * Every source the published data is derived from, with its licence and the
+ * attribution to display. Records reference these by {@link SourceId}.
+ */
+export const sources: Readonly<Record<SourceId, SourceInfo>> = Object.freeze(
+  Object.fromEntries(
+    Object.entries(sourceList).map(([id, s]) => [id, Object.freeze(s)]),
+  ) as Record<SourceId, SourceInfo>,
+);
 
 /** Returns the source records for the given ids, in order, without duplicates. */
 export function getSources(ids: readonly SourceId[]): SourceInfo[] {

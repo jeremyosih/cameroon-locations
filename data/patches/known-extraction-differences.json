@@ -1,0 +1,75 @@
+{
+ "description": "Known level disagreements between the loc.txt parse and the PDF layout extraction. compare-extractions.ts fails on any disagreement not listed here.",
+ "differences": [
+  {
+   "line": 12752,
+   "arrondissement": "NKONDJOCK",
+   "name": "BANDEM RIVE GAUCHE",
+   "text": "canton",
+   "pdf": "village",
+   "docPage": 228,
+   "status": "under review",
+   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+  },
+  {
+   "line": 16889,
+   "arrondissement": "BELO",
+   "name": "MBESA",
+   "text": "canton",
+   "pdf": "arr",
+   "docPage": 298,
+   "status": "under review",
+   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+  },
+  {
+   "line": 16997,
+   "arrondissement": "JAKIRI",
+   "name": "JAKIRI TOWN",
+   "text": "canton",
+   "pdf": "village",
+   "docPage": 300,
+   "status": "under review",
+   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+  },
+  {
+   "line": 17130,
+   "arrondissement": "NKUM",
+   "name": "NKUM",
+   "text": "canton",
+   "pdf": "village",
+   "docPage": 302,
+   "status": "under review",
+   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+  },
+  {
+   "line": 18116,
+   "arrondissement": "NGIE",
+   "name": "NGIE TOWN",
+   "text": "canton",
+   "pdf": "village",
+   "docPage": 319,
+   "status": "under review",
+   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+  },
+  {
+   "line": 18119,
+   "arrondissement": "NGIE",
+   "name": "NGIE",
+   "text": "canton",
+   "pdf": "village",
+   "docPage": 319,
+   "status": "under review",
+   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+  },
+  {
+   "line": 19543,
+   "arrondissement": "FOKOUE",
+   "name": "FOMOPEA",
+   "text": "canton",
+   "pdf": "village",
+   "docPage": 343,
+   "status": "under review",
+   "note": "Text parse and PDF typography disagree on the level; verify against printed totals before patching or confirming."
+  }
+ ]
+}
