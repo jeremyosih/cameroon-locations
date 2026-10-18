@@ -35,7 +35,8 @@
     "dist",
     "geojson",
     "LICENSE",
-    "NOTICE.md"
+    "NOTICE.md",
+    "CHANGELOG.md"
   ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

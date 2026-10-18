@@ -22,7 +22,7 @@ export type SourceId =
   | "location-script-reference-tables"
   | "wikidata"
   | "research-2026-10-17"
-  | "cameroon-locations-0.1.0-july-2025";
+  | "location-script-2025-07";
 
 /** Display names in both official languages. Always both present. */
 export interface LocalizedName {

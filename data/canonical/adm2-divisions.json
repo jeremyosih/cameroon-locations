@@ -44,7 +44,7 @@
    },
    {
     "name": "DJEREM",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -118,7 +118,7 @@
    },
    {
     "name": "FARO-ET-DEO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -192,7 +192,7 @@
    },
    {
     "name": "MAYO-BANYO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -266,7 +266,7 @@
    },
    {
     "name": "MBERE",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -335,7 +335,7 @@
    },
    {
     "name": "VINA",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -409,7 +409,7 @@
    },
    {
     "name": "HAUTE-SANAGA",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -483,7 +483,7 @@
    },
    {
     "name": "LEKIE",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -552,7 +552,7 @@
    },
    {
     "name": "MBAM-ET-INOUBOU",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -621,7 +621,7 @@
    },
    {
     "name": "MBAM-ET-KIM",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -690,7 +690,7 @@
    },
    {
     "name": "MEFOU-ET-AFAMBA",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -759,7 +759,7 @@
    },
    {
     "name": "MEFOU-ET-AKONO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -828,7 +828,7 @@
    },
    {
     "name": "MFOUNDI",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -902,7 +902,7 @@
    },
    {
     "name": "NYONG-ET-KELLE",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -971,7 +971,7 @@
    },
    {
     "name": "NYONG-ET-MFOUMOU",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1050,7 +1050,7 @@
    },
    {
     "name": "NYONG-ET-SOO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1119,7 +1119,7 @@
    },
    {
     "name": "BOUMBA-ET-NGOKO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1188,7 +1188,7 @@
    },
    {
     "name": "HAUT-NYONG",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1257,7 +1257,7 @@
    },
    {
     "name": "KADEY",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1331,7 +1331,7 @@
    },
    {
     "name": "LOM-ET-DJEREM",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1405,7 +1405,7 @@
    },
    {
     "name": "DIAMARE",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1474,7 +1474,7 @@
    },
    {
     "name": "LOGONE-ET-CHARI",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1543,7 +1543,7 @@
    },
    {
     "name": "MAYO-DANAY",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1612,7 +1612,7 @@
    },
    {
     "name": "MAYO-KANI",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1681,7 +1681,7 @@
    },
    {
     "name": "MAYO-SAVA",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1750,7 +1750,7 @@
    },
    {
     "name": "MAYO-TSANAGA",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1819,7 +1819,7 @@
    },
    {
     "name": "MOUNGO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1888,7 +1888,7 @@
    },
    {
     "name": "NKAM",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -1957,7 +1957,7 @@
    },
    {
     "name": "SANAGA-MARITIME",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2026,7 +2026,7 @@
    },
    {
     "name": "WOURI",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2100,7 +2100,7 @@
    },
    {
     "name": "BENOUE",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2169,7 +2169,7 @@
    },
    {
     "name": "FARO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2238,7 +2238,7 @@
    },
    {
     "name": "MAYO-LOUTI",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2307,7 +2307,7 @@
    },
    {
     "name": "MAYO-REY",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2376,7 +2376,7 @@
    },
    {
     "name": "BOYO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2445,7 +2445,7 @@
    },
    {
     "name": "BUI",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2514,7 +2514,7 @@
    },
    {
     "name": "DONGA-MANTUNG",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2583,7 +2583,7 @@
    },
    {
     "name": "MENCHUM",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2652,7 +2652,7 @@
    },
    {
     "name": "MEZAM",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2721,7 +2721,7 @@
    },
    {
     "name": "MOMO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2790,7 +2790,7 @@
    },
    {
     "name": "NGO-KETUNJIA",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2859,7 +2859,7 @@
    },
    {
     "name": "BAMBOUTOS",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2928,7 +2928,7 @@
    },
    {
     "name": "HAUT-NKAM",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -2997,7 +2997,7 @@
    },
    {
     "name": "HAUTS-PLATEAUX",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3066,7 +3066,7 @@
    },
    {
     "name": "KOUNG-KHI",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3135,7 +3135,7 @@
    },
    {
     "name": "MENOUA",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3204,7 +3204,7 @@
    },
    {
     "name": "MIFI",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3278,7 +3278,7 @@
    },
    {
     "name": "NDE",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3347,7 +3347,7 @@
    },
    {
     "name": "NOUN",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3416,7 +3416,7 @@
    },
    {
     "name": "DJA-ET-LOBO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3485,7 +3485,7 @@
    },
    {
     "name": "MVILA",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3559,7 +3559,7 @@
    },
    {
     "name": "OCEAN",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3633,7 +3633,7 @@
    },
    {
     "name": "VALLEE-DU-NTEM",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3702,7 +3702,7 @@
    },
    {
     "name": "FAKO",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3771,7 +3771,7 @@
    },
    {
     "name": "KUPE-ET-MANENGUBA",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3840,7 +3840,7 @@
    },
    {
     "name": "LEBIALEM",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3909,7 +3909,7 @@
    },
    {
     "name": "MANYU",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -3978,7 +3978,7 @@
    },
    {
     "name": "MEME",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -4047,7 +4047,7 @@
    },
    {
     "name": "NDIAN",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {

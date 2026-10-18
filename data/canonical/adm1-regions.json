@@ -40,11 +40,11 @@
    },
    {
     "name": "ADAMAOUA",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    },
    {
     "name": "ADAMAWA",
-    "source": "cameroon-locations-0.1.0-july-2025",
+    "source": "location-script-2025-07",
     "lang": "en"
    }
   ],
@@ -111,7 +111,7 @@
    },
    {
     "name": "CENTRE",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -183,11 +183,11 @@
    },
    {
     "name": "EST",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    },
    {
     "name": "EAST",
-    "source": "cameroon-locations-0.1.0-july-2025",
+    "source": "location-script-2025-07",
     "lang": "en"
    }
   ],
@@ -260,11 +260,11 @@
    },
    {
     "name": "EXTREME-NORD",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    },
    {
     "name": "FAR-NORTH",
-    "source": "cameroon-locations-0.1.0-july-2025",
+    "source": "location-script-2025-07",
     "lang": "en"
    }
   ],
@@ -331,7 +331,7 @@
    },
    {
     "name": "LITTORAL",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    }
   ],
   "sources": {
@@ -403,11 +403,11 @@
    },
    {
     "name": "NORD",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    },
    {
     "name": "NORTH",
-    "source": "cameroon-locations-0.1.0-july-2025",
+    "source": "location-script-2025-07",
     "lang": "en"
    }
   ],
@@ -485,11 +485,11 @@
    },
    {
     "name": "NORD-OUEST",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    },
    {
     "name": "NORTH-WEST",
-    "source": "cameroon-locations-0.1.0-july-2025",
+    "source": "location-script-2025-07",
     "lang": "en"
    }
   ],
@@ -562,11 +562,11 @@
    },
    {
     "name": "OUEST",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    },
    {
     "name": "WEST",
-    "source": "cameroon-locations-0.1.0-july-2025",
+    "source": "location-script-2025-07",
     "lang": "en"
    }
   ],
@@ -639,11 +639,11 @@
    },
    {
     "name": "SUD",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    },
    {
     "name": "SOUTH",
-    "source": "cameroon-locations-0.1.0-july-2025",
+    "source": "location-script-2025-07",
     "lang": "en"
    }
   ],
@@ -721,11 +721,11 @@
    },
    {
     "name": "SUD-OUEST",
-    "source": "cameroon-locations-0.1.0-july-2025"
+    "source": "location-script-2025-07"
    },
    {
     "name": "SOUTH-WEST",
-    "source": "cameroon-locations-0.1.0-july-2025",
+    "source": "location-script-2025-07",
     "lang": "en"
    }
   ],

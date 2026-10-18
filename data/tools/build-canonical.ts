@@ -21,7 +21,7 @@ const P = {
   out: "canonical",
 };
 const json = (p: string) => Bun.file(p).json();
-const SRC = { codab: "ocha-cod-ab-cmr", bucrep: "bucrep-rgph2005-repertoire-villages", elecam: "elecam-polling-stations-2025", gb: "geoboundaries-cmr-gbopen", ref: "location-script-reference-tables", july: "cameroon-locations-0.1.0-july-2025" };
+const SRC = { codab: "ocha-cod-ab-cmr", bucrep: "bucrep-rgph2005-repertoire-villages", elecam: "elecam-polling-stations-2025", gb: "geoboundaries-cmr-gbopen", ref: "location-script-reference-tables", july: "location-script-2025-07" };
 const issues: any[] = [];
 const alias = (list: any[], name: string | null | undefined, source: string, extra: object = {}) => {
   if (!name) return;

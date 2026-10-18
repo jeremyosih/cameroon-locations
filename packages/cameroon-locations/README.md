@@ -53,9 +53,6 @@ Heavy data lives behind its own import, so the root import stays small.
 | `cameroon-locations/effect`    | Effect schemas to validate input (optional `effect` peer)      |
 | `cameroon-locations/geojson/*` | Simplified OCHA boundaries                                     |
 
-Upgrading from 0.1? See the
-[migration guide](https://cameroon-locations.vercel.app/docs/migration).
-
 ## Licence and attribution
 
 The code is MIT (`LICENSE`, shipped in this package). The data is not covered

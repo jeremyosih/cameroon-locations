@@ -94,15 +94,15 @@ const sourceList: Record<SourceId, SourceInfo> = {
     attribution:
       "Official spellings and history: cameroon-locations research notes, citing decrees 2007/115, 2008/376 and 2010/198.",
   },
-  "cameroon-locations-0.1.0-july-2025": {
-    id: "cameroon-locations-0.1.0-july-2025",
-    title: "cameroon-locations 0.1.0 (July 2025 export)",
+  "location-script-2025-07": {
+    id: "location-script-2025-07",
+    title: "July 2025 export (location-script)",
     publisher: "cameroon-locations contributors",
     license: "MIT",
     url: `${REPOSITORY_URL}/tree/main/data/derived/location-script-2025-07`,
     repositoryUrl: `${REPOSITORY_URL}/tree/main/data/derived/location-script-2025-07`,
     retrieved: "2026-10-17",
-    attribution: "Historic spellings: cameroon-locations 0.1.0.",
+    attribution: "Historic spellings: the July 2025 location-script export.",
   },
 };
 
