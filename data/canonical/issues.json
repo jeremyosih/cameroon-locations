@@ -1153,7 +1153,7 @@
   "pcode": "CM002005002",
   "codab": "Assamba",
   "variants": [
-   "ASSAMBA (cameroon-locations-0.1.0-july-2025)",
+   "ASSAMBA (location-script-2025-07)",
    "Olanguina (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1162,7 +1162,7 @@
   "pcode": "CM005001001",
   "codab": "Bare-Bakem",
   "variants": [
-   "BARÉ-BAKEM (cameroon-locations-0.1.0-july-2025)",
+   "BARÉ-BAKEM (location-script-2025-07)",
    "Baré (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1172,7 +1172,7 @@
   "codab": "Batchenga",
   "variants": [
    "Batchenga (geoboundaries-cmr-gbopen)",
-   "BATSCHENGA (cameroon-locations-0.1.0-july-2025)"
+   "BATSCHENGA (location-script-2025-07)"
   ]
  },
  {
@@ -1180,7 +1180,7 @@
   "pcode": "CM003002002",
   "codab": "Bebend",
   "variants": [
-   "BEBEND (cameroon-locations-0.1.0-july-2025)",
+   "BEBEND (location-script-2025-07)",
    "Atok (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1189,7 +1189,7 @@
   "pcode": "CM003003002",
   "codab": "Bombe",
   "variants": [
-   "BOMBE (cameroon-locations-0.1.0-july-2025)",
+   "BOMBE (location-script-2025-07)",
    "Kentzou (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1198,7 +1198,7 @@
   "pcode": "CM004006001",
   "codab": "Bourrha",
   "variants": [
-   "BOURRHA (cameroon-locations-0.1.0-july-2025)",
+   "BOURRHA (location-script-2025-07)",
    "Bourha (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1207,7 +1207,7 @@
   "pcode": "CM007001002",
   "codab": "Bum",
   "variants": [
-   "BUM (cameroon-locations-0.1.0-july-2025)",
+   "BUM (location-script-2025-07)",
    "Fonfuka (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1216,7 +1216,7 @@
   "pcode": "CM006001004",
   "codab": "Demsa",
   "variants": [
-   "DEMSA (cameroon-locations-0.1.0-july-2025)",
+   "DEMSA (location-script-2025-07)",
    "Gachiga (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1225,7 +1225,7 @@
   "pcode": "CM010006002",
   "codab": "Dikome Balue",
   "variants": [
-   "DIKOME-BALUE (cameroon-locations-0.1.0-july-2025)",
+   "DIKOME-BALUE (location-script-2025-07)",
    "DIKOMBA BALUE (bucrep-rgph2005-repertoire-villages)"
   ]
  },
@@ -1234,7 +1234,7 @@
   "pcode": "CM003002004",
   "codab": "Dja",
   "variants": [
-   "DJA (cameroon-locations-0.1.0-july-2025)",
+   "DJA (location-script-2025-07)",
    "Mindourou (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1243,7 +1243,7 @@
   "pcode": "CM008004002",
   "codab": "Djebem",
   "variants": [
-   "DJEBEM (cameroon-locations-0.1.0-july-2025)",
+   "DJEBEM (location-script-2025-07)",
    "Demding (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1253,7 +1253,7 @@
   "codab": "Edzendouan",
   "variants": [
    "Edzendouan (geoboundaries-cmr-gbopen)",
-   "EZENDOUAN (cameroon-locations-0.1.0-july-2025)"
+   "EZENDOUAN (location-script-2025-07)"
   ]
  },
  {
@@ -1262,7 +1262,7 @@
   "codab": "Fiko",
   "variants": [
    "Fiko (ocha-cod-ab-cmr)",
-   "ABO-FIKO (cameroon-locations-0.1.0-july-2025)",
+   "ABO-FIKO (location-script-2025-07)",
    "Bonaléa (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1271,7 +1271,7 @@
   "pcode": "CM010003002",
   "codab": "Fontem",
   "variants": [
-   "FONTEM (cameroon-locations-0.1.0-july-2025)",
+   "FONTEM (location-script-2025-07)",
    "Menji (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1280,7 +1280,7 @@
   "pcode": "CM007004001",
   "codab": "Fungom",
   "variants": [
-   "FUNGOM (cameroon-locations-0.1.0-july-2025)",
+   "FUNGOM (location-script-2025-07)",
    "Zhoa (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1289,7 +1289,7 @@
   "pcode": "CM010006005",
   "codab": "Isangele",
   "variants": [
-   "ISANGELE (cameroon-locations-0.1.0-july-2025)",
+   "ISANGELE (location-script-2025-07)",
    "Isanguele (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1299,7 +1299,7 @@
   "codab": "Makary",
   "variants": [
    "Makary (geoboundaries-cmr-gbopen)",
-   "MAKARI (cameroon-locations-0.1.0-july-2025)"
+   "MAKARI (location-script-2025-07)"
   ]
  },
  {
@@ -1308,7 +1308,7 @@
   "codab": "Malantouen",
   "variants": [
    "Malantouen (ocha-cod-ab-cmr)",
-   "MALENTOUEN (cameroon-locations-0.1.0-july-2025)"
+   "MALENTOUEN (location-script-2025-07)"
   ]
  },
  {
@@ -1316,7 +1316,7 @@
   "pcode": "CM010004003",
   "codab": "Mamfe",
   "variants": [
-   "MAMFE (cameroon-locations-0.1.0-july-2025)",
+   "MAMFE (location-script-2025-07)",
    "MANFE CENTRAL (bucrep-rgph2005-repertoire-villages)",
    "MAMFE CENTRAL (bucrep-rgph2005-repertoire-villages)"
   ]
@@ -1327,7 +1327,7 @@
   "codab": "Massangam",
   "variants": [
    "Massangam (geoboundaries-cmr-gbopen)",
-   "MASSANGAN (cameroon-locations-0.1.0-july-2025)"
+   "MASSANGAN (location-script-2025-07)"
   ]
  },
  {
@@ -1336,7 +1336,7 @@
   "codab": "Massock-Songloulou",
   "variants": [
    "Massock-Songloulou (ocha-cod-ab-cmr)",
-   "MASSOK-SONGLOULOU (cameroon-locations-0.1.0-july-2025)",
+   "MASSOK-SONGLOULOU (location-script-2025-07)",
    "Massok (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1345,7 +1345,7 @@
   "pcode": "CM004006004",
   "codab": "Mayo-Moskota",
   "variants": [
-   "MAYO-MOSKOTA (cameroon-locations-0.1.0-july-2025)",
+   "MAYO-MOSKOTA (location-script-2025-07)",
    "Mozogo (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1354,7 +1354,7 @@
   "pcode": "CM003002008",
   "codab": "Mboanz",
   "variants": [
-   "MBOANZ (cameroon-locations-0.1.0-july-2025)",
+   "MBOANZ (location-script-2025-07)",
    "Angossas (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1363,7 +1363,7 @@
   "pcode": "CM003003005",
   "codab": "Mbotoro",
   "variants": [
-   "MBOTORO (cameroon-locations-0.1.0-july-2025)",
+   "MBOTORO (location-script-2025-07)",
    "Ouli (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1372,7 +1372,7 @@
   "pcode": "CM007002003",
   "codab": "Mbven",
   "variants": [
-   "MBVEN (cameroon-locations-0.1.0-july-2025)",
+   "MBVEN (location-script-2025-07)",
    "Mbiame (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1381,7 +1381,7 @@
   "pcode": "CM007004003",
   "codab": "Menchum-Valley",
   "variants": [
-   "MENCHUM-VALLEY (cameroon-locations-0.1.0-july-2025)",
+   "MENCHUM-VALLEY (location-script-2025-07)",
    "Benakuma (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1390,7 +1390,7 @@
   "pcode": "CM003002011",
   "codab": "Messok",
   "variants": [
-   "MESSOK (cameroon-locations-0.1.0-july-2025)",
+   "MESSOK (location-script-2025-07)",
    "Messock (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1399,7 +1399,7 @@
   "pcode": "CM003001002",
   "codab": "Moloundou",
   "variants": [
-   "MOLOUNDOU (cameroon-locations-0.1.0-july-2025)",
+   "MOLOUNDOU (location-script-2025-07)",
    "Mouloundou (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1408,7 +1408,7 @@
   "pcode": "CM010006008",
   "codab": "Mundemba",
   "variants": [
-   "MUNDEMBA (cameroon-locations-0.1.0-july-2025)",
+   "MUNDEMBA (location-script-2025-07)",
    "Mudemba (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1418,7 +1418,7 @@
   "codab": "Muyuka",
   "variants": [
    "Muyuka (geoboundaries-cmr-gbopen)",
-   "MUYAKA (cameroon-locations-0.1.0-july-2025)"
+   "MUYAKA (location-script-2025-07)"
   ]
  },
  {
@@ -1427,7 +1427,7 @@
   "codab": "Mvangane",
   "variants": [
    "Mvangane (ocha-cod-ab-cmr)",
-   "MVANGAN (cameroon-locations-0.1.0-july-2025)"
+   "MVANGAN (location-script-2025-07)"
   ]
  },
  {
@@ -1435,7 +1435,7 @@
   "pcode": "CM003003007",
   "codab": "Ndem Nam",
   "variants": [
-   "NDEM-NAM (cameroon-locations-0.1.0-july-2025)",
+   "NDEM-NAM (location-script-2025-07)",
    "Nguélébok (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1444,7 +1444,7 @@
   "pcode": "CM007006003",
   "codab": "Ngie",
   "variants": [
-   "NGIE (cameroon-locations-0.1.0-july-2025)",
+   "NGIE (location-script-2025-07)",
    "Andek (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1453,7 +1453,7 @@
   "pcode": "CM007006004",
   "codab": "Njikwa",
   "variants": [
-   "NJIKWA (cameroon-locations-0.1.0-july-2025)",
+   "NJIKWA (location-script-2025-07)",
    "Nijkwa (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1462,7 +1462,7 @@
   "pcode": "CM005001009",
   "codab": "Njombe-Penja",
   "variants": [
-   "NJOMBÉ-PENJA (cameroon-locations-0.1.0-july-2025)",
+   "NJOMBÉ-PENJA (location-script-2025-07)",
    "Penja (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1471,7 +1471,7 @@
   "pcode": "CM008005004",
   "codab": "Nkong-Ni",
   "variants": [
-   "NKONG-NI (cameroon-locations-0.1.0-july-2025)",
+   "NKONG-NI (location-script-2025-07)",
    "Nkong-Zem (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1480,7 +1480,7 @@
   "pcode": "CM005001013",
   "codab": "Nlonako",
   "variants": [
-   "NLONAKO (cameroon-locations-0.1.0-july-2025)",
+   "NLONAKO (location-script-2025-07)",
    "Ebone (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1489,7 +1489,7 @@
   "pcode": "CM007002005",
   "codab": "Noni",
   "variants": [
-   "NONI (cameroon-locations-0.1.0-july-2025)",
+   "NONI (location-script-2025-07)",
    "Nkor (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1498,7 +1498,7 @@
   "pcode": "CM005002002",
   "codab": "Nord-Makombe",
   "variants": [
-   "NORD-MAKOMBÉ (cameroon-locations-0.1.0-july-2025)",
+   "NORD-MAKOMBÉ (location-script-2025-07)",
    "Ndobian (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1507,7 +1507,7 @@
   "pcode": "CM002009005",
   "codab": "Nyakokombo",
   "variants": [
-   "NYAKOKOMBO (cameroon-locations-0.1.0-july-2025)",
+   "NYAKOKOMBO (location-script-2025-07)",
    "Kobdombo (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1516,7 +1516,7 @@
   "pcode": "CM002002008",
   "codab": "Okola",
   "variants": [
-   "OKOLA (cameroon-locations-0.1.0-july-2025)",
+   "OKOLA (location-script-2025-07)",
    "Okala (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1525,7 +1525,7 @@
   "pcode": "CM007002006",
   "codab": "Oku",
   "variants": [
-   "OKU (cameroon-locations-0.1.0-july-2025)",
+   "OKU (location-script-2025-07)",
    "Elak (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1534,7 +1534,7 @@
   "pcode": "CM004004006",
   "codab": "Porhi",
   "variants": [
-   "PORHI (cameroon-locations-0.1.0-july-2025)",
+   "PORHI (location-script-2025-07)",
    "Touloum (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1543,7 +1543,7 @@
   "pcode": "CM008004003",
   "codab": "Poumougne",
   "variants": [
-   "POUMOUGNE (cameroon-locations-0.1.0-july-2025)",
+   "POUMOUGNE (location-script-2025-07)",
    "Pete-Bandjoun (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1553,7 +1553,7 @@
   "codab": "Santchou",
   "variants": [
    "Santchou (geoboundaries-cmr-gbopen)",
-   "SANCHOU (cameroon-locations-0.1.0-july-2025)"
+   "SANCHOU (location-script-2025-07)"
   ]
  },
  {
@@ -1561,7 +1561,7 @@
   "pcode": "CM004004007",
   "codab": "Taibong",
   "variants": [
-   "TAIBONG (cameroon-locations-0.1.0-july-2025)",
+   "TAIBONG (location-script-2025-07)",
    "Dziguilao (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1570,7 +1570,7 @@
   "pcode": "CM006001011",
   "codab": "Tcheboa",
   "variants": [
-   "TCHEBOA (cameroon-locations-0.1.0-july-2025)",
+   "TCHEBOA (location-script-2025-07)",
    "Ngong (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1579,7 +1579,7 @@
   "pcode": "CM001001002",
   "codab": "Tibati",
   "variants": [
-   "TIBATI (cameroon-locations-0.1.0-july-2025)",
+   "TIBATI (location-script-2025-07)",
    "Tabati (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1589,7 +1589,7 @@
   "codab": "Upper Bayang",
   "variants": [
    "Upper Bayang (ocha-cod-ab-cmr)",
-   "UPPER-BANYANG (cameroon-locations-0.1.0-july-2025)",
+   "UPPER-BANYANG (location-script-2025-07)",
    "Tinto (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1598,7 +1598,7 @@
   "pcode": "CM004003009",
   "codab": "Vele",
   "variants": [
-   "VELE (cameroon-locations-0.1.0-july-2025)",
+   "VELE (location-script-2025-07)",
    "Guémé (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1607,7 +1607,7 @@
   "pcode": "CM010001007",
   "codab": "West-Coast",
   "variants": [
-   "WEST-COAST (cameroon-locations-0.1.0-july-2025)",
+   "WEST-COAST (location-script-2025-07)",
    "Idenau (geoboundaries-cmr-gbopen)"
   ]
  },
@@ -1617,7 +1617,7 @@
   "codab": "Widikum",
   "variants": [
    "Widikum (ocha-cod-ab-cmr)",
-   "WIDIKUM-MENKA (cameroon-locations-0.1.0-july-2025)",
+   "WIDIKUM-MENKA (location-script-2025-07)",
    "Widikum-Boffé (geoboundaries-cmr-gbopen)"
   ]
  },

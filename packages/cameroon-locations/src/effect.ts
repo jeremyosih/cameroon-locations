@@ -194,7 +194,7 @@ export const SourceId = Schema.Literals([
   "location-script-reference-tables",
   "wikidata",
   "research-2026-10-17",
-  "cameroon-locations-0.1.0-july-2025",
+  "location-script-2025-07",
 ]);
 
 /**

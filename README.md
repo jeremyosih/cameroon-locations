@@ -63,7 +63,6 @@ npx shadcn@latest add https://cameroon-locations.vercel.app/r/cameroon-locations
 - [Regions & lookups](https://cameroon-locations.vercel.app/docs/lookups)
 - [Data model](https://cameroon-locations.vercel.app/docs/data-model)
 - [Data & sources](https://cameroon-locations.vercel.app/docs/data-sources)
-- [Migration from 0.1](https://cameroon-locations.vercel.app/docs/migration)
 
 ## Repository
 

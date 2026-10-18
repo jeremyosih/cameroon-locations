@@ -77,10 +77,7 @@ export const NAV: readonly NavGroup[] = [
   },
   {
     label: "Project",
-    items: [
-      { slug: "data-sources", label: "Data & sources" },
-      { slug: "migration", label: "Migration from 0.1" },
-    ],
+    items: [{ slug: "data-sources", label: "Data & sources" }],
   },
 ];
 

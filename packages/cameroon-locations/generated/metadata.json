@@ -1,6 +1,6 @@
 {
   "name": "cameroon-locations",
-  "version": "2026.10.17+e93a5b48",
+  "version": "2026.10.17+4fdcd172",
   "generated": "2026-10-17",
   "sources": [
     "ocha-cod-ab-cmr",
@@ -10,7 +10,7 @@
     "location-script-reference-tables",
     "wikidata",
     "research-2026-10-17",
-    "cameroon-locations-0.1.0-july-2025"
+    "location-script-2025-07"
   ],
   "counts": {
     "regions": 10,
@@ -20,5 +20,5 @@
     "villages": 17070,
     "pollingStations": 30353
   },
-  "canonicalSha256": "e93a5b48866523e27377a4b7b9e60813057b0aef7466eac982075ca39d6621f1"
+  "canonicalSha256": "4fdcd172575366b4ee19951ba06f6eb974af5f53dbcf52ca2d650e2d344e918b"
 }

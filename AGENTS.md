@@ -5,7 +5,7 @@
 ## Where the data comes from
 
 All location data originates in `data/`, the source pool. It is stored in Git LFS and **never
-shipped to npm** (`package.json` `files` lists only `dist`, `geojson`, `LICENSE` and `NOTICE.md`).
+shipped to npm** (`package.json` `files` lists only `dist`, `geojson`, `LICENSE`, `NOTICE.md` and `CHANGELOG.md`).
 
 - `data/README.md`: index of sources, their licences and trust levels. Start here.
 - `data/sources/<id>/`: one folder per source, holding `raw/` (untouched downloads plus

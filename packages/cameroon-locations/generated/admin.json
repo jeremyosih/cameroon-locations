@@ -1,5 +1,5 @@
 {
-"sources":["ocha-cod-ab-cmr","bucrep-rgph2005-repertoire-villages","elecam-polling-stations-2025","geoboundaries-cmr-gbopen","location-script-reference-tables","wikidata","research-2026-10-17","cameroon-locations-0.1.0-july-2025"],
+"sources":["ocha-cod-ab-cmr","bucrep-rgph2005-repertoire-villages","elecam-polling-stations-2025","geoboundaries-cmr-gbopen","location-script-reference-tables","wikidata","research-2026-10-17","location-script-2025-07"],
 "regions":[
 {"pcode":"CM001","name":["Adamaoua","Adamawa"],"refName":"Adamaoua","aliases":[["Adamaoua",[0],"fr"],["Adamawa",[0],"en"],["ADAMAOUA",[1,2,7]],["ADAMAWA",[7],"en"]],"hasc":"CM.AD","wikidata":"Q351514","areaSqKm":63994.668,"centroid":[13.218385,7.082399],"bbox":[11.182605,5.974773,15.233621,8.190204],"population2005":[438913,445376],"sources":[0,1,2,4,5,6,7]},
 {"pcode":"CM002","name":["Centre"],"refName":"Centre","aliases":[["Centre",[0],"fr"],["CENTRE",[1,2,7]]],"hasc":"CM.CE","wikidata":"Q739951","areaSqKm":68721.754,"centroid":[11.852422,4.684042],"bbox":[10.230801,3.104563,13.245427,6.263289],"population2005":[1552362,1545682],"sources":[0,1,2,4,5,6,7]},
